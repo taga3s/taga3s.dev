@@ -1,6 +1,7 @@
 {
   "scripts": {
     "dev": "wrangler dev",
+    "format": "biome format --write ./src",
     "deploy": "wrangler deploy --minify",
     "cf-typegen": "wrangler types --env-interface CloudflareBindings"
   },
@@ -8,6 +9,7 @@
     "hono": "^4.3.6"
   },
   "devDependencies": {
+    "@biomejs/biome": "1.7.3",
     "@cloudflare/workers-types": "^4.20240512.0",
     "wrangler": "^3.47.0"
   }
