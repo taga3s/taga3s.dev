@@ -14,7 +14,7 @@ const Footer = () => {
   return (
     <footer class={Layout}>
       <div class={Content}>
-        <small>&copy; 2024 Seiya Tagami</small>
+        <small>&copy; 2024 taga3</small>
       </div>
     </footer>
   );
