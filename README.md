@@ -1,12 +1,18 @@
-# myprofile
+# my-profile
 
-## commands
+## Project setup
 
+- install deps
 ```
-npm install
-npm run dev
+$ npm install
 ```
 
+- run app
 ```
-npm run deploy
+$ npm run dev
+```
+
+- deploy to cloudflare workers
+```
+$ npm run deploy
 ```
