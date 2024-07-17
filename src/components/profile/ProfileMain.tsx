@@ -1,13 +1,11 @@
 import { css } from "hono/css";
 
-const Layout = css`
-`;
-
 const Content = css`
   display: flex;
   justify-content: space-between;
   align-items: center;
 `;
+
 const Content_Box = css`
   display: flex;
   flex-direction: column;
@@ -42,13 +40,13 @@ const Introduction = css`
 
 const ProfileMain = () => {
   return (
-    <div class={Layout}>
+    <div>
       <div class={Content}>
         <div class={Content_Box}>
-          <span class={Content_Name}>Seiya Tagami</span>
+          <span class={Content_Name}>Seiya Tagami / taga3s</span>
           <ul class={Content_Belonging}>
             <li>早稲田大学法学部3年</li>
-            <li>CARTA HOLDINGS (Intern)</li>
+            <li>Web Developer (Long-term internship)</li>
           </ul>
         </div>
         <div>

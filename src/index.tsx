@@ -44,7 +44,7 @@ app.use(
             content="width=device-width, initial-scale=1, minimum-scale=1, user-scalable=yes"
           ></meta>
           <Style />
-          <title>profile - taga3</title>
+          <title>profile - taga3s</title>
         </head>
         <body class={baseLayout}>
           {children}
