@@ -1,42 +1,4 @@
-import { css } from "hono/css";
-
-const Content = css`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-`;
-
-const Content_Box = css`
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-`;
-
-const Content_MyImg = css`
-  width: 100px;
-  height: 100px;
-  border-radius: 12px;
-`;
-
-const Content_Name = css`
-  font-size: 28px;
-  font-weight: bold;
-`;
-
-const Content_Belonging = css`
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  font-size: 16px;
-`;
-
-const Introduction = css`
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  margin-top: 32px;
-  font-size: 16px;
-`;
+import { Content, Content_Belonging, Content_Box, Content_MyImg, Content_Name, Introduction } from "./ProfileMain.css";
 
 const ProfileMain = () => {
   return (
@@ -50,7 +12,11 @@ const ProfileMain = () => {
           </ul>
         </div>
         <div>
-          <img class={Content_MyImg} src="https://firebasestorage.googleapis.com/v0/b/rhythmate-77cc5.appspot.com/o/profile%2Ff30e4d78-da1a-4233-bce4-0e520e100bb2%2F2024-05-15T13%3A38%3A37%2B00%3A00.png?alt=media&token=1f4adcea-e88a-4451-86b1-25f8e77cdad6" alt="私の写真" />
+          <img
+            class={Content_MyImg}
+            src="https://firebasestorage.googleapis.com/v0/b/rhythmate-77cc5.appspot.com/o/profile%2Ff30e4d78-da1a-4233-bce4-0e520e100bb2%2F2024-05-15T13%3A38%3A37%2B00%3A00.png?alt=media&token=1f4adcea-e88a-4451-86b1-25f8e77cdad6"
+            alt="私の写真"
+          />
         </div>
       </div>
       <ul class={Introduction}>

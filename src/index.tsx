@@ -10,7 +10,7 @@ type Bindings = {
 
 const app = new Hono<{ Bindings: Bindings }>();
 
-const baseLayout = css`
+const BaseLayout = css`
   position: relative;
   max-width: 700px;
   min-height: 100vh;
@@ -46,7 +46,7 @@ app.use(
           <Style />
           <title>profile - taga3s</title>
         </head>
-        <body class={baseLayout}>
+        <body class={BaseLayout}>
           {children}
           <Footer />
         </body>
