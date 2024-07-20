@@ -22,7 +22,7 @@ export const ProfileLinks = () => {
       <h2 class={Header}>My Links</h2>
       <div class={LinkCard_Container}>
         {links.map((link) => (
-          <a href={link.url} class={link.style}>
+          <a href={link.url} class={link.style} key={link.title}>
             <div>{link.icon}</div>
           </a>
         ))}

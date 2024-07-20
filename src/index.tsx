@@ -33,16 +33,13 @@ app.use(
           <link
             href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap"
             rel="stylesheet"
-          ></link>
+          />
           <link rel="preconnect" href="https://fonts.googleapis.com" />
 
           {/* reset css */}
           <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/destyle.css@3.0.2/destyle.css" />
 
-          <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1, minimum-scale=1, user-scalable=yes"
-          ></meta>
+          <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, user-scalable=yes" />
           <Style />
           <title>profile - taga3s</title>
         </head>

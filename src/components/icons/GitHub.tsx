@@ -1,6 +1,6 @@
 const GitHubIcon = () => {
   return (
-    <svg width="67" height="65" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 98 96">
+    <svg width="67" height="65" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 98 96" role="img" aria-label="GitHub">
       <path
         fill-rule="evenodd"
         clip-rule="evenodd"

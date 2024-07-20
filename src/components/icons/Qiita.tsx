@@ -12,6 +12,8 @@ const QiitaIcon = () => {
       enable-background="new 0 0 300 300"
       xml:space="preserve"
       height="67"
+      role="img"
+      aria-label="Qiita"
     >
       {" "}
       <path
