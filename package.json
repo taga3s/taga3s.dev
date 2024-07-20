@@ -1,8 +1,10 @@
 {
+  "name": "my-profile",
+  "version": "1.0.1",
   "scripts": {
     "dev": "wrangler dev",
     "lint": "biome lint --apply-unsafe ./src",
-    "format": "biome format --write ./src",
+    "format": "biome format --write ./src package.json biome.json tsconfig.json",
     "deploy": "wrangler deploy --minify",
     "cf-typegen": "wrangler types --env-interface CloudflareBindings",
     "prepare": "husky"
@@ -18,6 +20,6 @@
     "wrangler": "^3.47.0"
   },
   "lint-staged": {
-    "*.{ts,tsx}": "npm run format && npm run lint"
+    "*.{ts,tsx,json}": "npm run format && npm run lint"
   }
 }
