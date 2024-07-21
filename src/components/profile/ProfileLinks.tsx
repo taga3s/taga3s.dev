@@ -1,5 +1,5 @@
-import { GitHubIcon, QiitaIcon } from "../icons";
-import { GitHub, Header, Layout, LinkCard_Container, Qiita } from "./ProfileLinks.css";
+import { CosenseIcon, GitHubIcon, QiitaIcon } from "../icons";
+import { Cosense, GitHub, Header, Layout, LinkCard_Container, Qiita } from "./ProfileLinks.css";
 
 const links = [
   {
@@ -7,6 +7,12 @@ const links = [
     url: "https://github.com/ayanami77",
     style: GitHub,
     icon: <GitHubIcon />,
+  },
+  {
+    title: "Cosense",
+    url: "https://scrapbox.io/t33s-dev/",
+    style: Cosense,
+    icon: <CosenseIcon />,
   },
   {
     title: "Qiita",
