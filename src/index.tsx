@@ -52,8 +52,8 @@ app.use(
   }),
 );
 
-app.get("/", (c) => {
-  return c.render(<ProfilePresenter />);
+app.get("/", async (c) => {
+  return await c.render(<ProfilePresenter />);
 });
 
 export default app;
