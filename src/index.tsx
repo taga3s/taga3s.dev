@@ -3,6 +3,7 @@ import { ProfilePresenter } from "./components/profile/ProfilePresenter";
 import { Style, css } from "hono/css";
 import { jsxRenderer } from "hono/jsx-renderer";
 import { Footer } from "./components/Footer";
+import { fetchPhotos } from "./api/photos";
 
 type Bindings = {
   [key in keyof CloudflareBindings]: CloudflareBindings[key];
@@ -53,7 +54,8 @@ app.use(
 );
 
 app.get("/", async (c) => {
-  return await c.render(<ProfilePresenter />);
+  const photos = await fetchPhotos(c);
+  return await c.render(<ProfilePresenter photos={photos} />);
 });
 
 export default app;
