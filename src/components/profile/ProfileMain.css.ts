@@ -16,6 +16,11 @@ const Content_MyImg = css`
   width: 100px;
   height: 100px;
   border-radius: 12px;
+
+  @media screen and (min-width:600px) {
+    width: 140px;
+    height: 140px;
+  }
 `;
 
 const Content_Name = css`

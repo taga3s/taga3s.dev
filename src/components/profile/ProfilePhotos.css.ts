@@ -3,7 +3,6 @@ import { css } from "hono/css";
 const Photo_Container = css`
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
   gap: 16px;
   margin-top: 16px;
 `;
