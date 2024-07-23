@@ -13,7 +13,7 @@ const ProfilePhotos: FC<Props> = (props) => {
       <h2 class={Header}>Favorites</h2>
       <ul class={Photo_Container}>
         {props.photos.map((image) => (
-          <li>
+          <li key={image.title}>
             <img key={image.title} src={image.url} alt={image.title} class={Photo_Image} />
           </li>
         ))}
