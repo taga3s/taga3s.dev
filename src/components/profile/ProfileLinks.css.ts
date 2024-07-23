@@ -1,14 +1,5 @@
 import { css } from "hono/css";
 
-const Layout = css`
-  margin-top: 48px;
-`;
-
-const Header = css`
-  font-size: 24px;
-  font-weight: bold;
-`;
-
 const LinkCard_Container = css`
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -46,4 +37,4 @@ const Cosense = css`
 background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(208,108,7,1) 0%, rgba(194,156,24,1) 0%, rgba(187,180,32,1) 40%, rgba(0,212,255,1) 100%);
 `;
 
-export { Layout, Header, LinkCard_Container, LinkCard, GitHub, Qiita, Cosense };
+export { LinkCard_Container, LinkCard, GitHub, Qiita, Cosense };

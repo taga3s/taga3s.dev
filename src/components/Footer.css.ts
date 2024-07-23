@@ -1,9 +1,7 @@
 import { css } from "hono/css";
 
 const Layout = css`
-  margin-top: auto;
-  position: absolute;
-  bottom: 0;
+  margin-top: 80px;
 `;
 
 const Content = css`

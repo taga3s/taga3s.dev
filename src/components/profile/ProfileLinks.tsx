@@ -1,5 +1,6 @@
 import { CosenseIcon, GitHubIcon, QiitaIcon } from "../icons";
-import { Cosense, GitHub, Header, Layout, LinkCard_Container, Qiita } from "./ProfileLinks.css";
+import { Layout, Header } from "./common.css";
+import { Cosense, GitHub, LinkCard_Container, Qiita } from "./ProfileLinks.css";
 
 const links = [
   {
@@ -22,7 +23,7 @@ const links = [
   },
 ];
 
-export const ProfileLinks = () => {
+const ProfileLinks = () => {
   return (
     <section class={Layout}>
       <h2 class={Header}>Links</h2>
@@ -36,3 +37,5 @@ export const ProfileLinks = () => {
     </section>
   );
 };
+
+export { ProfileLinks };
