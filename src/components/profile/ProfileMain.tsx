@@ -1,18 +1,18 @@
-import { Content, Content_Belonging, Content_Box, Content_MyImg, Content_Name, Introduction } from "./ProfileMain.css";
+import { Main, Main_Belonging, Main_Box, Main_Image, Main_Name, Introduction } from "./ProfileMain.css";
 
 const ProfileMain = () => {
   return (
-    <div>
-      <div class={Content}>
-        <div class={Content_Box}>
-          <span class={Content_Name}>Seiya Tagami / taga3s</span>
-          <ul class={Content_Belonging}>
+    <section>
+      <div class={Main}>
+        <div class={Main_Box}>
+          <span class={Main_Name}>Seiya Tagami / taga3s</span>
+          <ul class={Main_Belonging}>
             <li>早稲田大学法学部3年</li>
             <li>Web Developer (Long-term internship)</li>
           </ul>
         </div>
         <div>
-          <img class={Content_MyImg} src="https://github.com/ayanami77.png" alt="my profile" />
+          <img class={Main_Image} src="https://github.com/ayanami77.png" alt="me" />
         </div>
       </div>
       <ul class={Introduction}>
@@ -20,7 +20,7 @@ const ProfileMain = () => {
         <li>🐳 Web、法律、ラーメンと...？</li>
         <li>🤖 アニメ/漫画やゲームも好きです。</li>
       </ul>
-    </div>
+    </section>
   );
 };
 
