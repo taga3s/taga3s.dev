@@ -1,7 +1,7 @@
-import { FC } from "hono/jsx";
+import type { FC } from "hono/jsx";
 import { ProfileLinks } from "./ProfileLinks";
 import { ProfileMain } from "./ProfileMain";
-import { Photo } from "../../api/photos/model";
+import type { Photo } from "../../api/photos/model";
 import { ProfilePhotos } from "./ProfilePhotos";
 
 type Props = {

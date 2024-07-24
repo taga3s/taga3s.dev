@@ -1,5 +1,5 @@
-import { FC } from "hono/jsx";
-import { Photo } from "../../api/photos";
+import type { FC } from "hono/jsx";
+import type { Photo } from "../../api/photos";
 import { Header, Layout } from "./common.css";
 import { Photo_Container, Photo_Image } from "./ProfilePhotos.css";
 

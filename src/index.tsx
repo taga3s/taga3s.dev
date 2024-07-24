@@ -4,6 +4,7 @@ import { Style, css } from "hono/css";
 import { jsxRenderer } from "hono/jsx-renderer";
 import { Footer } from "./components/Footer";
 import { fetchPhotos } from "./api/photos";
+import { ErrorBoundary, memo } from "hono/jsx";
 
 type Bindings = {
   [key in keyof CloudflareBindings]: CloudflareBindings[key];
@@ -20,6 +21,8 @@ const BaseLayout = css`
   font-family: "Zen Kaku Gothic New", sans-serif;
   background-color: #FCFAF2;
 `;
+
+const MemorizedFooter = memo(() => <Footer />);
 
 app.use(
   "*",
@@ -45,8 +48,10 @@ app.use(
           <title>profile - taga3s</title>
         </head>
         <body class={BaseLayout}>
-          {children}
-          <Footer />
+          <ErrorBoundary fallback={<p>Sorry, Out of Service.</p>}>
+            {children}
+            <MemorizedFooter />
+          </ErrorBoundary>
         </body>
       </html>
     );
@@ -55,7 +60,7 @@ app.use(
 
 app.get("/", async (c) => {
   const photos = await fetchPhotos(c);
-  return await c.render(<ProfilePresenter photos={photos} />);
+  return c.render(<ProfilePresenter photos={photos} />);
 });
 
 export default app;

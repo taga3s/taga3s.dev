@@ -1,4 +1,4 @@
-import { Context } from "hono";
+import type { Context } from "hono";
 import { env } from "hono/adapter";
 import { createClient } from "microcms-js-sdk";
 
