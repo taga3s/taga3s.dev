@@ -22,6 +22,6 @@
     "wrangler": "^3.47.0"
   },
   "lint-staged": {
-    "*.{js,ts,jsx,tsx,json}": "npm run format && npm run lint"
+    "*.{js,ts,jsx,tsx,json}": "npm run lint && npm run format"
   }
 }
