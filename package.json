@@ -1,25 +1,30 @@
 {
   "name": "my-profile",
+  "type": "module",
   "version": "1.0.1",
   "license": "MIT",
   "scripts": {
-    "dev": "wrangler dev",
-    "lint": "biome lint --apply-unsafe ./src",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "wrangler pages dev",
+    "deploy": "$npm_execpath run build && wrangler pages deploy",
+    "lint": "biome lint --write --unsafe ./src",
     "format": "biome format --write ./src package.json biome.json tsconfig.json",
-    "deploy": "wrangler deploy --minify",
-    "cf-typegen": "wrangler types --env-interface CloudflareBindings",
     "prepare": "husky"
   },
   "dependencies": {
-    "hono": "^4.3.6",
+    "hono": "^4.5.1",
     "microcms-js-sdk": "^3.1.2"
   },
   "devDependencies": {
-    "@biomejs/biome": "1.7.3",
-    "@cloudflare/workers-types": "^4.20240512.0",
+    "@biomejs/biome": "1.8.3",
+    "@cloudflare/workers-types": "^4.20240529.0",
+    "@hono/vite-cloudflare-pages": "^0.4.2",
+    "@hono/vite-dev-server": "^0.13.1",
+    "vite": "^5.2.12",
     "husky": "^9.1.1",
     "lint-staged": "^15.2.7",
-    "wrangler": "^3.47.0"
+    "wrangler": "^3.57.2"
   },
   "lint-staged": {
     "*.{js,ts,jsx,tsx,json}": "npm run lint && npm run format"

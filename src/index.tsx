@@ -6,11 +6,7 @@ import { Footer } from "./components/Footer";
 import { fetchPhotos } from "./api/photos";
 import { ErrorBoundary, memo } from "hono/jsx";
 
-type Bindings = {
-  [key in keyof CloudflareBindings]: CloudflareBindings[key];
-};
-
-const app = new Hono<{ Bindings: Bindings }>();
+const app = new Hono();
 
 const BaseLayout = css`
   position: relative;
