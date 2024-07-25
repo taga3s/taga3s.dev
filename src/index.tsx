@@ -18,7 +18,7 @@ const BaseLayout = css`
   background-color: #FCFAF2;
 `;
 
-const MemorizedFooter = memo(() => <Footer />);
+const FooterMemorized = memo(() => <Footer />);
 
 app.use(
   "*",
@@ -38,15 +38,15 @@ app.use(
 
           {/* reset css */}
           <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/destyle.css@3.0.2/destyle.css" />
+          <Style />
 
           <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, user-scalable=yes" />
-          <Style />
           <title>profile - taga3s</title>
         </head>
         <body class={BaseLayout}>
           <ErrorBoundary fallback={<p>Sorry, Out of Service.</p>}>
             {children}
-            <MemorizedFooter />
+            <FooterMemorized />
           </ErrorBoundary>
         </body>
       </html>
