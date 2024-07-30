@@ -5,7 +5,7 @@ import { Cosense, GitHub, LinkCard_Container, Qiita } from "./ProfileLinks.css";
 const links = [
   {
     title: "GitHub",
-    url: "https://github.com/ayanami77",
+    url: "https://github.com/taga3s",
     style: GitHub,
     icon: <GitHubIcon />,
   },

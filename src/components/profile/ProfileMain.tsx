@@ -12,7 +12,7 @@ const ProfileMain = () => {
           </ul>
         </div>
         <div>
-          <img class={Main_Image} src="https://github.com/ayanami77.png" alt="me" />
+          <img class={Main_Image} src="https://github.com/taga3s.png" alt="me" />
         </div>
       </div>
       <ul class={Introduction}>
