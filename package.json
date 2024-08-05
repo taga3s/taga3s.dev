@@ -8,13 +8,14 @@
     "build": "vite build",
     "preview": "wrangler pages dev",
     "deploy": "$npm_execpath run build && wrangler pages deploy",
-    "lint": "biome lint --write --unsafe ./src",
-    "format": "biome format --write ./src package.json biome.json tsconfig.json",
+    "lint": "biome lint --write --unsafe ./app",
+    "format": "biome format --write ./app package.json biome.json tsconfig.json",
     "prepare": "husky"
   },
   "dependencies": {
     "hono": "^4.5.1",
-    "microcms-js-sdk": "^3.1.2"
+    "honox": "^0.1.23",
+    "vite-plugin-commonjs": "^0.10.1"
   },
   "devDependencies": {
     "@biomejs/biome": "1.8.3",

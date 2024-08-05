@@ -1,5 +1,5 @@
 import type { Context } from "hono";
-import { getApiClient } from "../apiClient";
+import apiClient from "../apiClient";
 
 type Response = {
   contents: {
@@ -17,7 +17,7 @@ type Response = {
 };
 
 const fetchPhotos = async (c: Context) => {
-  const res = await getApiClient(c).get<Response>({ endpoint: "photos" });
+  const res = await apiClient.GET<Response>(c, "/photos");
   return res.contents.map((content) => {
     return { title: content.title, ...content.image };
   });

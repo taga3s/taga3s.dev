@@ -11,6 +11,9 @@
         "noExtraNonNullAssertion": "warn",
         "noExplicitAny": "warn",
         "noArrayIndexKey": "warn"
+      },
+      "complexity": {
+        "noBannedTypes": "warn"
       }
     }
   },
