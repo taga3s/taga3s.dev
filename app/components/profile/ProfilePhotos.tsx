@@ -15,9 +15,9 @@ const ProfilePhotos: FC<Props> = (props) => {
       <ul class={Photo_Container}>
         {props.photos.map((image) => (
           <li key={image.title}>
-          <PhotoClickWrapper imageUrl={image.url} imageAlt={image.title}>
-            <img src={image.url} alt={image.title} class={Photo_Image} />
-          </PhotoClickWrapper>
+            <PhotoClickWrapper imageUrl={image.url} imageAlt={image.title}>
+              <img src={image.url} alt={image.title} class={Photo_Image} />
+            </PhotoClickWrapper>
           </li>
         ))}
       </ul>
