@@ -2,7 +2,7 @@ import { css } from "hono/css";
 
 const Wrapper = css`
   cursor: pointer;
-`
+`;
 
 const Mask = css`
   position: fixed;
@@ -10,7 +10,7 @@ const Mask = css`
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.9);
 `;
 
 const Close_Button = css`
@@ -31,6 +31,11 @@ const Image = css`
   width: 100%;
   height: auto;
   padding: 0 16px;
+  user-select: none;
+
+  @media screen and (min-width:600px) {
+    max-width: 560px;
+  }
 `;
 
 export { Wrapper, Mask, Close_Button, Image, Image_Container };
