@@ -9,5 +9,5 @@ declare module "hono" {
     Variables: {};
     Bindings: {};
   }
-  type ContextRenderer = (content: string | Promise<string>, head?: Head) => Response | Promise<Response>
+  type ContextRenderer = (content: string | Promise<string>, head?: Head) => Response | Promise<Response>;
 }
