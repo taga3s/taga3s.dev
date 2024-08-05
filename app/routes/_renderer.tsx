@@ -1,7 +1,8 @@
 import { css, Style } from "hono/css";
-import { ErrorBoundary, memo } from "hono/jsx";
 import { jsxRenderer } from "hono/jsx-renderer";
+import { Script } from "honox/server";
 import { Footer } from "../components/Footer";
+import { ErrorBoundary, memo } from "hono/jsx";
 
 const BaseLayout = css`
   position: relative;
@@ -32,6 +33,7 @@ export default jsxRenderer(({ children }) => {
         {/* reset css */}
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/destyle.css@3.0.2/destyle.css" />
         <Style />
+        <Script src="/app/client.ts" async />
 
         <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, user-scalable=yes" />
         <title>taga3s-dev</title>
