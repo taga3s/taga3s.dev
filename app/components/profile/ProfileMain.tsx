@@ -7,7 +7,7 @@ const ProfileMain = () => {
         <div class={Main_Box}>
           <span class={Main_Name}>Seiya Tagami / taga3s</span>
           <ul class={Main_Belonging}>
-            <li>Web Developer (Long-term internship)</li>
+            <li>Web Developer (working as an intern)</li>
           </ul>
         </div>
         <div>
