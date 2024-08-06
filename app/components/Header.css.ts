@@ -1,7 +1,7 @@
 import { css } from "hono/css";
 
 const Layout = css`
-  padding: 32px;
+  padding: 32px 20px;
   display: flex;
   justify-content: end;
 `
