@@ -16,9 +16,9 @@ const ProfileMain = () => {
         </div>
       </div>
       <ul class={Introduction}>
-        <li>🛠️ 趣味やインターンでコードを書いています！</li>
-        <li>🐳 Web、法律、ラーメンと...？</li>
-        <li>🤖 アニメ/漫画やゲームも好きです。</li>
+        <li>🛠️ 趣味やインターンでコードを書いています。</li>
+        <li>🐳 Web、法律、ラーメンと...</li>
+        <li>🤖 アニメ/漫画やゲームが好きです。</li>
       </ul>
     </section>
   );
