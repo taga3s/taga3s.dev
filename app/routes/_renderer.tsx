@@ -1,8 +1,8 @@
 import { css, Style } from "hono/css";
 import { jsxRenderer } from "hono/jsx-renderer";
 import { Script } from "honox/server";
-import { Footer } from "../components/Footer";
 import { ErrorBoundary, memo } from "hono/jsx";
+import { Footer, Header } from "../components";
 
 const HTML_Layout = css`
   :has(#photo-with-mask) {
@@ -15,11 +15,12 @@ const Body_Layout = css`
   max-width: 700px;
   min-height: 100vh;
   margin: 0 auto;
-  padding: 48px 20px 0;
+  padding: 16px 20px;
   font-family: "Zen Kaku Gothic New", sans-serif;
   background-color: #FCFAF2;
 `;
 
+const HeaderMemorized = memo(() => <Header />);
 const FooterMemorized = memo(() => <Footer />);
 
 export default jsxRenderer(({ children }) => {
@@ -46,6 +47,7 @@ export default jsxRenderer(({ children }) => {
       </head>
       <body class={Body_Layout}>
         <ErrorBoundary fallback={<p>Sorry, Out of Service.</p>}>
+          <HeaderMemorized />
           {children}
           <FooterMemorized />
         </ErrorBoundary>
