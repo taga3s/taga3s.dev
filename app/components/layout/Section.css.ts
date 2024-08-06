@@ -1,8 +1,6 @@
 import { css } from "hono/css";
 
-const Layout = css`
-  margin-top: 48px;
-`;
+const Layout = css``;
 
 const Header = css`
   font-size: 24px;

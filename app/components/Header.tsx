@@ -16,6 +16,6 @@ const Header = () => {
       </ul>
     </header>
   );
-}
+};
 
 export { Header };
