@@ -7,7 +7,6 @@ const ProfileMain = () => {
         <div class={Main_Box}>
           <span class={Main_Name}>Seiya Tagami / taga3s</span>
           <ul class={Main_Belonging}>
-            <li>早稲田大学法学部3年</li>
             <li>Web Developer (Long-term internship)</li>
           </ul>
         </div>

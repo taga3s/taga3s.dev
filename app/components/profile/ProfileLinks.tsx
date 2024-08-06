@@ -1,5 +1,5 @@
 import { CosenseIcon, GitHubIcon, QiitaIcon } from "../icons";
-import { Layout, Header } from "./common.css";
+import { Section } from "../layout/Section";
 import { Cosense, GitHub, LinkCard_Container, Qiita } from "./ProfileLinks.css";
 
 const links = [
@@ -25,8 +25,7 @@ const links = [
 
 const ProfileLinks = () => {
   return (
-    <section class={Layout}>
-      <h2 class={Header}>Links</h2>
+    <Section title="Links">
       <div class={LinkCard_Container}>
         {links.map((link) => (
           <a href={link.url} class={link.style} key={link.title}>
@@ -34,7 +33,7 @@ const ProfileLinks = () => {
           </a>
         ))}
       </div>
-    </section>
+    </Section>
   );
 };
 

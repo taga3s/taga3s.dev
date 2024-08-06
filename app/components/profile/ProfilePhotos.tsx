@@ -1,8 +1,8 @@
 import type { FC } from "hono/jsx";
 import type { Photo } from "../../api/photos";
-import { Header, Layout } from "./common.css";
 import { Photo_Container, Photo_Image } from "./ProfilePhotos.css";
 import PhotoClickWrapper from "../../islands/PhotoClickWrapper";
+import { Section } from "../layout/Section";
 
 type Props = {
   photos: Photo[];
@@ -10,8 +10,7 @@ type Props = {
 
 const ProfilePhotos: FC<Props> = (props) => {
   return (
-    <section class={Layout}>
-      <h2 class={Header}>Favorites</h2>
+    <Section title="Favorites">
       <ul class={Photo_Container}>
         {props.photos.map((image) => (
           <li key={image.title}>
@@ -21,7 +20,7 @@ const ProfilePhotos: FC<Props> = (props) => {
           </li>
         ))}
       </ul>
-    </section>
+    </Section>
   );
 };
 
