@@ -1,18 +1,56 @@
 # taga3s-dev
 
+This is my profile website.✋
+
+## Tech Stacks
+
+- Web Framework
+  - HonoX
+
+- Formatter / Linter
+  - biome
+
+- Dev environment
+  - Vite
+  - Wrangler
+
+- CI / CD
+  - Github Actions
+
 ## Project setup
 
-- install deps
+0. Enable pnpm
 ```
-$ npm install
-```
-
-- run app
-```
-$ npm run dev
+$ corepack enable pnpm
 ```
 
-- deploy to cloudflare workers
+1. Install deps
 ```
-$ npm run deploy
+$ pnpm install
 ```
+
+## Project commands
+
+- Run app
+```
+$ pnpm run dev
+```
+
+- Format
+```
+$ pnpm run format
+```
+
+- Lint
+```
+$ pnpm run lint
+```
+
+- Deploy to cloudflare workers
+```
+$ pnpm run deploy
+```
+
+## License
+
+- MIT
