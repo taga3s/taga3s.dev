@@ -1,11 +1,11 @@
 import { css } from "hono/css";
 
-const Layout = css`
+const footerLayout = css`
   margin-top: 80px;
 `;
 
-const Content = css`
+const footerContent = css`
   padding: 20px 0;
 `;
 
-export { Layout, Content };
+export { footerLayout, footerContent };

@@ -1,19 +1,15 @@
-import { Layout, Links } from "./Header.css";
+import { headerContent, headerNav } from "./Header.css";
 
 const Header = () => {
   return (
-    <header class={Layout}>
-      <ul class={Links}>
-        <li>
+    <header>
+      <div class={headerContent}>
+        <nav class={headerNav}>
           <a href="/">about me</a>
-        </li>
-        <li>
           <a href="/history">history</a>
-        </li>
-        <li>
           <a href="/works">works</a>
-        </li>
-      </ul>
+        </nav>
+      </div>
     </header>
   );
 };

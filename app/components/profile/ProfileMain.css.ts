@@ -1,18 +1,18 @@
 import { css } from "hono/css";
 
-const Main = css`
+const main = css`
   display: flex;
   justify-content: space-between;
   align-items: center;
 `;
 
-const Main_Box = css`
+const mainBox = css`
   display: flex;
   flex-direction: column;
   gap: 12px;
 `;
 
-const Main_Image = css`
+const mainImage = css`
   width: 100px;
   height: 100px;
   border-radius: 12px;
@@ -23,19 +23,19 @@ const Main_Image = css`
   }
 `;
 
-const Main_Name = css`
+const mainName = css`
   font-size: 28px;
   font-weight: bold;
 `;
 
-const Main_Belonging = css`
+const mainBelonging = css`
   display: flex;
   flex-direction: column;
   gap: 8px;
   font-size: 16px;
 `;
 
-const Introduction = css`
+const mainIntroduction = css`
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -43,4 +43,4 @@ const Introduction = css`
   font-size: 16px;
 `;
 
-export { Main, Main_Box, Main_Image, Main_Name, Main_Belonging, Introduction };
+export { main, mainBox, mainImage, mainName, mainBelonging, mainIntroduction };

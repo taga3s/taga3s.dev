@@ -1,14 +1,14 @@
 import { css } from "hono/css";
 
-const Layout = css`
+const headerContent = css`
   padding: 32px 20px;
   display: flex;
   justify-content: end;
 `;
 
-const Links = css`
+const headerNav = css`
   display: flex;
   gap: 24px;
 `;
 
-export { Layout, Links };
+export { headerContent, headerNav };

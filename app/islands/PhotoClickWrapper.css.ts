@@ -1,10 +1,10 @@
 import { css } from "hono/css";
 
-const Wrapper = css`
+const photoClickWrapperImage = css`
   cursor: pointer;
 `;
 
-const Mask = css`
+const photoClickWrapperMask = css`
   position: fixed;
   top: 0;
   left: 0;
@@ -13,20 +13,20 @@ const Mask = css`
   background-color: rgba(0, 0, 0, 0.9);
 `;
 
-const Close_Button = css`
+const photoClickWrapperMaskCloseButton = css`
   position: absolute;
   top: 16px;
   right: 16px;
 `;
 
-const Image_Container = css`
+const photoClickWrapperExpandedImageContainer = css`
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100%;
 `;
 
-const Image = css`
+const photoClickWrapperExpandedImage = css`
   max-width: 440px;
   width: 100%;
   height: auto;
@@ -38,4 +38,10 @@ const Image = css`
   }
 `;
 
-export { Wrapper, Mask, Close_Button, Image, Image_Container };
+export {
+  photoClickWrapperImage,
+  photoClickWrapperMask,
+  photoClickWrapperMaskCloseButton,
+  photoClickWrapperExpandedImage,
+  photoClickWrapperExpandedImageContainer,
+};

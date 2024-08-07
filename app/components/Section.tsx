@@ -1,5 +1,5 @@
 import type { FC, JSX } from "hono/jsx";
-import { Header, Layout } from "./Section.css";
+import { sectionHeader } from "./Section.css";
 
 type Props = {
   title: string;
@@ -10,8 +10,8 @@ const Section: FC<Props> = (props) => {
   const { title, children } = props;
 
   return (
-    <section class={Layout}>
-      <h2 class={Header}>{title}</h2>
+    <section>
+      <h2 class={sectionHeader}>{title}</h2>
       {children}
     </section>
   );
