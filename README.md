@@ -2,7 +2,7 @@
 
 This is my profile website.✋
 
-## Tech Stacks
+## Tech stacks
 
 - Web Framework
   - HonoX
@@ -28,6 +28,10 @@ $ corepack enable pnpm
 ```
 $ pnpm install
 ```
+
+2. Add env vars to your wrangler.toml
+  - `MICRO_CMS_API_KEY`
+  - `MICRO_CMS_SERVICE_DOMAIN`
 
 ## Project commands
 
