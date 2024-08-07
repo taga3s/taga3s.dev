@@ -4,13 +4,13 @@ import { Script } from "honox/server";
 import { ErrorBoundary, memo } from "hono/jsx";
 import { Footer, Header } from "../components";
 
-const HTML_Layout = css`
+const htmlLayout = css`
   :has(#photo-with-mask) {
     overflow: hidden;
   }
 `;
 
-const Body_Layout = css`
+const bodyLayout = css`
   position: relative;
   max-width: 700px;
   min-height: 100vh;
@@ -25,7 +25,7 @@ const FooterMemorized = memo(() => <Footer />);
 
 export default jsxRenderer(({ children }) => {
   return (
-    <html lang="ja" class={HTML_Layout}>
+    <html lang="ja" class={htmlLayout}>
       <head>
         <meta charset="UTF-8" />
 
@@ -45,7 +45,7 @@ export default jsxRenderer(({ children }) => {
         <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, user-scalable=yes" />
         <title>taga3s-dev</title>
       </head>
-      <body class={Body_Layout}>
+      <body class={bodyLayout}>
         <ErrorBoundary fallback={<p>Sorry, Out of Service.</p>}>
           <HeaderMemorized />
           {children}

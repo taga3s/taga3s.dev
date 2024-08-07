@@ -2,7 +2,7 @@ import { css } from "hono/css";
 
 const photoList = css`
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
   gap: 16px;
   margin-top: 16px;
 `;
