@@ -23,16 +23,21 @@ const PhotoClickWrapper: FC<Props> = ({ children, imageUrl, imageAlt }) => {
 
   return (
     <>
-      <button type="button" onClick={() => handleClick()} class={photoClickWrapperImage}>
+      <button type="button" onClick={handleClick} class={photoClickWrapperImage}>
         {children}
       </button>
       {isClicked && (
-        <div class={photoClickWrapperMask} id="photo-with-mask">
-          <button type="button" onClick={handleClick} class={photoClickWrapperMaskCloseButton}>
+        <div class={photoClickWrapperMask} id="photo-with-mask" onClick={handleClick}>
+          <button type="button" class={photoClickWrapperMaskCloseButton} onClick={handleClick}>
             <CloseIcon />
           </button>
           <div class={photoClickWrapperExpandedImageContainer}>
-            <img src={imageUrl} alt={imageAlt} class={photoClickWrapperExpandedImage} />
+            <img
+              src={imageUrl}
+              alt={imageAlt}
+              class={photoClickWrapperExpandedImage}
+              onClick={(e) => e.stopPropagation()}
+            />
           </div>
         </div>
       )}
