@@ -1,15 +1,15 @@
 import { css } from "hono/css";
 
-const Photo_Container = css`
+const photoList = css`
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 16px;
   margin-top: 16px;
 `;
 
-const Photo_Image = css`
+const photoImage = css`
   max-width: 100%;
   border-radius: 8px;
 `;
 
-export { Photo_Container, Photo_Image };
+export { photoList, photoImage };

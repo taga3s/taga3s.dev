@@ -1,15 +1,15 @@
 import { css } from "hono/css";
 
-const list = css`
+const educationalBackgroundList = css`
   display: flex;
   flex-direction: column;
   gap: 16px;
   margin-top: 32px;
 `;
 
-const listItem = css`
+const educationalBackgroundListItem = css`
   display: flex;
   gap: 16px;
 `;
 
-export { list, listItem };
+export { educationalBackgroundList, educationalBackgroundListItem };

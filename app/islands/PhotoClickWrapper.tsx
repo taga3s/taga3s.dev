@@ -1,5 +1,11 @@
 import { type FC, type JSX, useState } from "hono/jsx";
-import { Close_Button, Image, Image_Container, Mask, Wrapper } from "./PhotoClickWrapper.css";
+import {
+  photoClickWrapperImage,
+  photoClickWrapperExpandedImage,
+  photoClickWrapperExpandedImageContainer,
+  photoClickWrapperMask,
+  photoClickWrapperMaskCloseButton,
+} from "./PhotoClickWrapper.css";
 import { CloseIcon } from "../components/icons/Close";
 
 type Props = {
@@ -17,16 +23,16 @@ const PhotoClickWrapper: FC<Props> = ({ children, imageUrl, imageAlt }) => {
 
   return (
     <>
-      <button type="button" onClick={() => handleClick()} class={Wrapper}>
+      <button type="button" onClick={() => handleClick()} class={photoClickWrapperImage}>
         {children}
       </button>
       {isClicked && (
-        <div class={Mask} id="photo-with-mask">
-          <button type="button" onClick={handleClick} class={Close_Button}>
+        <div class={photoClickWrapperMask} id="photo-with-mask">
+          <button type="button" onClick={handleClick} class={photoClickWrapperMaskCloseButton}>
             <CloseIcon />
           </button>
-          <div class={Image_Container}>
-            <img src={imageUrl} alt={imageAlt} class={Image} />
+          <div class={photoClickWrapperExpandedImageContainer}>
+            <img src={imageUrl} alt={imageAlt} class={photoClickWrapperExpandedImage} />
           </div>
         </div>
       )}
