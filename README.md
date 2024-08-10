@@ -54,7 +54,3 @@ $ pnpm run lint
 ```
 $ pnpm run deploy
 ```
-
-## License
-
-- MIT
