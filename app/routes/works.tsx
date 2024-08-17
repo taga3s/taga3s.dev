@@ -1,5 +1,6 @@
 import { createRoute } from "honox/factory";
+import { WorksPresenter } from "../components/works/WorksPresenter";
 
 export default createRoute(async (c) => {
-  return c.render(<div>随時掲載...</div>);
+  return c.render(<WorksPresenter />);
 });
