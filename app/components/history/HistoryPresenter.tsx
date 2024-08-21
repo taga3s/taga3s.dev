@@ -5,15 +5,15 @@ import { presenterLayout } from "./HistoryPresenter.css";
 import { HistoryWorkExperience } from "./HistoryWorkExperience";
 
 type Props = {
-  workExperience: WorkExperience[];
+  workExperiences: WorkExperience[];
 };
 
 const HistoryPresenter: FC<Props> = (props) => {
-  const { workExperience } = props;
+  const { workExperiences } = props;
 
   return (
     <div class={presenterLayout}>
-      <HistoryWorkExperience workExperience={workExperience} />
+      <HistoryWorkExperience workExperiences={workExperiences} />
       <HistoryEducationalBackground />
     </div>
   );

@@ -15,11 +15,11 @@ type Response = {
   limit: number;
 };
 
-const fetchWorkExperience = async (c: Context) => {
+const fetchWorkExperiences = async (c: Context) => {
   const res = await apiClient.GET<Response>(c, "/work-experience");
   return res.contents.map((content) => {
     return { ...content };
   });
 };
 
-export { fetchWorkExperience };
+export { fetchWorkExperiences };

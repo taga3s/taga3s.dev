@@ -4,16 +4,16 @@ import { Section } from "../Section";
 import { workExperienceDescription, workExperienceList } from "./HistoryWorkExperience.css";
 
 type Props = {
-  workExperience: WorkExperience[];
+  workExperiences: WorkExperience[];
 };
 
 const HistoryWorkExperience: FC<Props> = (props) => {
-  const { workExperience } = props;
+  const { workExperiences } = props;
 
   return (
     <Section title="Work experience">
       <ul class={workExperienceList}>
-        {workExperience
+        {workExperiences
           .toSorted((a, b) => a.order - b.order)
           .map((item) => (
             <li key={item.company}>
