@@ -8,7 +8,7 @@ const worksList = css`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
+  gap: 32px;
   margin-top: 32px;
 `;
 
@@ -34,7 +34,7 @@ const worksListItemDetail = {
     padding: 16px;
     opacity: 0.9;
     border-radius: 4px;
-    color: #ffffff;
+    color: #5748e0;
   `,
   title: css`
     font-size: 24px;
