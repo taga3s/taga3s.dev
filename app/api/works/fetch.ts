@@ -12,6 +12,7 @@ type Response = {
       width: number;
       height: number;
     };
+    githubUrl: string;
   }[];
   totalCount: number;
   offset: number;

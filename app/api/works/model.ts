@@ -7,6 +7,7 @@ type Work = {
     width: number;
     height: number;
   };
+  githubUrl: string;
 };
 
 export type { Work };
