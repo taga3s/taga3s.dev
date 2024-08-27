@@ -27,6 +27,9 @@ importers:
       '@hono/vite-dev-server':
         specifier: ^0.14.0
         version: 0.14.0(hono@4.5.9)
+      '@hono/vite-ssg':
+        specifier: ^0.1.0
+        version: 0.1.0(hono@4.5.9)
       husky:
         specifier: ^9.1.1
         version: 9.1.4
@@ -510,6 +513,12 @@ packages:
     engines: {node: '>=18.14.1'}
     peerDependencies:
       hono: '*'
+
+  '@hono/vite-ssg@0.1.0':
+    resolution: {integrity: sha512-tnkBilZ2/+y8w/X+R2Pf4Heu+Xyk4wO2KiBiEOvqqiXQC2yT8WAdiB17qk87og3ZuRCC/721ZZ736TpB6fGkWQ==}
+    engines: {node: '>=18.14.1'}
+    peerDependencies:
+      hono: '>=4.0.0'
 
   '@jridgewell/gen-mapping@0.3.5':
     resolution: {integrity: sha512-IzL8ZoEDIBRWEzlCcRhOaCupYyN5gdIK+Q6fbFdPDg6HqX6jpkItn7DFIpW9LQzXG6Df9sA7+OKnq0qlz/GaQg==}
@@ -1749,6 +1758,10 @@ snapshots:
       - bufferutil
       - supports-color
       - utf-8-validate
+
+  '@hono/vite-ssg@0.1.0(hono@4.5.9)':
+    dependencies:
+      hono: 4.5.9
 
   '@jridgewell/gen-mapping@0.3.5':
     dependencies:
