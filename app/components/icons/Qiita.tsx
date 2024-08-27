@@ -7,11 +7,9 @@ const QiitaIcon = () => {
       xmlns:xlink="http://www.w3.org/1999/xlink"
       x="0px"
       y="0px"
-      width="67"
       viewBox="0 0 300 300"
       enable-background="new 0 0 300 300"
       xml:space="preserve"
-      height="67"
       role="img"
       aria-label="Qiita"
     >

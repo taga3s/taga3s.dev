@@ -1,6 +1,6 @@
 import { CosenseIcon, GitHubIcon, QiitaIcon } from "../icons";
 import { Section } from "../Section";
-import { cosense, github, linkCardContainer, qiita } from "./ProfileLinks.css";
+import { cosense, github, linkCardContainer, linkCardIcon, qiita } from "./ProfileLinks.css";
 
 const links = [
   {
@@ -29,7 +29,7 @@ const ProfileLinks = () => {
       <div class={linkCardContainer}>
         {links.map((link) => (
           <a href={link.url} class={link.style} key={link.title}>
-            <div>{link.icon}</div>
+            <div class={linkCardIcon}>{link.icon}</div>
           </a>
         ))}
       </div>

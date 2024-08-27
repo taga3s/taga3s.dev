@@ -7,8 +7,6 @@ const CosenseIcon = () => {
       xmlns:xlink="http://www.w3.org/1999/xlink"
       x="0px"
       y="0px"
-      width="67"
-      height="65"
       viewBox="0 0 500 500"
       enable-background="new 0 0 500 500"
       xml:space="preserve"
