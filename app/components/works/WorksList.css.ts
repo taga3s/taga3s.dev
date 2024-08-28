@@ -14,7 +14,13 @@ const worksList = css`
 
 const worksListItem = css`
   max-width: 540px;
+  width: 100%;
+  min-height: 180px;
   position: relative;
+
+  @media screen and (min-width:600px) {
+    min-height: 300px;
+  }
 `;
 
 const worksListItemImg = css`
@@ -31,6 +37,7 @@ const worksListItemDetail = {
     display: flex;
     flex-direction: column;
     gap: 6px;
+    width: 100%;
     padding: 16px;
     opacity: 0.9;
     border-radius: 4px;
