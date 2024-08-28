@@ -7,6 +7,7 @@ const Header = () => {
         <nav class={headerNav}>
           <a href="/">about me</a>
           <a href="/history">history</a>
+          <a href="/blogs">blogs</a>
           <a href="/works">works</a>
         </nav>
       </div>
