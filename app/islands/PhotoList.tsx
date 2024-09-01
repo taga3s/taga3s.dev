@@ -1,4 +1,4 @@
-import { useState, type FC } from "hono/jsx";
+import { useState, startViewTransition, type FC } from "hono/jsx";
 import type { Photo } from "../api/photos";
 import { photoImage, photoList } from "./PhotoList.css";
 import { PhotoExpanded } from "./PhotoExpanded";
@@ -11,8 +11,8 @@ const PhotoList: FC<Props> = (props) => {
   const [expandedPhoto, setExpandedPhoto] = useState<Photo>(props.photos[0]);
   const [isOpen, setIsOpen] = useState(false);
 
-  const handleOpenExpandedPhoto = (open: boolean) => {
-    setIsOpen(open);
+  const handleOpenExpandedPhoto = () => {
+    startViewTransition(() => setIsOpen(!isOpen));
   };
 
   const handleExpandedPhoto = (photo: Photo) => {
@@ -39,26 +39,25 @@ const PhotoList: FC<Props> = (props) => {
       }
     }
 
-    setExpandedPhoto(props.photos[nextIndex]);
+    startViewTransition(() => setExpandedPhoto(props.photos[nextIndex]));
   };
 
   return (
     <>
-      <ul class={photoList}>
+      <div class={photoList}>
         {props.photos.map((photo) => (
-          <li key={photo.title}>
-            <button
-              onClick={() => {
-                handleExpandedPhoto(photo);
-                handleOpenExpandedPhoto(true);
-              }}
-              type="button"
-            >
-              <img src={photo.url} alt={photo.title} class={photoImage} />
-            </button>
-          </li>
+          <button
+            onClick={() => {
+              handleExpandedPhoto(photo);
+              handleOpenExpandedPhoto();
+            }}
+            type="button"
+            key={photo.title}
+          >
+            <img src={photo.url} alt={photo.title} class={photoImage} />
+          </button>
         ))}
-      </ul>
+      </div>
       {isOpen && (
         <PhotoExpanded
           expandedPhoto={expandedPhoto}
