@@ -1,4 +1,4 @@
-import { css, cx } from "hono/css";
+import { css } from "hono/css";
 
 const photoExpandedStyle = {
   mask: css`
