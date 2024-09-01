@@ -8,14 +8,14 @@ import { cx } from "hono/css";
 
 type Props = {
   expandedPhoto: Photo;
-  handleOpenExpandedPhoto: (open: boolean) => void;
+  handleOpenExpandedPhoto: () => void;
   handleSwitchExpandedPhoto: (direction: "left" | "right") => void;
 };
 
 const PhotoExpanded: FC<Props> = ({ expandedPhoto, handleOpenExpandedPhoto, handleSwitchExpandedPhoto }) => {
   return (
     <div class={photoExpandedStyle.mask} id="photo-with-mask">
-      <button type="button" onClick={() => handleOpenExpandedPhoto(false)} class={photoExpandedStyle.maskCloseButton}>
+      <button type="button" onClick={() => handleOpenExpandedPhoto()} class={photoExpandedStyle.maskCloseButton}>
         <CloseIcon />
       </button>
       <div class={photoExpandedStyle.expandedImageContainer}>
