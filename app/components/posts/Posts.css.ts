@@ -1,6 +1,6 @@
 import { css } from "hono/css";
 
-const blogs = {
+const postsStyle = {
   wrapper: css`
     display: flex;
     flex-direction: column;
@@ -10,7 +10,7 @@ const blogs = {
   item: css`
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 8px;
     width: 100%;
     padding: 16px;
     border: 1px solid #ccc;
@@ -22,4 +22,4 @@ const blogs = {
   `,
 };
 
-export { blogs };
+export { postsStyle };
