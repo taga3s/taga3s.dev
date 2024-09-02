@@ -19,7 +19,7 @@ type Response = {
 const fetchPhotos = async (c: Context) => {
   const res = await apiClient.GET<Response>(c, "/photos");
   return res.contents.map((content) => {
-    return { title: content.title, ...content.image };
+    return { ...content.image, title: content.title, url: `${content.image.url}?w=1000&q=90` };
   });
 };
 
