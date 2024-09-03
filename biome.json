@@ -15,7 +15,8 @@
       "complexity": {
         "noBannedTypes": "warn"
       }
-    }
+    },
+    "ignore": ["app/global.d.ts"]
   },
   "formatter": {
     "enabled": true,

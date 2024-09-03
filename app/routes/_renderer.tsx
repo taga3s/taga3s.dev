@@ -23,7 +23,9 @@ const bodyLayout = css`
 const HeaderMemorized = memo(() => <Header />);
 const FooterMemorized = memo(() => <Footer />);
 
-export default jsxRenderer(({ children }) => {
+export default jsxRenderer(({ children, title }) => {
+  const _title = title ?? "taga3s-dev";
+
   return (
     <html lang="ja" class={htmlLayout}>
       <head>
@@ -39,11 +41,15 @@ export default jsxRenderer(({ children }) => {
 
         {/* reset css */}
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/destyle.css@3.0.2/destyle.css" />
+
+        {/* global css */}
+        <link rel="stylesheet" href="/static/markdown-styles.css" />
         <Style />
+
         <Script src="/app/client.ts" async />
 
         <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, user-scalable=yes" />
-        <title>taga3s-dev</title>
+        <title>{_title}</title>
       </head>
       <body class={bodyLayout}>
         <ErrorBoundary fallback={<p>Sorry, Out of Service.</p>}>
