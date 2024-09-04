@@ -9,7 +9,7 @@ importers:
   .:
     dependencies:
       hono:
-        specifier: ^4.5.9
+        specifier: ^4.5.11
         version: 4.5.11
       honox:
         specifier: ^0.1.24
@@ -1546,10 +1546,6 @@ packages:
     peerDependencies:
       postcss: ^8.2.9
 
-  postcss@8.4.40:
-    resolution: {integrity: sha512-YF2kKIUzAofPMpfH6hOi2cGnv/HrUlfucspc7pDyvv7kGdqXrfj8SCl/t8owkEgKEuu8ZcRjSOxFxVLqwChZ2Q==}
-    engines: {node: ^10 || ^12 || >=14}
-
   postcss@8.4.41:
     resolution: {integrity: sha512-TesUflQ0WKZqAvg52PWL6kHgLKP6xB6heTOdoYM0Wt2UHyxNa4K25EZZMgKns3BH1RLVbZCREPpLY0rhnNoHVQ==}
     engines: {node: ^10 || ^12 || >=14}
@@ -2400,7 +2396,7 @@ snapshots:
       '@vue/shared': 3.4.35
       estree-walker: 2.0.2
       magic-string: 0.30.11
-      postcss: 8.4.40
+      postcss: 8.4.41
       source-map-js: 1.2.0
 
   '@vue/compiler-ssr@3.4.35':
@@ -2567,11 +2563,11 @@ snapshots:
     dependencies:
       node-source-walk: 7.0.0
 
-  detective-postcss@7.0.0(postcss@8.4.40):
+  detective-postcss@7.0.0(postcss@8.4.41):
     dependencies:
       is-url: 1.2.4
-      postcss: 8.4.40
-      postcss-values-parser: 6.0.2(postcss@8.4.40)
+      postcss: 8.4.41
+      postcss-values-parser: 6.0.2(postcss@8.4.41)
 
   detective-sass@6.0.0:
     dependencies:
@@ -3561,18 +3557,12 @@ snapshots:
 
   pidtree@0.6.0: {}
 
-  postcss-values-parser@6.0.2(postcss@8.4.40):
+  postcss-values-parser@6.0.2(postcss@8.4.41):
     dependencies:
       color-name: 1.1.4
       is-url-superb: 4.0.0
-      postcss: 8.4.40
+      postcss: 8.4.41
       quote-unquote: 1.0.0
-
-  postcss@8.4.40:
-    dependencies:
-      nanoid: 3.3.7
-      picocolors: 1.0.1
-      source-map-js: 1.2.0
 
   postcss@8.4.41:
     dependencies:
@@ -3587,7 +3577,7 @@ snapshots:
       detective-amd: 6.0.0
       detective-cjs: 6.0.0
       detective-es6: 5.0.0
-      detective-postcss: 7.0.0(postcss@8.4.40)
+      detective-postcss: 7.0.0(postcss@8.4.41)
       detective-sass: 6.0.0
       detective-scss: 5.0.0
       detective-stylus: 5.0.0
@@ -3595,7 +3585,7 @@ snapshots:
       detective-vue2: 2.0.3(typescript@5.5.4)
       module-definition: 6.0.0
       node-source-walk: 7.0.0
-      postcss: 8.4.40
+      postcss: 8.4.41
       typescript: 5.5.4
     transitivePeerDependencies:
       - supports-color
