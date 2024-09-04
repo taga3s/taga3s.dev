@@ -1,7 +1,7 @@
 import type { FC } from "hono/jsx";
 import type { Post } from "../../api/posts/model";
 import { Section } from "../Section";
-import { postsStyle } from "./Posts.css";
+import { postsItem, postsItemTitle, postsWrapper } from "./Posts.css";
 
 type Props = {
   posts: Post[];
@@ -10,12 +10,12 @@ type Props = {
 const Posts: FC<Props> = ({ posts }) => {
   return (
     <Section title="Posts">
-      <div class={postsStyle.wrapper}>
+      <div class={postsWrapper}>
         {posts.map((post) => {
           return (
-            <a key={post.id} href={`/${post.id}`} class={postsStyle.item}>
+            <a key={post.id} href={`/${post.id}`} class={postsItem}>
               <span>{post.publishedAt}</span>
-              <span class={postsStyle.itemTitle}>{post.title}</span>
+              <span class={postsItemTitle}>{post.title}</span>
             </a>
           );
         })}
