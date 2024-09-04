@@ -1,18 +1,18 @@
 import { css } from "hono/css";
 
-const main = css`
+const profileMain = css`
   display: flex;
   justify-content: space-between;
   align-items: center;
 `;
 
-const mainBox = css`
+const profileMainBox = css`
   display: flex;
   flex-direction: column;
   gap: 12px;
 `;
 
-const mainImage = css`
+const profileMainImage = css`
   width: 100px;
   height: 100px;
   border-radius: 12px;
@@ -23,19 +23,19 @@ const mainImage = css`
   }
 `;
 
-const mainName = css`
+const profileMainName = css`
   font-size: 28px;
   font-weight: bold;
 `;
 
-const mainBelonging = css`
+const profileMainBelonging = css`
   display: flex;
   flex-direction: column;
   gap: 8px;
   font-size: 16px;
 `;
 
-const mainIntroduction = css`
+const profileMainIntroduction = css`
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -43,4 +43,11 @@ const mainIntroduction = css`
   font-size: 16px;
 `;
 
-export { main, mainBox, mainImage, mainName, mainBelonging, mainIntroduction };
+export {
+  profileMain,
+  profileMainBox,
+  profileMainImage,
+  profileMainName,
+  profileMainBelonging,
+  profileMainIntroduction,
+};

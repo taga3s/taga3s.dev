@@ -54,7 +54,7 @@ export default jsxRenderer(({ children, title }) => {
       <body class={bodyLayout}>
         <ErrorBoundary fallback={<p>Sorry, Out of Service.</p>}>
           <HeaderMemorized />
-          {children}
+          <main>{children}</main>
           <FooterMemorized />
         </ErrorBoundary>
       </body>

@@ -28,36 +28,46 @@ const worksListItemImg = css`
   border-radius: 8px;
 `;
 
-const worksListItemDetail = {
-  wrapper: css`
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    width: 100%;
-    padding: 16px;
-    opacity: 0.9;
-    border-radius: 4px;
-    color: #6a5ed1;
-  `,
-  header: css`
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  `,
-  icon: css`
-    width: 24px;
-    height: 24px;
-    fill: #6a5ed1;
-  `,
-  title: css`
-    font-size: 24px;
-    font-weight: bold;
-  `,
-};
+const worksListItemDetailWrapper = css`
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+  padding: 16px;
+  opacity: 0.9;
+  border-radius: 4px;
+  color: #6a5ed1;
+`;
 
-export { worksListContainer, worksList, worksListItem, worksListItemImg, worksListItemDetail };
+const worksListItemDetailHeader = css`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+const worksListItemDetailTitle = css`
+  font-size: 20px;
+  font-weight: bold;
+`;
+
+const worksListItemDetailIcon = css`
+  width: 24px;
+  height: 24px;
+  fill: #6a5ed1;
+`;
+
+export {
+  worksListContainer,
+  worksList,
+  worksListItem,
+  worksListItemImg,
+  worksListItemDetailWrapper,
+  worksListItemDetailHeader,
+  worksListItemDetailTitle,
+  worksListItemDetailIcon,
+};

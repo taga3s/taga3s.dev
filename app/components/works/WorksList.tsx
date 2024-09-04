@@ -1,6 +1,14 @@
 import type { FC } from "hono/jsx";
 import { Section } from "../Section";
-import { worksList, worksListItem, worksListItemDetail, worksListItemImg } from "./WorksList.css";
+import {
+  worksList,
+  worksListItem,
+  worksListItemDetailHeader,
+  worksListItemDetailIcon,
+  worksListItemDetailTitle,
+  worksListItemDetailWrapper,
+  worksListItemImg,
+} from "./WorksList.css";
 import type { Work } from "../../api/works";
 import { GitHubIcon } from "../icons";
 
@@ -15,10 +23,10 @@ const WorksList: FC<Props> = ({ works }) => {
         {works.map((work) => (
           <li key={work.title} class={worksListItem}>
             <img src={work.image.url} alt={work.title} class={worksListItemImg} />
-            <div class={worksListItemDetail.wrapper}>
-              <div class={worksListItemDetail.header}>
-                <h3 class={worksListItemDetail.title}>{work.title}</h3>
-                <a href={work.githubUrl} class={worksListItemDetail.icon}>
+            <div class={worksListItemDetailWrapper}>
+              <div class={worksListItemDetailHeader}>
+                <h3 class={worksListItemDetailTitle}>{work.title}</h3>
+                <a href={work.githubUrl} class={worksListItemDetailIcon}>
                   <GitHubIcon />
                 </a>
               </div>
