@@ -2,7 +2,7 @@ import {} from "hono";
 
 type Head = {
   title?: string;
-  description?: string;
+  publishedAt?: string;
 };
 
 declare module "hono" {
