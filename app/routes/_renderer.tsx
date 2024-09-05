@@ -52,11 +52,11 @@ export default jsxRenderer(({ children, title }) => {
         <title>{_title}</title>
       </head>
       <body class={bodyLayout}>
-        <ErrorBoundary fallback={<p>Sorry, Out of Service.</p>}>
-          <HeaderMemorized />
+        <HeaderMemorized />
+        <ErrorBoundary fallback={<p>Sorry, something wrong with this page.</p>}>
           <main>{children}</main>
-          <FooterMemorized />
         </ErrorBoundary>
+        <FooterMemorized />
       </body>
     </html>
   );
