@@ -7,6 +7,7 @@ import mdx from '@mdx-js/rollup';
 import remarkFrontmatter from 'remark-frontmatter';
 import remarkMdxFrontmatter from 'remark-mdx-frontmatter';
 import remarkGfm from 'remark-gfm'
+import rehypeMomiji from './app/modules/rehype-momiji/rehypeMomiji'
 
 export default defineConfig(() => {
   return {
@@ -15,10 +16,12 @@ export default defineConfig(() => {
     },
     plugins: [
       honox({ devServer: { adapter } }), 
-      pages(), ssg({ entry: "./app/server.ts" }), 
+      pages(), 
+      ssg({ entry: "./app/server.ts" }), 
       mdx({
         jsxImportSource: 'hono/jsx',
         remarkPlugins: [remarkGfm, remarkFrontmatter, remarkMdxFrontmatter],
+        rehypePlugins: [rehypeMomiji]
       })
     ],
   }
