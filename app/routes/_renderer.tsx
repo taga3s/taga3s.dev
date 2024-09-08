@@ -54,11 +54,11 @@ export default jsxRenderer(({ children, title, description }) => {
         <meta property="og:title" content={_title} />
         <meta property="og:description" content={_description} />
         <meta property="og:site_name" content="taga3s-dev" />
-        <meta property="og:image" content="/static/images/og-image.png" />
+        <meta property="og:image" content="https://taga3s.dev/og-image.png" />
 
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content={_title} />
-        <meta name="twitter:image" content="/static/images/og-image.png" />
+        <meta name="twitter:image" content="https://taga3s.dev/og-image.png" />
         <meta name="twitter:description" content={_description} />
 
         <meta name="description" content={_description} />
