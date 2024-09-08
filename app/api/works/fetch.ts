@@ -22,7 +22,7 @@ type Response = {
 const fetchWorks = async (c: Context) => {
   const res = await apiClient.GET<Response>(c, "/works");
   return res.contents.map((content) => {
-    return { ...content, image: { ...content.image, url: `${content.image.url}?w=1000&q=90` } };
+    return { ...content, image: { ...content.image, url: `${content.image.url}?w=1000&q=90&fm=webp` } };
   });
 };
 
