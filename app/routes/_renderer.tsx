@@ -23,8 +23,9 @@ const bodyLayout = css`
 const HeaderMemorized = memo(() => <Header />);
 const FooterMemorized = memo(() => <Footer />);
 
-export default jsxRenderer(({ children, title }) => {
+export default jsxRenderer(({ children, title, description }) => {
   const _title = title ?? "taga3s-dev";
+  const _description = description ?? "taga3sのWebページです。主に趣味や技術系の発信をしています。";
 
   return (
     <html lang="ja" class={htmlLayout}>
@@ -48,6 +49,19 @@ export default jsxRenderer(({ children, title }) => {
 
         <Script src="/app/client.ts" async />
 
+        <meta property="og:url" content="https://taga3s.dev" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content={_title} />
+        <meta property="og:description" content={_description} />
+        <meta property="og:site_name" content="taga3s-dev" />
+        <meta property="og:image" content="/static/images/og-image.png" />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content={_title} />
+        <meta name="twitter:image" content="/static/images/og-image.png" />
+        <meta name="twitter:description" content={_description} />
+
+        <meta name="description" content={_description} />
         <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, user-scalable=yes" />
         <title>{_title}</title>
       </head>
