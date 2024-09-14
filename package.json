@@ -10,6 +10,7 @@
     "deploy": "vite build --mode client && vite build && wrangler pages deploy ./dist",
     "lint": "biome lint --write --unsafe ./app",
     "format": "biome format --write ./app package.json biome.json tsconfig.json",
+    "article": "speedymd",
     "prepare": "husky"
   },
   "dependencies": {
