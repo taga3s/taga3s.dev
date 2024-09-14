@@ -6,3 +6,9 @@
 
 - Highlighting Code
 - Displaying Filename
+
+## How to use?
+
+When you want only highlighting code block, just use this package. If you want to display a filename, you need to install `remark-momiji`.
+
+<img src="../assets/rehype-momiji-sample.png" alt="example usage of rehype-momiji" />
