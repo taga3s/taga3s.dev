@@ -10,7 +10,7 @@
       "required": true
     },
     {
-      "name": "published_at",
+      "name": "publishedAt",
       "type": "text",
       "question": "Please enter `published_at`",
       "placeholder": "2000/01/01",

@@ -1,7 +1,7 @@
 type Post = {
   id: string;
   title: string;
-  publishedAt: string;
+  publishedAt: Date;
 };
 
 export type { Post };
