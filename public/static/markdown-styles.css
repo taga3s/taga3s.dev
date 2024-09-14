@@ -381,7 +381,14 @@
   margin-top: 0;
   margin-bottom: 0;
   padding-left: 2em;
+}
+
+.markdown-body ul {
   list-style: disc;
+}
+
+.markdown-body ol {
+  list-style: decimal;
 }
 
 .markdown-body ol ol,
