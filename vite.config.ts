@@ -8,7 +8,7 @@ import remarkFrontmatter from 'remark-frontmatter';
 import remarkMdxFrontmatter from 'remark-mdx-frontmatter';
 import remarkGfm from 'remark-gfm'
 import rehypeMomiji from './app/modules/rehype-momiji/rehypeMomiji'
-import remarkCodeFilename from './app/modules/remark-code-filename/remarkCodeFilename'
+import remarkMomijiCodeFilename from './app/modules/remark-momiji/remarkMomijiCodeFilename'
 
 export default defineConfig(() => {
   return {
@@ -21,7 +21,7 @@ export default defineConfig(() => {
       ssg({ entry: "./app/server.ts" }), 
       mdx({
         jsxImportSource: 'hono/jsx',
-        remarkPlugins: [remarkGfm, remarkFrontmatter, remarkMdxFrontmatter, remarkCodeFilename],
+        remarkPlugins: [remarkGfm, remarkFrontmatter, remarkMdxFrontmatter, remarkMomijiCodeFilename],
         rehypePlugins: [rehypeMomiji]
       })
     ],
