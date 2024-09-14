@@ -7,7 +7,7 @@ import { parser } from "./parser";
 import { isArray, isObject, isString } from "./utils/checkTypeOfOperandValue";
 import { buildCodeBlockHTML } from "./buildCodeBlockHTML";
 
-type Options = { theme?: BundledTheme; fallbackLang?: BundledLanguage };
+type Options = { theme: BundledTheme; fallbackLang?: BundledLanguage };
 
 const defaultHighlighter = await getHighlighter({ themes: bundledThemes, langs: bundledLanguages });
 
