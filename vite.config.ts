@@ -4,6 +4,7 @@ import honox from 'honox/vite'
 import { defineConfig } from 'vite'
 import ssg from '@hono/vite-ssg'
 import mdx from '@mdx-js/rollup';
+import remarkBreaks from 'remark-breaks';
 import remarkFrontmatter from 'remark-frontmatter';
 import remarkMdxFrontmatter from 'remark-mdx-frontmatter';
 import remarkGfm from 'remark-gfm'
@@ -21,7 +22,7 @@ export default defineConfig(() => {
       ssg({ entry: "./app/server.ts" }), 
       mdx({
         jsxImportSource: 'hono/jsx',
-        remarkPlugins: [remarkGfm, remarkFrontmatter, remarkMdxFrontmatter, remarkMomijiCodeFilename],
+        remarkPlugins: [remarkGfm, remarkBreaks, remarkFrontmatter, remarkMdxFrontmatter, remarkMomijiCodeFilename],
         rehypePlugins: [rehypeMomiji]
       })
     ],
