@@ -5,6 +5,7 @@ import { visit } from "unist-util-visit";
 import { getHighlighter } from "./highlighter";
 import { parser } from "./parser";
 import { isArray, isObject, isString } from "./utils/checkTypeOfOperandValue";
+import { buildCodeBlockHTML } from "./buildCodeBlockHTML";
 
 type Options = { theme?: BundledTheme; fallbackLang?: BundledLanguage };
 
@@ -62,13 +63,14 @@ const rehypeMomiji: Plugin = (options: Options = { theme: "github-dark-default",
         return;
       }
 
-      const highlightCode = defaultHighlighter.codeToHtml(rawCode, {
-        lang: supportedLang,
-        theme: theme ?? "github-dark",
-      });
+      const filename = (codeElem.properties["data-remark-code-filename"] as string) ?? "";
+
+      const highlightCode = buildCodeBlockHTML(rawCode, supportedLang, filename, theme);
 
       const container = `
-        <div>${highlightCode}</div>
+        <div style="display: flex; flex-direction: column; gap: 2px;">
+          ${highlightCode}
+        </div>
       `;
 
       const parsedRoot = parser.parse(container) as Root;
