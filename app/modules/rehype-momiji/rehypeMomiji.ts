@@ -7,13 +7,18 @@ import { parser } from "./parser";
 import { isArray, isObject, isString } from "./utils/checkTypeOfOperandValue";
 import { buildCodeBlockHTML } from "./buildCodeBlockHTML";
 
-type Options = { theme: BundledTheme; fallbackLang?: BundledLanguage };
+type Options = {
+  theme?: BundledTheme;
+  fallbackLang?: BundledLanguage;
+  filenameBGColor?: string;
+  filenameTextColor?: string;
+};
 
 const defaultHighlighter = await getHighlighter({ themes: bundledThemes, langs: bundledLanguages });
 
-const rehypeMomiji: Plugin = (options: Options = { theme: "github-dark-default", fallbackLang: "c" }) => {
+const rehypeMomiji: Plugin = (options: Options = {}) => {
   const langs = defaultHighlighter.getLoadedLanguages();
-  const { theme, fallbackLang } = options;
+  const { theme = "github-dark-default", fallbackLang = "c", filenameBGColor, filenameTextColor } = options;
 
   const parseLanguage = (classNames: string[]): string | undefined => {
     for (const className of classNames) {
@@ -65,7 +70,14 @@ const rehypeMomiji: Plugin = (options: Options = { theme: "github-dark-default",
 
       const filename = (codeElem.properties["data-remark-code-filename"] as string) ?? "";
 
-      const highlightCode = buildCodeBlockHTML(rawCode, supportedLang, filename, theme);
+      const highlightCode = buildCodeBlockHTML(
+        rawCode,
+        supportedLang,
+        theme,
+        filename,
+        filenameBGColor,
+        filenameTextColor,
+      );
 
       const container = `
         <div style="display: flex; flex-direction: column; gap: 2px;">
@@ -73,7 +85,7 @@ const rehypeMomiji: Plugin = (options: Options = { theme: "github-dark-default",
         </div>
       `;
 
-      const parsedRoot = parser.parse(container) as Root;
+      const parsedRoot = parser.parse(container);
       node.tagName = "div";
       node.children = parsedRoot.children as Element[];
     });
