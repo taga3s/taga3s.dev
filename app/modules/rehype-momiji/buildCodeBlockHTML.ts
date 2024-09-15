@@ -6,13 +6,20 @@ import { COLOR_SHIRONERI, COLOR_HAI } from "./colors";
 import { visit } from "unist-util-visit";
 
 const defaultHighlighter = await getHighlighter({ themes: bundledThemes, langs: bundledLanguages });
-const defaultFilenameUIColor = `color: ${COLOR_SHIRONERI}; background-color: ${COLOR_HAI};`;
 
-const buildCodeBlockHTML = (rawCode: string, lang: string, filename: string, theme: BundledTheme) => {
+const buildCodeBlockHTML = (
+  rawCode: string,
+  lang: string,
+  theme: BundledTheme,
+  filename: string,
+  filenameBGColor?: string,
+  filenameTextColor?: string,
+) => {
   const hast = defaultHighlighter.codeToHast(rawCode, {
     lang: lang,
     theme: theme,
   });
+  const filenameColorStyle = `background-color: ${filenameBGColor ?? COLOR_HAI}; color: ${filenameTextColor ?? COLOR_SHIRONERI};`;
 
   // Add filename to the code block if it exists
   if (filename === "") {
@@ -36,7 +43,7 @@ const buildCodeBlockHTML = (rawCode: string, lang: string, filename: string, the
         type: "element",
         tagName: "div",
         properties: {
-          style: `width: fit-content; margin-bottom: 16px; padding: 4px 8px; font-size: 14px; border-radius: 0 0 4px 4px; ${defaultFilenameUIColor};`,
+          style: `width: fit-content; margin-bottom: 16px; padding: 4px 8px; font-size: 14px; border-radius: 0 0 4px 4px; ${filenameColorStyle}`,
         },
         children: [
           {
