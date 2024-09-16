@@ -35,7 +35,7 @@ const buildCodeBlockHTML = (
     ) {
       node.properties = {
         class: node.properties.class,
-        style: `${node.properties.style}; padding-top: 0px;`,
+        style: `${node.properties.style}; padding-top: 48px;`,
         tabindex: node.properties.tabindex,
       };
 
@@ -43,7 +43,7 @@ const buildCodeBlockHTML = (
         type: "element",
         tagName: "div",
         properties: {
-          style: `width: fit-content; margin-bottom: 16px; padding: 4px 8px; font-size: 14px; border-radius: 0 0 4px 4px; ${filenameColorStyle}`,
+          style: `position: absolute; top: 0; left: 16px; width: fit-content; margin-bottom: 16px; padding: 4px 8px; font-size: 14px; border-radius: 0 0 4px 4px; ${filenameColorStyle}`,
         },
         children: [
           {

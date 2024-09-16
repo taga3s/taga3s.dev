@@ -80,7 +80,7 @@ const rehypeMomiji: Plugin = (options: Options = {}) => {
       );
 
       const container = `
-        <div style="display: flex; flex-direction: column; gap: 2px;">
+        <div style="position: relative; display: flex; flex-direction: column; gap: 2px;">
           ${highlightCode}
         </div>
       `;
