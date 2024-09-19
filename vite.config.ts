@@ -8,8 +8,8 @@ import remarkBreaks from 'remark-breaks';
 import remarkFrontmatter from 'remark-frontmatter';
 import remarkMdxFrontmatter from 'remark-mdx-frontmatter';
 import remarkGfm from 'remark-gfm'
-import rehypeMomiji from './app/modules/rehype-momiji/rehypeMomiji'
-import remarkMomijiCodeFilename from './app/modules/remark-momiji/remarkMomijiCodeFilename'
+import rehypeMomiji from './app/packages/rehype-momiji/rehypeMomiji'
+import remarkMomijiCodeFilename from './app/packages/remark-momiji/remarkMomijiCodeFilename'
 
 export default defineConfig(() => {
   return {
