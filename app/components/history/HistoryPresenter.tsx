@@ -3,6 +3,7 @@ import type { WorkExperience } from "../../api/workExperience";
 import { HistoryEducationalBackground } from "./HistoryEducationalBackground";
 import { presenterLayout } from "./HistoryPresenter.css";
 import { HistoryWorkExperience } from "./HistoryWorkExperience";
+import { HistoryCertification } from "./HistoryCertification";
 
 type Props = {
   workExperiences: WorkExperience[];
@@ -15,6 +16,7 @@ const HistoryPresenter: FC<Props> = (props) => {
     <div class={presenterLayout}>
       <HistoryWorkExperience workExperiences={workExperiences} />
       <HistoryEducationalBackground />
+      <HistoryCertification />
     </div>
   );
 };
