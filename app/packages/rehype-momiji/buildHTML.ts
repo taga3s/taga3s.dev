@@ -7,7 +7,7 @@ import { visit } from "unist-util-visit";
 
 const defaultHighlighter = await getHighlighter({ themes: bundledThemes, langs: bundledLanguages });
 
-const buildCodeBlockHTML = (
+const buildHTML = (
   rawCode: string,
   lang: string,
   theme: BundledTheme,
@@ -58,4 +58,4 @@ const buildCodeBlockHTML = (
   return toHtml(hast);
 };
 
-export { buildCodeBlockHTML };
+export { buildHTML };

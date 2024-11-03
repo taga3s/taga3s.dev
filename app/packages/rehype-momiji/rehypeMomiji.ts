@@ -4,8 +4,7 @@ import type { Text, Element, Root } from "hast";
 import { visit } from "unist-util-visit";
 import { getHighlighter } from "./highlighter";
 import { parser } from "./parser";
-import { isArray, isObject, isString } from "./utils/checkTypeOfOperandValue";
-import { buildCodeBlockHTML } from "./buildCodeBlockHTML";
+import { buildHTML } from "./buildHTML";
 
 type Options = {
   theme?: BundledTheme;
@@ -37,25 +36,31 @@ const rehypeMomiji: Plugin = (options: Options = {}) => {
   return (node) => {
     visit(node, "element", (node: Element) => {
       // Check if the node is a pre tag with a single child
-      if (!(node.tagName === "pre" && isArray(node.children) && node.children.length === 1)) {
+      if (!(node.tagName === "pre" && Array.isArray(node.children) && node.children.length === 1)) {
         return;
       }
 
       // Check if the child is a code tag
       const codeElem = node.children[0] as Element;
-      if (!(isObject(codeElem) && codeElem.tagName === "code")) {
+      if (!(codeElem !== null && typeof codeElem === "object" && codeElem.tagName === "code")) {
         return;
       }
 
       // Check if the code tag has a className property
       const classNames = codeElem.properties?.className;
-      if (!(isArray(classNames) && classNames.length > 0 && classNames.every(isString))) {
+      if (
+        !(
+          Array.isArray(classNames) &&
+          classNames.length > 0 &&
+          classNames.every((className) => typeof className === "string")
+        )
+      ) {
         return;
       }
 
       // Check if the code tag has a text child
       const textNode = codeElem.children[0] as Text;
-      if (!isString(textNode.value)) {
+      if (!(typeof textNode.value === "string")) {
         return;
       }
 
@@ -70,14 +75,7 @@ const rehypeMomiji: Plugin = (options: Options = {}) => {
 
       const filename = (codeElem.properties["data-remark-code-filename"] as string) ?? "";
 
-      const highlightCode = buildCodeBlockHTML(
-        rawCode,
-        supportedLang,
-        theme,
-        filename,
-        filenameBGColor,
-        filenameTextColor,
-      );
+      const highlightCode = buildHTML(rawCode, supportedLang, theme, filename, filenameBGColor, filenameTextColor);
 
       const container = `
         <div style="position: relative; display: flex; flex-direction: column; gap: 2px;">
