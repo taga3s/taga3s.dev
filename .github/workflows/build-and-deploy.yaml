@@ -2,12 +2,11 @@ name: deploy
 
 on:
   push:
-    branches:
-      - main
 
 permissions:
   contents: read
   deployments: write
+  statuses: write
 
 jobs:
   deploy:
@@ -33,8 +32,24 @@ jobs:
         run: pnpm build
 
       - name: Publish to Cloudflare Pages
+        id: cloudflare-pages-deploy
         uses: cloudflare/wrangler-action@v3
         with:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           command: pages deploy ./dist --project-name=taga3s-dev-website
+
+      - name: Add publish URL as commit status
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const sha = context.payload.pull_request?.head.sha ?? context.sha;
+            await github.rest.repos.createCommitStatus({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              context: 'Cloudflare Pages',
+              description: 'Cloudflare Pages deployment',
+              state: 'success',
+              sha,
+              target_url: "${{ steps.cloudflare-pages-deploy.outputs.deployment-url }}",
+            });
