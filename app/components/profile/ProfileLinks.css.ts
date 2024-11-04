@@ -7,21 +7,23 @@ const profileLinkCardContainer = css`
   margin-top: 16px;
 
   @media screen and (min-width:600px) {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
   }
 `;
 
 const profileLinkCard = css`
   display: flex;
-  justify-content: center;
   align-items: center;
-  height: 100px;
+  gap: 16px;
+  padding: 8px 20px;
   border-radius: 8px;
+  font-weight: bold;
+  color: #ffffff;
 `;
 
 const profileLinkCardIcon = css`
-  width: 67px;
-  height: 67px;
+  width: 48px;
+  height: 48px;
 `;
 
 const github = css`
