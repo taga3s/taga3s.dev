@@ -11,7 +11,7 @@ const links = [
   },
   {
     title: "Cosense",
-    url: "https://scrapbox.io/t33s-dev/",
+    url: "https://scrapbox.io/taga3s-memo/",
     style: cosense,
     icon: <CosenseIcon />,
   },
@@ -30,6 +30,7 @@ const ProfileLinks = () => {
         {links.map((link) => (
           <a href={link.url} class={link.style} key={link.title}>
             <div class={profileLinkCardIcon}>{link.icon}</div>
+            <span>{link.title}</span>
           </a>
         ))}
       </div>
