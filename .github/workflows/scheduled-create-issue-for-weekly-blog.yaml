@@ -1,0 +1,24 @@
+name: Scheduled Create Issue For Weekly Blog
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron:  '0 0 * * 1'
+
+env:
+  GITHUB_TOKEN: ${{ github.token }}
+
+jobs:
+  create_issue:
+    name: Create Issue 
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Get the publication date
+        env:
+          TZ: 'Asia/Tokyo'
+        run: echo "PUBLICATION_DATE=$(date '+%Y-%m-%d' --date 'next sunday')" >> $GITHUB_ENV
+      - name: Create Issue
+        run: |
+          gh issue create \
+          --title "週報作成 ${{ env.PUBLICATION_DATE }}"
