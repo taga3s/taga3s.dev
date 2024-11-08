@@ -21,4 +21,5 @@ jobs:
       - name: Create Issue
         run: |
           gh issue create \
-          --title "週報作成 ${{ env.PUBLICATION_DATE }}"
+          --title "週報作成 ${{ env.PUBLICATION_DATE }}" \
+          --body ""
