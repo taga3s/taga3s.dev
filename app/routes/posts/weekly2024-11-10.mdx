@@ -1,0 +1,24 @@
+---
+title: 週報 2024-11-10
+publishedAt: 2024/11/10
+---
+
+## 今週のやったこと
+
+結局のところ、次週やることを何となく決めていても、色々と状況が変わって、計画通りに行かなくなってしまうのが私であるということを痛感させられています。
+
+- 最近は `terraform import` をひたすらしています。AWS と Terraform の初学者である私にとって既存のリソースを取り込み、`No changes` を目指す RTA 作業はだいぶ骨が折れるものですが、とにかく触り続けることで感覚を掴んできたように思います。また、間接的に AWS の勉強にもなっているのが良いところだなと思います。次のステップとして、`import block` を上手く扱えるようにしたいと思います。
+  - 参考にしたい：[terraform importで数年やってきたがImport blockの良さに気づきました](https://zenn.dev/aeonpeople/articles/d63e84494d9e2c)
+
+```bash
+% terraform import aws_s3_bucket.bucket bucket-name
+```
+
+- Github Actions が面白いなと思います。カスタムアクションとして切り出して、Docker を動かすことができるのですが、TypeScript のスクリプトを動かしたいというケースがあったので、[taga3s/docker-container-action-with-deno-example](https://github.com/taga3s/docker-container-action-with-deno-example) をサンプルとして作ってみました。環境変数やコマンドライン引数の渡し方がわからず苦慮しました。
+
+## 次週のやること
+
+- ブラウザ技術周りの勉強。
+- Hono でAPI作り。
+
+今週も、授業・インターン・面接・面談 とハードワークでした。体力が削られる反面で、色々な人と話すことで自分のエンジニアとしてのキャリアを考えさせられたのでとても良かったです。お疲れ様でした。
