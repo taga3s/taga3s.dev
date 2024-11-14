@@ -14,7 +14,7 @@ const ProfileMain = () => {
         <div class={profileMainBox}>
           <span class={profileMainName}>Seiya Tagami / taga3s</span>
           <ul class={profileMainBelonging}>
-            <li>Web Developer (working as an intern)</li>
+            <li>Student / Web Developer</li>
           </ul>
         </div>
         <div>
@@ -22,8 +22,8 @@ const ProfileMain = () => {
         </div>
       </div>
       <ul class={profileMainIntroduction}>
+        <li>🐳 Webと法律をやっています。</li>
         <li>🛠️ わくわくするようなモノづくりがしたい。</li>
-        <li>🐳 Web、法律、ラーメン...な日常。</li>
         <li>🍀 アニメ/漫画やゲームが好き。</li>
       </ul>
     </section>
