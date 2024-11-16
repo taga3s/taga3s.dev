@@ -1,10 +1,10 @@
 import { bundledLanguages, bundledThemes, type BundledLanguage, type BundledTheme } from "shiki";
 import type { Plugin } from "unified";
-import type { Text, Element, Root } from "hast";
+import type { Text, Element } from "hast";
 import { visit } from "unist-util-visit";
 import { getHighlighter } from "./highlighter";
 import { parser } from "./parser";
-import { buildHTML } from "./buildHTML";
+import { buildCodeBlock } from "./buildCodeBlock";
 
 type Options = {
   theme?: BundledTheme;
@@ -75,11 +75,11 @@ const rehypeMomiji: Plugin = (options: Options = {}) => {
 
       const filename = (codeElem.properties["data-remark-code-filename"] as string) ?? "";
 
-      const highlightCode = buildHTML(rawCode, supportedLang, theme, filename, filenameBGColor, filenameTextColor);
+      const codeBlock = buildCodeBlock(rawCode, supportedLang, theme, filename, filenameBGColor, filenameTextColor);
 
       const container = `
         <div style="position: relative; display: flex; flex-direction: column; gap: 2px;">
-          ${highlightCode}
+          ${codeBlock}
         </div>
       `;
 
