@@ -19,7 +19,13 @@ const defaultHighlighter = await getHighlighter({ themes: bundledThemes, langs: 
 
 const rehypeMomiji: Plugin<Option[]> = (options) => {
   const langs = defaultHighlighter.getLoadedLanguages();
-  const { theme = "github-dark-default", fallbackLang = "c", excludeLangs, filenameBGColor, filenameTextColor } = options;
+  const {
+    theme = "github-dark-default",
+    fallbackLang = "c",
+    excludeLangs,
+    filenameBGColor,
+    filenameTextColor,
+  } = options;
 
   const parseLanguage = (classNames: string[]): string | undefined => {
     for (const className of classNames) {
@@ -75,7 +81,7 @@ const rehypeMomiji: Plugin<Option[]> = (options) => {
       }
 
       // Check if the language should be excluded
-      if(excludeLangs?.includes(lang)) {
+      if (excludeLangs?.includes(lang)) {
         return;
       }
 

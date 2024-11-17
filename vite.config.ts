@@ -10,6 +10,7 @@ import remarkMdxFrontmatter from 'remark-mdx-frontmatter';
 import remarkGfm from 'remark-gfm'
 import rehypeMomiji from './app/packages/rehype-momiji/rehypeMomiji'
 import remarkMomijiCodeFilename from './app/packages/remark-momiji/remarkMomijiCodeFilename'
+import rehypeMermaid from './app/packages/rehype-mermaid/rehypeMermaid'
 
 export default defineConfig(() => {
   return {
@@ -23,7 +24,7 @@ export default defineConfig(() => {
       mdx({
         jsxImportSource: 'hono/jsx',
         remarkPlugins: [remarkGfm, remarkBreaks, remarkFrontmatter, remarkMdxFrontmatter, remarkMomijiCodeFilename],
-        rehypePlugins: [[rehypeMomiji, {}]],
+        rehypePlugins: [[rehypeMomiji, { excludeLangs: ['mermaid'] }], rehypeMermaid],
       })
     ],
   }
