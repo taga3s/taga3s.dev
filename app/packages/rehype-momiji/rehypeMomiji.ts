@@ -10,6 +10,7 @@ import { buildCodeBlock } from "./buildCodeBlock";
 interface Option {
   theme?: BundledTheme;
   fallbackLang?: BundledLanguage;
+  excludeLangs?: string[];
   filenameBGColor?: string;
   filenameTextColor?: string;
 }
@@ -18,7 +19,7 @@ const defaultHighlighter = await getHighlighter({ themes: bundledThemes, langs: 
 
 const rehypeMomiji: Plugin<Option[]> = (options) => {
   const langs = defaultHighlighter.getLoadedLanguages();
-  const { theme = "github-dark-default", fallbackLang = "c", filenameBGColor, filenameTextColor } = options;
+  const { theme = "github-dark-default", fallbackLang = "c", excludeLangs, filenameBGColor, filenameTextColor } = options;
 
   const parseLanguage = (classNames: string[]): string | undefined => {
     for (const className of classNames) {
@@ -29,7 +30,7 @@ const rehypeMomiji: Plugin<Option[]> = (options) => {
     return;
   };
 
-  const checkSupportedLanguage = (lang?: string): string | undefined => {
+  const checkSupportedLanguage = (lang: string): string => {
     if (lang && langs.includes(lang)) return lang;
     return fallbackLang;
   };
@@ -69,10 +70,16 @@ const rehypeMomiji: Plugin<Option[]> = (options) => {
 
       // Parse the language from the class names and check if it is supported
       const lang = parseLanguage(classNames);
-      const supportedLang = checkSupportedLanguage(lang);
-      if (!supportedLang) {
+      if (!lang) {
         return;
       }
+
+      // Check if the language should be excluded
+      if(excludeLangs?.includes(lang)) {
+        return;
+      }
+
+      const supportedLang = checkSupportedLanguage(lang);
 
       const filename = (codeElem.properties["data-remark-code-filename"] as string) ?? "";
 
