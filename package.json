@@ -11,7 +11,8 @@
     "lint": "biome lint --write --unsafe ./app",
     "format": "biome format --write ./app package.json biome.json tsconfig.json",
     "article": "speedymd",
-    "prepare": "husky"
+    "prepare": "husky",
+    "install-puppeteer": "puppeteer browsers install chrome"
   },
   "dependencies": {
     "hono": "^4.5.11",
@@ -24,6 +25,7 @@
     "@hono/vite-dev-server": "^0.14.0",
     "@hono/vite-ssg": "^0.1.0",
     "@mdx-js/rollup": "^3.0.1",
+    "@mermaid-js/mermaid-cli": "^11.4.0",
     "@types/hast": "^3.0.4",
     "@types/mdast": "^4.0.4",
     "@types/unist": "^3.0.3",
@@ -32,6 +34,7 @@
     "husky": "^9.1.1",
     "lint-staged": "^15.2.7",
     "mdast": "^3.0.0",
+    "puppeteer": "^23.8.0",
     "rehype-parse": "^9.0.1",
     "remark-breaks": "^4.0.0",
     "remark-frontmatter": "^5.0.0",
