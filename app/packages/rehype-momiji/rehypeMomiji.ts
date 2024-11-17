@@ -1,4 +1,5 @@
 import { bundledLanguages, bundledThemes, type BundledLanguage, type BundledTheme } from "shiki";
+import type { Node } from "unist";
 import type { Plugin } from "unified";
 import type { Text, Element } from "hast";
 import { visit } from "unist-util-visit";
@@ -6,16 +7,16 @@ import { getHighlighter } from "./highlighter";
 import { parser } from "./parser";
 import { buildCodeBlock } from "./buildCodeBlock";
 
-type Options = {
+interface Option {
   theme?: BundledTheme;
   fallbackLang?: BundledLanguage;
   filenameBGColor?: string;
   filenameTextColor?: string;
-};
+}
 
 const defaultHighlighter = await getHighlighter({ themes: bundledThemes, langs: bundledLanguages });
 
-const rehypeMomiji: Plugin = (options: Options = {}) => {
+const rehypeMomiji: Plugin<Option[]> = (options) => {
   const langs = defaultHighlighter.getLoadedLanguages();
   const { theme = "github-dark-default", fallbackLang = "c", filenameBGColor, filenameTextColor } = options;
 
@@ -33,7 +34,7 @@ const rehypeMomiji: Plugin = (options: Options = {}) => {
     return fallbackLang;
   };
 
-  return (node) => {
+  return (node: Node) => {
     visit(node, "element", (node: Element) => {
       // Check if the node is a pre tag with a single child
       if (!(node.tagName === "pre" && Array.isArray(node.children) && node.children.length === 1)) {
