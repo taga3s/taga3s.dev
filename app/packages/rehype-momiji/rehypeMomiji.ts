@@ -1,23 +1,25 @@
 import { bundledLanguages, bundledThemes, type BundledLanguage, type BundledTheme } from "shiki";
+import type { Node } from "unist";
 import type { Plugin } from "unified";
-import type { Text, Element, Root } from "hast";
+import type { Text, Element } from "hast";
 import { visit } from "unist-util-visit";
 import { getHighlighter } from "./highlighter";
 import { parser } from "./parser";
-import { buildHTML } from "./buildHTML";
+import { buildCodeBlock } from "./buildCodeBlock";
 
-type Options = {
+interface Option {
   theme?: BundledTheme;
   fallbackLang?: BundledLanguage;
+  excludeLangs?: string[];
   filenameBGColor?: string;
   filenameTextColor?: string;
-};
+}
 
 const defaultHighlighter = await getHighlighter({ themes: bundledThemes, langs: bundledLanguages });
 
-const rehypeMomiji: Plugin = (options: Options = {}) => {
+const rehypeMomiji: Plugin<Option[]> = (options) => {
   const langs = defaultHighlighter.getLoadedLanguages();
-  const { theme = "github-dark-default", fallbackLang = "c", filenameBGColor, filenameTextColor } = options;
+  const { theme = "github-dark-default", fallbackLang = "c", excludeLangs, filenameBGColor, filenameTextColor } = options;
 
   const parseLanguage = (classNames: string[]): string | undefined => {
     for (const className of classNames) {
@@ -28,12 +30,12 @@ const rehypeMomiji: Plugin = (options: Options = {}) => {
     return;
   };
 
-  const checkSupportedLanguage = (lang?: string): string | undefined => {
+  const checkSupportedLanguage = (lang: string): string => {
     if (lang && langs.includes(lang)) return lang;
     return fallbackLang;
   };
 
-  return (node) => {
+  return (node: Node) => {
     visit(node, "element", (node: Element) => {
       // Check if the node is a pre tag with a single child
       if (!(node.tagName === "pre" && Array.isArray(node.children) && node.children.length === 1)) {
@@ -68,18 +70,24 @@ const rehypeMomiji: Plugin = (options: Options = {}) => {
 
       // Parse the language from the class names and check if it is supported
       const lang = parseLanguage(classNames);
-      const supportedLang = checkSupportedLanguage(lang);
-      if (!supportedLang) {
+      if (!lang) {
         return;
       }
 
+      // Check if the language should be excluded
+      if(excludeLangs?.includes(lang)) {
+        return;
+      }
+
+      const supportedLang = checkSupportedLanguage(lang);
+
       const filename = (codeElem.properties["data-remark-code-filename"] as string) ?? "";
 
-      const highlightCode = buildHTML(rawCode, supportedLang, theme, filename, filenameBGColor, filenameTextColor);
+      const codeBlock = buildCodeBlock(rawCode, supportedLang, theme, filename, filenameBGColor, filenameTextColor);
 
       const container = `
         <div style="position: relative; display: flex; flex-direction: column; gap: 2px;">
-          ${highlightCode}
+          ${codeBlock}
         </div>
       `;
 

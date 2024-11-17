@@ -7,7 +7,7 @@ import { visit } from "unist-util-visit";
 
 const defaultHighlighter = await getHighlighter({ themes: bundledThemes, langs: bundledLanguages });
 
-const buildHTML = (
+const buildCodeBlock = (
   rawCode: string,
   lang: string,
   theme: BundledTheme,
@@ -21,11 +21,11 @@ const buildHTML = (
   });
   const filenameColorStyle = `background-color: ${filenameBGColor ?? COLOR_HAI}; color: ${filenameTextColor ?? COLOR_SHIRONERI};`;
 
-  // Add filename to the code block if it exists
   if (filename === "") {
     return toHtml(hast);
   }
 
+  // Add filename to the code block if it exists
   visit(hast, "element", (node: Element) => {
     if (
       node.tagName === "pre" &&
@@ -58,4 +58,4 @@ const buildHTML = (
   return toHtml(hast);
 };
 
-export { buildHTML };
+export { buildCodeBlock };

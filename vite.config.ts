@@ -23,7 +23,7 @@ export default defineConfig(() => {
       mdx({
         jsxImportSource: 'hono/jsx',
         remarkPlugins: [remarkGfm, remarkBreaks, remarkFrontmatter, remarkMdxFrontmatter, remarkMomijiCodeFilename],
-        rehypePlugins: [rehypeMomiji]
+        rehypePlugins: [[rehypeMomiji, {}]],
       })
     ],
   }
