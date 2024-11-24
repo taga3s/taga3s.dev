@@ -1,9 +1,10 @@
 import type { Plugin } from "unified";
-import type { Text, Element, Parent } from "hast";
+import type { Text, Element, Parent, Nodes } from "hast";
 import { visit } from "unist-util-visit";
 import { renderMermaid } from "@mermaid-js/mermaid-cli";
 import puppeteer from "puppeteer";
 import { parser } from "./parser";
+import type { Node } from "unist";
 
 interface MermaidCodeBlock {
   textNode: Text;
@@ -23,10 +24,10 @@ const rehypeMermaid: Plugin = () => {
 
   const checkIsMermaid = (lang: string): boolean => lang === "mermaid";
 
-  return async (node) => {
+  return async (tree: Node) => {
     const mermaidCodeBlocks: MermaidCodeBlock[] = [];
 
-    visit(node, "element", (node: Element, index: number, parent: Parent) => {
+    visit(tree as Nodes, "element", (node, index, parent) => {
       // Check if the node is a pre tag with a single child
       if (!(node.tagName === "pre" && Array.isArray(node.children) && node.children.length === 1)) {
         return;
@@ -60,7 +61,7 @@ const rehypeMermaid: Plugin = () => {
       const lang = parseLanguage(classNames);
       const isMermaid = checkIsMermaid(lang);
 
-      if (isMermaid && index !== null && parent !== null) {
+      if (isMermaid && index && parent) {
         mermaidCodeBlocks.push({ textNode, index, parent });
       }
     });
