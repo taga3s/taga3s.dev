@@ -1,7 +1,7 @@
 import { bundledLanguages, bundledThemes, type BundledLanguage, type BundledTheme } from "shiki";
 import type { Node } from "unist";
 import type { Plugin } from "unified";
-import type { Text, Element } from "hast";
+import type { Text, Element, Nodes } from "hast";
 import { visit } from "unist-util-visit";
 import { getHighlighter } from "./highlighter";
 import { parser } from "./parser";
@@ -18,7 +18,6 @@ interface Option {
 const defaultHighlighter = await getHighlighter({ themes: bundledThemes, langs: bundledLanguages });
 
 const rehypeMomiji: Plugin<Option[]> = (options) => {
-  const langs = defaultHighlighter.getLoadedLanguages();
   const {
     theme = "github-dark-default",
     fallbackLang = "c",
@@ -26,6 +25,8 @@ const rehypeMomiji: Plugin<Option[]> = (options) => {
     filenameBGColor,
     filenameTextColor,
   } = options;
+
+  const langs = defaultHighlighter.getLoadedLanguages();
 
   const parseLanguage = (classNames: string[]): string | undefined => {
     for (const className of classNames) {
@@ -41,8 +42,8 @@ const rehypeMomiji: Plugin<Option[]> = (options) => {
     return fallbackLang;
   };
 
-  return (node: Node) => {
-    visit(node, "element", (node: Element) => {
+  return (tree: Node) => {
+    visit(tree as Nodes, "element", (node) => {
       // Check if the node is a pre tag with a single child
       if (!(node.tagName === "pre" && Array.isArray(node.children) && node.children.length === 1)) {
         return;
@@ -89,7 +90,15 @@ const rehypeMomiji: Plugin<Option[]> = (options) => {
 
       const filename = (codeElem.properties["data-remark-code-filename"] as string) ?? "";
 
-      const codeBlock = buildCodeBlock(rawCode, supportedLang, theme, filename, filenameBGColor, filenameTextColor);
+      const codeBlock = buildCodeBlock(
+        defaultHighlighter,
+        rawCode,
+        supportedLang,
+        theme,
+        filename,
+        filenameBGColor,
+        filenameTextColor,
+      );
 
       const container = `
         <div style="position: relative; display: flex; flex-direction: column; gap: 2px;">
