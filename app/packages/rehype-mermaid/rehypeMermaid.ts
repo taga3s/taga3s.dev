@@ -1,10 +1,9 @@
 import type { Plugin } from "unified";
-import type { Text, Element, Parent, Nodes } from "hast";
+import type { Text, Parent, Root } from "hast";
 import { visit } from "unist-util-visit";
 import { renderMermaid } from "@mermaid-js/mermaid-cli";
 import puppeteer from "puppeteer";
 import { parser } from "./parser";
-import type { Node } from "unist";
 
 interface MermaidCodeBlock {
   textNode: Text;
@@ -12,7 +11,7 @@ interface MermaidCodeBlock {
   parent: Parent;
 }
 
-const rehypeMermaid: Plugin = () => {
+const rehypeMermaid: Plugin<[], Root> = () => {
   const parseLanguage = (classNames: string[]): string => {
     for (const className of classNames) {
       if (className.startsWith("language-")) {
@@ -24,18 +23,18 @@ const rehypeMermaid: Plugin = () => {
 
   const checkIsMermaid = (lang: string): boolean => lang === "mermaid";
 
-  return async (tree: Node) => {
+  return async (tree) => {
     const mermaidCodeBlocks: MermaidCodeBlock[] = [];
 
-    visit(tree as Nodes, "element", (node, index, parent) => {
+    visit(tree, "element", (node, index, parent) => {
       // Check if the node is a pre tag with a single child
       if (!(node.tagName === "pre" && Array.isArray(node.children) && node.children.length === 1)) {
         return;
       }
 
       // Check if the child is a code tag
-      const codeElem = node.children[0] as Element;
-      if (!(codeElem !== null && typeof codeElem === "object" && codeElem.tagName === "code")) {
+      const [codeElem] = node.children;
+      if (codeElem === undefined || codeElem.type !== "element" || codeElem.tagName !== "code") {
         return;
       }
 
@@ -52,8 +51,8 @@ const rehypeMermaid: Plugin = () => {
       }
 
       // Check if the code tag has a text child
-      const textNode = codeElem.children[0] as Text;
-      if (typeof textNode.value !== "string") {
+      const [textNode] = codeElem.children;
+      if (textNode === undefined || textNode.type !== "text") {
         return;
       }
 
@@ -83,7 +82,11 @@ const rehypeMermaid: Plugin = () => {
         const svgElem = decoder.decode(svgBuffer).replaceAll("my-svg", `my-svg-${blockIndex}`);
         const parsedRoot = parser.parse(svgElem);
 
-        const content = parsedRoot.children[0] as Element;
+        const [content] = parsedRoot.children;
+        if (content.type !== "element") {
+          return;
+        }
+
         content.properties.style = "width: 100%; background-color: white;";
 
         parent.children[index] = content;
