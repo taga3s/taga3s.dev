@@ -9,7 +9,7 @@ import remarkFrontmatter from 'remark-frontmatter';
 import remarkMdxFrontmatter from 'remark-mdx-frontmatter';
 import remarkGfm from 'remark-gfm'
 import rehypeMomiji from './app/packages/rehype-momiji/rehypeMomiji'
-import remarkMomijiCodeFilename from './app/packages/remark-momiji/remarkMomijiCodeFilename'
+import remarkMomijiCodeFilename from './app/packages/remark-momiji-filename'
 import rehypeMermaid from './app/packages/rehype-mermaid/rehypeMermaid'
 
 export default defineConfig(() => {

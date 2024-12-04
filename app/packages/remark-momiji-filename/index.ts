@@ -1,16 +1,14 @@
 import { visit } from "unist-util-visit";
 import type { Root } from "mdast";
-import type * as unified from "unified";
+import type { Plugin } from "unified";
 
-const remarkMomijiCodeFilename: unified.Plugin<[], Root> = () => {
+const remarkMomijiFilename: Plugin<[], Root> = () => {
   return (tree) => {
     visit(tree, "code", (node) => {
       const metaString = `${node.lang ?? ""} ${node.meta ?? ""}`.trim();
-      if (!metaString) return;
+      if (!metaString.includes("title=")) return;
+
       const [title] = metaString.match(/(?<=title=("|'))(.*?)(?=("|'))/) ?? [""];
-      if (!title && metaString.includes("title=")) {
-        return;
-      }
       if (!title) return;
 
       if (!node.data) {
@@ -23,4 +21,4 @@ const remarkMomijiCodeFilename: unified.Plugin<[], Root> = () => {
   };
 };
 
-export default remarkMomijiCodeFilename;
+export default remarkMomijiFilename;
