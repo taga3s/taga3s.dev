@@ -1,10 +1,8 @@
 import { bundledLanguages, bundledThemes, type BundledLanguage, type BundledTheme } from "shiki";
-import type { Node } from "unist";
 import type { Plugin } from "unified";
-import type { Text, Element, Nodes } from "hast";
+import type { ElementContent, Root } from "hast";
 import { visit } from "unist-util-visit";
 import { getHighlighter } from "./highlighter";
-import { parser } from "./parser";
 import { buildCodeBlock } from "./buildCodeBlock";
 
 interface Option {
@@ -17,7 +15,7 @@ interface Option {
 
 const defaultHighlighter = await getHighlighter({ themes: bundledThemes, langs: bundledLanguages });
 
-const rehypeMomiji: Plugin<Option[]> = (options) => {
+const rehypeMomiji: Plugin<Option[], Root> = (options) => {
   const {
     theme = "github-dark-default",
     fallbackLang = "c",
@@ -38,20 +36,27 @@ const rehypeMomiji: Plugin<Option[]> = (options) => {
   };
 
   const checkSupportedLanguage = (lang: string): string => {
-    if (lang && langs.includes(lang)) return lang;
+    if (langs.includes(lang)) return lang;
     return fallbackLang;
   };
 
-  return (tree: Node) => {
-    visit(tree as Nodes, "element", (node) => {
+  return (tree) => {
+    visit(tree, "element", (node) => {
       // Check if the node is a pre tag with a single child
       if (!(node.tagName === "pre" && Array.isArray(node.children) && node.children.length === 1)) {
         return;
       }
 
       // Check if the child is a code tag
-      const codeElem = node.children[0] as Element;
-      if (!(codeElem !== null && typeof codeElem === "object" && codeElem.tagName === "code")) {
+      const [codeElem] = node.children;
+      if (
+        !(
+          codeElem.type === "element" &&
+          codeElem !== null &&
+          typeof codeElem === "object" &&
+          codeElem.tagName === "code"
+        )
+      ) {
         return;
       }
 
@@ -68,8 +73,8 @@ const rehypeMomiji: Plugin<Option[]> = (options) => {
       }
 
       // Check if the code tag has a text child
-      const textNode = codeElem.children[0] as Text;
-      if (!(typeof textNode.value === "string")) {
+      const [textNode] = codeElem.children;
+      if (!(textNode.type === "text" && typeof textNode.value === "string")) {
         return;
       }
 
@@ -100,15 +105,8 @@ const rehypeMomiji: Plugin<Option[]> = (options) => {
         filenameTextColor,
       );
 
-      const container = `
-        <div style="position: relative; display: flex; flex-direction: column; gap: 2px;">
-          ${codeBlock}
-        </div>
-      `;
-
-      const parsedRoot = parser.parse(container);
       node.tagName = "div";
-      node.children = parsedRoot.children as Element[];
+      node.children = codeBlock.children as ElementContent[];
     });
   };
 };

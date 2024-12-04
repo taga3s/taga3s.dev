@@ -1,6 +1,6 @@
 import type { BundledLanguage, HighlighterGeneric, BundledTheme } from "shiki";
-import { toHtml } from "hast-util-to-html";
 import { COLOR_SHIRONERI, COLOR_HAI } from "./colors";
+import type { Root } from "hast";
 
 const buildCodeBlock = (
   highlighter: HighlighterGeneric<BundledLanguage, BundledTheme>,
@@ -10,26 +10,25 @@ const buildCodeBlock = (
   filename: string,
   filenameBGColor?: string,
   filenameTextColor?: string,
-) => {
-  const filenameColorStyle = `background-color: ${filenameBGColor ?? COLOR_HAI}; color: ${filenameTextColor ?? COLOR_SHIRONERI};`;
-
+): Root => {
   const hast = highlighter.codeToHast(rawCode, {
     lang: lang,
     theme: theme,
     transformers: [
       {
         pre(this, node) {
-          if (filename === "") return;
-
+          // Add filename to the code block
           if (
+            filename !== "" &&
             node.properties.class &&
             typeof node.properties.class === "string" &&
             node.properties.class.includes("shiki")
           ) {
+            const filenameColorStyle = `background-color: ${filenameBGColor ?? COLOR_HAI}; color: ${filenameTextColor ?? COLOR_SHIRONERI};`;
+
             node.properties = {
-              class: node.properties.class,
-              style: `${node.properties.style}; padding-top: 48px;`,
-              tabindex: node.properties.tabindex,
+              ...node.properties,
+              style: `${node.properties.style}; padding-top: 48px; position: relative;`,
             };
 
             node.children.unshift({
@@ -51,7 +50,7 @@ const buildCodeBlock = (
     ],
   });
 
-  return toHtml(hast);
+  return hast;
 };
 
 export { buildCodeBlock };
