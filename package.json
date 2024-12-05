@@ -50,5 +50,5 @@
   "lint-staged": {
     "*.{js,ts,jsx,tsx,json}": "pnpm run lint && pnpm run format"
   },
-  "packageManager": "pnpm@9.6.0"
+  "packageManager": "pnpm@9.14.4"
 }
