@@ -12,6 +12,8 @@ import rehypeMomiji from './app/packages/rehype-momiji'
 import remarkMomijiCodeFilename from './app/packages/remark-momiji-filename'
 import rehypeMermaid from './app/packages/rehype-mermaid/rehypeMermaid'
 import remarkEmojiName from './app/packages/remark-emoji-name'
+import { remarkEmbeddedGithubCode } from './app/packages/remark-embedded-github-code'
+import { rehypeEmbeddedGithubCode } from './app/packages/rehype-embedded-github-code'
 
 export default defineConfig(() => {
   return {
@@ -24,8 +26,8 @@ export default defineConfig(() => {
       ssg({ entry: "./app/server.ts" }), 
       mdx({
         jsxImportSource: 'hono/jsx',
-        remarkPlugins: [remarkGfm, remarkBreaks, remarkFrontmatter, remarkMdxFrontmatter, remarkMomijiCodeFilename, remarkEmojiName],
-        rehypePlugins: [[rehypeMomiji, { excludeLangs: ['mermaid'] }], rehypeMermaid],
+        remarkPlugins: [remarkGfm, remarkBreaks, remarkFrontmatter, remarkMdxFrontmatter, remarkMomijiCodeFilename, remarkEmojiName, remarkEmbeddedGithubCode],
+        rehypePlugins: [[rehypeMomiji, { excludeLangs: ['mermaid'] }], rehypeMermaid, rehypeEmbeddedGithubCode],
       })
     ],
   }
