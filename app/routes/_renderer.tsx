@@ -45,6 +45,7 @@ export default jsxRenderer(({ children, title, description }) => {
 
         {/* global css */}
         <link rel="stylesheet" href="/static/markdown-styles.css" />
+        <link rel="stylesheet" href="/static/rehype-attention-block.css" />
         <Style />
 
         <Script src="/app/client.ts" async />
