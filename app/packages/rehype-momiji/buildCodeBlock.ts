@@ -28,7 +28,7 @@ const buildCodeBlock = (
 
             node.properties = {
               ...node.properties,
-              style: `${node.properties.style}; padding-top: 48px; position: relative;`,
+              style: `${node.properties.style}; padding-top: 48px;`,
             };
 
             node.children.unshift({

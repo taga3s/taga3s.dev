@@ -107,6 +107,7 @@ const rehypeMomiji: Plugin<Option[], Root> = (options) => {
 
       node.tagName = "div";
       node.children = codeBlock.children as ElementContent[];
+      node.properties.style = "position: relative;";
     });
   };
 };
