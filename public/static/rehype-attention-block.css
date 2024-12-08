@@ -1,0 +1,57 @@
+.remark-atb-base {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 12px 24px;
+  margin-top: 24px;
+  border-radius: 6px;
+  font-size: 16px;
+
+  > p {
+    margin: 0;
+  }
+}
+
+.remark-atb-note {
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+}
+
+.note {
+  fill: #155724;
+  color: #155724;
+}
+
+.remark-atb-warning {
+  background-color: #fff3cd;
+  border-color: #ffeeba;
+}
+
+.warning {
+  fill: #856404;
+  color: #856404;
+}
+
+.remark-atb-tip {
+  background-color: #d1ecf1;
+  border-color: #bee5eb;
+}
+
+.tip {
+  fill: #0c5460;
+  color: #0c5460;
+}
+
+.remark-atb-icon {
+  max-width: 36px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.remark-atb-label {
+  font-weight: bold;
+  font-size: 12px;
+}
