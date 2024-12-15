@@ -14,8 +14,7 @@ import rehypeMermaid from './app/packages/rehype-mermaid/rehypeMermaid'
 import remarkEmojiName from './app/packages/remark-emoji-name'
 import { remarkAttentionBlock } from './app/packages/remark-attention-block'
 import { rehypeAttentionBlock } from './app/packages/rehype-attention-block'
-import { remarkEmbeddedGithubCode } from './app/packages/remark-embedded-github-code'
-import { rehypeEmbeddedGithubCode } from './app/packages/rehype-embedded-github-code'
+import { rehypeGithubEmbed } from './app/packages/rehype-github-embed'
 
 export default defineConfig(() => {
   return {
@@ -28,8 +27,8 @@ export default defineConfig(() => {
       ssg({ entry: "./app/server.ts" }), 
       mdx({
         jsxImportSource: 'hono/jsx',
-        remarkPlugins: [remarkGfm, remarkBreaks, remarkFrontmatter, remarkMdxFrontmatter, remarkEmbeddedGithubCode, remarkMomijiCodeFilename, remarkEmojiName, remarkAttentionBlock],
-        rehypePlugins: [[rehypeMomiji, { excludeLangs: ['mermaid'] }], rehypeMermaid, rehypeEmbeddedGithubCode, rehypeAttentionBlock],
+        remarkPlugins: [remarkGfm, remarkBreaks, remarkFrontmatter, remarkMdxFrontmatter, remarkMomijiCodeFilename, remarkEmojiName, remarkAttentionBlock],
+        rehypePlugins: [[rehypeMomiji, { excludeLangs: ['mermaid'] }], rehypeMermaid, [rehypeGithubEmbed, { githubPAT: "" }], rehypeAttentionBlock],
       })
     ],
   }
