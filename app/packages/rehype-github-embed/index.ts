@@ -78,7 +78,7 @@ const rehypeGithubEmbed: Plugin<Option[], Root> = (options): Transformer<Root> =
           const element = createCodeBlock(title, href, code);
           parent.children[index] = element;
         } catch (error) {
-          const element = createErrBlock(`Something went wrong while rendering the code from GitHub`);
+          const element = createErrBlock("Something went wrong while rendering the code from GitHub");
           parent.children[index] = element;
           console.error("Something went wrong", { cause: error });
         }
