@@ -11,7 +11,6 @@ import remarkGfm from 'remark-gfm'
 import rehypeMomiji from './app/packages/rehype-momiji'
 import remarkMomijiCodeFilename from './app/packages/remark-momiji-filename'
 import rehypeMermaid from './app/packages/rehype-mermaid/rehypeMermaid'
-import remarkEmojiName from './app/packages/remark-emoji-name'
 import { remarkAttentionBlock } from './app/packages/remark-attention-block'
 import { rehypeAttentionBlock } from './app/packages/rehype-attention-block'
 
@@ -26,7 +25,7 @@ export default defineConfig(() => {
       ssg({ entry: "./app/server.ts" }), 
       mdx({
         jsxImportSource: 'hono/jsx',
-        remarkPlugins: [remarkGfm, remarkBreaks, remarkFrontmatter, remarkMdxFrontmatter, remarkMomijiCodeFilename, remarkEmojiName, remarkAttentionBlock],
+        remarkPlugins: [remarkGfm, remarkBreaks, remarkFrontmatter, remarkMdxFrontmatter, remarkMomijiCodeFilename, remarkAttentionBlock],
         rehypePlugins: [[rehypeMomiji, { excludeLangs: ['mermaid'] }], rehypeMermaid, rehypeAttentionBlock],
       })
     ],
