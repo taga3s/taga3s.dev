@@ -1,4 +1,4 @@
-import type { Plugin } from "unified";
+import type { Plugin, Transformer } from "unified";
 import type { Text, Parent, Root } from "hast";
 import { visit } from "unist-util-visit";
 import { renderMermaid } from "@mermaid-js/mermaid-cli";
@@ -23,8 +23,8 @@ const rehypeMermaid: Plugin<[], Root> = () => {
 
   const checkIsMermaid = (lang: string): boolean => lang === "mermaid";
 
-  return async (tree) => {
-    const mermaidCodeBlocks: MermaidCodeBlock[] = [];
+  const transformer: Transformer<Root> = async (tree) => {
+    const mermaidCodeBlockPromises: MermaidCodeBlock[] = [];
 
     visit(tree, "element", (node, index, parent) => {
       // Check if the node is a pre tag with a single child
@@ -61,11 +61,11 @@ const rehypeMermaid: Plugin<[], Root> = () => {
       const isMermaid = checkIsMermaid(lang);
 
       if (isMermaid && index && parent) {
-        mermaidCodeBlocks.push({ textNode, index, parent });
+        mermaidCodeBlockPromises.push({ textNode, index, parent });
       }
     });
 
-    if (mermaidCodeBlocks.length === 0) {
+    if (mermaidCodeBlockPromises.length === 0) {
       return;
     }
 
@@ -76,7 +76,7 @@ const rehypeMermaid: Plugin<[], Root> = () => {
     const decoder = new TextDecoder();
 
     await Promise.all(
-      mermaidCodeBlocks.map(async ({ textNode, index, parent }, blockIndex) => {
+      mermaidCodeBlockPromises.map(async ({ textNode, index, parent }, blockIndex) => {
         const { data: svgBuffer } = await renderMermaid(browser, textNode.value, "svg");
 
         const svgElem = decoder.decode(svgBuffer).replaceAll("my-svg", `my-svg-${blockIndex}`);
@@ -95,6 +95,8 @@ const rehypeMermaid: Plugin<[], Root> = () => {
 
     await browser.close();
   };
+
+  return transformer;
 };
 
 export default rehypeMermaid;
