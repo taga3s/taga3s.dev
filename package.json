@@ -19,7 +19,7 @@
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
-    "@cloudflare/workers-types": "^4.20241202.0",
+    "@cloudflare/workers-types": "^4.20241218.0",
     "@hono/vite-cloudflare-pages": "^0.4.2",
     "@hono/vite-dev-server": "^0.17.0",
     "@hono/vite-ssg": "^0.1.0",
@@ -31,7 +31,7 @@
     "hast": "^1.0.0",
     "hast-util-to-html": "^9.0.4",
     "mdast": "^3.0.0",
-    "puppeteer": "^23.10.0",
+    "puppeteer": "^23.11.1",
     "rehype-parse": "^9.0.1",
     "remark-breaks": "^4.0.0",
     "remark-frontmatter": "^5.0.0",
@@ -42,7 +42,7 @@
     "unist": "^0.0.1",
     "unist-util-visit": "^5.0.0",
     "vite": "^5.4.11",
-    "wrangler": "^3.92.0"
+    "wrangler": "^3.99.0"
   },
   "lint-staged": {
     "*.{js,ts,jsx,tsx,json}": "pnpm run lint && pnpm run format"
