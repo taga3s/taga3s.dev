@@ -17,7 +17,7 @@ const links = [
   },
   {
     title: "Qiita",
-    url: "https://qiita.com/t33s_dev",
+    url: "https://qiita.com/taga3s",
     style: qiita,
     icon: <QiitaIcon />,
   },
