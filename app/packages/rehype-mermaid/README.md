@@ -5,7 +5,3 @@
 ## features
 
 - Generating Mermaid Diagrams
-
-## How to use?
-
-<img src="./docs/assets/rehype-mermaid-sample.png" alt="example usage of rehype-mermaid" />
