@@ -93,23 +93,24 @@ const rehypeMomiji: Plugin<Option[], Root> = (options) => {
 
       const supportedLang = checkSupportedLanguage(lang);
 
-      const filename = (codeElem.properties["data-remark-code-filename"] as string) ?? "";
+      const filename = codeElem.properties["data-remark-code-title"] ?? "";
 
       const codeBlock = buildCodeBlock(
         defaultHighlighter,
         rawCode,
         supportedLang,
         theme,
-        filename,
+        String(filename),
         filenameBGColor,
         filenameTextColor,
       );
+      if (!codeBlock) return;
 
       node.tagName = "div";
-      node.children = codeBlock.children as ElementContent[];
+      node.children = [codeBlock];
       node.properties.style = "position: relative;";
     });
   };
 };
 
-export default rehypeMomiji;
+export { rehypeMomiji };

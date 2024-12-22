@@ -1,6 +1,6 @@
 import type { BundledLanguage, HighlighterGeneric, BundledTheme } from "shiki";
 import { COLOR_SHIRONERI, COLOR_HAI } from "./colors";
-import type { Root } from "hast";
+import type { Element } from "hast";
 
 const buildCodeBlock = (
   highlighter: HighlighterGeneric<BundledLanguage, BundledTheme>,
@@ -10,7 +10,7 @@ const buildCodeBlock = (
   filename: string,
   filenameBGColor?: string,
   filenameTextColor?: string,
-): Root => {
+): Element | undefined => {
   const hast = highlighter.codeToHast(rawCode, {
     lang: lang,
     theme: theme,
@@ -50,7 +50,11 @@ const buildCodeBlock = (
     ],
   });
 
-  return hast;
+  if (hast.children[0].type !== "element") {
+    return;
+  }
+
+  return hast.children[0];
 };
 
 export { buildCodeBlock };
