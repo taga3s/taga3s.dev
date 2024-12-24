@@ -31,3 +31,6 @@ jobs:
 
       - name: Run format
         run: pnpm format
+      
+      - name: Run test
+        run: pnpm test
