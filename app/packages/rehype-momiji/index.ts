@@ -1,6 +1,6 @@
 import { bundledLanguages, bundledThemes, type BundledLanguage, type BundledTheme } from "shiki";
 import type { Plugin } from "unified";
-import type { ElementContent, Root } from "hast";
+import type { Root } from "hast";
 import { visit } from "unist-util-visit";
 import { getHighlighter } from "./highlighter";
 import { buildCodeBlock } from "./buildCodeBlock";
