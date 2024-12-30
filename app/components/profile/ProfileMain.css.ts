@@ -4,6 +4,7 @@ const profileMain = css`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 20px 0;
 `;
 
 const profileMainBox = css`
@@ -15,7 +16,7 @@ const profileMainBox = css`
 const profileMainImage = css`
   width: 100px;
   height: 100px;
-  border-radius: 12px;
+  border-radius: 100%;
 
   @media screen and (min-width:600px) {
     width: 140px;
@@ -36,11 +37,10 @@ const profileMainBelonging = css`
 `;
 
 const profileMainIntroduction = css`
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  margin-top: 32px;
+  margin-top: 24px;
+  margin-bottom: 24px;
   font-size: 16px;
+  font-style: italic;
 `;
 
 export {
