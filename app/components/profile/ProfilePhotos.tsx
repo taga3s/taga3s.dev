@@ -9,7 +9,7 @@ type Props = {
 
 const ProfilePhotos: FC<Props> = (props) => {
   return (
-    <Section title="Favorites">
+    <Section title="Favs">
       <PhotoList photos={props.photos} />
     </Section>
   );
