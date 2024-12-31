@@ -23,9 +23,14 @@ const bodyLayout = css`
 const HeaderMemorized = memo(() => <Header />);
 const FooterMemorized = memo(() => <Footer />);
 
-export default jsxRenderer(({ children, title, description }) => {
+const setOGP = (ogpImage?: string) => {
+  return `https://taga3s.dev/${ogpImage ?? "ogp-image.png"}`;
+};
+
+export default jsxRenderer(({ children, title, description, ogpImage }) => {
   const _title = title ?? "taga3s-dev";
   const _description = description ?? "taga3sのWebページです。主に趣味や技術系の発信をしています。";
+  const _ogpImage = setOGP(ogpImage);
 
   return (
     <html lang="ja" class={htmlLayout}>
@@ -55,11 +60,11 @@ export default jsxRenderer(({ children, title, description }) => {
         <meta property="og:title" content={_title} />
         <meta property="og:description" content={_description} />
         <meta property="og:site_name" content="taga3s-dev" />
-        <meta property="og:image" content="https://taga3s.dev/ogp-image.png" />
+        <meta property="og:image" content={_ogpImage} />
 
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content={_title} />
-        <meta name="twitter:image" content="https://taga3s.dev/ogp-image.png" />
+        <meta name="twitter:image" content={_ogpImage} />
         <meta name="twitter:description" content={_description} />
 
         <meta name="description" content={_description} />
