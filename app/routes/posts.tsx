@@ -4,6 +4,7 @@ import { PostsPresenter } from "../components/posts/PostsPresenter";
 export type Meta = {
   title: string;
   publishedAt: string;
+  ogpImage?: string;
 };
 
 export default createRoute(async (c) => {
@@ -15,6 +16,7 @@ export default createRoute(async (c) => {
       id: id.replace(/\.mdx$/, ""),
       title: module.frontmatter.title ?? "",
       publishedAt: new Date(module.frontmatter.publishedAt) ?? "",
+      ogpImage: module.frontmatter.ogpImage,
     }))
     .sort((a, b) => b.publishedAt.getTime() - a.publishedAt.getTime());
 
