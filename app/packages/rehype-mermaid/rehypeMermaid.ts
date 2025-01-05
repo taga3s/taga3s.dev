@@ -99,4 +99,4 @@ const rehypeMermaid: Plugin<[], Root> = () => {
   return transformer;
 };
 
-export default rehypeMermaid;
+export { rehypeMermaid };

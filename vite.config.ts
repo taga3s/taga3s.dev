@@ -11,7 +11,7 @@ import remarkMdxFrontmatter from 'remark-mdx-frontmatter';
 import remarkGfm from 'remark-gfm'
 import { rehypeMomiji } from './app/packages/rehype-momiji'
 import { remarkMomijiTitle } from './app/packages/remark-momiji-title'
-import rehypeMermaid from './app/packages/rehype-mermaid/rehypeMermaid'
+import { rehypeMermaid } from './app/packages/rehype-mermaid/rehypeMermaid'
 import { remarkAttentionBlock } from './app/packages/remark-attention-block'
 import { rehypeAttentionBlock } from './app/packages/rehype-attention-block'
 import { defineConfig } from "vitest/config"
