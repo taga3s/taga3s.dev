@@ -7,6 +7,15 @@ This is my profile website.✋
 - Web Framework
   - HonoX
 
+- Language
+  - TypeScript
+
+- Libs
+  - remark
+  - rehype
+  - shiki
+  - mermaid 
+
 - Formatter / Linter
   - biome
 
@@ -50,7 +59,7 @@ $ pnpm run format
 $ pnpm run lint
 ```
 
-- Deploy to cloudflare workers
+- Test
 ```
-$ pnpm run deploy
+$ pnpm run test
 ```
