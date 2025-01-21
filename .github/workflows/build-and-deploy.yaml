@@ -51,7 +51,7 @@ jobs:
           command: pages deploy ./dist --project-name=taga3s-dev-website
 
       - name: Add publish URL as commit status
-        uses: actions/github-script@v6
+        uses: actions/github-script@v7
         with:
           script: |
             const sha = context.payload.pull_request?.head.sha ?? context.sha;
