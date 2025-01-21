@@ -1,20 +1,33 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": ["config:recommended", ":disableDependencyDashboard"],
+  "enabledManagers": ["npm", "github-actions"],
   "timezone": "Asia/Tokyo",
   "prHourlyLimit": 0,
   "prConcurrentLimit": 5,
-  "automerge": true,
+  "rebaseWhen": "conflicted",
   "packageRules": [
     {
-      "matchManagers": ["github-actions"],
-      "matchUpdateTypes": ["minor", "patch"],
-      "groupName": "github actions deps"
+      "matchPackageNames": ["/^vite/"],
+      "groupName": "vite"
     },
     {
-      "matchManagers": ["npm"],
-      "matchUpdateTypes": ["minor", "patch"],
-      "groupName": "npm deps"
+      "matchPackageNames": ["/^remark/"],
+      "groupName": "remark"
+    },
+    {
+      "matchPackageNames": ["/^rehype/"],
+      "groupName": "rehype"
+    },
+    {
+      "matchUpdateTypes": ["minor"],
+      "automerge": true,
+      "addLabels": ["minor"]
+    },
+    {
+      "matchUpdateTypes": ["patch"],
+      "automerge": true,
+      "addLabels": ["patch"]
     }
   ]
 }
