@@ -35,7 +35,7 @@ importers:
         version: 3.1.0(acorn@8.14.0)(rollup@4.31.0)
       '@mermaid-js/mermaid-cli':
         specifier: ^11.4.2
-        version: 11.4.2(puppeteer@23.11.1(typescript@5.7.3))(typescript@5.7.3)(vue-class-component@7.2.6(vue@3.5.13(typescript@5.7.3)))
+        version: 11.4.2(puppeteer@24.1.0(typescript@5.7.3))(typescript@5.7.3)(vue-class-component@7.2.6(vue@3.5.13(typescript@5.7.3)))
       '@types/hast':
         specifier: ^3.0.4
         version: 3.0.4
@@ -55,8 +55,8 @@ importers:
         specifier: ^3.0.0
         version: 3.0.0
       puppeteer:
-        specifier: ^23.11.1
-        version: 23.11.1(typescript@5.7.3)
+        specifier: ^24.0.0
+        version: 24.1.0(typescript@5.7.3)
       rehype-parse:
         specifier: ^9.0.1
         version: 9.0.1
@@ -701,8 +701,8 @@ packages:
     resolution: {integrity: sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg==}
     engines: {node: '>=14'}
 
-  '@puppeteer/browsers@2.6.1':
-    resolution: {integrity: sha512-aBSREisdsGH890S2rQqK82qmQYU3uFpSH8wcZWHgHzl3LfzsxAKbLNiAG9mO8v1Y0UICBeClICxPJvyr0rcuxg==}
+  '@puppeteer/browsers@2.7.0':
+    resolution: {integrity: sha512-bO61XnTuopsz9kvtfqhVbH6LTM1koxK0IlBR+yuVrM2LB7mk8+5o1w18l5zqd5cs8xlf+ntgambqRqGifMDjog==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -1268,6 +1268,11 @@ packages:
     peerDependencies:
       devtools-protocol: '*'
 
+  chromium-bidi@0.12.0:
+    resolution: {integrity: sha512-xzXveJmX826GGq1MeE5okD8XxaDT8172CXByhFJ687eY65rbjOIebdbUuQh+jXKaNyGKI14Veb3KjLLmSueaxA==}
+    peerDependencies:
+      devtools-protocol: '*'
+
   cliui@8.0.1:
     resolution: {integrity: sha512-BSeNnyus75C4//NQ9gQt1/csTXyo/8Sb+afLAkzAptFuMsod9HFokGNudZpi/oQV73hnVK+sR+5PVRMd+Dr7YQ==}
     engines: {node: '>=12'}
@@ -1589,8 +1594,8 @@ packages:
   devlop@1.1.0:
     resolution: {integrity: sha512-RWmIqhcFf1lRYBvNmr7qTNuyCt/7/ns2jbpp1+PalgE/rDQcBT0fioSMUpJ93irlUhC5hrg4cYqe6U+0ImW0rA==}
 
-  devtools-protocol@0.0.1367902:
-    resolution: {integrity: sha512-XxtPuC3PGakY6PD7dG66/o8KwJ/LkH2/EKe19Dcw58w53dv4/vSQEkn/SzuyhHE2q4zPgCkxQBxus3VV4ql+Pg==}
+  devtools-protocol@0.0.1380148:
+    resolution: {integrity: sha512-1CJABgqLxbYxVI+uJY/UDUHJtJ0KZTSjNYJYKqd9FRoXT33WDakDHNxRapMEgzeJ/C3rcs01+avshMnPmKQbvA==}
 
   didyoumean@1.2.2:
     resolution: {integrity: sha512-gxtyfqMg7GKyhQmb056K7M3xszy/myH8w+B4RT+QXBQsvAOdc3XymqDDPHx1BgPgsdAA5SIifona89YtRATDzw==}
@@ -2535,12 +2540,12 @@ packages:
   pump@3.0.2:
     resolution: {integrity: sha512-tUPXtzlGM8FE3P0ZL6DVs/3P58k9nk8/jZeQCurTJylQA8qFYzHFfhBJkuqyE0FifOsQ0uKWekiZ5g8wtr28cw==}
 
-  puppeteer-core@23.11.1:
-    resolution: {integrity: sha512-3HZ2/7hdDKZvZQ7dhhITOUg4/wOrDRjyK2ZBllRB0ZCOi9u0cwq1ACHDjBB+nX+7+kltHjQvBRdeY7+W0T+7Gg==}
+  puppeteer-core@24.1.0:
+    resolution: {integrity: sha512-ReefWoQgqdyl67uWEBy/TMZ4mAB7hP0JB5HIxSE8B1ot/4ningX1gmzHCOSNfMbTiS/VJHCvaZAe3oJTXph7yw==}
     engines: {node: '>=18'}
 
-  puppeteer@23.11.1:
-    resolution: {integrity: sha512-53uIX3KR5en8l7Vd8n5DUv90Ae9QDQsyIthaUFVzwV6yU750RjqRznEtNMBT20VthqAdemnJN+hxVdmMHKt7Zw==}
+  puppeteer@24.1.0:
+    resolution: {integrity: sha512-F+3yKILaosLToT7amR7LIkTKkKMR0EGQPjFBch+MtgS8vRPS+4cPnLJuXDVTfCj2NqfrCnShtOr7yD+9dEgHRQ==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -3604,14 +3609,14 @@ snapshots:
       - acorn
       - supports-color
 
-  '@mermaid-js/mermaid-cli@11.4.2(puppeteer@23.11.1(typescript@5.7.3))(typescript@5.7.3)(vue-class-component@7.2.6(vue@3.5.13(typescript@5.7.3)))':
+  '@mermaid-js/mermaid-cli@11.4.2(puppeteer@24.1.0(typescript@5.7.3))(typescript@5.7.3)(vue-class-component@7.2.6(vue@3.5.13(typescript@5.7.3)))':
     dependencies:
       '@mermaid-js/mermaid-zenuml': 0.2.0(mermaid@11.4.1)(typescript@5.7.3)(vue-class-component@7.2.6(vue@3.5.13(typescript@5.7.3)))
       chalk: 5.3.0
       commander: 12.1.0
       import-meta-resolve: 4.1.0
       mermaid: 11.4.1
-      puppeteer: 23.11.1(typescript@5.7.3)
+      puppeteer: 24.1.0(typescript@5.7.3)
     transitivePeerDependencies:
       - '@vue/composition-api'
       - supports-color
@@ -3648,7 +3653,7 @@ snapshots:
   '@pkgjs/parseargs@0.11.0':
     optional: true
 
-  '@puppeteer/browsers@2.6.1':
+  '@puppeteer/browsers@2.7.0':
     dependencies:
       debug: 4.4.0
       extract-zip: 2.0.1
@@ -4270,11 +4275,17 @@ snapshots:
     optionalDependencies:
       fsevents: 2.3.3
 
-  chromium-bidi@0.11.0(devtools-protocol@0.0.1367902):
+  chromium-bidi@0.11.0(devtools-protocol@0.0.1380148):
     dependencies:
-      devtools-protocol: 0.0.1367902
+      devtools-protocol: 0.0.1380148
       mitt: 3.0.1
       zod: 3.23.8
+
+  chromium-bidi@0.12.0(devtools-protocol@0.0.1380148):
+    dependencies:
+      devtools-protocol: 0.0.1380148
+      mitt: 3.0.1
+      zod: 3.24.1
 
   cliui@8.0.1:
     dependencies:
@@ -4614,7 +4625,7 @@ snapshots:
     dependencies:
       dequal: 2.0.3
 
-  devtools-protocol@0.0.1367902: {}
+  devtools-protocol@0.0.1380148: {}
 
   didyoumean@1.2.2: {}
 
@@ -5989,12 +6000,12 @@ snapshots:
       end-of-stream: 1.4.4
       once: 1.4.0
 
-  puppeteer-core@23.11.1:
+  puppeteer-core@24.1.0:
     dependencies:
-      '@puppeteer/browsers': 2.6.1
-      chromium-bidi: 0.11.0(devtools-protocol@0.0.1367902)
+      '@puppeteer/browsers': 2.7.0
+      chromium-bidi: 0.11.0(devtools-protocol@0.0.1380148)
       debug: 4.4.0
-      devtools-protocol: 0.0.1367902
+      devtools-protocol: 0.0.1380148
       typed-query-selector: 2.12.0
       ws: 8.18.0
     transitivePeerDependencies:
@@ -6002,13 +6013,13 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  puppeteer@23.11.1(typescript@5.7.3):
+  puppeteer@24.1.0(typescript@5.7.3):
     dependencies:
-      '@puppeteer/browsers': 2.6.1
-      chromium-bidi: 0.11.0(devtools-protocol@0.0.1367902)
+      '@puppeteer/browsers': 2.7.0
+      chromium-bidi: 0.12.0(devtools-protocol@0.0.1380148)
       cosmiconfig: 9.0.0(typescript@5.7.3)
-      devtools-protocol: 0.0.1367902
-      puppeteer-core: 23.11.1
+      devtools-protocol: 0.0.1380148
+      puppeteer-core: 24.1.0
       typed-query-selector: 2.12.0
     transitivePeerDependencies:
       - bufferutil
