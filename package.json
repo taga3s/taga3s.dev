@@ -22,7 +22,7 @@
     "@biomejs/biome": "1.9.4",
     "@cloudflare/workers-types": "^4.20241218.0",
     "@hono/vite-cloudflare-pages": "^0.4.2",
-    "@hono/vite-dev-server": "^0.17.0",
+    "@hono/vite-dev-server": "^0.18.0",
     "@hono/vite-ssg": "^0.1.0",
     "@mdx-js/rollup": "^3.1.0",
     "@mermaid-js/mermaid-cli": "^11.4.2",
@@ -52,5 +52,5 @@
   "lint-staged": {
     "*.{js,ts,jsx,tsx,json}": "pnpm run lint && pnpm run format"
   },
-  "packageManager": "pnpm@9.14.4"
+  "packageManager": "pnpm@9.15.4"
 }
