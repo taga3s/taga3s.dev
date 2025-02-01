@@ -10,6 +10,12 @@
       "required": true
     },
     {
+      "name": "category",
+      "type": "select",
+      "options": ["tech", "weekly"],
+      "required": true
+    },
+    {
       "name": "publishedAt",
       "type": "text",
       "question": "Please enter `published_at`",

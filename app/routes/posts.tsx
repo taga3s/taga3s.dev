@@ -3,6 +3,7 @@ import { PostsPresenter } from "../components/posts/PostsPresenter";
 
 export type Meta = {
   title: string;
+  category: string;
   publishedAt: string;
   ogpImage?: string;
 };
