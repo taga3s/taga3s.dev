@@ -23,7 +23,6 @@
     "@cloudflare/workers-types": "^4.20241218.0",
     "@hono/vite-cloudflare-pages": "^0.4.2",
     "@hono/vite-dev-server": "^0.18.0",
-    "@hono/vite-ssg": "^0.1.0",
     "@mdx-js/rollup": "^3.1.0",
     "@mermaid-js/mermaid-cli": "^11.4.2",
     "@types/hast": "^3.0.4",
