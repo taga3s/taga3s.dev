@@ -25,7 +25,6 @@ const postsCategorySelectorItem = css`
 const postsList = css`
   display: flex;
   flex-direction: column;
-  gap: 16px;
 `;
 
 const postsItem = css`
@@ -34,8 +33,7 @@ const postsItem = css`
   gap: 8px;
   width: 100%;
   padding: 16px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
+  border-top: 1px solid #ccc;
 `;
 
 const postsItemTitle = css`
