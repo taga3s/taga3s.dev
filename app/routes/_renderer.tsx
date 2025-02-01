@@ -11,7 +11,8 @@ const htmlLayout = css`
 `;
 
 const bodyLayout = css`
-  position: relative;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
   max-width: 700px;
   min-height: 100vh;
   margin: 0 auto;

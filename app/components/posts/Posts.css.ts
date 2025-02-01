@@ -34,6 +34,13 @@ const postsItem = css`
   width: 100%;
   padding: 16px;
   border-top: 1px solid #ccc;
+
+  &:hover {
+    span {
+      opacity: 0.7;
+      text-decoration: underline;
+    }
+  }
 `;
 
 const postsItemTitle = css`
