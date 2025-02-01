@@ -27,9 +27,6 @@ importers:
       '@hono/vite-dev-server':
         specifier: ^0.18.0
         version: 0.18.1(hono@4.6.19)(miniflare@3.20250124.0)(wrangler@3.105.1(@cloudflare/workers-types@4.20250124.3))
-      '@hono/vite-ssg':
-        specifier: ^0.1.0
-        version: 0.1.1(hono@4.6.19)
       '@mdx-js/rollup':
         specifier: ^3.1.0
         version: 3.1.0(acorn@8.14.0)(rollup@4.31.0)
@@ -636,12 +633,6 @@ packages:
         optional: true
       wrangler:
         optional: true
-
-  '@hono/vite-ssg@0.1.1':
-    resolution: {integrity: sha512-9n+qrLCyb2/SniAiA0RfaW3+8RmKN4DONYheFkVV0uIQE6NTN1tAVAsX6st1iAVe3hkb0rzVf14iIopt/9LqFw==}
-    engines: {node: '>=18.14.1'}
-    peerDependencies:
-      hono: '>=4.0.0'
 
   '@iconify/types@2.0.0':
     resolution: {integrity: sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg==}
@@ -3536,10 +3527,6 @@ snapshots:
     optionalDependencies:
       miniflare: 3.20250124.0
       wrangler: 3.105.1(@cloudflare/workers-types@4.20250124.3)
-
-  '@hono/vite-ssg@0.1.1(hono@4.6.19)':
-    dependencies:
-      hono: 4.6.19
 
   '@iconify/types@2.0.0': {}
 
