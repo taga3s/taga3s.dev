@@ -15,14 +15,14 @@
     "install-puppeteer": "puppeteer browsers install chrome"
   },
   "dependencies": {
-    "hono": "^4.6.14",
-    "honox": "^0.1.27"
+    "hono": "^4.6.20",
+    "honox": "^0.1.33"
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
-    "@cloudflare/workers-types": "^4.20241218.0",
+    "@cloudflare/workers-types": "^4.20250129.0",
     "@hono/vite-build": "^1.3.0",
-    "@hono/vite-dev-server": "^0.18.0",
+    "@hono/vite-dev-server": "^0.18.1",
     "@mdx-js/rollup": "^3.1.0",
     "@mermaid-js/mermaid-cli": "^11.4.2",
     "@types/hast": "^3.0.4",
@@ -31,7 +31,7 @@
     "hast": "^1.0.0",
     "hast-util-to-html": "^9.0.4",
     "mdast": "^3.0.0",
-    "puppeteer": "^24.0.0",
+    "puppeteer": "^24.1.1",
     "rehype-parse": "^9.0.1",
     "rehype-stringify": "^10.0.1",
     "remark-breaks": "^4.0.0",
@@ -46,7 +46,7 @@
     "unist-util-visit": "^5.0.0",
     "vite": "^6.0.10",
     "vitest": "^3.0.0",
-    "wrangler": "^3.99.0"
+    "wrangler": "^3.107.2"
   },
   "lint-staged": {
     "*.{js,ts,jsx,tsx,json}": "pnpm run lint && pnpm run format"
