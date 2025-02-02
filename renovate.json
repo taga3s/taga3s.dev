@@ -34,6 +34,7 @@
       "addLabels": ["patch"]
     }
   ],
+  "ignoreDeps": ["@cloudflare/workers-types", "wrangler"],
   "rebaseWhen": "conflicted",
   "schedule": ["after 9am and before 12am on sunday"]
 }
