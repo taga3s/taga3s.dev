@@ -12,7 +12,18 @@ const postsCategorySelector = css`
   gap: 16px;
 `;
 
-const postsCategorySelectorItem = css`
+const postsCategorySelectorActive = css`
+  display: inherit;
+  padding: 6px 12px;
+  border-radius: 8px;
+  background-color: #000000;
+  color: #fff;
+  &:hover {
+    background-color: #0056b3;
+  }
+`;
+
+const postsCategorySelectorItemInactive = css`
   display: inherit;
   padding: 6px 12px;
   border: 1px solid #ccc;
@@ -48,4 +59,12 @@ const postsItemTitle = css`
   font-weight: bold;
 `;
 
-export { postsWrapper, postsCategorySelector, postsCategorySelectorItem, postsItem, postsItemTitle, postsList };
+export {
+  postsWrapper,
+  postsCategorySelector,
+  postsCategorySelectorActive,
+  postsCategorySelectorItemInactive,
+  postsItem,
+  postsItemTitle,
+  postsList,
+};
