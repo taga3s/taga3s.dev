@@ -17,10 +17,7 @@ const postsCategorySelectorActive = css`
   padding: 6px 12px;
   border-radius: 8px;
   background-color: #000000;
-  color: #fff;
-  &:hover {
-    background-color: #0056b3;
-  }
+  color: #ffffff;
 `;
 
 const postsCategorySelectorItemInactive = css`
