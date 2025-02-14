@@ -1,36 +1,50 @@
-import type { FC } from "hono/jsx";
+import { useContext, type FC } from "hono/jsx";
 import type { Post } from "../../api/posts/model";
 import { Section } from "../Section";
 import {
   postsCategorySelector,
-  postsCategorySelectorItem,
+  postsCategorySelectorActive,
+  postsCategorySelectorItemInactive,
   postsItem,
   postsItemTitle,
   postsList,
   postsWrapper,
 } from "./Posts.css";
+import { useRequestContext } from "hono/jsx-renderer";
 
 type Props = {
   posts: Post[];
 };
 
 const Posts: FC<Props> = ({ posts }) => {
+  const c = useRequestContext();
+  const category = c.req.query("category");
+
   return (
     <Section title="Posts">
       <div class={postsWrapper}>
         <ul class={postsCategorySelector}>
           <li>
-            <a href="/posts" class={postsCategorySelectorItem}>
+            <a
+              href="/posts"
+              class={category === undefined ? postsCategorySelectorActive : postsCategorySelectorItemInactive}
+            >
               All
             </a>
           </li>
           <li>
-            <a href="/posts?category=tech" class={postsCategorySelectorItem}>
+            <a
+              href="/posts?category=tech"
+              class={category === "tech" ? postsCategorySelectorActive : postsCategorySelectorItemInactive}
+            >
               Tech
             </a>
           </li>
           <li>
-            <a href="/posts?category=weekly" class={postsCategorySelectorItem}>
+            <a
+              href="/posts?category=weekly"
+              class={category === "weekly" ? postsCategorySelectorActive : postsCategorySelectorItemInactive}
+            >
               Weekly
             </a>
           </li>
