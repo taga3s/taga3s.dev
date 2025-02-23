@@ -8,42 +8,56 @@ JavaScript のことや Web ブラウザの裏側の仕組みに興味が湧い�
 
 ## JS Engine
 
-普段書いている JavaScript のコードはどのようなプロセスを踏み、実行されるのか。重要な仕事を担うコンポーネントとして JS Engine がある。MDN によると、JS Engine の仕事は、以下のようなものとされる。
+普段書いている JavaScript のコードはどのようなプロセスを踏み、実行されるのか。重要な仕事を担うコンポーネントとして JS Engine がある。MDN によると、JS Engine の仕事は、以下のようなものとされる。[^1]
 
 > JavaScript engines are interpreters that parse and execute JavaScript code. Modern JavaScript engines use just-in-time (JIT) compilation to convert JavaScript code into machine code that can be executed by a computer's processor.
 
-JS Engine の例として、Chrome や Node.js に搭載される v8 や WebKit の JavaScript Core、FireFox の SpiderMonkey といったものが挙げられる。
+JS Engine の例として、Chrome や Node.js に搭載される v8 や WebKit の JavaScriptCore、FireFox の SpiderMonkey といったものが挙げられる。
 
 ### JavaScriptCore の構成
-JavaScriptCore の構成について、[公式 Docs の Deep Dive](https://docs.webkit.org/Deep%20Dive/JSC/JavaScriptCore.html) を参考にしながら簡潔にまとめてみる。
+JavaScriptCore の構成について、[公式 Docs の Deep Dive](https://docs.webkit.org/Deep%20Dive/JSC/JavaScriptCore.html) を参考にしながら簡潔にまとめてみる。[^2]
 
 - Lexer（字句解析）
 - Parser（構文解析）
-  - Recursive Decent Parser（再帰下降構文分析法）が利用されている。
-- LLInt
-- Baseline
-- DFG
-- FTL
+  - Recursive Decent Parser（再帰下降構文分析法）
+- LLInt（インタープリタ）
+  - Inline Caching を行う。
+- Baseline（1つ目の JIT コンパイラ）
+  - Inline Caching を行う。
+  - DFG での投機的実行を可能にするための、プロファイル情報を収集する。
+  - OSR = on stack replace
+- DFG（2つ目の JIT コンパイラ）
+  - プロファイル情報に基づいて、Type Speculation を実行し、型チェックを省略する。
+  - Watchpoint
+  - OSR exit (最適化解除)
+  - Baseline JIT と DFG JIT は双方向の OSR 関係にある。
+- FTL（3つ目の JIT コンパイラ）
+
+咀嚼しきれていないところもあるが、ざっくりと全体像を掴めたような気がする。やはり、JIT の層が3層もあるのが面白い。より詳しく知るためにも、近いうちに WebKit のブログ [Speculation in JavaScriptCore](https://webkit.org/blog/10308/speculation-in-javascriptcore/) を読んでみるのが良さそうである。
+
+### ところで...
+そもそも JS Engine について知ろうと思ったのは、[trynova/nova](https://github.com/trynova/nova) という Rust での JS Engine 実装プロジェクトを見かけ、少し気になったからである。未だ開発途上のプロジェクトであるから、新鮮な PR を沢山閲覧できるのだが、ECMAScript の実装には Test262 というものが活用されていることが分かった。そこで、次のセクションでは Test262 を調べてみる。
 
 ## Test262
 
-### ・[tc39/test262](https://github.com/tc39/test262?tab=readme-ov-file) の README を読む
+### tc39/test262 を知る
+
+まずは、[GitHub の README](https://github.com/tc39/test262?tab=readme-ov-file) を読んでみる。
 
 Test262 は最新の ECMAScript の仕様 ([ECMA-262](https://tc39.es/ecma262/), [ECMA-402](https://tc39.es/ecma402/), [ECMA-404](https://ecma-international.org/wp-content/uploads/ECMA-404.pdf)) に基づいて実装されたテストスイート (test suite) である。Test262 については、[ECMA TR/104](https://ecma-international.org/wp-content/uploads/ECMA_TR-104_2nd_edition_december_2016.pdf) に説明されており、また、[ECMA-414](https://ecma-international.org/wp-content/uploads/ECMA-414.pdf) にも含まれている。
 
-Webkit の GitHub Repo の Test262 は[ここ](https://github.com/WebKit/WebKit/tree/main/JSTests/test262)で確認できた。Test262 が定期的に更新されていることがわかる。
+Webkit の GitHub リポジトリ の Test262 は[ここ](https://github.com/WebKit/WebKit/tree/main/JSTests/test262)で確認できた。Test262 が定期的に更新されていることがわかる。
 
-### ・ECMA-414 を読む
-せっかくなので、Test262 について書かれた ECMA TR/104 も少し読んだ。たったの10ページである。これによると、Test262 は次のような説明がなされている。
+せっかくなので、Test262 について書かれた ECMA TR/104 も少し読もう。たったの10ページの文書である。これによると、Test262 は次のような説明がなされている。
 - 幅広い ECMAScript の実装者が ECMA-414 に基づた忠実な実装ができることを目指す、TC39 のプロジェクトのこと
 - テストスイートは ECMA TC39 のメンバーによってコントリビュートされたものの集合体
 
 Test262 のファイルには ECMA-414 で定義された、"擬似コード（pseudo-code）によるアルゴリズム"が書かれている。日々、Test262 のコードの訂正や修正がなされ、最新版は [master ブランチ](https://github.com/tc39/test262/tree/master) から確認できる。
 
-### ・non-normative と informative って何？
-文書を読む中でこの2つのワードを数回見かけたがいまいち意味が分からなかった。だが、これについては、丁寧に MDN に[説明](https://developer.mozilla.org/ja/docs/Glossary/Non-normative)があった。すなわち、non-normative とは読者が仕様を理解しやすくするためのもの、ないしベストプラクティスを意味し、一方の normative とは従わなければならないものを意味するとされる。Test262 はあくまで non-normative なものであり、何はともあれ ECMA-414 が優先されることが書かれていた。
+### non-normative と informative って何？
+文書を読む中でこの2つのワードを数回見かけたがいまいち意味が分からなかった。これについては、MDN にちょうど説明がある。すなわち、non-normative とは読者が仕様を理解しやすくするためのもの、ないしベストプラクティスを意味し、一方の normative とは従わなければならないものを意味する。[^3] 確かに、Test262 はあくまで non-normative なものであり、何はともあれ ECMA-414 が優先されることが書かれてあった。
 
-### ・実際のテストファイルをみてみる
+### 実際のテストファイルをみてみる
 テストファイルの簡単な例として、予約語（Reserved Words）が識別子（Identifier）として使用されている場合、エラーを出力するというテストケースがあった。
 https://github.com/tc39/test262/blob/main/test/language/identifiers/val-for.js
 
@@ -65,6 +79,9 @@ $DONOTEVALUATE();
 var for = 123;
 ```
 
-### 参考
-- https://github.com/tc39/test262?tab=readme-ov-file
-- https://ecma-international.org/wp-content/uploads/ECMA-414.pdf
+## 終わりに
+JS Engine と Test262 について調べてみた。ただ、知識が足りず、どうしても理解しきれない部分があるので、適宜勉強が必要だと思った。
+
+[^1]: https://developer.mozilla.org/en-US/docs/Glossary/Engine/JavaScript
+[^2]: https://docs.webkit.org/Deep%20Dive/JSC/JavaScriptCore.html
+[^3]: https://developer.mozilla.org/ja/docs/Glossary/Non-normative
