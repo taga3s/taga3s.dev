@@ -1,5 +1,5 @@
 ---
-title: JS Engine と Test262 について
+title: JS Engine と Test262 について調べる
 category: tech
 publishedAt: 2025/02/24
 ---
@@ -19,17 +19,16 @@ JavaScriptCore の構成について、[公式 Docs の Deep Dive](https://docs.
 
 - Lexer（字句解析）
 - Parser（構文解析）
-  - Recursive Decent Parser（再帰下降構文分析法）
+  - Recursive Decent Parser（再帰下降構文分析法）が利用されている。
 - LLInt（インタープリタ）
   - Inline Caching を行う。
 - Baseline（1つ目の JIT コンパイラ）
   - Inline Caching を行う。
   - DFG での投機的実行を可能にするための、プロファイル情報を収集する。
-  - OSR = on stack replace
+  - LLInt は OSR (= on stack replace) を JIT に対して行う。
 - DFG（2つ目の JIT コンパイラ）
   - プロファイル情報に基づいて、Type Speculation を実行し、型チェックを省略する。
-  - Watchpoint
-  - OSR exit (最適化解除)
+  - OSR exit (最適化解除) と watchpointing
   - Baseline JIT と DFG JIT は双方向の OSR 関係にある。
 - FTL（3つ目の JIT コンパイラ）
 
@@ -80,7 +79,7 @@ var for = 123;
 ```
 
 ## 終わりに
-JS Engine と Test262 について調べてみた。ただ、知識が足りず、どうしても理解しきれない部分があるので、適宜勉強が必要だと思った。
+JS Engine と Test262 について調べてみた。ただ、知識が足りず、どうしても理解しきれない部分があるので、適宜勉強が必要だなと思う。
 
 [^1]: https://developer.mozilla.org/en-US/docs/Glossary/Engine/JavaScript
 [^2]: https://docs.webkit.org/Deep%20Dive/JSC/JavaScriptCore.html
