@@ -66,7 +66,7 @@
   font-family: -apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
   font-size: 16px;
   line-height: 1.5;
-  word-wrap: break-word;
+  overflow-wrap: anywhere;
   scroll-behavior: auto;
 }
 
@@ -407,7 +407,6 @@
   margin-left: 0;
 }
 
-.markdown-body tt,
 .markdown-body code,
 .markdown-body samp {
   font-family: var(--fontStack-monospace, ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace);
@@ -529,17 +528,11 @@
   visibility: visible;
 }
 
-.markdown-body h1 tt,
 .markdown-body h1 code,
-.markdown-body h2 tt,
 .markdown-body h2 code,
-.markdown-body h3 tt,
 .markdown-body h3 code,
-.markdown-body h4 tt,
 .markdown-body h4 code,
-.markdown-body h5 tt,
 .markdown-body h5 code,
-.markdown-body h6 tt,
 .markdown-body h6 code {
   padding: 0 .2em;
   font-size: inherit;
@@ -766,8 +759,7 @@
   text-align: right;
 }
 
-.markdown-body code,
-.markdown-body tt {
+.markdown-body code {
   padding: .2em .4em;
   margin: 0;
   font-size: 85%;
@@ -776,8 +768,7 @@
   border-radius: 6px;
 }
 
-.markdown-body code br,
-.markdown-body tt br {
+.markdown-body code br {
   display: none;
 }
 
@@ -802,16 +793,6 @@
   border: 0;
 }
 
-.markdown-body .highlight {
-  margin-bottom: 16px;
-}
-
-.markdown-body .highlight pre {
-  margin-bottom: 0;
-  word-break: normal;
-}
-
-.markdown-body .highlight pre,
 .markdown-body pre {
   padding: 16px;
   overflow: auto;
@@ -822,8 +803,7 @@
   border-radius: 6px;
 }
 
-.markdown-body pre code,
-.markdown-body pre tt {
+.markdown-body pre code {
   display: inline;
   max-width: auto;
   padding: 0;
