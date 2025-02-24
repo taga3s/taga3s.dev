@@ -57,8 +57,7 @@ Test262 のファイルには ECMA-414 で定義された、"擬似コード（p
 文書を読む中でこの2つのワードを数回見かけたがいまいち意味が分からなかった。これについては、MDN にちょうど説明がある。すなわち、non-normative とは読者が仕様を理解しやすくするためのもの、ないしベストプラクティスを意味し、一方の normative とは従わなければならないものを意味する。[^3] 確かに、Test262 はあくまで non-normative なものであり、何はともあれ ECMA-414 が優先されることが書かれてあった。
 
 ### 実際のテストファイルをみてみる
-テストファイルの簡単な例として、予約語（Reserved Words）が識別子（Identifier）として使用されている場合、エラーを出力するというテストケースがあった。
-https://github.com/tc39/test262/blob/main/test/language/identifiers/val-for.js
+テストファイルの簡単な例として、予約語（Reserved Words）が識別子（Identifier）として使用されている場合、エラーを出力するというテストケースがあった。[^4]
 
 ```js title="val-for.js"
 // Copyright (C) 2015 the V8 project authors. All rights reserved.
@@ -84,3 +83,4 @@ JS Engine と Test262 について調べてみた。ただ、知識が足りず�
 [^1]: https://developer.mozilla.org/en-US/docs/Glossary/Engine/JavaScript
 [^2]: https://docs.webkit.org/Deep%20Dive/JSC/JavaScriptCore.html
 [^3]: https://developer.mozilla.org/ja/docs/Glossary/Non-normative
+[^4]: https://github.com/tc39/test262/blob/main/test/language/identifiers/val-for.js
