@@ -19,6 +19,10 @@ const bodyLayout = css`
   padding: 16px 20px;
   font-family: "Zen Kaku Gothic New", sans-serif;
   background-color: #FCFAF2;
+  
+  > * {
+    min-width: 0;
+  }
 `;
 
 const HeaderMemorized = memo(() => <Header />);
