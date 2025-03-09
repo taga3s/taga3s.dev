@@ -1,15 +1,9 @@
 import { createRoute } from "honox/factory";
 import { PostsPresenter } from "../components/posts/PostsPresenter";
-
-export type Meta = {
-  title: string;
-  category: string;
-  publishedAt: string;
-  ogpImage?: string;
-};
+import type { Head } from "../global";
 
 export default createRoute(async (c) => {
-  const rawPosts = import.meta.glob<{ frontmatter: Meta }>("./posts/*.mdx", {
+  const rawPosts = import.meta.glob<{ frontmatter: Head }>("./posts/*.mdx", {
     eager: true,
   });
 
@@ -21,7 +15,6 @@ export default createRoute(async (c) => {
       title: module.frontmatter.title ?? "",
       category: module.frontmatter.category ?? "",
       publishedAt: new Date(module.frontmatter.publishedAt) ?? "",
-      ogpImage: module.frontmatter.ogpImage,
     }))
     .sort((a, b) => b.publishedAt.getTime() - a.publishedAt.getTime());
 
