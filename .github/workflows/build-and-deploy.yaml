@@ -38,6 +38,9 @@ jobs:
 
       - name: Install Puppeteer
         run: pnpm install-puppeteer
+      
+      - name: Generate RSS feed
+        run: pnpm generate:rss
 
       - name: Build
         run: pnpm build
