@@ -1,0 +1,73 @@
+import fs from "fs";
+import { cdata, Channel, generateRSS, Item } from "@taga3s/rss-generator";
+
+import remarkParse from "remark-parse";
+import remarkStringify from "remark-stringify";
+import remarkFrontmatter from "remark-frontmatter";
+import remarkExtractFrontmatter from "remark-extract-frontmatter";
+import * as toVfile from "to-vfile";
+import * as yaml from "yaml";
+import { unified } from "unified";
+
+type Frontmatter = {
+  title: string;
+  category: string;
+  publishedAt: string;
+  ogpImage?: string;
+};
+
+const validateFrontmatter = (value: any): value is Frontmatter => {
+  return "title" in value && "category" in value && "publishedAt" in value;
+};
+
+const channel: Channel = {
+  title: "taga3s dev",
+  link: "https://taga3s.dev",
+  description: cdata("About taga3s, sharing knowledge and experience"),
+  ttl: 60,
+  language: "ja",
+  category: ["tech", "weekly"],
+  copyright: "2025 taga3s",
+};
+
+const items: Item[] = [];
+
+const dir = "app/routes/posts";
+const postFilenames = fs.readdirSync(dir).filter((filename) => filename.endsWith(".mdx"));
+for (const filename of postFilenames) {
+  const content = await unified()
+    .use(remarkParse)
+    .use(remarkStringify)
+    .use(remarkFrontmatter)
+    .use(remarkExtractFrontmatter, { yaml: yaml.parse })
+    .process(toVfile.readSync(`${dir}/${filename}`));
+
+  const frontmatter = content.data;
+
+  if (!validateFrontmatter(frontmatter)) {
+    console.error(`Invalid frontmatter: ${filename}`);
+    continue;
+  }
+
+  const link = `https://taga3s.dev/posts/${filename.replace(/\.mdx$/, "")}`;
+
+  items.push({
+    title: frontmatter.title,
+    category: [frontmatter.category],
+    link: link,
+    guid: {
+      isPermaLink: false,
+      value: link,
+    },
+    pubDate: new Date(frontmatter.publishedAt).toUTCString(), //TODO: fix timezone
+  });
+}
+
+const xml = generateRSS({ channel, items });
+const data = new TextEncoder().encode(xml);
+fs.writeFile("public/rss.xml", data, (err) => {
+  if (err) {
+    console.error(err);
+  }
+  console.log("RSS feed generated successfully✅");
+});
