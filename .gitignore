@@ -8,6 +8,7 @@ wrangler.toml
 .vscode/*
 !.vscode/launch.json
 !.vscode/*.code-snippets
+*/rss.xml
 
 # deps
 node_modules/

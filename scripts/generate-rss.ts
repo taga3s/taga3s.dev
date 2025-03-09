@@ -11,13 +11,14 @@ import { unified } from "unified";
 
 type Frontmatter = {
   title: string;
+  description: string;
   category: string;
   publishedAt: string;
   ogpImage?: string;
 };
 
 const validateFrontmatter = (value: any): value is Frontmatter => {
-  return "title" in value && "category" in value && "publishedAt" in value;
+  return "title" in value && "description" in value && "category" in value && "publishedAt" in value;
 };
 
 const channel: Channel = {
@@ -53,6 +54,7 @@ for (const filename of postFilenames) {
 
   items.push({
     title: frontmatter.title,
+    description: cdata(frontmatter.description),
     category: [frontmatter.category],
     link: link,
     guid: {
