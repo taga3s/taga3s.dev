@@ -2,9 +2,14 @@ import { jsxRenderer } from "hono/jsx-renderer";
 import { PostDetailHeader } from "../../components/posts/detail/PostDetailHeader";
 
 export default jsxRenderer(({ children, Layout, frontmatter }) => {
+  const _title = frontmatter?.title ?? "";
+  const _description = frontmatter?.description;
+  const _publishedAt = frontmatter?.publishedAt ?? "";
+  const _ogpImage = frontmatter?.ogpImage;
+
   return (
-    <Layout title={frontmatter?.title} ogpImage={frontmatter?.ogpImage}>
-      <PostDetailHeader title={frontmatter?.title ?? ""} publishedAt={frontmatter?.publishedAt ?? ""} />
+    <Layout title={_title} description={_description} ogpImage={_ogpImage}>
+      <PostDetailHeader title={_title} publishedAt={_publishedAt} />
       <article class="markdown-body">{children}</article>
     </Layout>
   );
