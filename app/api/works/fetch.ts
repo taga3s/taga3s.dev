@@ -1,29 +1,20 @@
 import type { Context } from "hono";
-import apiClient from "../apiClient";
+import { appClient } from "../appClient";
 
 type Response = {
-  contents: {
+  works: {
     id: string;
     title: string;
     description: string;
     techStack: string;
-    image: {
-      url: string;
-      width: number;
-      height: number;
-    };
     githubUrl: string;
+    order: number;
   }[];
-  totalCount: number;
-  offset: number;
-  limit: number;
 };
 
-const fetchWorks = async (c: Context) => {
-  const res = await apiClient.GET<Response>(c, "/works");
-  return res.contents.map((content) => {
-    return { ...content, image: { ...content.image, url: `${content.image.url}?w=1000&q=90&fm=webp` } };
-  });
+const fetcher = async (c: Context) => {
+  const res = await appClient.GET<Response>(c, "/works");
+  return res.works;
 };
 
-export { fetchWorks };
+export { fetcher };
