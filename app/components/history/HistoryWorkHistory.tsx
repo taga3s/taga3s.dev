@@ -1,19 +1,19 @@
 import type { FC } from "hono/jsx";
-import type { WorkExperience } from "../../api/workExperience";
+import type { IWorkHistory } from "../../api/workHistory";
 import { Section } from "../Section";
-import { workExperienceDescription, workExperienceList } from "./HistoryWorkExperience.css";
+import { workHistoryDescription, workHistoryList } from "./HistoryWorkHistory.css";
 
 type Props = {
-  workExperiences: WorkExperience[];
+  workHistory: IWorkHistory[];
 };
 
-const HistoryWorkExperience: FC<Props> = (props) => {
-  const { workExperiences } = props;
+const WorkHistory: FC<Props> = (props) => {
+  const { workHistory } = props;
 
   return (
-    <Section title="Work experience">
-      <ul class={workExperienceList}>
-        {workExperiences
+    <Section title="Work history">
+      <ul class={workHistoryList}>
+        {workHistory
           .toSorted((a, b) => a.order - b.order)
           .map((item) => (
             <li key={item.company}>
@@ -21,7 +21,7 @@ const HistoryWorkExperience: FC<Props> = (props) => {
                 <summary>
                   {item.span}: {item.company}
                 </summary>
-                <p class={workExperienceDescription}>
+                <p class={workHistoryDescription}>
                   <span>{item.description}</span>
                   <span>使用技術: {item.techStack}</span>
                 </p>
@@ -33,4 +33,4 @@ const HistoryWorkExperience: FC<Props> = (props) => {
   );
 };
 
-export { HistoryWorkExperience };
+export { WorkHistory };

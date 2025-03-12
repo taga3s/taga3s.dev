@@ -1,9 +1,9 @@
-type WorkExperience = {
+interface IWorkHistory {
   span: string;
   company: string;
   description: string;
   techStack: string;
   order: number;
-};
+}
 
-export type { WorkExperience };
+export type { IWorkHistory };

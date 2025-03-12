@@ -1,8 +1,8 @@
 import { createRoute } from "honox/factory";
 import { HistoryPresenter } from "../components/history/HistoryPresenter";
-import { fetchWorkExperiences } from "../api/workExperience";
+import { fetcher } from "../api/workHistory";
 
 export default createRoute(async (c) => {
-  const workExperiences = await fetchWorkExperiences(c);
-  return c.render(<HistoryPresenter workExperiences={workExperiences} />);
+  const workHistory = await fetcher(c);
+  return c.render(<HistoryPresenter workHistory={workHistory} />);
 });
