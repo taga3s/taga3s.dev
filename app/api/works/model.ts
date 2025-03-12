@@ -1,13 +1,9 @@
-type Work = {
+type IWork = {
   title: string;
   description: string;
   techStack: string;
-  image: {
-    url: string;
-    width: number;
-    height: number;
-  };
   githubUrl: string;
+  order: number;
 };
 
-export type { Work };
+export type { IWork };

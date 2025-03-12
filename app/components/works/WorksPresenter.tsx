@@ -1,10 +1,10 @@
 import type { FC } from "hono/jsx";
-import type { Work } from "../../api/works";
+import type { IWork } from "../../api/works";
 import { WorksList } from "./WorksList";
 import { presenterLayout } from "./WorksPresenter.css";
 
 type Props = {
-  works: Work[];
+  works: IWork[];
 };
 
 const WorksPresenter: FC<Props> = ({ works }) => {

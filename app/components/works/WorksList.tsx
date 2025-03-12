@@ -7,13 +7,12 @@ import {
   worksListItemDetailIcon,
   worksListItemDetailTitle,
   worksListItemDetailWrapper,
-  worksListItemImg,
 } from "./WorksList.css";
-import type { Work } from "../../api/works";
+import type { IWork } from "../../api/works";
 import { GitHubIcon } from "../icons";
 
 type Props = {
-  works: Work[];
+  works: IWork[];
 };
 
 const WorksList: FC<Props> = ({ works }) => {
@@ -22,13 +21,12 @@ const WorksList: FC<Props> = ({ works }) => {
       <ul class={worksList}>
         {works.map((work) => (
           <li key={work.title} class={worksListItem}>
-            <img src={work.image.url} alt={work.title} class={worksListItemImg} />
             <div class={worksListItemDetailWrapper}>
               <div class={worksListItemDetailHeader}>
-                <h3 class={worksListItemDetailTitle}>{work.title}</h3>
                 <a href={work.githubUrl} class={worksListItemDetailIcon}>
                   <GitHubIcon />
                 </a>
+                <h3 class={worksListItemDetailTitle}>{work.title}</h3>
               </div>
               <p>{work.description}</p>
               <span>{work.techStack}</span>
