@@ -1,5 +1,5 @@
-type Photo = {
+interface IPhoto {
   uri: string;
-};
+}
 
-export type { Photo };
+export type { IPhoto };
