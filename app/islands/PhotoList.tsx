@@ -52,9 +52,9 @@ const PhotoList: FC<Props> = (props) => {
               handleOpenExpandedPhoto();
             }}
             type="button"
-            key={photo.title}
+            key={photo.uri}
           >
-            <img src={photo.url} alt={photo.title} class={photoImage} />
+            <img src={photo.uri} alt={""} class={photoImage} />
           </button>
         ))}
       </div>

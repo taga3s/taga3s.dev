@@ -1,8 +1,8 @@
 import { createRoute } from "honox/factory";
 import { ProfilePresenter } from "../components/profile/ProfilePresenter";
-import { fetchPhotos } from "../api/photos";
+import { fetcher } from "../api/photos";
 
 export default createRoute(async (c) => {
-  const photos = await fetchPhotos(c);
+  const photos = await fetcher(c);
   return c.render(<ProfilePresenter photos={photos} />);
 });

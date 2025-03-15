@@ -27,7 +27,7 @@ const PhotoExpanded: FC<Props> = ({ expandedPhoto, handleOpenExpandedPhoto, hand
           >
             <ChevronLeft />
           </button>
-          <img src={expandedPhoto.url} alt={expandedPhoto.title} class={photoExpandedStyle.expandedImage} />
+          <img src={expandedPhoto.uri} alt={""} class={photoExpandedStyle.expandedImage} />
           <button
             type="button"
             class={cx(photoExpandedStyle.expandedImageSwitchBase, photoExpandedStyle.expandedImageSwitchRight)}
