@@ -1,6 +1,9 @@
 name: deploy
 
 on:
+  pull_request:
+    branches:
+      - main
   push:
 
 permissions:
@@ -59,3 +62,4 @@ jobs:
         with:
           target_url: ${{ steps.cloudflare-pages-deploy.outputs.deployment-url }}
           pr_number: ${{ github.event.number }}
+        if: github.event_name == 'pull_request'
