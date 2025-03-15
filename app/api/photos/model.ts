@@ -1,8 +1,5 @@
 type Photo = {
-  title: string;
-  url: string;
-  height: number;
-  width: number;
+  uri: string;
 };
 
 export type { Photo };
