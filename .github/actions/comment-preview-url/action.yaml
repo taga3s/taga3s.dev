@@ -1,0 +1,27 @@
+name: Comment Preview URL
+description: comment preview url action
+
+inputs:
+  target_url:
+    required: true
+    description: target_url
+  pr_number:
+    required: true
+    description: pr_number
+
+runs:
+  using: composite
+  steps:
+    - uses: actions/checkout@v4
+      with:
+        clean: false
+
+    - name: Create comment
+      env:
+        GH_TOKEN: ${{ github.token }}
+      run: |
+        echo "#### CF Preview URL:
+        ${{ inputs.target_url }}
+        " > .tmp.txt
+        gh pr comment ${{ inputs.pr_number }} --edit-last --body-file .tmp.txt || gh pr comment ${{ inputs.pr_number }} --body-file .tmp.txt
+      shell: bash
