@@ -1,10 +1,10 @@
 import type { FC } from "hono/jsx";
-import type { Photo } from "../../api/photos";
+import type { IPhoto } from "../../api/photos";
 import { Section } from "../Section";
 import { PhotoList } from "../../islands/PhotoList";
 
 type Props = {
-  photos: Photo[];
+  photos: IPhoto[];
 };
 
 const ProfilePhotos: FC<Props> = (props) => {

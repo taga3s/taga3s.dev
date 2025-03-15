@@ -14,7 +14,7 @@ export default createRoute(async (c) => {
       id: id.replace(/\.mdx$/, ""),
       title: module.frontmatter.title ?? "",
       category: module.frontmatter.category ?? "",
-      publishedAt: new Date(module.frontmatter.publishedAt) ?? "",
+      publishedAt: module.frontmatter.publishedAt ? new Date(module.frontmatter.publishedAt) : new Date(),
     }))
     .sort((a, b) => b.publishedAt.getTime() - a.publishedAt.getTime());
 

@@ -1,7 +1,7 @@
-type Post = {
+interface IPost {
   id: string;
   title: string;
   publishedAt: Date;
-};
+}
 
-export type { Post };
+export type { IPost };

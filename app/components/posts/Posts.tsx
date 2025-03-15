@@ -1,5 +1,5 @@
-import { useContext, type FC } from "hono/jsx";
-import type { Post } from "../../api/posts/model";
+import type { FC } from "hono/jsx";
+import type { IPost } from "../../api/posts/model";
 import { Section } from "../Section";
 import {
   postsCategorySelector,
@@ -13,7 +13,7 @@ import {
 import { useRequestContext } from "hono/jsx-renderer";
 
 type Props = {
-  posts: Post[];
+  posts: IPost[];
 };
 
 const Posts: FC<Props> = ({ posts }) => {

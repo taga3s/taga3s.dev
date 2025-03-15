@@ -1,13 +1,13 @@
 import type { FC } from "hono/jsx";
 import { photoExpandedStyle } from "./PhotoExpanded.css";
 import { CloseIcon } from "../components/icons/Close";
-import type { Photo } from "../api/photos";
+import type { IPhoto } from "../api/photos";
 import { ChevronLeft } from "../components/icons/ChevronLeft";
 import { ChevronRight } from "../components/icons/ChevronRight";
 import { cx } from "hono/css";
 
 type Props = {
-  expandedPhoto: Photo;
+  expandedPhoto: IPhoto;
   handleOpenExpandedPhoto: () => void;
   handleSwitchExpandedPhoto: (direction: "left" | "right") => void;
 };

@@ -1,9 +1,9 @@
 import type { FC } from "hono/jsx";
 import { Posts } from "./Posts";
-import type { Post } from "../../api/posts/model";
+import type { IPost } from "../../api/posts/model";
 
 type Props = {
-  posts: Post[];
+  posts: IPost[];
 };
 
 const PostsPresenter: FC<Props> = ({ posts }) => {

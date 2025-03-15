@@ -1,21 +1,21 @@
 import { useState, startViewTransition, type FC } from "hono/jsx";
-import type { Photo } from "../api/photos";
+import type { IPhoto } from "../api/photos";
 import { photoImage, photoList } from "./PhotoList.css";
 import { PhotoExpanded } from "./PhotoExpanded";
 
 type Props = {
-  photos: Photo[];
+  photos: IPhoto[];
 };
 
 const PhotoList: FC<Props> = (props) => {
-  const [expandedPhoto, setExpandedPhoto] = useState<Photo>(props.photos[0]);
+  const [expandedPhoto, setExpandedPhoto] = useState<IPhoto>(props.photos[0]);
   const [isOpen, setIsOpen] = useState(false);
 
   const handleOpenExpandedPhoto = () => {
     startViewTransition(() => setIsOpen(!isOpen));
   };
 
-  const handleExpandedPhoto = (photo: Photo) => {
+  const handleExpandedPhoto = (photo: IPhoto) => {
     setExpandedPhoto(photo);
   };
 
