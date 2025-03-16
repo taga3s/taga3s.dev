@@ -27,7 +27,7 @@ const channel: Channel = {
   description: cdata("About taga3s, sharing knowledge and experience"),
   ttl: 60,
   language: "ja",
-  category: ["tech", "weekly"],
+  category: ["tech", "weekly", "others"],
   copyright: "2025 taga3s",
 };
 

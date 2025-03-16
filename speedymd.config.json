@@ -10,9 +10,16 @@
       "required": true
     },
     {
+      "name": "description",
+      "type": "text",
+      "question": "Please enter `description`",
+      "placeholder": "description",
+      "required": true
+    },
+    {
       "name": "category",
       "type": "select",
-      "options": ["tech", "weekly"],
+      "options": ["tech", "weekly", "others"],
       "required": true
     },
     {

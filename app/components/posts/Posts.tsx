@@ -48,6 +48,14 @@ const Posts: FC<Props> = ({ posts }) => {
               Weekly
             </a>
           </li>
+          <li>
+            <a
+              href="/posts?category=others"
+              class={category === "others" ? postsCategorySelectorActive : postsCategorySelectorItemInactive}
+            >
+              Others
+            </a>
+          </li>
         </ul>
         <div class={postsList}>
           {posts.map((post) => {
