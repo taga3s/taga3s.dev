@@ -1,0 +1,20 @@
+---
+title: This week in taga3s / 2025-03-16
+description: taga3s が今週気になったことを紹介します
+category: weekly
+publishedAt: 2025/03/16
+---
+
+## Web dev
+- [Cloudflare画像配信パターン](https://zenn.dev/yusukebe/articles/7cad4c909f1a60)
+  - Workers や R2, KV を用いた画像配信のパターン・実装方法が紹介されていて勉強になった。
+  - これを参考に、このサイトの一部の画像配信を R2 + Workers で配信するようにしてみた。画像最適化は今後の TODO。
+- [E2Eテスト自動化の事例4選 ~Playwright活用編~ Findy 3/13](https://findy.connpass.com/event/346097/)
+- https://github.com/standard-schema/standard-schema
+  - TS のスキーマライブラリにおける、共通のインターフェースを定義しようとする試み。既に Zod や ArkType といったものは取り入れている。これに準拠することで、Portable で取り替えの効くバリデーションロジックの実装ができるようになりそう。
+
+## Security
+- https://www.paulosyibelo.com/2024/12/doubleclickjacking-what.html
+  - DoubleClickJacking について
+- https://www.wiz.io/blog/github-action-tj-actions-changed-files-supply-chain-attack-cve-2025-30066
+  - 実際にインターン先でこれの対応をした
