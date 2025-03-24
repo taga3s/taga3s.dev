@@ -1,5 +1,5 @@
 interface IPhoto {
-  uri: string;
+  url: string;
 }
 
 export type { IPhoto };
