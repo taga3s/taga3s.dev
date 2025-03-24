@@ -3,7 +3,7 @@ import { appClient } from "../appClient";
 
 interface Response {
   images: {
-    uri: string;
+    url: string;
   }[];
 }
 
