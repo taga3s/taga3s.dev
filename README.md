@@ -1,6 +1,6 @@
 # taga3s-dev
 
-This is my profile website.✋
+This is my website.🐳
 
 ## Tech stacks
 
@@ -26,40 +26,24 @@ This is my profile website.✋
 - CI / CD
   - Github Actions
 
-## Project setup
-
-0. Enable pnpm
-```
-$ corepack enable pnpm
-```
-
-1. Install deps
-```
-$ pnpm install
-```
-
-2. Add env vars to your wrangler.toml
-  - `MICRO_CMS_API_KEY`
-  - `MICRO_CMS_SERVICE_DOMAIN`
-
-## Project commands
+## Commands
 
 - Run app
 ```
-$ pnpm run dev
+$ pnpm dev
 ```
 
 - Format
 ```
-$ pnpm run format
+$ pnpm format
 ```
 
 - Lint
 ```
-$ pnpm run lint
+$ pnpm lint
 ```
 
 - Test
 ```
-$ pnpm run test
+$ pnpm test
 ```
