@@ -12,7 +12,6 @@
     "format": "biome format --write ./app ./scripts package.json biome.json tsconfig.json",
     "test": "vitest run",
     "generate:rss": "node --import @swc-node/register/esm-register ./scripts/generate-rss.ts",
-    "setup:mdx": "speedymd",
     "install-puppeteer": "puppeteer browsers install chrome"
   },
   "dependencies": {
