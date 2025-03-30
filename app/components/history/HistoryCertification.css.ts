@@ -10,6 +10,11 @@ const certificationList = css`
 const certificationListItem = css`
   display: flex;
   gap: 16px;
+
+  a {
+    text-decoration: underline;
+    color: #0000FF;
+  }
 `;
 
 export { certificationList, certificationListItem };
