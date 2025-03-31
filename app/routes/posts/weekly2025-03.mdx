@@ -1,0 +1,73 @@
+---
+title: This week in taga3s / 2025-03
+description: taga3s が今週気になったことを紹介します
+category: weekly
+publishedAt: 2025/03/02
+---
+
+3月に気になった技術系の話題を毎週書いていきます。
+
+## 📝 02/24 - 03/02
+
+### Web dev
+- [スムーズな CDN プロバイダーの移行とその先の取り組み](https://engineering.mercari.com/blog/entry/20241223-a-smooth-cdn-provider-migration-and-future-initiatives/)
+  - Fastly から Cloudflare への移行時にどのようなことを行なったか、テスト方法や Terraform を使った工夫について
+- [Fastly User Meetup #4に登壇したこととレポート](https://tech.travelbook.co.jp/posts/fastly-meetup-04/)
+  - もう 3年前くらいの記事だが、今の自分に刺さる内容ばかり。
+- [LINEヤフーのフロントエンド技術を明らかにするState of LY Frontend 2024実施レポート](https://techblog.lycorp.co.jp/ja/20250210a)
+
+### Security
+- [Web3 のマルウェアが話題なので解析してみた](https://zenn.dev/waki285/articles/web3-malware-deobfuscated)
+  - 今週、X で話題になっていた Web3 のマルウェアについて、実際にどのようなものなのか解析してくださった方の記事
+
+### その他
+- https://github.com/taga3s/rss-generator
+  - 今週は RSS generator なるものを Deno で作っていた。`AST 構築 -> Stringify` のプロセスを踏めたのが良かった。
+
+
+## 📝 03/03 - 03/16
+
+### Web dev
+- [Cloudflare画像配信パターン](https://zenn.dev/yusukebe/articles/7cad4c909f1a60)
+  - Workers や R2, KV を用いた画像配信のパターン・実装方法が紹介されていて勉強になった。
+  - これを参考に、このサイトの一部の画像配信を R2 + Workers で配信するようにしてみた。画像最適化は今後の TODO。
+- [E2Eテスト自動化の事例4選 〜Playwright活用編〜 Findy 3/13](https://findy.connpass.com/event/346097/)
+- https://github.com/standard-schema/standard-schema
+  - TS のスキーマライブラリにおける、共通のインターフェースを定義しようとする試み。既に Zod や ArkType といったものは取り入れている。これに準拠することで、Portable で取り替えの効くバリデーションロジックの実装ができるようになりそう。
+
+### Security
+- https://www.paulosyibelo.com/2024/12/doubleclickjacking-what.html
+  - DoubleClickJacking について
+- https://www.wiz.io/blog/github-action-tj-actions-changed-files-supply-chain-attack-cve-2025-30066
+  - 実際にインターン先でこれの対応をした
+
+
+## 📝 03/17 - 03/23
+
+### Web / Frontend
+- [複雑なフォームと複雑な状態管理にどう向き合うか / #newt_techtalk vol. 15](https://speakerdeck.com/izumin5210/number-newt-techtalk-vol-15)
+  - "解決したい問題" にフォーカスを当て、データの流れという観点から、jotai をフォーム実装に選定したとのこと
+- [Webの書式付き貼り付けチュートリアル！](https://zenn.dev/cybozu_frontend/articles/46a7223f3b48f1)
+  - Clipboard API による、いわゆるコピペについて、リッチエディターに貼り付けるとなぜ元スタイルも維持されるのかについて解説されている
+- [CSS text-box-trim](https://developer.chrome.com/blog/css-text-box-trim?hl=ja)
+  - テキストコンテンツの上下のスペースのトリミングができるようになることで、中央揃えといったスタイリングがやりやすくなる
+- [My issues with shorthand properties](https://www.havardbrynjulfsen.design/writing/thoughts/my-issues-with-shorthand-properties/)
+  - CSS の可読性について。省略はなるべく避け、明示的に書くことを主張する
+
+
+## 📝 03/24 - 03/30
+
+### Web dev
+- [バックエンドNode.js × フロントエンドDeno で開発して得られた知見
+](https://speakerdeck.com/ayame113/batukuendonode-dot-js-x-hurontoendodeno-dekai-fa-sitede-raretazhi-jian)
+  - Node.js と Deno を一緒に利用しながらの開発の嬉しみとつらみが丁寧にまとめられている
+- [過剰テスト中毒とエラーテスト欠乏症 - UIテスト二大疾病の根治療法
+](https://speakerdeck.com/akifumisato/guo-sheng-tesutozhong-du-toeratesutoqian-fa-zheng-uitesutoer-da-ji-bing-nogen-zhi-liao-fa)
+  - UI テストが題材であったが、単体テストを行うにあたって気をつけるべきことが述べられている
+  - 「過剰テスト中毒」と「エラーテスト欠乏症」
+- [But Why Did Microsoft Port TypeScript to Go Instead of Rust?](https://analyticsindiamag.com/ai-features/but-why-did-microsoft-port-typescript-to-go-instead-of-rust/?ref=dailydev)
+  - 移植性が「重要な制約」であり、Rust よりも Go の方がセマンティクスの面で互換性が優位であったり、自動 GC があったりすることが考慮要素となったらしい
+- [パスキー導入の課題と ベストプラクティス、今後の展望](https://speakerdeck.com/ritou/pasukidao-ru-noke-ti-to-besutopurakuteisu-jin-hou-nozhan-wang)
+### My news
+- GitHub 認定資格の GitHub Foundations を取得しました。あとは、GitHub Actions も欲しい...
+  - https://www.credly.com/badges/4304046f-e164-422f-847a-7622ab540ca8
