@@ -3,7 +3,6 @@ import { css } from "hono/css";
 const profileMain = css`
   display: flex;
   justify-content: space-between;
-  align-items: center;
   padding: 20px 0;
 `;
 
@@ -14,13 +13,13 @@ const profileMainBox = css`
 `;
 
 const profileMainImage = css`
-  width: 100px;
-  height: 100px;
+  width: 120px;
+  height: 120px;
   border-radius: 100%;
 
   @media screen and (min-width:600px) {
-    width: 140px;
-    height: 140px;
+    width: 160px;
+    height: 160px;
   }
 `;
 

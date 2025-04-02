@@ -8,6 +8,10 @@ const htmlLayout = css`
   :has(#photo-with-mask) {
     overflow: hidden;
   }
+
+  @view-transition {
+    navigation: auto;
+  }
 `;
 
 const bodyLayout = css`

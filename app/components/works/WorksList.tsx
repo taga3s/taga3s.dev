@@ -15,27 +15,25 @@ type Props = {
   works: IWork[];
 };
 
-const WorksList: FC<Props> = ({ works }) => {
-  return (
-    <Section title="Works">
-      <ul class={worksList}>
-        {works.map((work) => (
-          <li key={work.title} class={worksListItem}>
-            <div class={worksListItemDetailWrapper}>
-              <div class={worksListItemDetailHeader}>
-                <a href={work.github_url} class={worksListItemDetailIcon}>
-                  <GitHubIcon />
-                </a>
-                <h3 class={worksListItemDetailTitle}>{work.title}</h3>
-              </div>
-              <p>{work.description}</p>
-              <span>{work.tech_stack}</span>
+const WorksList: FC<Props> = ({ works }) => (
+  <Section title="Works">
+    <ul class={worksList}>
+      {works.map((work) => (
+        <li key={work.title} class={worksListItem}>
+          <div class={worksListItemDetailWrapper}>
+            <div class={worksListItemDetailHeader}>
+              <a href={work.github_url} class={worksListItemDetailIcon}>
+                <GitHubIcon />
+              </a>
+              <h3 class={worksListItemDetailTitle}>{work.title}</h3>
             </div>
-          </li>
-        ))}
-      </ul>
-    </Section>
-  );
-};
+            <p>{work.description}</p>
+            <span>{work.tech_stack}</span>
+          </div>
+        </li>
+      ))}
+    </ul>
+  </Section>
+);
 
 export { WorksList };

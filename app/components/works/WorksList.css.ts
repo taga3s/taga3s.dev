@@ -12,20 +12,18 @@ const worksList = css`
 `;
 
 const worksListItem = css`
-  max-width: 540px;
   width: 100%;
 `;
 
 const worksListItemDetailWrapper = css`
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 8px;
   width: 100%;
   padding: 16px 0;
 `;
 
 const worksListItemDetailHeader = css`
-  width: 100%;
   display: flex;
   align-items: center;
   gap: 16px;
