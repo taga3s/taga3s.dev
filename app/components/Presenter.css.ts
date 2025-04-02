@@ -1,9 +1,9 @@
 import { css } from "hono/css";
 
-const presenterLayout = css`
+const presenter = css`
   display: flex;
   flex-direction: column;
   gap: 48px;
 `;
 
-export { presenterLayout };
+export { presenter };

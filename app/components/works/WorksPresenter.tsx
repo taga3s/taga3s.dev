@@ -1,7 +1,7 @@
 import type { FC } from "hono/jsx";
 import type { IWork } from "../../api/works";
 import { WorksList } from "./WorksList";
-import { presenterLayout } from "./WorksPresenter.css";
+import { presenter } from "../Presenter.css";
 
 type Props = {
   works: IWork[];
@@ -9,7 +9,7 @@ type Props = {
 
 const WorksPresenter: FC<Props> = ({ works }) => {
   return (
-    <div class={presenterLayout}>
+    <div class={presenter}>
       <WorksList works={works} />
     </div>
   );

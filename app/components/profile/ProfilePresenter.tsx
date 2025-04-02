@@ -3,14 +3,14 @@ import { ProfileLinks } from "./ProfileLinks";
 import { ProfileMain } from "./ProfileMain";
 import type { IPhoto } from "../../api/photos/model";
 import { ProfilePhotos } from "./ProfilePhotos";
-import { presenterLayout } from "./ProfilePresenter.css";
+import { presenter } from "../Presenter.css";
 
 type Props = {
   photos: IPhoto[];
 };
 
 const ProfilePresenter: FC<Props> = (props) => (
-  <div class={presenterLayout}>
+  <div class={presenter}>
     <ProfileMain />
     <ProfileLinks />
     <ProfilePhotos photos={props.photos} />

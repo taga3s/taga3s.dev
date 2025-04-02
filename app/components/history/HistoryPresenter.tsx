@@ -1,10 +1,10 @@
 import type { FC } from "hono/jsx";
 import type { IWorkHistory } from "../../api/workHistory";
 import { HistoryEducationalBackground } from "./HistoryEducationalBackground";
-import { presenterLayout } from "./HistoryPresenter.css";
 import { WorkHistory } from "./HistoryWorkHistory";
 import { HistoryCertification } from "./HistoryCertification";
 import type { ICertification } from "../../api/certification";
+import { presenter } from "../Presenter.css";
 
 type Props = {
   workHistory: IWorkHistory[];
@@ -15,7 +15,7 @@ const HistoryPresenter: FC<Props> = (props) => {
   const { workHistory, certification } = props;
 
   return (
-    <div class={presenterLayout}>
+    <div class={presenter}>
       <WorkHistory workHistory={workHistory} />
       <HistoryEducationalBackground />
       <HistoryCertification certification={certification} />
