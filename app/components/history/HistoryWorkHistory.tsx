@@ -23,7 +23,7 @@ const WorkHistory: FC<Props> = (props) => {
                 </summary>
                 <p class={workHistoryDescription}>
                   <span>{item.description}</span>
-                  <span>使用技術: {item.tech_stack}</span>
+                  <span>言語・技術スタック: {item.tech_stack}</span>
                 </p>
               </details>
             </li>

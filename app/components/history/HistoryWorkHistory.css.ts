@@ -12,6 +12,7 @@ const workHistoryDescription = css`
   flex-direction: column;
   gap: 8px;
   padding: 8px 0;
+  line-height: 1.5;
 `;
 
 export { workHistoryList, workHistoryDescription };
