@@ -1,6 +1,6 @@
 import { css } from "hono/css";
 
-const photoList = css`
+const profilePhotoList = css`
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 16px;
@@ -11,9 +11,9 @@ const photoList = css`
   }
 `;
 
-const photoImage = css`
+const profilePhotoImage = css`
   max-width: 100%;
   border-radius: 8px;
 `;
 
-export { photoList, photoImage };
+export { profilePhotoList, profilePhotoImage };
