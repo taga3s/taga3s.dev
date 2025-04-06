@@ -1,6 +1,7 @@
 import { createRoute } from "honox/factory";
-import { PostsPresenter } from "../components/posts/PostsPresenter";
 import type { Head } from "../global";
+import { presenter } from "../components/Presenter.css";
+import { Posts } from "../components/posts/Posts";
 
 export default createRoute(async (c) => {
   const rawPosts = import.meta.glob<{ frontmatter: Head }>("./posts/*.mdx", {
@@ -20,5 +21,9 @@ export default createRoute(async (c) => {
 
   const categorizedPosts = category === "all" ? posts : posts.filter((post) => post.category === category);
 
-  return c.render(<PostsPresenter posts={categorizedPosts} />);
+  return c.render(
+    <div class={presenter}>
+      <Posts posts={categorizedPosts} />
+    </div>,
+  );
 });

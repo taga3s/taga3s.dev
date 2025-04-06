@@ -1,6 +1,6 @@
 import { css } from "hono/css";
 
-const photoExpandedStyle = {
+const profilePhotoExpandedStyle = {
   mask: css`
     position: fixed;
     top: 0;
@@ -57,4 +57,4 @@ const photoExpandedStyle = {
   `,
 };
 
-export { photoExpandedStyle };
+export { profilePhotoExpandedStyle };

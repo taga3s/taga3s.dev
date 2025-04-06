@@ -54,14 +54,13 @@ export default jsxRenderer(({ children, title, description, ogpImage }) => {
         />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
 
-        {/* reset css */}
+        {/* css */}
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/destyle.css@3.0.2/destyle.css" />
-
-        {/* global css */}
-        <link rel="stylesheet" href="/static/markdown-styles.css" />
-        <link rel="stylesheet" href="/static/rehype-attention-block.css" />
+        <link rel="stylesheet" href="/static/markdown.css" />
+        <link rel="stylesheet" href="/static/remark-plugins.css" />
         <Style />
 
+        {/* client js */}
         <Script src="/app/client.ts" async />
 
         <meta property="og:url" content="https://taga3s.dev" />

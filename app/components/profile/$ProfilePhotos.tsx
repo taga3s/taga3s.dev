@@ -1,13 +1,14 @@
-import { useState, startViewTransition, type FC } from "hono/jsx";
-import type { IPhoto } from "../api/photos";
-import { photoImage, photoList } from "./PhotoList.css";
-import { PhotoExpanded } from "./PhotoExpanded";
+import { startViewTransition, useState, type FC } from "hono/jsx";
+import type { IPhoto } from "../../api/photos";
+import { Section } from "../Section";
+import { ProfilePhotoExpanded } from "./$ProfilePhotoExpanded";
+import { profilePhotoImage, profilePhotoList } from "./$ProfilePhotos.css";
 
 type Props = {
   photos: IPhoto[];
 };
 
-const PhotoList: FC<Props> = (props) => {
+const ProfilePhotos: FC<Props> = (props) => {
   const [expandedPhoto, setExpandedPhoto] = useState<IPhoto>(props.photos[0]);
   const [isOpen, setIsOpen] = useState(false);
 
@@ -43,8 +44,8 @@ const PhotoList: FC<Props> = (props) => {
   };
 
   return (
-    <>
-      <div class={photoList}>
+    <Section title="Favs">
+      <div class={profilePhotoList}>
         {props.photos.map((photo) => (
           <button
             onClick={() => {
@@ -54,19 +55,19 @@ const PhotoList: FC<Props> = (props) => {
             type="button"
             key={photo.url}
           >
-            <img src={photo.url} alt={""} class={photoImage} />
+            <img src={photo.url} alt={""} class={profilePhotoImage} />
           </button>
         ))}
       </div>
       {isOpen && (
-        <PhotoExpanded
+        <ProfilePhotoExpanded
           expandedPhoto={expandedPhoto}
           handleOpenExpandedPhoto={handleOpenExpandedPhoto}
           handleSwitchExpandedPhoto={handleSwitchExpandedPhoto}
         />
       )}
-    </>
+    </Section>
   );
 };
 
-export { PhotoList };
+export { ProfilePhotos };
