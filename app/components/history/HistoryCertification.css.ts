@@ -12,8 +12,11 @@ const certificationListItem = css`
   gap: 16px;
 
   a {
-    text-decoration: underline;
-    color: #0000FF;
+    color: #0969da;
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 `;
 
