@@ -1,6 +1,6 @@
 import { css, Style } from "hono/css";
 import { jsxRenderer } from "hono/jsx-renderer";
-import { Link, Script } from "honox/server";
+import { Script } from "honox/server";
 import { ErrorBoundary, memo } from "hono/jsx";
 import { Footer, Header } from "../components";
 
@@ -47,17 +47,17 @@ export default jsxRenderer(({ children, title, description, ogpImage }) => {
         <meta charset="UTF-8" />
 
         {/* google fonts */}
-        <Link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
-        <Link
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+        <link
           href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap"
           rel="stylesheet"
         />
-        <Link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
 
         {/* css */}
-        <Link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/destyle.css@3.0.2/destyle.css" />
-        <Link rel="stylesheet" href="/app/markdown.css" />
-        <Link rel="stylesheet" href="/app/remark-plugins.css" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/destyle.css@3.0.2/destyle.css" />
+        <link rel="stylesheet" href="/static/markdown.css" />
+        <link rel="stylesheet" href="/static/remark-plugins.css" />
         <Style />
 
         {/* client js */}
