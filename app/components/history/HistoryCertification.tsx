@@ -15,7 +15,7 @@ const HistoryCertification: FC<Props> = ({ certification }) => {
           <li key={item.name} class={certificationListItem}>
             <span>{item.when}</span>
             <span>
-              {item.name} {item.url && <a href={item.url}>[link]</a>}
+              {item.name} {item.url && <a href={item.url}>[Badge]</a>}
             </span>
           </li>
         ))}
