@@ -63,7 +63,6 @@
   -webkit-text-size-adjust: 100%;
   margin: 0;
   color: var(--fgColor-default);
-  font-family: -apple-system, BlinkMacSystemFont, "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji";
   font-size: 16px;
   line-height: 1.5;
   overflow-wrap: anywhere;
@@ -899,10 +898,6 @@
   color: var(--fgColor-default);
 }
 
-.markdown-body .footnotes .data-footnote-backref g-emoji {
-  font-family: monospace;
-}
-
 .markdown-body .pl-c {
   color: var(--color-prettylights-syntax-comment);
 }
@@ -1035,22 +1030,6 @@
 .markdown-body [tabindex="0"]:focus:not(:focus-visible),
 .markdown-body details-dialog:focus:not(:focus-visible) {
   outline: none;
-}
-
-.markdown-body g-emoji {
-  display: inline-block;
-  min-width: 1ch;
-  font-family: "Apple Color Emoji", sans-serif;
-  font-size: 1em;
-  font-style: normal !important;
-  font-weight: var(--base-text-weight-normal, 400);
-  line-height: 1;
-  vertical-align: -0.075em;
-}
-
-.markdown-body g-emoji img {
-  width: 1em;
-  height: 1em;
 }
 
 .markdown-body .task-list-item {
