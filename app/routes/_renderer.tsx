@@ -22,6 +22,7 @@ const bodyLayout = css`
   margin: 0 auto;
   padding: 16px 20px;
   font-family: "Zen Kaku Gothic New", sans-serif;
+  color: #000000;
   background-color: #FCFAF2;
   
   > * {
