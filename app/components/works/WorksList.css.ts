@@ -21,6 +21,7 @@ const worksListItemDetailWrapper = css`
   gap: 8px;
   width: 100%;
   padding: 16px 0;
+  line-height: 1.5;
 `;
 
 const worksListItemDetailHeader = css`
