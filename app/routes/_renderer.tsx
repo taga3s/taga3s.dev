@@ -1,6 +1,6 @@
 import { css, Style } from "hono/css";
 import { jsxRenderer } from "hono/jsx-renderer";
-import { Script } from "honox/server";
+import { Link, Script } from "honox/server";
 import { ErrorBoundary, memo } from "hono/jsx";
 import { Footer, Header } from "../components";
 
@@ -47,21 +47,20 @@ export default jsxRenderer(({ children, title, description, ogpImage }) => {
         <meta charset="UTF-8" />
 
         {/* google fonts */}
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
-        <link
+        <Link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+        <Link
           href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap"
           rel="stylesheet"
         />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <Link rel="preconnect" href="https://fonts.googleapis.com" />
 
-        {/* reset css */}
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/destyle.css@3.0.2/destyle.css" />
-
-        {/* global css */}
-        <link rel="stylesheet" href="/static/markdown-styles.css" />
-        <link rel="stylesheet" href="/static/rehype-attention-block.css" />
+        {/* css */}
+        <Link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/destyle.css@3.0.2/destyle.css" />
+        <Link rel="stylesheet" href="/app/markdown.css" />
+        <Link rel="stylesheet" href="/app/remark-plugins.css" />
         <Style />
 
+        {/* client js */}
         <Script src="/app/client.ts" async />
 
         <meta property="og:url" content="https://taga3s.dev" />
