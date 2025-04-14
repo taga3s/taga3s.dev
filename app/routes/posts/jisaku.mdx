@@ -1,0 +1,20 @@
+---
+title: "[随時更新] 自作〇〇をやっていく"
+description: 自作〇〇をやっていきたいので、その記録として残します
+category: tech
+publishedAt: 2025/04/14
+---
+
+### 実装の記録
+- [x] Go 言語で作るインタプリタ
+  - `字句解析` -> `構文解析` -> `評価` をどのように実装していくか学べた。基本的には、AST を構築して、次のフェーズに渡すような実装で、テストを随時足しながら進めた。
+  - 構文解析に利用したアルゴリズムは、「Pratt 構文解析」。演算子の優先順位を持って、**結合力**の優劣を判定。
+
+- [x] [ちいさな Web ブラウザを作ろう](https://browserbook.shift-js.info/)
+  - Web の仕様や参考文献を確認しながら、HTML/CSS のパース処理やレンダリングツリーの構築などを学べた。
+  - V8 を埋め込んで、JS を動かすのが参考実装通りだと動かなかったので、一旦諦め。
+
+- [x] [Tutorial: Implementing JSON parsing (Rust)](https://blog.davimiku.com/tutorials/json-parsing-rust-1)
+  - 簡易的な JSON パース処理を実装した。[RFC8259](https://www.rfc-editor.org/rfc/rfc8259) と戯れた。
+
+- [ ] [Build your own Kafka](https://app.codecrafters.io/courses/kafka/overview)
