@@ -49,13 +49,12 @@ jobs:
       - name: Build
         run: pnpm build
 
-      - name: Publish to Cloudflare Pages
-        id: cloudflare-pages-deploy
+      - name: Publish to Cloudflare Workers
         uses: cloudflare/wrangler-action@v3
         with:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          command: pages deploy ./dist --project-name=taga3s-dev-website
+          command: deploy --minify
 
       - name: Comment Preview URL
         uses: ./.github/actions/comment-preview-url
