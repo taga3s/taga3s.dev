@@ -6,8 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build --mode client && vite build",
-    "preview": "wrangler pages dev",
-    "deploy": "vite build --mode client && vite build && wrangler pages deploy ./dist",
+    "preview": "wrangler dev",
+    "deploy": "pnpm build && wrangler deploy",
     "lint": "biome lint --write --unsafe ./app",
     "format": "biome format --write ./app ./scripts package.json biome.json tsconfig.json",
     "test": "vitest run",
