@@ -7,7 +7,7 @@ type Props = {
   workHistory: IWorkHistory[];
 };
 
-const WorkHistory: FC<Props> = (props) => {
+const HistoryWorkHistory: FC<Props> = (props) => {
   const { workHistory } = props;
 
   return (
@@ -33,4 +33,4 @@ const WorkHistory: FC<Props> = (props) => {
   );
 };
 
-export { WorkHistory };
+export { HistoryWorkHistory };

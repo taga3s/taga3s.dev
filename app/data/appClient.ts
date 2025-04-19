@@ -1,7 +1,7 @@
 import type { Context } from "hono";
 
 const http = async (c: Context, params: { path: string; method: string }) => {
-  const res = await fetch(`https://taga3s-dev-assets.taga3s.workers.dev/api/v1${params.path}`, {
+  const res = await fetch("", {
     headers: {},
     method: params.method,
   });
