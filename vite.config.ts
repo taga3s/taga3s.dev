@@ -1,8 +1,8 @@
 /// <reference types="vitest" />
 
+import build from '@hono/vite-build/cloudflare-pages'
 import adapter from '@hono/vite-dev-server/cloudflare'
 import honox from 'honox/vite'
-import build from '@hono/vite-build/cloudflare-pages'
 import mdx from '@mdx-js/rollup';
 import remarkBreaks from 'remark-breaks';
 import remarkFrontmatter from 'remark-frontmatter';
