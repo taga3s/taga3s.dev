@@ -1,5 +1,5 @@
 import type { FC } from "hono/jsx";
-import type { IWorkHistory } from "../../api/workHistory";
+import type { IWorkHistory } from "../../data/workHistory";
 import { Section } from "../Section";
 import { workHistoryDescription, workHistoryList } from "./HistoryWorkHistory.css";
 

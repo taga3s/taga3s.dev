@@ -1,5 +1,5 @@
 import { createRoute } from "honox/factory";
-import { fetcher } from "../api/photos";
+import { fetcher } from "../data/photos";
 import { presenter } from "../components/Presenter.css";
 import { ProfileMain } from "../components/profile/ProfileMain";
 import { ProfileLinks } from "../components/profile/ProfileLinks";

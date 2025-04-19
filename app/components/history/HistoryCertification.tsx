@@ -1,5 +1,5 @@
 import type { FC } from "hono/jsx";
-import type { ICertification } from "../../api/certification";
+import type { ICertification } from "../../data/certification";
 import { Section } from "../Section";
 import { certificationList, certificationListItem } from "./HistoryCertification.css";
 

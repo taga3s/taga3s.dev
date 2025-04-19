@@ -1,7 +1,7 @@
 import type { FC } from "hono/jsx";
 import { profilePhotoExpandedStyle } from "./$ProfilePhotoExpanded.css";
 import { CloseIcon } from "../icons/Close";
-import type { IPhoto } from "../../api/photos";
+import type { IPhoto } from "../../data/photos";
 import { ChevronLeft } from "../icons/ChevronLeft";
 import { ChevronRight } from "../icons/ChevronRight";
 import { cx } from "hono/css";

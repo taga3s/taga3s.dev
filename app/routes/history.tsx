@@ -1,19 +1,18 @@
 import { createRoute } from "honox/factory";
-import { fetcher as workHistoryFetcher } from "../api/workHistory";
-import { fetcher as certificationFetcher } from "../api/certification";
 import { presenter } from "../components/Presenter.css";
 import { WorkHistory } from "../components/history/HistoryWorkHistory";
 import { HistoryEducationalBackground } from "../components/history/HistoryEducationalBackground";
 import { HistoryCertification } from "../components/history/HistoryCertification";
+import workHistory from "../data/workHistory/work_history.json" with { type: "json" };
+import educationalBackground from "../data/educationalBackground/educational_background.json" with { type: "json" };
+import certification from "../data/certification/certification.json" with { type: "json" };
 
 export default createRoute(async (c) => {
-  const workHistory = await workHistoryFetcher(c);
-  const certification = await certificationFetcher(c);
   return c.render(
     <div class={presenter}>
-      <WorkHistory workHistory={workHistory} />
-      <HistoryEducationalBackground />
-      <HistoryCertification certification={certification} />
+      <WorkHistory workHistory={workHistory.content} />
+      <HistoryEducationalBackground educationalBackground={educationalBackground.content} />
+      <HistoryCertification certification={certification.content} />
     </div>,
   );
 });

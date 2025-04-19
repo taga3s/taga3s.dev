@@ -1,5 +1,5 @@
 import { startViewTransition, useState, type FC } from "hono/jsx";
-import type { IPhoto } from "../../api/photos";
+import type { IPhoto } from "../../data/photos";
 import { Section } from "../Section";
 import { ProfilePhotoExpanded } from "./$ProfilePhotoExpanded";
 import { profilePhotoImage, profilePhotoList } from "./$ProfilePhotos.css";
