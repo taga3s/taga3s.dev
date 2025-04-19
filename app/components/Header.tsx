@@ -8,7 +8,6 @@ const Header = () => {
           <a href="/">about me</a>
           <a href="/history">history</a>
           <a href="/posts">posts</a>
-          <a href="/works">works</a>
         </nav>
       </div>
     </header>
