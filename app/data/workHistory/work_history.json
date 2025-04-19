@@ -1,0 +1,25 @@
+{
+  "content": [
+    {
+      "span": "2023年3月 - 12月",
+      "company": "独立系SIer（インターン）",
+      "description": "複数の社内向けWebアプリの開発に従事。デザインシステムを利用したプロダクトのUI構築や改善、フロントエンドからバックエンドまで一気通貫した開発等、幅広く取り組んだ。",
+      "tech_stack": "Next.js, TypeScript, Nest.js, Prisma, GraphQL, gRPC",
+      "order": 1
+    },
+    {
+      "span": "2024年3月 - 5月",
+      "company": "CARTA HOLDINGS, Inc.（インターン）",
+      "description": "子会社 Lighthouse Studio にて、ゲーム攻略メディアの開発に従事。編集向けの OCR ツールの開発やアプリケーションのビルド過程で利用されていた技術負債の解消に取り組んだ。",
+      "tech_stack": "Vue.js, Node.js, TypeScript, Cloud Vision API",
+      "order": 2
+    },
+    {
+      "span": "2024年6月 - 現在",
+      "company": "???（インターン）",
+      "description": "メディアの開発に従事。フロントエンドや CI / CD、インフラ整備など様々なことに取り組んでいる。",
+      "tech_stack": "Next.js, Node.js, TypeScript, AWS, Terraform",
+      "order": 3
+    }
+  ]
+}

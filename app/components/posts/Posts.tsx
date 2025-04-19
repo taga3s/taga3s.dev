@@ -1,5 +1,5 @@
 import type { FC } from "hono/jsx";
-import type { IPost } from "../../api/posts/model";
+import type { IPost } from "../../data/posts/model";
 import { Section } from "../Section";
 import {
   postsCategorySelector,
