@@ -1,7 +1,7 @@
-name: deploy
+name: Versions upload
 
 on:
-  push:
+  pull_request:
     branches:
       - main
 
@@ -48,10 +48,17 @@ jobs:
       - name: Build
         run: pnpm build
 
-      - name: Publish to Cloudflare Workers
-        id: cloudflare-workers-deploy
+      - name: Upload to Cloudflare Workers
+        id: cloudflare-workers-upload
         uses: cloudflare/wrangler-action@v3
         with:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          command: deploy --minify --config wrangler.jsonc
+          command: versions upload --config wrangler.jsonc
+      
+      - name: Comment Preview URL
+        uses: ./.github/actions/comment-preview-url
+        with:
+          target_url: ${{ steps.cloudflare-workers-upload.outputs.deployment-url }}
+          pr_number: ${{ github.event.number }}
+        if: github.event_name == 'pull_request'
