@@ -25,5 +25,9 @@ export default createRoute(async (c) => {
     <div class={presenter}>
       <Posts posts={categorizedPosts} />
     </div>,
+    {
+      title: "taga3s-dev - posts",
+      description: "taga3s-dev - posts",
+    },
   );
 });

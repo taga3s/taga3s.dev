@@ -14,5 +14,9 @@ export default createRoute(async (c) => {
       <HistoryEducationalBackground educationalBackground={educationalBackground.content} />
       <HistoryCertification certification={certification.content} />
     </div>,
+    {
+      title: "taga3s-dev - history",
+      description: "taga3s-dev - history",
+    },
   );
 });
