@@ -5,7 +5,7 @@ export default jsxRenderer(({ children, Layout, frontmatter }) => {
   const _title = frontmatter?.title ?? "";
   const _description = frontmatter?.description ?? "";
   const _publishedAt = frontmatter?.publishedAt ?? "";
-  const _ogpImage = frontmatter?.ogpImage;
+  const _ogpImage = `https://taga3s.dev/${frontmatter?.ogpImage ?? "ogp-image.png"}`;
 
   return (
     <Layout title={_title} description={_description} ogpImage={_ogpImage}>

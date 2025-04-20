@@ -33,14 +33,10 @@ const bodyLayout = css`
 const HeaderMemorized = memo(() => <Header />);
 const FooterMemorized = memo(() => <Footer />);
 
-const setOGP = (ogpImage?: string) => {
-  return `https://taga3s.dev/${ogpImage ?? "ogp-image.png"}`;
-};
-
 export default jsxRenderer(({ children, title, description, ogpImage }) => {
   const _title = title ?? "taga3s-dev";
   const _description = description ?? "taga3sのWebページです。主に趣味や技術系の発信をしています。";
-  const _ogpImage = setOGP(ogpImage);
+  const _ogpImage = `https://taga3s.dev/${ogpImage ?? "ogp-image.png"}`;
 
   return (
     <html lang="ja" class={htmlLayout}>
