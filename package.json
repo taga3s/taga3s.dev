@@ -26,7 +26,7 @@
     "@mdx-js/rollup": "^3.1.0",
     "@mermaid-js/mermaid-cli": "^11.4.2",
     "@swc-node/register": "^1.10.9",
-    "@swc/cli": "^0.6.0",
+    "@swc/cli": "^0.7.0",
     "@swc/core": "^1.11.8",
     "@taga3s/rss-generator": "npm:@jsr/taga3s__rss-generator@^0.1.2",
     "@types/hast": "^3.0.4",
