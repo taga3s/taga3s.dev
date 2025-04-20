@@ -45,6 +45,9 @@ jobs:
       - name: Generate RSS feed
         run: pnpm generate:rss
 
+      - name: Build
+        run: pnpm build
+
       - name: Upload to Cloudflare Workers
         id: cloudflare-workers-upload
         uses: cloudflare/wrangler-action@v3
