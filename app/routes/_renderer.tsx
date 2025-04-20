@@ -36,7 +36,11 @@ const FooterMemorized = memo(() => <Footer />);
 export default jsxRenderer(({ children, title, description, ogpImage }) => {
   const _title = title ?? "taga3s-dev";
   const _description = description ?? "taga3sのWebページです。主に趣味や技術系の発信をしています。";
-  const _ogpImage = `https://taga3s.dev/${ogpImage ?? "ogp-image.png"}`;
+  const _ogpImage = ogpImage
+    ? ogpImage
+    : !ogpImage && title
+      ? `http://taga3s-dev-images.taga3s.workers.dev/api/v1/images/og/${encodeURIComponent(title)}`
+      : "https://taga3s.dev/ogp-image.png";
 
   return (
     <html lang="ja" class={htmlLayout}>
