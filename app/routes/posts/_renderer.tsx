@@ -5,7 +5,10 @@ export default jsxRenderer(({ children, Layout, frontmatter }) => {
   const _title = frontmatter?.title ?? "";
   const _description = frontmatter?.description ?? "";
   const _publishedAt = frontmatter?.publishedAt ?? "";
-  const _ogpImage = `https://taga3s.dev/${frontmatter?.ogpImage ?? "ogp-image.png"}`;
+  const _ogpImage =
+    !frontmatter?.ogpImage && frontmatter?.title
+      ? `http://taga3s-dev-images.taga3s.workers.dev/api/v1/images/og/${encodeURIComponent(frontmatter.title)}`
+      : "https://taga3s.dev/ogp-image.png";
 
   return (
     <Layout title={_title} description={_description} ogpImage={_ogpImage}>
