@@ -11,9 +11,9 @@ const PostDetailHeader: FC<Props> = ({ title, publishedAt }) => {
     <div class={postDetailHeaderWrapper}>
       <h1 class={postDetailHeaderTitle}>{title}</h1>
       <hr class={postDetailHeaderDivider} />
-      <time>
-        <span>公開日</span> {publishedAt}
-      </time>
+      <span>
+        公開日 <time datetime={publishedAt.replaceAll("/", "-")}>{publishedAt}</time>
+      </span>
     </div>
   );
 };

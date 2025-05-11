@@ -66,7 +66,7 @@ const Posts: FC<Props> = ({ posts }) => {
             });
             return (
               <a key={post.id} href={`/${post.id}`} class={postsItem}>
-                <time datetime={publishedAt}>{publishedAt}</time>
+                <time datetime={publishedAt.replaceAll("/", "-")}>{publishedAt}</time>
                 <span class={postsItemTitle}>{post.title}</span>
               </a>
             );
