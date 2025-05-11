@@ -43,7 +43,7 @@ importers:
         specifier: ^1.11.24
         version: 1.11.24
       '@taga3s/rss-generator':
-        specifier: npm:@jsr/taga3s__rss-generator@^0.1.6
+        specifier: npm:@jsr/taga3s__rss-generator@^0.1.8
         version: '@jsr/taga3s__rss-generator@0.1.8'
       '@types/hast':
         specifier: ^3.0.4
