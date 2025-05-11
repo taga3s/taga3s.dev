@@ -2,7 +2,6 @@ import { css } from "hono/css";
 
 const profileLinkCardContainer = css`
   display: grid;
-  grid-template-columns: 1fr 1fr;
   gap: 16px;
   margin-top: 16px;
 
@@ -22,8 +21,8 @@ const profileLinkCard = css`
 `;
 
 const profileLinkCardIcon = css`
-  width: 48px;
-  height: 48px;
+  width: 42px;
+  height: 42px;
 `;
 
 const github = css`
