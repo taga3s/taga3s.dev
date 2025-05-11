@@ -9,12 +9,12 @@ import {
 
 const ProfileMain = () => {
   return (
-    <section>
+    <div>
       <div class={profileMain}>
         <div class={profileMainBox}>
           <span class={profileMainName}>taga3s</span>
           <ul class={profileMainBelonging}>
-            <li>Student / Web Developer</li>
+            <li>Student / Web Engineer</li>
           </ul>
         </div>
         <div>
@@ -24,7 +24,7 @@ const ProfileMain = () => {
       <div class={profileMainIntroduction}>
         <span>Memento mori, Carpe diem</span>
       </div>
-    </section>
+    </div>
   );
 };
 
