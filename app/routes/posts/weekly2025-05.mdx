@@ -55,3 +55,23 @@ publishedAt: 2025/05/04
   - 「Node.jsの大枠の機能を再現しつつ、概念的な機能の抽出を行う、High Level Emulationを目指しました。」
 
 - [HTMLからはじめるアクセシビリティ](https://docs.google.com/presentation/d/1ZtA_9Q6IGfIfnTa4hV6hXotu7dXmeRGY3-lUFu4yVMQ/edit?slide=id.p#slide=id.p)
+
+## 📝 05/19 - 5/25
+
+- [【#も読】Rustの学習の難しさと取るべきルート（@yusuktan）](https://findy-code.io/media/articles/modoku20250417-yusuktan)
+  - 競プロとかCLIツールだとか、基礎的な部分から始めると良さそうね。unlearn のステップが必要。
+
+- [見過ごせないエッジケースを計測して改善につなげよ！ スマートバンクにおけるプリペイドカード決済システムの開発課題](https://findy-code.io/media/articles/shohei1913-payment-system)
+  - 「4パーティースキーム」という枠組みがあり、国際ブランド・イシュアー・アクワイアラー・加盟店・ユーザーがその登場人物。
+  - カード決済には「Authorization」と「Clearing」という概念がある。前者は同期的、後者は非同期的な処理で、この方式は「デュアルメッセージ方式」という。
+  - 特定の加盟店でしか発生しないようなエッジケースがあり、取引の照合結果を分類し監視することで、一つひとつに対応していったそう。すごい。
+
+- [15分でサクッとパスキー入門](https://speakerdeck.com/authyasan/15fen-desakututopasukiru-men)
+  - パスキーの利点
+    - フィッシング攻撃が成立しない
+    - アカウント乗っ取り攻撃が成立しない
+    - サーバー側の漏洩リスクが低い
+    - ログイン UX がシンプル
+  - パスキー認証特有の攻撃
+    - ハイブリッドトランスポートの QR コードを利用した攻撃
+    - 秘密鍵のエクスポート、インポート機能
