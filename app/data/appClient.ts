@@ -1,6 +1,6 @@
 import type { Context } from "hono";
 
-const http = async (c: Context, params: { path: string; method: string }) => {
+const http = async (_c: Context, params: { path: string; method: string }) => {
   const res = await fetch("", {
     headers: {},
     method: params.method,
