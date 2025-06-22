@@ -32,7 +32,7 @@ importers:
         version: 3.1.0(acorn@8.14.1)(rollup@4.40.2)
       '@mermaid-js/mermaid-cli':
         specifier: ^11.4.2
-        version: 11.4.3(puppeteer@24.10.1(typescript@5.8.3))
+        version: 11.6.0(puppeteer@24.10.1(typescript@5.8.3))
       '@swc-node/register':
         specifier: ^1.10.10
         version: 1.10.10(@swc/core@1.12.1(@swc/helpers@0.5.17))(@swc/types@0.1.23)(typescript@5.8.3)
@@ -681,20 +681,20 @@ packages:
     peerDependencies:
       rollup: '>=2'
 
-  '@mermaid-js/mermaid-cli@11.4.3':
-    resolution: {integrity: sha512-N0kjhWQXQXUc8LkRzySvKPqoZ1LMA9mxFyqShjUhbAHGTYYOYkXCD3+shmO2OWVJ9iOUKQQ6+Y6jY+U5JeiTSw==}
+  '@mermaid-js/mermaid-cli@11.6.0':
+    resolution: {integrity: sha512-ijidNS6QFZWZA6XYzjLldVB3WgjFnevepdhOAwdGhMrPcg2yNhDCY4CmNj/7r032WWZzeUoONNZ9OYFP/23KaQ==}
     engines: {node: ^18.19 || >=20.0}
     hasBin: true
     peerDependencies:
       puppeteer: ^23
 
-  '@mermaid-js/mermaid-zenuml@0.2.0':
-    resolution: {integrity: sha512-Lv7xNlFT5y2TIlts+yYl1HfeEgjoqw5cfSZsWYejoJvt9K0QfdPBoj5D9Tft1aN0pj1mxjuTZbZQ1Anmem/RMg==}
+  '@mermaid-js/mermaid-zenuml@0.2.1':
+    resolution: {integrity: sha512-hkyoQMQd0zZ3se2EvjZn2NWiHE1aWaun7bi9C5duIZznVgFhClDETsqG4mWVLrDpGgkpPPWiOfKaeOmPrVaWdA==}
     peerDependencies:
-      mermaid: '>=10.0.0'
+      mermaid: ^10 || ^11
 
-  '@mermaid-js/parser@0.4.0':
-    resolution: {integrity: sha512-wla8XOWvQAwuqy+gxiZqY+c7FokraOTHRWMsbB4AgRx9Sy7zKslNyejy7E+a77qHfey5GXw/ik3IXv/NHMJgaA==}
+  '@mermaid-js/parser@0.5.0':
+    resolution: {integrity: sha512-AiaN7+VjXC+3BYE+GwNezkpjIcCI2qIMB/K4S2/vMWe0q/XJCBbx5+K7iteuz7VyltX9iAK4FmVTvGc9kjOV4w==}
 
   '@napi-rs/nice-android-arm-eabi@1.0.1':
     resolution: {integrity: sha512-5qpvOu5IGwDo7MEKVqqyAxF90I6aLj4n07OzpARdgDRfz8UbBztTByBp0RC59r3J1Ij8uzYi6jI7r5Lws7nn6w==}
@@ -1747,9 +1747,9 @@ packages:
     resolution: {integrity: sha512-Vw8qHK3bZM9y/P10u3Vib8o/DdkvA2OtPtZvD871QKjy74Wj1WSKFILMPRPSdUSx5RFK1arlJzEtA4PkFgnbuA==}
     engines: {node: '>=18'}
 
-  commander@13.1.0:
-    resolution: {integrity: sha512-/rFeCpNJQbhSZjGVwO9RFV3xPqbnERS8MmIQzCtD/zl6gpJuV/bMLuN92oG3F7d8oDEHHRrujSXNUr8fpjntKw==}
-    engines: {node: '>=18'}
+  commander@14.0.0:
+    resolution: {integrity: sha512-2uM9rYjPvyq39NwLRqaiLtWHyDC1FvryJDa2ATTVims5YAS4PupsEQsDvP14FqhFr0P49CYDugi59xaxJlTXRA==}
+    engines: {node: '>=20'}
 
   commander@4.1.1:
     resolution: {integrity: sha512-NOKm8xhkzAjzFx8B2v5OAHT+u5pRQc2UCa2Vq9jYL/31o2wi9mxBA7LIFs3sV5VSC49z6pEhfbMULvShKj26WA==}
@@ -2214,6 +2214,9 @@ packages:
 
   exsolve@1.0.5:
     resolution: {integrity: sha512-pz5dvkYYKQ1AHVrgOzBKWeP4u4FRb3a6DNK2ucr0OoNwYIU4QWsJ+NM36LLzORT+z845MzKHHhpXiUF5nvQoJg==}
+
+  exsolve@1.0.7:
+    resolution: {integrity: sha512-VO5fQUzZtI6C+vx4w/4BWJpg3s/5l+6pRQEHzFRM8WFi4XffSP1Z+4qi7GbjWbvRQEbdIco5mIMq+zX4rPuLrw==}
 
   ext-list@2.2.2:
     resolution: {integrity: sha512-u+SQgsubraE6zItfVA0tBuCBhfU9ogSRnsvygI7wht9TS510oLkBRXBsqopeUG/GBOIQyKZO9wjTqIu/sf5zFA==}
@@ -2745,8 +2748,8 @@ packages:
     resolution: {integrity: sha512-8q7VEgMJW4J8tcfVPy8g09NcQwZdbwFEqhe/WZkoIzjn/3TGDwtOCYtXGxA3O8tPzpczCCDgv+P2P5y00ZJOOg==}
     engines: {node: '>= 8'}
 
-  mermaid@11.6.0:
-    resolution: {integrity: sha512-PE8hGUy1LDlWIHWBP05SFdqUHGmRcCcK4IzpOKPE35eOw+G9zZgcnMpyunJVUEOgb//KBORPjysKndw8bFLuRg==}
+  mermaid@11.7.0:
+    resolution: {integrity: sha512-/1/5R0rt0Z1Ak0CuznAnCF3HtQgayRXUz6SguzOwN4L+DuCobz0UxnQ+ZdTSZ3AugKVVh78tiVmsHpHWV25TCw==}
 
   micromark-core-commonmark@2.0.2:
     resolution: {integrity: sha512-FKjQKbxd1cibWMM1P9N+H8TwlgGgSkWZMmfuVucLCHaYqeSvJ0hFeHsIa65pA2nYbes0f8LDHPMrd9X7Ujxg9w==}
@@ -3140,6 +3143,10 @@ packages:
     resolution: {integrity: sha512-d/jtm+rdNT8tpXuHY5MMtcbJFBkhXE6593XVR9UoGCH8jSFGci7jGvMGH5RYd5PBJW+00NZQt6gf7CbagJCrhg==}
     engines: {node: ^10 || ^12 || >=14}
 
+  postcss@8.5.6:
+    resolution: {integrity: sha512-3Ybi1tAuwAP9s0r1UQ2J4n5Y0G05bJkpUIO0/bI9MhwmD70S5aTWbXGBwxHrelT+XM1k6dM0pk+SwNkpTRN7Pg==}
+    engines: {node: ^10 || ^12 || >=14}
+
   precinct@12.1.2:
     resolution: {integrity: sha512-x2qVN3oSOp3D05ihCd8XdkIPuEQsyte7PSxzLqiRgktu79S5Dr1I75/S+zAup8/0cwjoiJTQztE9h0/sWp9bJQ==}
     engines: {node: '>=18'}
@@ -3200,8 +3207,8 @@ packages:
   quote-unquote@1.0.0:
     resolution: {integrity: sha512-twwRO/ilhlG/FIgYeKGFqyHhoEhqgnKVkcmqMKi2r524gz3ZbDTcyFt38E9xjJI2vT+KbRNHVbnJ/e0I25Azwg==}
 
-  radash@12.1.0:
-    resolution: {integrity: sha512-b0Zcf09AhqKS83btmUeYBS8tFK7XL2e3RvLmZcm0sTdF1/UUlHSsjXdCcWNxe7yfmAlPve5ym0DmKGtTzP6kVQ==}
+  radash@12.1.1:
+    resolution: {integrity: sha512-h36JMxKRqrAxVD8201FrCpyeNuUY9Y5zZwujr20fFO77tpUtGa6EZzfKw/3WaiBX95fq7+MpsuMLNdSnORAwSA==}
     engines: {node: '>=14.18.0'}
 
   ramda@0.28.0:
@@ -4369,28 +4376,28 @@ snapshots:
       - acorn
       - supports-color
 
-  '@mermaid-js/mermaid-cli@11.4.3(puppeteer@24.10.1(typescript@5.8.3))':
+  '@mermaid-js/mermaid-cli@11.6.0(puppeteer@24.10.1(typescript@5.8.3))':
     dependencies:
-      '@mermaid-js/mermaid-zenuml': 0.2.0(mermaid@11.6.0)
+      '@mermaid-js/mermaid-zenuml': 0.2.1(mermaid@11.7.0)
       chalk: 5.4.1
-      commander: 13.1.0
+      commander: 14.0.0
       import-meta-resolve: 4.1.0
-      mermaid: 11.6.0
+      mermaid: 11.7.0
       puppeteer: 24.10.1(typescript@5.8.3)
     transitivePeerDependencies:
       - '@types/react'
       - supports-color
       - ts-node
 
-  '@mermaid-js/mermaid-zenuml@0.2.0(mermaid@11.6.0)':
+  '@mermaid-js/mermaid-zenuml@0.2.1(mermaid@11.7.0)':
     dependencies:
       '@zenuml/core': 3.32.3
-      mermaid: 11.6.0
+      mermaid: 11.7.0
     transitivePeerDependencies:
       - '@types/react'
       - ts-node
 
-  '@mermaid-js/parser@0.4.0':
+  '@mermaid-js/parser@0.5.0':
     dependencies:
       langium: 3.3.1
 
@@ -5195,7 +5202,7 @@ snapshots:
       jotai: 2.12.5(react@19.1.0)
       marked: 4.3.0
       pino: 8.21.0
-      radash: 12.1.0
+      radash: 12.1.1
       ramda: 0.28.0
       react: 19.1.0
       react-dom: 19.1.0(react@19.1.0)
@@ -5452,7 +5459,7 @@ snapshots:
 
   commander@12.1.0: {}
 
-  commander@13.1.0: {}
+  commander@14.0.0: {}
 
   commander@4.1.1: {}
 
@@ -5952,6 +5959,8 @@ snapshots:
   expect-type@1.2.1: {}
 
   exsolve@1.0.5: {}
+
+  exsolve@1.0.7: {}
 
   ext-list@2.2.2:
     dependencies:
@@ -6629,11 +6638,11 @@ snapshots:
 
   merge2@1.4.1: {}
 
-  mermaid@11.6.0:
+  mermaid@11.7.0:
     dependencies:
       '@braintree/sanitize-url': 7.1.1
       '@iconify/utils': 2.3.0
-      '@mermaid-js/parser': 0.4.0
+      '@mermaid-js/parser': 0.5.0
       '@types/d3': 7.4.3
       cytoscape: 3.32.0
       cytoscape-cose-bilkent: 4.1.0(cytoscape@3.32.0)
@@ -7164,7 +7173,7 @@ snapshots:
   pkg-types@2.1.0:
     dependencies:
       confbox: 0.2.2
-      exsolve: 1.0.5
+      exsolve: 1.0.7
       pathe: 2.0.3
 
   points-on-curve@0.2.0: {}
@@ -7174,28 +7183,28 @@ snapshots:
       path-data-parser: 0.1.0
       points-on-curve: 0.2.0
 
-  postcss-import@15.1.0(postcss@8.5.5):
+  postcss-import@15.1.0(postcss@8.5.6):
     dependencies:
-      postcss: 8.5.5
+      postcss: 8.5.6
       postcss-value-parser: 4.2.0
       read-cache: 1.0.0
       resolve: 1.22.10
 
-  postcss-js@4.0.1(postcss@8.5.5):
+  postcss-js@4.0.1(postcss@8.5.6):
     dependencies:
       camelcase-css: 2.0.1
-      postcss: 8.5.5
+      postcss: 8.5.6
 
-  postcss-load-config@4.0.2(postcss@8.5.5):
+  postcss-load-config@4.0.2(postcss@8.5.6):
     dependencies:
       lilconfig: 3.1.3
       yaml: 2.8.0
     optionalDependencies:
-      postcss: 8.5.5
+      postcss: 8.5.6
 
-  postcss-nested@6.2.0(postcss@8.5.5):
+  postcss-nested@6.2.0(postcss@8.5.6):
     dependencies:
-      postcss: 8.5.5
+      postcss: 8.5.6
       postcss-selector-parser: 6.1.2
 
   postcss-selector-parser@6.1.2:
@@ -7219,6 +7228,12 @@ snapshots:
       source-map-js: 1.2.1
 
   postcss@8.5.5:
+    dependencies:
+      nanoid: 3.3.11
+      picocolors: 1.1.1
+      source-map-js: 1.2.1
+
+  postcss@8.5.6:
     dependencies:
       nanoid: 3.3.11
       picocolors: 1.1.1
@@ -7315,7 +7330,7 @@ snapshots:
 
   quote-unquote@1.0.0: {}
 
-  radash@12.1.0: {}
+  radash@12.1.1: {}
 
   ramda@0.28.0: {}
 
@@ -7752,11 +7767,11 @@ snapshots:
       normalize-path: 3.0.0
       object-hash: 3.0.0
       picocolors: 1.1.1
-      postcss: 8.5.5
-      postcss-import: 15.1.0(postcss@8.5.5)
-      postcss-js: 4.0.1(postcss@8.5.5)
-      postcss-load-config: 4.0.2(postcss@8.5.5)
-      postcss-nested: 6.2.0(postcss@8.5.5)
+      postcss: 8.5.6
+      postcss-import: 15.1.0(postcss@8.5.6)
+      postcss-js: 4.0.1(postcss@8.5.6)
+      postcss-load-config: 4.0.2(postcss@8.5.6)
+      postcss-nested: 6.2.0(postcss@8.5.6)
       postcss-selector-parser: 6.1.2
       resolve: 1.22.10
       sucrase: 3.35.0
