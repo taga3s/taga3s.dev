@@ -1,0 +1,26 @@
+name: Setup CI
+description: Setup CI environment
+
+inputs:
+  node-version:
+    required: false
+    description: "Specify Node.js version. If this is not specified, Node.js version specified in .node-version will be used"
+
+runs:
+  using: "composite"
+  steps:
+    - uses: pnpm/action-setup@v4
+      with:
+        package_json_file: "package.json"
+        run_install: false
+
+    - uses: actions/setup-node@v4
+      with:
+        node-version-file: .node-version
+        cache: "pnpm"
+
+    - run: pnpm install
+      shell: bash
+
+    - run: pnpm install-puppeteer
+      shell: bash
