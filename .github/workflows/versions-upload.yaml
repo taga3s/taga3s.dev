@@ -26,22 +26,8 @@ jobs:
         run: echo 0 | sudo tee /proc/sys/kernel/apparmor_restrict_unprivileged_userns
         shell: bash
 
-      - uses: pnpm/action-setup@v4
-        with:
-          package_json_file: 'package.json'
-          run_install: false
+      - uses: ./.github/actions/setup-ci
 
-      - uses: actions/setup-node@v4
-        with:
-          node-version-file: .node-version
-          cache: 'pnpm'
-
-      - name: Install deps
-        run: pnpm install
-
-      - name: Install Puppeteer
-        run: pnpm install-puppeteer
-      
       - name: Generate RSS feed
         run: pnpm generate:rss
 
@@ -55,7 +41,7 @@ jobs:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           command: versions upload --config wrangler.jsonc
-      
+
       - name: Comment Preview URL
         uses: ./.github/actions/comment-preview-url
         with:
