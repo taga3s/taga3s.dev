@@ -13,7 +13,7 @@ jobs:
     name: Create Issue 
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Get the publication date
         env:
           TZ: 'Asia/Tokyo'
