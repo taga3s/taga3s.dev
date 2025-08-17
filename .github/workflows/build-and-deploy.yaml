@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - name: Disable AppArmor
         # Ubuntu >= 23 has AppArmor enabled by default, which breaks Puppeteer.
