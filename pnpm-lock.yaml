@@ -25,8 +25,8 @@ importers:
         specifier: ^1.6.0
         version: 1.7.0(hono@4.9.7)
       '@hono/vite-dev-server':
-        specifier: ^0.20.0
-        version: 0.20.1(hono@4.9.7)(miniflare@4.20250525.1)(wrangler@4.19.1(@cloudflare/workers-types@4.20250712.0))
+        specifier: ^0.21.0
+        version: 0.21.0(hono@4.9.7)(miniflare@4.20250525.1)(wrangler@4.19.1(@cloudflare/workers-types@4.20250712.0))
       '@mdx-js/rollup':
         specifier: ^3.1.0
         version: 3.1.1(rollup@4.50.0)
@@ -670,6 +670,19 @@ packages:
 
   '@hono/vite-dev-server@0.20.1':
     resolution: {integrity: sha512-wXikV0C5tPqwH6udA68VTsmnFKWGhIeBuhuxgdGDQIbVNbv5gD0vqKLhx4nG1o4dhksaWPiiSqZV58sTKUzNxA==}
+    engines: {node: '>=18.14.1'}
+    peerDependencies:
+      hono: '*'
+      miniflare: '*'
+      wrangler: '*'
+    peerDependenciesMeta:
+      miniflare:
+        optional: true
+      wrangler:
+        optional: true
+
+  '@hono/vite-dev-server@0.21.0':
+    resolution: {integrity: sha512-KHBX4yjVrqIpNqPJj4HtzEf8tJncfeN3sDAS5Kfyt5LofjrBlDv4+w79u0tWNRC8ewwyrr9Mh9urH2PAx8av8g==}
     engines: {node: '>=18.14.1'}
     peerDependencies:
       hono: '*'
@@ -4416,6 +4429,15 @@ snapshots:
       hono: 4.9.7
 
   '@hono/vite-dev-server@0.20.1(hono@4.9.7)(miniflare@4.20250525.1)(wrangler@4.19.1(@cloudflare/workers-types@4.20250712.0))':
+    dependencies:
+      '@hono/node-server': 1.18.1(hono@4.9.7)
+      hono: 4.9.7
+      minimatch: 9.0.5
+    optionalDependencies:
+      miniflare: 4.20250525.1
+      wrangler: 4.19.1(@cloudflare/workers-types@4.20250712.0)
+
+  '@hono/vite-dev-server@0.21.0(hono@4.9.7)(miniflare@4.20250525.1)(wrangler@4.19.1(@cloudflare/workers-types@4.20250712.0))':
     dependencies:
       '@hono/node-server': 1.18.1(hono@4.9.7)
       hono: 4.9.7
