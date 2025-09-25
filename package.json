@@ -4,11 +4,14 @@
   "version": "1.0.1",
   "license": "MIT",
   "scripts": {
-    "lint": "biome lint --write --unsafe ./app/website",
+    "build:website": "turbo build --filter=@taga3s/website",
+    "test": "turbo test",
+    "lint": "biome lint --write --unsafe ./apps/website",
     "format": "biome format --write ./apps/website ./scripts package.json biome.json"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.2.4"
+    "@biomejs/biome": "2.2.4",
+    "turbo": "^2.5.8"
   },
   "lint-staged": {
     "*.{js,ts,jsx,tsx,json}": "pnpm run lint && pnpm run format"
