@@ -4,6 +4,9 @@ on:
   pull_request:
     branches:
       - main
+    paths:
+      - 'apps/website/**'
+      - '.github/workflows/website-versions-upload.yaml'
 
 permissions:
   contents: read
