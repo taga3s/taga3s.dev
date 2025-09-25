@@ -9,6 +9,7 @@ dist/
 !.vscode/*.code-snippets
 */rss.xml
 .turbo/
+target
 
 # deps
 node_modules/
