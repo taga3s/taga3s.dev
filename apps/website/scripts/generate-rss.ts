@@ -1,5 +1,5 @@
-import fs from "fs";
-import { cdata, Channel, generateRSS, Item } from "@taga3s/rss-generator";
+import fs from "node:fs";
+import { cdata, type Channel, generateRSS, type Item } from "@taga3s/rss-generator";
 
 import remarkParse from "remark-parse";
 import remarkStringify from "remark-stringify";
