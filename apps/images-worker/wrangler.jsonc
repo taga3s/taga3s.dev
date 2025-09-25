@@ -3,9 +3,7 @@
   "name": "taga3s-dev-images",
   "main": "src/index.ts",
   "compatibility_date": "2025-02-24",
-  "compatibility_flags": [
-    "nodejs_compat"
-  ],
+  "compatibility_flags": ["nodejs_compat"],
   "r2_buckets": [
     {
       "bucket_name": "taga3s-dev-images",

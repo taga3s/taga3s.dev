@@ -1,25 +1,25 @@
 {
-	"name": "@taga3s/images-worker",
-	"type": "module",
-	"scripts": {
-		"fetch-assets": "curl -L 'https://unpkg.com/yoga-wasm-web/dist/yoga.wasm' -o src/packages/og/vendor/yoga.wasm && curl -L 'https://unpkg.com/@resvg/resvg-wasm/index_bg.wasm' -o src/packages/og/vendor/resvg.wasm",
-		"dev": "wrangler dev",
-		"deploy": "wrangler deploy --minify --config wrangler.jsonc",
-		"lint": "bunx biome lint --write --unsafe ./src",
-		"format": "bunx biome format --write ./src package.json tsconfig.json biome.json",
-		"check": "bunx biome ci --formatter-enabled=true --linter-enabled=true --organize-imports-enabled=false ./src package.json tsconfig.json biome.json"
-	},
-	"dependencies": {
-		"hono": "^4.7.8"
-	},
-	"devDependencies": {
-		"@cloudflare/workers-types": "^4.20250429.0",
-		"@resvg/resvg-js": "^2.6.2",
-		"@resvg/resvg-wasm": "^2.6.2",
-		"@types/node": "^24.5.2",
-		"satori": "^0.12.2",
-		"sharp": "^0.34.1",
-		"wrangler": "^4.13.2",
-		"yoga-wasm-web": "^0.3.3"
-	}
+  "name": "@taga3s/images-worker",
+  "type": "module",
+  "scripts": {
+    "fetch-assets": "curl -L 'https://unpkg.com/yoga-wasm-web/dist/yoga.wasm' -o src/packages/og/vendor/yoga.wasm && curl -L 'https://unpkg.com/@resvg/resvg-wasm/index_bg.wasm' -o src/packages/og/vendor/resvg.wasm",
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy --minify --config wrangler.jsonc",
+    "lint": "bunx biome lint --write --unsafe ./src",
+    "format": "bunx biome format --write ./src package.json tsconfig.json biome.json",
+    "check": "bunx biome ci --formatter-enabled=true --linter-enabled=true --organize-imports-enabled=false ./src package.json tsconfig.json biome.json"
+  },
+  "dependencies": {
+    "hono": "^4.7.8"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20250429.0",
+    "@resvg/resvg-js": "^2.6.2",
+    "@resvg/resvg-wasm": "^2.6.2",
+    "@types/node": "^24.5.2",
+    "satori": "^0.12.2",
+    "sharp": "^0.34.1",
+    "wrangler": "^4.13.2",
+    "yoga-wasm-web": "^0.3.3"
+  }
 }

@@ -1,5 +1,5 @@
 declare module "*.wasm" {
-	export default ArrayBuffer;
+  export default ArrayBuffer;
 }
 
 // declare module "*.ttf" {
