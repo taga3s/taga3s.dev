@@ -6,8 +6,8 @@
   "scripts": {
     "build:website": "turbo build --filter=@taga3s/website",
     "test": "turbo test",
-    "lint": "biome lint --write --unsafe ./apps/website",
-    "format": "biome format --write ./apps/website ./scripts package.json biome.json"
+    "lint": "biome lint --write --unsafe ./apps/website ./apps/images-worker",
+    "format": "biome format --write ./apps/website ./apps/images-worker ./scripts package.json biome.json"
   },
   "devDependencies": {
     "@biomejs/biome": "2.2.4",

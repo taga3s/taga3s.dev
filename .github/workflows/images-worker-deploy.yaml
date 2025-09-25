@@ -1,0 +1,43 @@
+name: deploy
+
+on:
+  push:
+    branches:
+      - main
+    # paths-ignore:
+    #   - tools/**
+  pull_request:
+    branches:
+      - main
+    # paths-ignore:
+    #   - tools/**
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@08eba0b27e820071cde6df949e0beb9ba4906955 # v4.3.0
+
+      - uses: ./.github/actions/setup-ci
+
+      - run: pnpm --filter "@taga3s/images-worker" fetch-assets
+        shell: bash
+      
+      - name: Publish to Cloudflare Workers
+        uses: cloudflare/wrangler-action@da0e0dfe58b7a431659754fdf3f186c529afbe65 # v3.14.1
+        with:
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          command: deploy --minify --config wrangler.jsonc
+          workingDirectory: ./apps/images-worker
+        env:
+          BASIC_AUTH_USERNAME: ${{ secrets.IMAGES_WORKER_BASIC_AUTH_USERNAME }}
+          BASIC_AUTH_PASSWORD: ${{ secrets.IMAGES_WORKER_BASIC_AUTH_PASSWORD }}
+
+      # - name: Comment Preview URL
+      #   uses: ./.github/actions/comment-preview-url
+      #   with:
+      #     target_url: ${{ steps.cloudflare-workers-deploy.outputs.deployment-url }}
+      #     pr_number: ${{ github.event.number }}
+      #   if: github.event_name == 'pull_request'
