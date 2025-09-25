@@ -33,7 +33,7 @@ const channel: Channel = {
 
 const items: Item[] = [];
 
-const dir = "app/routes/posts";
+const dir = "./app/routes/posts";
 const postFilenames = fs.readdirSync(dir).filter((filename) => filename.endsWith(".mdx"));
 for (const filename of postFilenames) {
   const content = await unified()

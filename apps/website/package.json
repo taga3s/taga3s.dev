@@ -6,7 +6,6 @@
     "dev": "vite",
     "build": "vite build --mode client && vite build",
     "preview": "wrangler dev",
-    "deploy": "pnpm build && wrangler deploy",
     "test": "vitest run",
     "generate:rss": "node --import @swc-node/register/esm-register ./scripts/generate-rss.ts",
     "install-puppeteer": "puppeteer browsers install chrome"

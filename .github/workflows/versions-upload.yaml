@@ -28,11 +28,14 @@ jobs:
 
       - uses: ./.github/actions/setup-ci
 
+      - run: pnpm --filter "@taga3s/website" install-puppeteer
+        shell: bash
+
       - name: Generate RSS feed
-        run: pnpm generate:rss
+        run: pnpm --filter "@taga3s/website" generate:rss
 
       - name: Build
-        run: pnpm build
+        run: pnpm build:website
 
       - name: Upload to Cloudflare Workers
         id: cloudflare-workers-upload
@@ -41,6 +44,7 @@ jobs:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           command: versions upload --config wrangler.jsonc
+          workingDirectory: ./apps/website
 
       - name: Comment Preview URL
         uses: ./.github/actions/comment-preview-url
