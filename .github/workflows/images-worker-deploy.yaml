@@ -34,8 +34,8 @@ jobs:
           command: deploy --minify --config wrangler.jsonc
           workingDirectory: ./apps/images-worker
         env:
-          BASIC_AUTH_USERNAME: ${{ secrets.BASIC_AUTH_USERNAME }}
-          BASIC_AUTH_PASSWORD: ${{ secrets.BASIC_AUTH_PASSWORD }}
+          BASIC_AUTH_USERNAME: ${{ secrets.IMAGES_WORKER_BASIC_AUTH_USERNAME }}
+          BASIC_AUTH_PASSWORD: ${{ secrets.IMAGES_WORKER_BASIC_AUTH_PASSWORD }}
 
       - name: Comment Preview URL
         uses: ./.github/actions/comment-preview-url

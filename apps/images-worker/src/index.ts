@@ -75,13 +75,13 @@ v1.get("/images/og/:title", async (c) => {
 // Admin routes
 
 v1.use("/admin/*", async (c, next) => {
-  const { BASIC_AUTH_USERNAME, BASIC_AUTH_PASSWORD } = env<{
-    BASIC_AUTH_USERNAME: string;
-    BASIC_AUTH_PASSWORD: string;
+  const { IMAGES_WORKER_BASIC_AUTH_USERNAME, IMAGES_WORKER_BASIC_AUTH_PASSWORD } = env<{
+    IMAGES_WORKER_BASIC_AUTH_USERNAME: string;
+    IMAGES_WORKER_BASIC_AUTH_PASSWORD: string;
   }>(c);
   const middleware = basicAuth({
-    username: BASIC_AUTH_USERNAME,
-    password: BASIC_AUTH_PASSWORD,
+    username: IMAGES_WORKER_BASIC_AUTH_USERNAME,
+    password: IMAGES_WORKER_BASIC_AUTH_PASSWORD,
   });
   return middleware(c, next);
 });
