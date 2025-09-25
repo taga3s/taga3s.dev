@@ -8,6 +8,7 @@ dist/
 !.vscode/launch.json
 !.vscode/*.code-snippets
 */rss.xml
+.turbo/
 
 # deps
 node_modules/

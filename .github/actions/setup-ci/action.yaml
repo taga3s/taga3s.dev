@@ -21,6 +21,3 @@ runs:
 
     - run: pnpm install
       shell: bash
-
-    - run: pnpm install-puppeteer
-      shell: bash

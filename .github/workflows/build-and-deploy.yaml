@@ -28,16 +28,19 @@ jobs:
 
       - uses: ./.github/actions/setup-ci
 
+      - run: pnpm --filter "@taga3s/website" install-puppeteer
+        shell: bash
+
       - name: Generate RSS feed
-        run: pnpm generate:rss
+        run: pnpm --filter "@taga3s/website" generate:rss
 
       - name: Build
-        run: pnpm build
+        run: pnpm build:website
 
       - name: Publish to Cloudflare Workers
-        id: cloudflare-workers-deploy
         uses: cloudflare/wrangler-action@da0e0dfe58b7a431659754fdf3f186c529afbe65 # v3.14.1
         with:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           command: deploy --minify --config wrangler.jsonc
+          workingDirectory: ./apps/website

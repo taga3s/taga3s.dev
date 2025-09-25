@@ -21,7 +21,7 @@ const ProfilePhotos: FC<Props> = (props) => {
   };
 
   const handleSwitchExpandedPhoto = (direction: "left" | "right") => {
-    const currentIndex = props.photos.findIndex((photo) => photo === expandedPhoto);
+    const currentIndex = props.photos.indexOf(expandedPhoto);
     let nextIndex = 0;
 
     if (direction === "left") {

@@ -3,15 +3,13 @@
   "name": "taga3s-dev-website",
   "main": "./dist/_worker.js",
   "compatibility_date": "2025-02-24",
-  "compatibility_flags": [
-    "nodejs_compat"
-  ],
+  "compatibility_flags": ["nodejs_compat"],
   "assets": {
-    "directory": "./dist",
+    "directory": "./dist"
   },
   "observability": {
     "logs": {
       "enabled": true
     }
-  },
+  }
 }

@@ -18,7 +18,7 @@ const bodyLayout = css`
   display: grid;
   grid-template-rows: auto 1fr auto;
   max-width: 700px;
-  min-height: 100vh;
+  min-height: 100vh; 
   margin: 0 auto;
   padding: 16px 20px;
   font-family: "Zen Kaku Gothic New", sans-serif;
