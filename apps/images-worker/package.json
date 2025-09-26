@@ -4,10 +4,7 @@
   "scripts": {
     "fetch-assets": "curl -L 'https://unpkg.com/yoga-wasm-web/dist/yoga.wasm' -o src/packages/og/vendor/yoga.wasm && curl -L 'https://unpkg.com/@resvg/resvg-wasm/index_bg.wasm' -o src/packages/og/vendor/resvg.wasm",
     "dev": "wrangler dev",
-    "deploy": "wrangler deploy --minify --config wrangler.jsonc",
-    "lint": "bunx biome lint --write --unsafe ./src",
-    "format": "bunx biome format --write ./src package.json tsconfig.json biome.json",
-    "check": "bunx biome ci --formatter-enabled=true --linter-enabled=true --organize-imports-enabled=false ./src package.json tsconfig.json biome.json"
+    "deploy": "wrangler deploy --minify --config wrangler.jsonc"
   },
   "dependencies": {
     "hono": "^4.7.8"
