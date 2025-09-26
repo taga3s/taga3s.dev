@@ -7,16 +7,16 @@
     "deploy": "wrangler deploy --minify --config wrangler.jsonc"
   },
   "dependencies": {
-    "hono": "^4.7.8"
+    "hono": "catalog:"
   },
   "devDependencies": {
-    "@cloudflare/workers-types": "^4.20250429.0",
-    "@resvg/resvg-js": "^2.6.2",
-    "@resvg/resvg-wasm": "^2.6.2",
-    "@types/node": "^24.5.2",
-    "satori": "^0.12.2",
-    "sharp": "^0.34.1",
-    "wrangler": "^4.13.2",
-    "yoga-wasm-web": "^0.3.3"
+    "@cloudflare/workers-types": "catalog:",
+    "@resvg/resvg-js": "catalog:",
+    "@resvg/resvg-wasm": "catalog:",
+    "@types/node": "catalog:",
+    "satori": "catalog:",
+    "sharp": "catalog:",
+    "wrangler": "catalog:",
+    "yoga-wasm-web": "catalog:"
   }
 }

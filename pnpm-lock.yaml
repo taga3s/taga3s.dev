@@ -4,6 +4,126 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+catalogs:
+  default:
+    '@cloudflare/workers-types':
+      specifier: ^4.20230605.0
+      version: 4.20250924.0
+    '@hono/vite-build':
+      specifier: ^1.6.0
+      version: 1.7.0
+    '@hono/vite-dev-server':
+      specifier: ^0.21.0
+      version: 0.21.1
+    '@mdx-js/rollup':
+      specifier: ^3.1.0
+      version: 3.1.1
+    '@mermaid-js/mermaid-cli':
+      specifier: ^11.4.2
+      version: 11.12.0
+    '@resvg/resvg-js':
+      specifier: ^2.6.2
+      version: 2.6.2
+    '@resvg/resvg-wasm':
+      specifier: ^2.6.2
+      version: 2.6.2
+    '@swc-node/register':
+      specifier: ^1.10.10
+      version: 1.11.1
+    '@swc/cli':
+      specifier: ^0.7.3
+      version: 0.7.8
+    '@swc/core':
+      specifier: ^1.11.24
+      version: 1.13.19
+    '@taga3s/rss-generator':
+      specifier: npm:@jsr/taga3s__rss-generator@^0.1.8
+      version: 0.1.8
+    '@types/hast':
+      specifier: ^3.0.4
+      version: 3.0.4
+    '@types/mdast':
+      specifier: ^4.0.4
+      version: 4.0.4
+    '@types/node':
+      specifier: ^24.5.2
+      version: 24.5.2
+    '@types/unist':
+      specifier: ^3.0.3
+      version: 3.0.3
+    hast-util-to-html:
+      specifier: ^9.0.5
+      version: 9.0.5
+    hono:
+      specifier: ^4.6.20
+      version: 4.9.8
+    honox:
+      specifier: ^0.1.33
+      version: 0.1.47
+    puppeteer:
+      specifier: ^24.8.0
+      version: 24.22.3
+    rehype-parse:
+      specifier: ^9.0.1
+      version: 9.0.1
+    rehype-stringify:
+      specifier: ^10.0.1
+      version: 10.0.1
+    remark-breaks:
+      specifier: ^4.0.0
+      version: 4.0.0
+    remark-extract-frontmatter:
+      specifier: ^3.2.0
+      version: 3.2.0
+    remark-frontmatter:
+      specifier: ^5.0.0
+      version: 5.0.0
+    remark-gfm:
+      specifier: ^4.0.1
+      version: 4.0.1
+    remark-mdx-frontmatter:
+      specifier: ^5.1.0
+      version: 5.2.0
+    remark-parse:
+      specifier: ^11.0.0
+      version: 11.0.0
+    remark-rehype:
+      specifier: ^11.1.2
+      version: 11.1.2
+    remark-stringify:
+      specifier: ^11.0.0
+      version: 11.0.0
+    satori:
+      specifier: ^0.12.2
+      version: 0.12.2
+    sharp:
+      specifier: ^0.34.1
+      version: 0.34.4
+    shiki:
+      specifier: ^3.3.0
+      version: 3.13.0
+    to-vfile:
+      specifier: ^8.0.0
+      version: 8.0.0
+    unified:
+      specifier: ^11.0.5
+      version: 11.0.5
+    unist-util-visit:
+      specifier: ^5.0.0
+      version: 5.0.0
+    vite:
+      specifier: ^7.0.0
+      version: 7.1.7
+    vitest:
+      specifier: ^3.1.2
+      version: 3.2.4
+    wrangler:
+      specifier: ^4.40.0
+      version: 4.40.0
+    yoga-wasm-web:
+      specifier: ^0.3.3
+      version: 0.3.3
+
 importers:
 
   .:
@@ -18,135 +138,138 @@ importers:
   apps/images-worker:
     dependencies:
       hono:
-        specifier: ^4.7.8
+        specifier: 'catalog:'
         version: 4.9.8
     devDependencies:
       '@cloudflare/workers-types':
-        specifier: ^4.20250429.0
+        specifier: 'catalog:'
         version: 4.20250924.0
       '@resvg/resvg-js':
-        specifier: ^2.6.2
+        specifier: 'catalog:'
         version: 2.6.2
       '@resvg/resvg-wasm':
-        specifier: ^2.6.2
+        specifier: 'catalog:'
         version: 2.6.2
       '@types/node':
-        specifier: ^24.5.2
+        specifier: 'catalog:'
         version: 24.5.2
       satori:
-        specifier: ^0.12.2
+        specifier: 'catalog:'
         version: 0.12.2
       sharp:
-        specifier: ^0.34.1
+        specifier: 'catalog:'
         version: 0.34.4
       wrangler:
-        specifier: ^4.13.2
+        specifier: 'catalog:'
         version: 4.40.0(@cloudflare/workers-types@4.20250924.0)
       yoga-wasm-web:
-        specifier: ^0.3.3
+        specifier: 'catalog:'
         version: 0.3.3
 
   apps/website:
     dependencies:
       hono:
-        specifier: ^4.6.20
+        specifier: 'catalog:'
         version: 4.9.8
       honox:
-        specifier: ^0.1.33
+        specifier: 'catalog:'
         version: 0.1.47(hono@4.9.8)(miniflare@4.20250924.0)(wrangler@4.40.0(@cloudflare/workers-types@4.20250924.0))
     devDependencies:
       '@cloudflare/workers-types':
-        specifier: ^4.20250924.0
+        specifier: 'catalog:'
         version: 4.20250924.0
       '@hono/vite-build':
-        specifier: ^1.6.0
+        specifier: 'catalog:'
         version: 1.7.0(hono@4.9.8)
       '@hono/vite-dev-server':
-        specifier: ^0.21.0
+        specifier: 'catalog:'
         version: 0.21.1(hono@4.9.8)(miniflare@4.20250924.0)(wrangler@4.40.0(@cloudflare/workers-types@4.20250924.0))
       '@mdx-js/rollup':
-        specifier: ^3.1.0
+        specifier: 'catalog:'
         version: 3.1.1(rollup@4.52.2)
       '@mermaid-js/mermaid-cli':
-        specifier: ^11.4.2
+        specifier: 'catalog:'
         version: 11.12.0(@babel/template@7.27.2)(puppeteer@24.22.3(typescript@5.9.2))
       '@swc-node/register':
-        specifier: ^1.10.10
+        specifier: 'catalog:'
         version: 1.11.1(@swc/core@1.13.19(@swc/helpers@0.5.17))(@swc/types@0.1.25)(typescript@5.9.2)
       '@swc/cli':
-        specifier: ^0.7.3
+        specifier: 'catalog:'
         version: 0.7.8(@swc/core@1.13.19(@swc/helpers@0.5.17))
       '@swc/core':
-        specifier: ^1.11.24
+        specifier: 'catalog:'
         version: 1.13.19(@swc/helpers@0.5.17)
       '@taga3s/rss-generator':
-        specifier: npm:@jsr/taga3s__rss-generator@^0.1.8
+        specifier: 'catalog:'
         version: '@jsr/taga3s__rss-generator@0.1.8'
       '@types/hast':
-        specifier: ^3.0.4
+        specifier: 'catalog:'
         version: 3.0.4
       '@types/mdast':
-        specifier: ^4.0.4
+        specifier: 'catalog:'
         version: 4.0.4
+      '@types/node':
+        specifier: 'catalog:'
+        version: 24.5.2
       '@types/unist':
-        specifier: ^3.0.3
+        specifier: 'catalog:'
         version: 3.0.3
       hast-util-to-html:
-        specifier: ^9.0.5
+        specifier: 'catalog:'
         version: 9.0.5
       puppeteer:
-        specifier: ^24.8.0
+        specifier: 'catalog:'
         version: 24.22.3(typescript@5.9.2)
       rehype-parse:
-        specifier: ^9.0.1
+        specifier: 'catalog:'
         version: 9.0.1
       rehype-stringify:
-        specifier: ^10.0.1
+        specifier: 'catalog:'
         version: 10.0.1
       remark-breaks:
-        specifier: ^4.0.0
+        specifier: 'catalog:'
         version: 4.0.0
       remark-extract-frontmatter:
-        specifier: ^3.2.0
+        specifier: 'catalog:'
         version: 3.2.0
       remark-frontmatter:
-        specifier: ^5.0.0
+        specifier: 'catalog:'
         version: 5.0.0
       remark-gfm:
-        specifier: ^4.0.1
+        specifier: 'catalog:'
         version: 4.0.1
       remark-mdx-frontmatter:
-        specifier: ^5.1.0
+        specifier: 'catalog:'
         version: 5.2.0
       remark-parse:
-        specifier: ^11.0.0
+        specifier: 'catalog:'
         version: 11.0.0
       remark-rehype:
-        specifier: ^11.1.2
+        specifier: 'catalog:'
         version: 11.1.2
       remark-stringify:
-        specifier: ^11.0.0
+        specifier: 'catalog:'
         version: 11.0.0
       shiki:
-        specifier: ^3.3.0
+        specifier: 'catalog:'
         version: 3.13.0
       to-vfile:
-        specifier: ^8.0.0
+        specifier: 'catalog:'
         version: 8.0.0
       unified:
-        specifier: ^11.0.5
+        specifier: 'catalog:'
         version: 11.0.5
       unist-util-visit:
-        specifier: ^5.0.0
+        specifier: 'catalog:'
         version: 5.0.0
       vite:
-        specifier: ^7.0.0
+        specifier: 'catalog:'
         version: 7.1.7(@types/node@24.5.2)(jiti@1.21.7)(yaml@2.8.1)
       vitest:
-        specifier: ^3.1.2
+        specifier: 'catalog:'
         version: 3.2.4(@types/debug@4.1.12)(@types/node@24.5.2)(jiti@1.21.7)(yaml@2.8.1)
       wrangler:
-        specifier: ^4.40.0
+        specifier: 'catalog:'
         version: 4.40.0(@cloudflare/workers-types@4.20250924.0)
       yaml:
         specifier: ^2.7.0
@@ -4447,7 +4570,7 @@ snapshots:
 
   '@babel/generator@7.25.6':
     dependencies:
-      '@babel/types': 7.25.6
+      '@babel/types': 7.28.4
       '@jridgewell/gen-mapping': 0.3.13
       '@jridgewell/trace-mapping': 0.3.31
       jsesc: 2.5.2
@@ -4458,7 +4581,7 @@ snapshots:
 
   '@babel/parser@7.25.6':
     dependencies:
-      '@babel/types': 7.25.6
+      '@babel/types': 7.28.4
 
   '@babel/parser@7.28.4':
     dependencies:
@@ -4474,9 +4597,9 @@ snapshots:
     dependencies:
       '@babel/code-frame': 7.27.1
       '@babel/generator': 7.25.6
-      '@babel/parser': 7.25.6
+      '@babel/parser': 7.28.4
       '@babel/template': 7.27.2
-      '@babel/types': 7.25.6
+      '@babel/types': 7.28.4
       debug: 4.4.3
       globals: 11.12.0
     transitivePeerDependencies:
