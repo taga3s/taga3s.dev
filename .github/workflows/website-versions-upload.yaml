@@ -9,7 +9,6 @@ on:
       - '.github/workflows/website-versions-upload.yaml'
 
 permissions:
-  contents: read
   pull-requests: write
 
 jobs:
