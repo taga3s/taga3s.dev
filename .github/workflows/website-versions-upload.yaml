@@ -53,4 +53,3 @@ jobs:
           name: "@taga3s/website"
           target_url: ${{ steps.upload.outputs.deployment-url }}
           pr_number: ${{ github.event.number }}
-        if: github.event_name == 'pull_request'
