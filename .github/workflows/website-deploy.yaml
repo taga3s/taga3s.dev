@@ -8,12 +8,6 @@ on:
       - 'apps/website/**'
       - '.github/workflows/website-deploy.yaml'
 
-permissions:
-  contents: read
-  deployments: write
-  statuses: write
-  pull-requests: write
-
 jobs:
   deploy:
     runs-on: ubuntu-latest
