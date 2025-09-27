@@ -1,16 +1,15 @@
-name: website-deploy
+name: images-worker-versions-upload
 
 on:
-  push:
+  pull_request:
     branches:
       - main
     paths:
-      - 'apps/website/**'
-      - '.github/workflows/website-deploy.yaml'
+      - 'apps/images-worker/**'
+      - '.github/workflows/images-worker-versions-upload.yaml'
 
 permissions:
   contents: read
-  deployments: write
   statuses: write
   pull-requests: write
 
@@ -31,19 +30,19 @@ jobs:
 
       - uses: ./.github/actions/setup-ci
 
-      - run: pnpm --filter "@taga3s/website" install-puppeteer
-        shell: bash
-
-      - name: Generate RSS feed
-        run: pnpm --filter "@taga3s/website" generate:rss
-
-      - name: Build
-        run: pnpm build:website
-
-      - name: Publish to Cloudflare Workers
+      - name: Upload to Cloudflare Workers
+        id: cloudflare-workers-upload
         uses: cloudflare/wrangler-action@da0e0dfe58b7a431659754fdf3f186c529afbe65 # v3.14.1
         with:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          command: deploy --minify --config wrangler.jsonc
-          workingDirectory: ./apps/website
+          command: versions upload --config wrangler.jsonc
+          workingDirectory: ./apps/images-worker
+
+      - name: Comment Preview URL
+        uses: ./.github/actions/comment-preview-url
+        with:
+          name: "@taga3s/images-worker"
+          target_url: ${{ steps.cloudflare-workers-upload.outputs.deployment-url }}
+          pr_number: ${{ github.event.number }}
+        if: github.event_name == 'pull_request'

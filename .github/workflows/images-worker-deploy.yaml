@@ -1,16 +1,12 @@
-name: deploy
+name: images-worker-deploy
 
 on:
   push:
     branches:
       - main
-    # paths-ignore:
-    #   - tools/**
-  pull_request:
-    branches:
-      - main
-    # paths-ignore:
-    #   - tools/**
+    paths:
+      - 'apps/images-worker/**'
+      - '.github/workflows/images-worker-deploy.yaml'
 
 jobs:
   deploy:
@@ -34,10 +30,3 @@ jobs:
         env:
           BASIC_AUTH_USERNAME: ${{ secrets.IMAGES_WORKER_BASIC_AUTH_USERNAME }}
           BASIC_AUTH_PASSWORD: ${{ secrets.IMAGES_WORKER_BASIC_AUTH_PASSWORD }}
-
-      # - name: Comment Preview URL
-      #   uses: ./.github/actions/comment-preview-url
-      #   with:
-      #     target_url: ${{ steps.cloudflare-workers-deploy.outputs.deployment-url }}
-      #     pr_number: ${{ github.event.number }}
-      #   if: github.event_name == 'pull_request'

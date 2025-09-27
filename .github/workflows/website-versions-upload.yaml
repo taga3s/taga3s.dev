@@ -1,4 +1,4 @@
-name: Versions upload
+name: website-versions-upload
 
 on:
   pull_request:
@@ -10,7 +10,6 @@ on:
 
 permissions:
   contents: read
-  deployments: write
   statuses: write
   pull-requests: write
 
@@ -52,6 +51,7 @@ jobs:
       - name: Comment Preview URL
         uses: ./.github/actions/comment-preview-url
         with:
+          name: "@taga3s/website"
           target_url: ${{ steps.cloudflare-workers-upload.outputs.deployment-url }}
           pr_number: ${{ github.event.number }}
         if: github.event_name == 'pull_request'
