@@ -22,5 +22,5 @@ runs:
         echo "#### ${{ inputs.name }} Preview URL:
         ${{ inputs.target_url }}
         " > .tmp.txt
-        gh pr comment ${{ inputs.pr_number }} --body-file .tmp.txt || gh pr comment ${{ inputs.pr_number }} --body-file .tmp.txt
+        gh pr comment ${{ inputs.pr_number }} --body-file .tmp.txt
       shell: bash
