@@ -6,6 +6,9 @@ settings:
 
 catalogs:
   default:
+    '@biomejs/biome':
+      specifier: ^2.2.4
+      version: 2.2.4
     '@cloudflare/workers-types':
       specifier: ^4.20230605.0
       version: 4.20250924.0
@@ -105,6 +108,9 @@ catalogs:
     to-vfile:
       specifier: ^8.0.0
       version: 8.0.0
+    turbo:
+      specifier: ^2.5.8
+      version: 2.5.8
     unified:
       specifier: ^11.0.5
       version: 11.0.5
@@ -129,10 +135,10 @@ importers:
   .:
     devDependencies:
       '@biomejs/biome':
-        specifier: 2.2.4
+        specifier: 'catalog:'
         version: 2.2.4
       turbo:
-        specifier: ^2.5.8
+        specifier: 'catalog:'
         version: 2.5.8
 
   apps/images-worker:

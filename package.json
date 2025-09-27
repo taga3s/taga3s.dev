@@ -10,11 +10,11 @@
     "format": "biome format --write ./apps/website ./apps/images-worker ./scripts package.json biome.json"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.2.4",
-    "turbo": "^2.5.8"
+    "@biomejs/biome": "catalog:",
+    "turbo": "catalog:"
   },
   "lint-staged": {
     "*.{js,ts,jsx,tsx,json}": "pnpm run lint && pnpm run format"
   },
-  "packageManager": "pnpm@10.17.0"
+  "packageManager": "pnpm@10.17.1"
 }

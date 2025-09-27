@@ -2,6 +2,7 @@ packages:
   - 'apps/*'
 
 catalog:
+  "@biomejs/biome": ^2.2.4
   "@cloudflare/workers-types": ^4.20230605.0
   "@hono/vite-build": ^1.6.0
   "@hono/vite-dev-server": ^0.21.0
@@ -32,6 +33,7 @@ catalog:
   "remark-rehype": ^11.1.2
   "remark-stringify": ^11.0.0
   "shiki": ^3.3.0
+  "turbo": ^2.5.8
   "to-vfile": ^8.0.0
   "unified": ^11.0.5
   "unist-util-visit": ^5.0.0
