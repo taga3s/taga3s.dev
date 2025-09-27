@@ -2,6 +2,9 @@ name: Comment Preview URL
 description: comment preview url action
 
 inputs:
+  name:
+    required: true
+    description: name
   target_url:
     required: true
     description: target_url
@@ -16,8 +19,8 @@ runs:
       env:
         GH_TOKEN: ${{ github.token }}
       run: |
-        echo "#### CF Preview URL:
+        echo "#### ${{ inputs.name }} Preview URL:
         ${{ inputs.target_url }}
         " > .tmp.txt
-        gh pr comment ${{ inputs.pr_number }} --edit-last --body-file .tmp.txt || gh pr comment ${{ inputs.pr_number }} --body-file .tmp.txt
+        gh pr comment ${{ inputs.pr_number }} --body-file .tmp.txt
       shell: bash
