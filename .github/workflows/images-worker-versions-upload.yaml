@@ -9,7 +9,6 @@ on:
       - '.github/workflows/images-worker-versions-upload.yaml'
 
 permissions:
-  contents: read
   pull-requests: write
 
 jobs:
@@ -44,4 +43,3 @@ jobs:
           name: "@taga3s/images-worker"
           target_url: ${{ steps.upload.outputs.deployment-url }}
           pr_number: ${{ github.event.number }}
-        if: github.event_name == 'pull_request'
