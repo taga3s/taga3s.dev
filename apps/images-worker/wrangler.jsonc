@@ -16,5 +16,6 @@
       "globs": ["**/*.ttf"],
       "fallthrough": true
     }
-  ]
+  ],
+  "preview_urls": true
 }
