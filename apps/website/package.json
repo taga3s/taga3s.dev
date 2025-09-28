@@ -47,6 +47,6 @@
     "vite": "catalog:",
     "vitest": "catalog:",
     "wrangler": "catalog:",
-    "yaml": "^2.7.0"
+    "yaml": "catalog:"
   }
 }

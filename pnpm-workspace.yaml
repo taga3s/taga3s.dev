@@ -43,5 +43,6 @@ catalog:
   "sharp": ^0.34.1
   "wrangler": ^4.40.0
   "yoga-wasm-web": ^0.3.3
+  "yaml": ^2.8.1
 
 minimumReleaseAge: 1
