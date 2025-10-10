@@ -17,8 +17,15 @@ type Frontmatter = {
   ogpImage?: string;
 };
 
-const validateFrontmatter = (value: any): value is Frontmatter => {
-  return "title" in value && "description" in value && "category" in value && "publishedAt" in value;
+const validateFrontmatter = (value: unknown): value is Frontmatter => {
+  return (
+    typeof value === "object" &&
+    value !== null &&
+    "title" in value &&
+    "description" in value &&
+    "category" in value &&
+    "publishedAt" in value
+  );
 };
 
 const channel: Channel = {
