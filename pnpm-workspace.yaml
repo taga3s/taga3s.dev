@@ -5,7 +5,7 @@ catalog:
   "@biomejs/biome": ^2.2.4
   "@cloudflare/workers-types": ^4.20230605.0
   "@hono/vite-build": ^1.6.0
-  "@hono/vite-dev-server": ^0.22.0
+  "@hono/vite-dev-server": ^0.23.0
   "@mdx-js/rollup": ^3.1.0
   "@mermaid-js/mermaid-cli": ^11.4.2
   "@resvg/resvg-js": ^2.6.2
