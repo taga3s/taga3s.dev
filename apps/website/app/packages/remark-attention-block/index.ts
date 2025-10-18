@@ -2,7 +2,10 @@ import type { Root } from "mdast";
 import type { Plugin } from "unified";
 import { visit } from "unist-util-visit";
 
-const remarkAttentionBlock: Plugin<[], Root> = () => {
+/**
+ * @deprecated This plugin is not recommended for use.
+ */
+export const remarkAttentionBlock: Plugin<[], Root> = () => {
   const regex = /\[!(?:WARNING|NOTE|TIP)\]/g;
   return (tree) => {
     visit(tree, "blockquote", (node) => {
@@ -26,4 +29,3 @@ const remarkAttentionBlock: Plugin<[], Root> = () => {
     });
   };
 };
-export { remarkAttentionBlock };
