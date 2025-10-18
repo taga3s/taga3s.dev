@@ -4,8 +4,10 @@
   "version": "1.0.1",
   "license": "MIT",
   "scripts": {
-    "dev:website": "turbo dev --filter=@taga3s/website",
-    "build:website": "turbo build --filter=@taga3s/website",
+    "dev:website": "pnpm --filter=@taga3s/website dev",
+    "dev:images-worker": "pnpm --filter=@taga3s/images-worker dev",
+    "build:website": "pnpm --filter=@taga3s/website build",
+    "build:images-worker": "pnpm --filter=@taga3s/images-worker build",
     "test": "turbo test",
     "lint": "biome lint --write ./apps/website ./apps/images-worker package.json biome.json renovate.json turbo.jsonc",
     "format": "biome format --write ./apps/website ./apps/images-worker package.json biome.json renovate.json turbo.jsonc",
