@@ -1,5 +1,4 @@
 import { createRoute } from "honox/factory";
-import type { Head } from "../global";
 import { presenter } from "../components/Presenter.css";
 import { Posts } from "../components/posts/Posts";
 
