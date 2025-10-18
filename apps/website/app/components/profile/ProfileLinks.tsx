@@ -25,7 +25,7 @@ const links = [
 
 const ProfileLinks = () => {
   return (
-    <Section title="Links">
+    <Section title="🔗 links">
       <div class={profileLinkCardContainer}>
         {links.map((link) => (
           <a href={link.url} class={link.style} key={link.title}>

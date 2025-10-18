@@ -14,7 +14,7 @@ const ProfileMain = () => {
         <div class={profileMainBox}>
           <span class={profileMainName}>taga3s</span>
           <ul class={profileMainBelonging}>
-            <li>Student / Web Engineer</li>
+            <li>Student / Programmer</li>
           </ul>
         </div>
         <div>
@@ -22,7 +22,7 @@ const ProfileMain = () => {
         </div>
       </div>
       <div class={profileMainIntroduction}>
-        <span>Memento mori, Carpe diem</span>
+        <span>Memento mori, Carpe diem.</span>
       </div>
     </div>
   );
