@@ -4,10 +4,15 @@
   "version": "1.0.1",
   "license": "MIT",
   "scripts": {
-    "build:website": "turbo build --filter=@taga3s/website",
+    "dev:website": "pnpm --filter=@taga3s/website dev",
+    "dev:images-worker": "pnpm --filter=@taga3s/images-worker dev",
+    "build:website": "pnpm --filter=@taga3s/website build",
+    "build:images-worker": "pnpm --filter=@taga3s/images-worker build",
     "test": "turbo test",
-    "lint": "biome lint --write --unsafe ./apps/website ./apps/images-worker",
-    "format": "biome format --write ./apps/website ./apps/images-worker package.json biome.json"
+    "lint": "biome lint --write ./apps/website ./apps/images-worker package.json biome.json renovate.json turbo.jsonc",
+    "format": "biome format --write ./apps/website ./apps/images-worker package.json biome.json renovate.json turbo.jsonc",
+    "check": "biome check --write ./apps/website ./apps/images-worker package.json biome.json renovate.json turbo.jsonc",
+    "check:ci": "biome ci"
   },
   "devDependencies": {
     "@biomejs/biome": "catalog:",

@@ -16,7 +16,10 @@ const getSVGFromType = (type: BlockType): Element => {
   }
 };
 
-const rehypeAttentionBlock: Plugin<[], Root> = () => {
+/**
+ * @deprecated This plugin is not recommended for use.
+ */
+export const rehypeAttentionBlock: Plugin<[], Root> = () => {
   return (tree) => {
     visit(tree, "element", (node) => {
       if (
@@ -55,5 +58,3 @@ const rehypeAttentionBlock: Plugin<[], Root> = () => {
     });
   };
 };
-
-export { rehypeAttentionBlock };

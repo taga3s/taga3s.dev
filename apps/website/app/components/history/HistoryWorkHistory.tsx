@@ -11,7 +11,7 @@ const HistoryWorkHistory: FC<Props> = (props) => {
   const { workHistory } = props;
 
   return (
-    <Section title="Work history">
+    <Section title="⛏️ work history">
       <ul class={workHistoryList}>
         {workHistory
           .toSorted((a, b) => a.order - b.order)

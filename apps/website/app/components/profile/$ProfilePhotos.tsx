@@ -44,7 +44,7 @@ const ProfilePhotos: FC<Props> = (props) => {
   };
 
   return (
-    <Section title="Favs">
+    <Section title="📷 favs">
       <div class={profilePhotoList}>
         {props.photos.map((photo) => (
           <button
@@ -55,7 +55,7 @@ const ProfilePhotos: FC<Props> = (props) => {
             type="button"
             key={photo.url}
           >
-            <img src={photo.url} alt={""} class={profilePhotoImage} />
+            <img src={photo.url} alt={"favorite photo"} class={profilePhotoImage} />
           </button>
         ))}
       </div>

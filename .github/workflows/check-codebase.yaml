@@ -15,8 +15,6 @@ jobs:
 
       - uses: ./.github/actions/setup-ci
 
-      - run: pnpm lint
-
-      - run: pnpm format
+      - run: pnpm check:ci
 
       - run: pnpm test
