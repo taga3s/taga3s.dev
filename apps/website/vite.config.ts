@@ -2,18 +2,18 @@
 
 import build from "@hono/vite-build/cloudflare-pages";
 import adapter from "@hono/vite-dev-server/cloudflare";
-import honox from "honox/vite";
 import mdx from "@mdx-js/rollup";
+import honox from "honox/vite";
 import remarkBreaks from "remark-breaks";
 import remarkFrontmatter from "remark-frontmatter";
-import remarkMdxFrontmatter from "remark-mdx-frontmatter";
 import remarkGfm from "remark-gfm";
-import { rehypeMomiji } from "./app/packages/rehype-momiji";
-import { remarkMomijiTitle } from "./app/packages/remark-momiji-title";
-import { rehypeMermaid } from "./app/packages/rehype-mermaid/rehypeMermaid";
-import { remarkAttentionBlock } from "./app/packages/remark-attention-block";
-import { rehypeAttentionBlock } from "./app/packages/rehype-attention-block";
+import remarkMdxFrontmatter from "remark-mdx-frontmatter";
 import { defineConfig } from "vitest/config";
+import { rehypeAttentionBlock } from "./app/packages/rehype-attention-block";
+import { rehypeMermaid } from "./app/packages/rehype-mermaid/rehypeMermaid";
+import { rehypeMomiji } from "./app/packages/rehype-momiji";
+import { remarkAttentionBlock } from "./app/packages/remark-attention-block";
+import { remarkMomijiTitle } from "./app/packages/remark-momiji-title";
 
 export default defineConfig({
   test: {
