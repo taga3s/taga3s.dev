@@ -63,6 +63,9 @@ catalogs:
     honox:
       specifier: ^0.1.33
       version: 0.1.52
+    puppeteer:
+      specifier: ^24.8.0
+      version: 24.27.0
     rehype-parse:
       specifier: ^9.0.1
       version: 9.0.1
