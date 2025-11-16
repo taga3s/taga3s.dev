@@ -63,6 +63,9 @@ catalogs:
     honox:
       specifier: ^0.1.33
       version: 0.1.52
+    puppeteer:
+      specifier: ^24.8.0
+      version: 24.29.1
     rehype-parse:
       specifier: ^9.0.1
       version: 9.0.1
@@ -99,6 +102,9 @@ catalogs:
     sharp:
       specifier: ^0.34.1
       version: 0.34.5
+    shiki:
+      specifier: ^3.3.0
+      version: 3.15.0
     to-vfile:
       specifier: ^8.0.0
       version: 8.0.0
