@@ -6,6 +6,9 @@ settings:
 
 catalogs:
   default:
+    '@biomejs/biome':
+      specifier: ^2.2.4
+      version: 2.3.5
     '@cloudflare/workers-types':
       specifier: ^4.20230605.0
       version: 4.20250924.0
@@ -33,6 +36,9 @@ catalogs:
     '@swc/cli':
       specifier: ^0.7.3
       version: 0.7.9
+    '@swc/core':
+      specifier: ^1.11.24
+      version: 1.15.2
     '@taga3s/rss-generator':
       specifier: npm:@jsr/taga3s__rss-generator@^0.1.8
       version: 0.1.8
@@ -42,9 +48,6 @@ catalogs:
     '@types/mdast':
       specifier: ^4.0.4
       version: 4.0.4
-    '@types/node':
-      specifier: ^24.5.2
-      version: 24.10.0
     '@types/unist':
       specifier: ^3.0.3
       version: 3.0.3
@@ -155,7 +158,7 @@ importers:
         version: 2.6.2
       '@types/node':
         specifier: 'catalog:'
-        version: 24.10.0
+        version: 24.10.1
       satori:
         specifier: 'catalog:'
         version: 0.18.3
@@ -213,7 +216,7 @@ importers:
         version: 4.0.4
       '@types/node':
         specifier: 'catalog:'
-        version: 24.10.0
+        version: 24.10.1
       '@types/unist':
         specifier: 'catalog:'
         version: 3.0.3
@@ -267,10 +270,10 @@ importers:
         version: 5.0.0
       vite:
         specifier: 'catalog:'
-        version: 7.1.12(@types/node@24.10.0)(jiti@1.21.7)(yaml@2.8.1)
+        version: 7.1.12(@types/node@24.10.1)(jiti@1.21.7)(yaml@2.8.1)
       vitest:
         specifier: 'catalog:'
-        version: 4.0.6(@types/debug@4.1.12)(@types/node@24.10.0)(jiti@1.21.7)(yaml@2.8.1)
+        version: 4.0.6(@types/debug@4.1.12)(@types/node@24.10.1)(jiti@1.21.7)(yaml@2.8.1)
       wrangler:
         specifier: 'catalog:'
         version: 4.40.0(@cloudflare/workers-types@4.20250924.0)
@@ -1967,8 +1970,8 @@ packages:
   '@types/ms@2.1.0':
     resolution: {integrity: sha512-GsCCIZDE/p3i96vtEqx+7dBUGXrc7zeSK3wwPHIaRThS+9OhWIXRqzs4d6k1SVU8g91DrNRWxWUGhp5KXQb2VA==}
 
-  '@types/node@24.10.0':
-    resolution: {integrity: sha512-qzQZRBqkFsYyaSWXuEHc2WR9c0a0CXwiE5FWUvn7ZM+vdy1uZLfCunD38UzhuB7YN/J11ndbDBcTmOdxJo9Q7A==}
+  '@types/node@24.10.1':
+    resolution: {integrity: sha512-GNWcUTRBgIRJD5zj+Tq0fKOJ5XZajIiBroOF0yvj2bSU1WvNdYS/dn9UxwsujGW4JX06dnHyjV2y9rRaybH0iQ==}
 
   '@types/trusted-types@2.0.7':
     resolution: {integrity: sha512-ScaPdn1dQczgbl0QFTeTOmVHFULt394XJgOQNoyVhZ6r2vLnMLJfBPd53SB52T/3G36VI1/g2MZaX0cwDuXsfw==}
@@ -5884,7 +5887,7 @@ snapshots:
 
   '@types/ms@2.1.0': {}
 
-  '@types/node@24.10.0':
+  '@types/node@24.10.1':
     dependencies:
       undici-types: 7.16.0
 
@@ -5897,7 +5900,7 @@ snapshots:
 
   '@types/yauzl@2.10.3':
     dependencies:
-      '@types/node': 24.10.0
+      '@types/node': 24.10.1
     optional: true
 
   '@typescript-eslint/project-service@8.46.2(typescript@5.9.3)':
@@ -5947,13 +5950,13 @@ snapshots:
       chai: 6.2.0
       tinyrainbow: 3.0.3
 
-  '@vitest/mocker@4.0.6(vite@7.1.12(@types/node@24.10.0)(jiti@1.21.7)(yaml@2.8.1))':
+  '@vitest/mocker@4.0.6(vite@7.1.12(@types/node@24.10.1)(jiti@1.21.7)(yaml@2.8.1))':
     dependencies:
       '@vitest/spy': 4.0.6
       estree-walker: 3.0.3
       magic-string: 0.30.21
     optionalDependencies:
-      vite: 7.1.12(@types/node@24.10.0)(jiti@1.21.7)(yaml@2.8.1)
+      vite: 7.1.12(@types/node@24.10.1)(jiti@1.21.7)(yaml@2.8.1)
 
   '@vitest/pretty-format@4.0.6':
     dependencies:
@@ -8957,7 +8960,7 @@ snapshots:
       '@types/unist': 3.0.3
       vfile-message: 4.0.3
 
-  vite@7.1.12(@types/node@24.10.0)(jiti@1.21.7)(yaml@2.8.1):
+  vite@7.1.12(@types/node@24.10.1)(jiti@1.21.7)(yaml@2.8.1):
     dependencies:
       esbuild: 0.25.11
       fdir: 6.5.0(picomatch@4.0.3)
@@ -8966,15 +8969,15 @@ snapshots:
       rollup: 4.52.5
       tinyglobby: 0.2.15
     optionalDependencies:
-      '@types/node': 24.10.0
+      '@types/node': 24.10.1
       fsevents: 2.3.3
       jiti: 1.21.7
       yaml: 2.8.1
 
-  vitest@4.0.6(@types/debug@4.1.12)(@types/node@24.10.0)(jiti@1.21.7)(yaml@2.8.1):
+  vitest@4.0.6(@types/debug@4.1.12)(@types/node@24.10.1)(jiti@1.21.7)(yaml@2.8.1):
     dependencies:
       '@vitest/expect': 4.0.6
-      '@vitest/mocker': 4.0.6(vite@7.1.12(@types/node@24.10.0)(jiti@1.21.7)(yaml@2.8.1))
+      '@vitest/mocker': 4.0.6(vite@7.1.12(@types/node@24.10.1)(jiti@1.21.7)(yaml@2.8.1))
       '@vitest/pretty-format': 4.0.6
       '@vitest/runner': 4.0.6
       '@vitest/snapshot': 4.0.6
@@ -8991,11 +8994,11 @@ snapshots:
       tinyexec: 0.3.2
       tinyglobby: 0.2.15
       tinyrainbow: 3.0.3
-      vite: 7.1.12(@types/node@24.10.0)(jiti@1.21.7)(yaml@2.8.1)
+      vite: 7.1.12(@types/node@24.10.1)(jiti@1.21.7)(yaml@2.8.1)
       why-is-node-running: 2.3.0
     optionalDependencies:
       '@types/debug': 4.1.12
-      '@types/node': 24.10.0
+      '@types/node': 24.10.1
     transitivePeerDependencies:
       - jiti
       - less
