@@ -3,7 +3,7 @@ import yogaWasm from "./vendor/yoga.wasm";
 import satori, { init } from "satori";
 import initYoga from "yoga-wasm-web";
 import { Resvg, initWasm } from "@resvg/resvg-wasm";
-import { loadGoogleFont } from "./load-google-font";
+import { load as loadGoogleFont } from "./google-font";
 import { ImageBase } from "./Image-template";
 
 const genModuleInit = () => {
