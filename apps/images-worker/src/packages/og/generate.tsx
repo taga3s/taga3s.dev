@@ -21,7 +21,7 @@ const genModuleInit = () => {
 
 const moduleInit = genModuleInit();
 
-export const generateOGImage = async (title: string): Promise<Uint8Array<ArrayBufferLike>> => {
+export const generateOGImage = async (title: string): Promise<Uint8Array<ArrayBuffer>> => {
   await moduleInit();
 
   const notoSans = await loadGoogleFont({
@@ -43,7 +43,8 @@ export const generateOGImage = async (title: string): Promise<Uint8Array<ArrayBu
 
   const resvg = new Resvg(svg);
   const pngData = resvg.render();
-  const pngBuffer = pngData.asPng();
+  // In TypeScript 5.9, TypedArray has been changed to be generics to distinguish ArrayBuffer and SharedArrayBuffer. So, we need to do type assertion here.
+  const pngBuffer = pngData.asPng() as Uint8Array<ArrayBuffer>;
 
   return pngBuffer;
 };
