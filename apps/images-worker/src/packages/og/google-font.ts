@@ -1,5 +1,10 @@
-export const loadGoogleFont = async ({ family, weight, text }: { family: string; weight?: number; text?: string }) => {
-  const params: Record<string, string> = {
+interface Params {
+  family: string;
+  weight?: number;
+  text?: string;
+}
+export const load = async ({ family, weight, text }: Params) => {
+  const params: { [key: string]: string } = {
     family: `${encodeURIComponent(family)}${weight ? `:wght@${weight}` : ""}`,
   };
 

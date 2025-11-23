@@ -4,16 +4,6 @@
 
 ## commands
 
-- Get json data from the server
-```bash
-$ sanpincha get <target_path>
-```
-
-- Put json data to the server
-```bash
-$ sanpincha put <target_path>
-```
-
 - Put file to the server
 ```bash
 $ sanpincha put <target_path> --file <file_path>
