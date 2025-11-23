@@ -5,77 +5,10 @@ use std::fs;
 use clap::{Parser, Subcommand};
 use dotenv::dotenv;
 use reqwest::{
-    header::{ACCEPT, AUTHORIZATION, USER_AGENT},
+    header::{AUTHORIZATION, USER_AGENT},
     multipart,
 };
 use serde::{Deserialize, Serialize};
-
-#[derive(Debug, Serialize, Deserialize)]
-struct PutJsonDataResponse {
-    message: String,
-    path: String,
-}
-
-async fn _get_data<T: for<'de> Deserialize<'de>>(path: String) -> T {
-    let config = utils::get_config();
-
-    let request_url = format!("{}{}", config.base_url, path);
-    let client = reqwest::Client::new();
-
-    let response = client
-        .get(&request_url)
-        .header(USER_AGENT, "sanpincha")
-        .header(ACCEPT, "application/json")
-        .send()
-        .await;
-
-    let response = match response {
-        Ok(res) if res.status().is_success() => res,
-        _ => panic!("Request failed"),
-    };
-
-    let res_data = response
-        .json::<T>()
-        .await
-        .expect("Something went wrong while parsing");
-
-    res_data
-}
-
-async fn _put_json_data<T: Serialize>(path: String, req_body: &T) -> PutJsonDataResponse {
-    let config = utils::get_config();
-
-    let request_url = format!("{}{}", config.base_url, path);
-    let auth_header = format!(
-        "Basic {}",
-        utils::encode_base64(&format!(
-            "{}:{}",
-            config.basic_auth_username, config.basic_auth_password
-        ))
-    );
-    let client = reqwest::Client::new();
-
-    let response = client
-        .put(&request_url)
-        .header(USER_AGENT, "sanpincha")
-        .header(ACCEPT, "application/json")
-        .header(AUTHORIZATION, &auth_header)
-        .json(req_body)
-        .send()
-        .await;
-
-    let response = match response {
-        Ok(res) if res.status().is_success() => res,
-        _ => panic!("Request failed"),
-    };
-
-    let res_data = response
-        .json::<PutJsonDataResponse>()
-        .await
-        .expect("Something went wrong while parsing");
-
-    res_data
-}
 
 struct FileData {
     name: String,
@@ -90,7 +23,6 @@ struct PutFileDataResponse {
 
 async fn put_file_data(path: String, file_data: FileData) -> PutFileDataResponse {
     let config = utils::get_config();
-
     let request_url = format!("{}{}", config.base_url, path);
     let auth_header = format!(
         "Basic {}",
