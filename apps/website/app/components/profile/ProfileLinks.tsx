@@ -15,12 +15,6 @@ const links = [
     style: cosense,
     icon: <CosenseIcon />,
   },
-  {
-    title: "Qiita",
-    url: "https://qiita.com/taga3s",
-    style: qiita,
-    icon: <QiitaIcon />,
-  },
 ];
 
 const ProfileLinks = () => {
