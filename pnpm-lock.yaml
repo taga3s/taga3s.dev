@@ -63,6 +63,9 @@ catalogs:
     honox:
       specifier: ^0.1.33
       version: 0.1.52
+    puppeteer:
+      specifier: ^24.8.0
+      version: 24.31.0
     rehype-parse:
       specifier: ^9.0.1
       version: 9.0.1
@@ -114,6 +117,12 @@ catalogs:
     unist-util-visit:
       specifier: ^5.0.0
       version: 5.0.0
+    vite:
+      specifier: ^7.0.0
+      version: 7.2.4
+    vitest:
+      specifier: ^4.0.0
+      version: 4.0.13
     wrangler:
       specifier: ^4.40.0
       version: 4.40.0
