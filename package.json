@@ -8,15 +8,14 @@
     "dev:images-worker": "pnpm --filter=@taga3s/images-worker dev",
     "build:website": "pnpm --filter=@taga3s/website build",
     "build:images-worker": "pnpm --filter=@taga3s/images-worker build",
-    "test": "turbo test",
-    "lint": "biome lint --write ./apps/website ./apps/images-worker package.json biome.json renovate.json turbo.jsonc",
-    "format": "biome format --write ./apps/website ./apps/images-worker package.json biome.json renovate.json turbo.jsonc",
-    "check": "biome check --write ./apps/website ./apps/images-worker package.json biome.json renovate.json turbo.jsonc",
+    "lint": "biome lint --write ./apps/website ./apps/images-worker package.json biome.json renovate.json",
+    "format": "biome format --write ./apps/website ./apps/images-worker package.json biome.json renovate.json",
+    "test:website": "pnpm --filter=@taga3s/website test",
+    "check": "biome check --write ./apps/website ./apps/images-worker package.json biome.json renovate.json",
     "check:ci": "biome ci"
   },
   "devDependencies": {
-    "@biomejs/biome": "catalog:",
-    "turbo": "catalog:"
+    "@biomejs/biome": "catalog:"
   },
   "lint-staged": {
     "*.{js,ts,jsx,tsx,json}": "pnpm run lint && pnpm run format"

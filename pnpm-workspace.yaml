@@ -33,7 +33,6 @@ catalog:
   "remark-rehype": ^11.1.2
   "remark-stringify": ^11.0.0
   "shiki": ^3.3.0
-  "turbo": ^2.5.8
   "to-vfile": ^8.0.0
   "unified": ^11.0.5
   "unist-util-visit": ^5.0.0
