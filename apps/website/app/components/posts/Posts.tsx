@@ -16,6 +16,13 @@ type Props = {
   posts: IPost[];
 };
 
+const categories = [
+  { label: "All", value: undefined, href: "/posts" },
+  { label: "Tech", value: "tech", href: "/posts?category=tech" },
+  { label: "Weekly", value: "weekly", href: "/posts?category=weekly" },
+  { label: "Others", value: "others", href: "/posts?category=others" },
+] as const;
+
 const Posts: FC<Props> = ({ posts }) => {
   const c = useRequestContext();
   const category = c.req.query("category");
@@ -24,38 +31,16 @@ const Posts: FC<Props> = ({ posts }) => {
     <Section title="Posts">
       <div class={postsWrapper}>
         <ul class={postsCategorySelector}>
-          <li>
-            <a
-              href="/posts"
-              class={category === undefined ? postsCategorySelectorActive : postsCategorySelectorItemInactive}
-            >
-              All
-            </a>
-          </li>
-          <li>
-            <a
-              href="/posts?category=tech"
-              class={category === "tech" ? postsCategorySelectorActive : postsCategorySelectorItemInactive}
-            >
-              Tech
-            </a>
-          </li>
-          <li>
-            <a
-              href="/posts?category=weekly"
-              class={category === "weekly" ? postsCategorySelectorActive : postsCategorySelectorItemInactive}
-            >
-              Weekly
-            </a>
-          </li>
-          <li>
-            <a
-              href="/posts?category=others"
-              class={category === "others" ? postsCategorySelectorActive : postsCategorySelectorItemInactive}
-            >
-              Others
-            </a>
-          </li>
+          {categories.map((cat) => (
+            <li key={cat.label}>
+              <a
+                href={cat.href}
+                class={category === cat.value ? postsCategorySelectorActive : postsCategorySelectorItemInactive}
+              >
+                {cat.label}
+              </a>
+            </li>
+          ))}
         </ul>
         <div class={postsList}>
           {posts.map((post) => {
