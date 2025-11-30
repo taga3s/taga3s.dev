@@ -6,12 +6,12 @@ settings:
 
 catalogs:
   default:
+    '@biomejs/biome':
+      specifier: ^2.3.7
+      version: 2.3.8
     '@cloudflare/workers-types':
       specifier: ^4.20230605.0
       version: 4.20250924.0
-    '@hono/vite-build':
-      specifier: ^1.6.0
-      version: 1.7.0
     '@hono/vite-dev-server':
       specifier: ^0.23.0
       version: 0.23.0
@@ -54,6 +54,9 @@ catalogs:
     hast-util-to-html:
       specifier: ^9.0.5
       version: 9.0.5
+    hono:
+      specifier: ^4.6.20
+      version: 4.10.7
     honox:
       specifier: ^0.1.33
       version: 0.1.52
@@ -177,7 +180,7 @@ importers:
         version: 4.20250924.0
       '@hono/vite-build':
         specifier: 'catalog:'
-        version: 1.7.0(hono@4.10.7)
+        version: 1.8.0(hono@4.10.7)
       '@hono/vite-dev-server':
         specifier: 'catalog:'
         version: 0.23.0(hono@4.10.7)(miniflare@4.20250924.0)(wrangler@4.40.0(@cloudflare/workers-types@4.20250924.0))
@@ -819,8 +822,8 @@ packages:
     peerDependencies:
       hono: ^4
 
-  '@hono/vite-build@1.7.0':
-    resolution: {integrity: sha512-L73WBed5teC7DHTzXYkho83POYYluD2rTkbT76FJuqpfXPgTW/PsbIa8O0YcCETE3VUoh584fe6vuLAM5ctjww==}
+  '@hono/vite-build@1.8.0':
+    resolution: {integrity: sha512-T/w0Tuv8VV6FgjNnw2aW6LXtRfc5tOhaO54tKCRv4Zqc1tP3w6JyqTFtzJFFDvmY0xTxHS+Pj+ZPLhzFsdiFzQ==}
     engines: {node: '>=18.14.1'}
     peerDependencies:
       hono: '*'
@@ -4875,7 +4878,7 @@ snapshots:
     dependencies:
       hono: 4.10.7
 
-  '@hono/vite-build@1.7.0(hono@4.10.7)':
+  '@hono/vite-build@1.8.0(hono@4.10.7)':
     dependencies:
       hono: 4.10.7
 
