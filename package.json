@@ -2,7 +2,6 @@
   "name": "taga3s-dev-website",
   "type": "module",
   "version": "1.0.1",
-  "license": "MIT",
   "scripts": {
     "dev:website": "pnpm --filter=@taga3s/website dev",
     "dev:images-worker": "pnpm --filter=@taga3s/images-worker dev",
