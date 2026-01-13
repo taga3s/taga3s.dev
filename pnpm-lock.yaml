@@ -40,8 +40,8 @@ catalogs:
       specifier: ^1.11.24
       version: 1.15.8
     '@taga3s/rss-generator':
-      specifier: npm:@jsr/taga3s__rss-generator@^0.1.9
-      version: 0.1.9
+      specifier: npm:@jsr/taga3s__rss-generator@^0.2.0
+      version: 0.2.0
     '@types/hast':
       specifier: ^3.0.4
       version: 3.0.4
@@ -102,6 +102,9 @@ catalogs:
     sharp:
       specifier: ^0.34.1
       version: 0.34.5
+    shiki:
+      specifier: ^3.3.0
+      version: 3.21.0
     to-vfile:
       specifier: ^8.0.0
       version: 8.0.0
@@ -111,6 +114,9 @@ catalogs:
     unist-util-visit:
       specifier: ^5.0.0
       version: 5.0.0
+    vite:
+      specifier: ^7.0.0
+      version: 7.3.1
     vitest:
       specifier: ^4.0.0
       version: 4.0.16
@@ -198,7 +204,7 @@ importers:
         version: 1.15.8(@swc/helpers@0.5.17)
       '@taga3s/rss-generator':
         specifier: 'catalog:'
-        version: '@jsr/taga3s__rss-generator@0.1.9'
+        version: '@jsr/taga3s__rss-generator@0.2.0'
       '@types/hast':
         specifier: 'catalog:'
         version: 3.0.4
@@ -1153,8 +1159,8 @@ packages:
   '@jridgewell/trace-mapping@0.3.9':
     resolution: {integrity: sha512-3Belt6tdc8bPgAtbcmdtNJlirVoTmEb5e2gC94PnkwEW9jI6CAHUeoG85tjWP5WquqfavoMtMwiG4P926ZKKuQ==}
 
-  '@jsr/taga3s__rss-generator@0.1.9':
-    resolution: {integrity: sha512-DEkjrwQxvjuL/XtyKctParTsC6869txaGS/rv/7iRvs0J0mU72p50S+sBTOGWStrd5J5yUerYGHYv3mT4Rs98Q==, tarball: https://npm.jsr.io/~/11/@jsr/taga3s__rss-generator/0.1.9.tgz}
+  '@jsr/taga3s__rss-generator@0.2.0':
+    resolution: {integrity: sha512-kyoa2Cc80vJUAt8G6UA+X49mx9KNQKxiK+H5gepIFm1mcWqaBb/BVB/EwfwPzOVQ30mKA6KsvvqSXwr2YX1FzQ==, tarball: https://npm.jsr.io/~/11/@jsr/taga3s__rss-generator/0.2.0.tgz}
 
   '@mdx-js/mdx@3.1.1':
     resolution: {integrity: sha512-f6ZO2ifpwAQIpzGWaBQT2TXxPv6z3RBzQKpVftEWN78Vl/YweF1uwussDx8ECAXVtr3Rs89fKyG9YlzUs9DyGQ==}
@@ -5154,7 +5160,7 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.5
 
-  '@jsr/taga3s__rss-generator@0.1.9': {}
+  '@jsr/taga3s__rss-generator@0.2.0': {}
 
   '@mdx-js/mdx@3.1.1':
     dependencies:

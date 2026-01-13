@@ -31,11 +31,18 @@ const validateFrontmatter = (value: unknown): value is Frontmatter => {
 const channel: Channel = {
   title: "taga3s dev",
   link: "https://taga3s.dev",
-  description: cdata("About taga3s, sharing knowledge and experience"),
+  atom: {
+    link: {
+      href: "https://taga3s.dev/rss.xml",
+      rel: "self",
+      type: "application/rss+xml",
+    }
+  },
+  description: cdata("taga3s website, sharing knowledge and experience"),
   ttl: 60,
   language: "ja",
   category: ["tech", "weekly", "others"],
-  copyright: "2025 taga3s",
+  copyright: "2026 taga3s",
 };
 
 const items: Item[] = [];
