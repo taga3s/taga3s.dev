@@ -1,5 +1,5 @@
 import fs from "node:fs";
-import { cdata, type Channel, generateRSS, type Item } from "@taga3s/rss-generator";
+import { cdata, type Channel, generateRSS } from "@taga3s/rss-generator";
 
 import remarkParse from "remark-parse";
 import remarkStringify from "remark-stringify";
@@ -43,9 +43,8 @@ const channel: Channel = {
   language: "ja",
   category: ["tech", "weekly", "others"],
   copyright: "2026 taga3s",
+  items: [],
 };
-
-const items: Item[] = [];
 
 const dir = "./app/routes/posts";
 const postFilenames = fs.readdirSync(dir).filter((filename) => filename.endsWith(".mdx"));
@@ -66,7 +65,7 @@ for (const filename of postFilenames) {
 
   const link = `https://taga3s.dev/posts/${filename.replace(/\.mdx$/, "")}`;
 
-  items.push({
+  channel.items?.push({
     title: frontmatter.title,
     description: cdata(frontmatter.description),
     category: [frontmatter.category],
@@ -79,7 +78,7 @@ for (const filename of postFilenames) {
   });
 }
 
-const xml = generateRSS({ channel, items });
+const xml = generateRSS({ channel });
 const data = new TextEncoder().encode(xml);
 fs.writeFile("public/rss.xml", data, (err) => {
   if (err) {
