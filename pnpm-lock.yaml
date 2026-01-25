@@ -12,6 +12,9 @@ catalogs:
     '@cloudflare/workers-types':
       specifier: ^4.20230605.0
       version: 4.20250924.0
+    '@hono/vite-build':
+      specifier: ^1.6.0
+      version: 1.9.2
     '@hono/vite-dev-server':
       specifier: ^0.24.0
       version: 0.24.1
@@ -94,8 +97,8 @@ catalogs:
       specifier: ^11.0.0
       version: 11.0.0
     satori:
-      specifier: ^0.18.0
-      version: 0.18.3
+      specifier: ^0.19.0
+      version: 0.19.1
     sharp:
       specifier: ^0.34.1
       version: 0.34.5
@@ -155,7 +158,7 @@ importers:
         version: 24.10.9
       satori:
         specifier: 'catalog:'
-        version: 0.18.3
+        version: 0.19.1
       sharp:
         specifier: 'catalog:'
         version: 0.34.5
@@ -3986,8 +3989,8 @@ packages:
   safer-buffer@2.1.2:
     resolution: {integrity: sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==}
 
-  satori@0.18.3:
-    resolution: {integrity: sha512-T3DzWNmnrfVmk2gCIlAxLRLbGkfp3K7TyRva+Byyojqu83BNvnMeqVeYRdmUw4TKCsyH4RiQ/KuF/I4yEzgR5A==}
+  satori@0.19.1:
+    resolution: {integrity: sha512-/XaT/JiWLfNlgjlQdde4wXB1/6F+FEze9c3OW2QIH0ywsfOrY57YOetgESWyOFHW3JfEQ6dJAo2U9Xwb7+DDAw==}
     engines: {node: '>=16'}
 
   scheduler@0.26.0:
@@ -8506,7 +8509,7 @@ snapshots:
 
   safer-buffer@2.1.2: {}
 
-  satori@0.18.3:
+  satori@0.19.1:
     dependencies:
       '@shuding/opentype.js': 1.4.0-beta.0
       css-background-parser: 0.1.0
