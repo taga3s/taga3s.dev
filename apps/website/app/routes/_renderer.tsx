@@ -1,7 +1,7 @@
 import { css, Style } from "hono/css";
+import { ErrorBoundary, memo } from "hono/jsx";
 import { jsxRenderer } from "hono/jsx-renderer";
 import { Script } from "honox/server";
-import { ErrorBoundary, memo } from "hono/jsx";
 import { Footer, Header } from "../components";
 
 const htmlLayout = css`

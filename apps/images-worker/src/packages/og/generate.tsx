@@ -1,10 +1,10 @@
-import resvgWasm from "./vendor/resvg.wasm";
-import yogaWasm from "./vendor/yoga.wasm";
+import { initWasm, Resvg } from "@resvg/resvg-wasm";
 import satori, { init } from "satori";
 import initYoga from "yoga-wasm-web";
-import { Resvg, initWasm } from "@resvg/resvg-wasm";
 import { load as loadGoogleFont } from "./google-font";
 import { ImageBase } from "./Image-template";
+import resvgWasm from "./vendor/resvg.wasm";
+import yogaWasm from "./vendor/yoga.wasm";
 
 const genModuleInit = () => {
   let isInit = false;

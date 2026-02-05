@@ -1,9 +1,9 @@
-import { unified } from "unified";
+import rehypeStringify from "rehype-stringify";
+import remarkBreaks from "remark-breaks";
 import remarkParse from "remark-parse";
 import remarkRehype from "remark-rehype";
-import rehypeStringify from "rehype-stringify";
+import { unified } from "unified";
 import { remarkAttentionBlock } from ".";
-import remarkBreaks from "remark-breaks";
 
 const MOCK_MARKDOWN = "> [!NOTE]\n> サンプルテキスト";
 const EXPECTED_HTML =

@@ -26,7 +26,7 @@
     "lineWidth": 120
   },
   "files": {
-    "includes": ["./apps/website/*", "./apps/images-worker/*", "!*/dist"]
+    "includes": ["./apps/website/**", "./apps/images-worker/**", "!**/dist", "!**/node_modules"]
   },
   "assist": { "actions": { "source": { "organizeImports": "on" } } }
 }

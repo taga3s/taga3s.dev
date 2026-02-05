@@ -1,10 +1,10 @@
+import remarkExtractFrontmatter from "remark-extract-frontmatter";
+import remarkFrontmatter from "remark-frontmatter";
 import remarkParse from "remark-parse";
 import remarkStringify from "remark-stringify";
-import remarkFrontmatter from "remark-frontmatter";
-import remarkExtractFrontmatter from "remark-extract-frontmatter";
 import * as toVfile from "to-vfile";
-import * as yaml from "yaml";
 import { unified } from "unified";
+import * as yaml from "yaml";
 
 export type Frontmatter = {
   title: string;
@@ -26,18 +26,18 @@ const validateFrontmatter = (value: unknown): value is Frontmatter => {
 };
 
 export const extractFrontmatter = async (dir: string, filename: string): Promise<Frontmatter> => {
-    const content = await unified()
+  const content = await unified()
     .use(remarkParse)
     .use(remarkStringify)
     .use(remarkFrontmatter)
     .use(remarkExtractFrontmatter, { yaml: yaml.parse })
     .process(toVfile.readSync(`${dir}/${filename}`));
 
-    const frontmatter = content.data;
+  const frontmatter = content.data;
 
-    if (!validateFrontmatter(frontmatter)) {
-      throw new Error(`Invalid frontmatter: ${filename}`);
-    }
+  if (!validateFrontmatter(frontmatter)) {
+    throw new Error(`Invalid frontmatter: ${filename}`);
+  }
 
-    return frontmatter
-}
+  return frontmatter;
+};

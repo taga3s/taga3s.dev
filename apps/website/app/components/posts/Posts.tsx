@@ -1,4 +1,5 @@
 import type { FC } from "hono/jsx";
+import { useRequestContext } from "hono/jsx-renderer";
 import type { IPost } from "../../data/posts/model";
 import { Section } from "../Section";
 import {
@@ -10,7 +11,6 @@ import {
   postsList,
   postsWrapper,
 } from "./Posts.css";
-import { useRequestContext } from "hono/jsx-renderer";
 
 type Props = {
   posts: IPost[];
