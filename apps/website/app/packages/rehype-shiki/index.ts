@@ -25,11 +25,11 @@ const transformTitle = (): ShikiTransformer => {
           },
         ],
         properties: {
-          style: `position: absolute; top: 0; left: 16px; width: fit-content; margin-bottom: 16px; padding: 4px 8px; font-size: 12px; background: #577C8A`,
+          style: `position: sticky; top: 0; left: 0; width: fit-content; margin-bottom: 16px; padding: 4px 8px; font-size: 12px; background: #577C8A`,
         },
       };
 
-      node.properties.style = `${node.properties.style};position:relative;padding-top:36px;`;
+      node.properties.style = `${node.properties.style};position:relative;padding-top:0px;`;
       node.children.unshift(titleEle);
     },
   };
