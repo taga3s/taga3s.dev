@@ -8,6 +8,7 @@
     "preview": "wrangler dev",
     "test": "vitest run",
     "generate:rss": "node --import @swc-node/register/esm-register ./scripts/generate-rss.ts",
+    "generate:atom": "node --import @swc-node/register/esm-register ./scripts/generate-atom.ts",
     "install-puppeteer": "puppeteer browsers install chrome"
   },
   "dependencies": {
@@ -24,6 +25,7 @@
     "@swc/cli": "catalog:",
     "@swc/core": "catalog:",
     "@taga3s/rss-generator": "catalog:",
+    "@taga3s/atom-feed-composer": "catalog:",
     "@types/hast": "catalog:",
     "@types/mdast": "catalog:",
     "@types/node": "catalog:",

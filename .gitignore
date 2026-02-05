@@ -7,7 +7,8 @@ dist/
 .vscode/*
 !.vscode/launch.json
 !.vscode/*.code-snippets
-*/rss.xml
+*/**/rss.xml
+*/**/atom.xml
 target
 
 # deps
