@@ -10,9 +10,9 @@ import remarkGfm from "remark-gfm";
 import remarkMdxFrontmatter from "remark-mdx-frontmatter";
 import { defineConfig } from "vitest/config";
 import { rehypeMermaid } from "./app/packages/rehype-mermaid/rehypeMermaid";
-import { highlighter, rehypeShikiFromHighlighter } from "./app/packages/rehype-shiki";
+import { highlighter, rehypeShikiFromHighlighter, transformTitle } from "./app/packages/rehype-shiki";
 
-const params = [highlighter, { theme: "github-dark-default" }] as any; // temporary workaround
+const params = [highlighter, { theme: "github-dark-default", transformers: [transformTitle()] }] as any; // temporary workaround
 
 export default defineConfig({
   test: {
