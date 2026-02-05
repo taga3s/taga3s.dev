@@ -3,6 +3,7 @@
 import build from "@hono/vite-build/cloudflare-pages";
 import adapter from "@hono/vite-dev-server/cloudflare";
 import mdx from "@mdx-js/rollup";
+import rehypeShiki from "@shikijs/rehype";
 import honox from "honox/vite";
 import remarkBreaks from "remark-breaks";
 import remarkFrontmatter from "remark-frontmatter";
@@ -10,7 +11,6 @@ import remarkGfm from "remark-gfm";
 import remarkMdxFrontmatter from "remark-mdx-frontmatter";
 import { defineConfig } from "vitest/config";
 import { rehypeMermaid } from "./app/packages/rehype-mermaid/rehypeMermaid";
-import rehypeShiki from "@shikijs/rehype";
 
 export default defineConfig({
   test: {
