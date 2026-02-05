@@ -28,8 +28,8 @@ jobs:
       - run: pnpm --filter "@taga3s/website" install-puppeteer
         shell: bash
 
-      - name: Generate RSS feed
-        run: pnpm --filter "@taga3s/website" generate:rss
+      - name: Generate Atom feed
+        run: pnpm --filter "@taga3s/website" generate:atom
 
       - name: Build
         run: pnpm build:website

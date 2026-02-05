@@ -8,6 +8,7 @@
     "preview": "wrangler dev",
     "test": "vitest run",
     "generate:rss": "node --import @swc-node/register/esm-register ./scripts/generate-rss.ts",
+    "generate:atom": "node --import @swc-node/register/esm-register ./scripts/generate-atom.ts",
     "install-puppeteer": "puppeteer browsers install chrome"
   },
   "dependencies": {
