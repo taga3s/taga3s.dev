@@ -21,6 +21,7 @@
     "@hono/vite-dev-server": "catalog:",
     "@mdx-js/rollup": "catalog:",
     "@mermaid-js/mermaid-cli": "catalog:",
+    "@shikijs/rehype": "catalog:",
     "@swc-node/register": "catalog:",
     "@swc/cli": "catalog:",
     "@swc/core": "catalog:",
