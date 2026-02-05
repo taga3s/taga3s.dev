@@ -3,11 +3,13 @@ import remarkParse from "remark-parse";
 import remarkRehype from "remark-rehype";
 import rehypeStringify from "rehype-stringify";
 import remarkBreaks from "remark-breaks";
-import rehypeShiki from "@shikijs/rehype";
+import { rehypeShikiFromHighlighter, highlighter } from "../rehype-shiki";
 
 const MOCK_MARKDOWN = "```ts\nconsole.log('Hello, World!')\n```";
 const EXPECTED_HTML =
   '<pre class="shiki github-dark-default" style="background-color:#0d1117;color:#e6edf3" tabindex="0"><code><span class="line"><span style="color:#E6EDF3">console.</span><span style="color:#D2A8FF">log</span><span style="color:#E6EDF3">(</span><span style="color:#A5D6FF">\'Hello, World!\'</span><span style="color:#E6EDF3">)</span></span></code></pre>';
+
+const params = [highlighter, { theme: "github-dark-default" }] as any; // temporary workaround
 
 describe("rehype-shiki", () => {
   it("test", async () => {
@@ -15,9 +17,7 @@ describe("rehype-shiki", () => {
       .use(remarkParse)
       .use(remarkBreaks)
       .use(remarkRehype)
-      .use(rehypeShiki, {
-            theme: "github-dark-default",
-          })
+      .use(rehypeShikiFromHighlighter, ...params)
       .use(rehypeStringify)
       .process(MOCK_MARKDOWN);
 
