@@ -24,6 +24,7 @@
     "@swc/cli": "catalog:",
     "@swc/core": "catalog:",
     "@taga3s/rss-generator": "catalog:",
+    "@taga3s/atom-feed-composer": "catalog:",
     "@types/hast": "catalog:",
     "@types/mdast": "catalog:",
     "@types/node": "catalog:",
