@@ -1,6 +1,6 @@
-import { CosenseIcon, GitHubIcon, QiitaIcon } from "../icons";
+import { CosenseIcon, GitHubIcon } from "../icons";
 import { Section } from "../Section";
-import { cosense, github, profileLinkCardContainer, profileLinkCardIcon, qiita } from "./ProfileLinks.css";
+import { cosense, github, profileLinkCardContainer, profileLinkCardIcon } from "./ProfileLinks.css";
 
 const links = [
   {

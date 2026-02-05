@@ -1,4 +1,4 @@
-import { startViewTransition, useState, type FC } from "hono/jsx";
+import { type FC, startViewTransition, useState } from "hono/jsx";
 import type { IPhoto } from "../../data/photos";
 import { Section } from "../Section";
 import { ProfilePhotoExpanded } from "./$ProfilePhotoExpanded";
@@ -55,7 +55,7 @@ const ProfilePhotos: FC<Props> = (props) => {
             type="button"
             key={photo.url}
           >
-            <img src={photo.url} alt={"favorite photo"} class={profilePhotoImage} />
+            <img src={photo.url} alt={"favorite"} class={profilePhotoImage} />
           </button>
         ))}
       </div>

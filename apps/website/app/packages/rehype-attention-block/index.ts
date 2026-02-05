@@ -1,7 +1,7 @@
 import type { Element, Root, Text } from "hast";
 import type { Plugin } from "unified";
 import { visit } from "unist-util-visit";
-import { TIP_ICON_HAST, WARNING_ICON_HAST, NOTE_ICON_HAST } from "./icon-svg-hasts";
+import { NOTE_ICON_HAST, TIP_ICON_HAST, WARNING_ICON_HAST } from "./icon-svg-hasts";
 
 type BlockType = "note" | "warning" | "tip";
 

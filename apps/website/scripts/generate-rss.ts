@@ -1,25 +1,6 @@
 import fs from "node:fs";
-import { cdata, type Channel, generateRSS } from "@taga3s/rss-generator";
+import { type Channel, cdata, generateRSS } from "@taga3s/rss-generator";
 import { extractFrontmatter } from "./extract-frontmatter";
-
-type Frontmatter = {
-  title: string;
-  description: string;
-  category: string;
-  publishedAt: string;
-  ogpImage?: string;
-};
-
-const validateFrontmatter = (value: unknown): value is Frontmatter => {
-  return (
-    typeof value === "object" &&
-    value !== null &&
-    "title" in value &&
-    "description" in value &&
-    "category" in value &&
-    "publishedAt" in value
-  );
-};
 
 const channel: Channel = {
   title: "taga3s dev",
@@ -29,7 +10,7 @@ const channel: Channel = {
       href: "https://taga3s.dev/rss.xml",
       rel: "self",
       type: "application/rss+xml",
-    }
+    },
   },
   description: cdata("taga3s website, sharing knowledge and experience"),
   ttl: 60,
@@ -53,7 +34,7 @@ for (const filename of postFilenames) {
       isPermaLink: false,
       value: link,
     },
-    pubDate: new Date(frontmatter.publishedAt).toUTCString(),  //FIXME
+    pubDate: new Date(frontmatter.publishedAt).toUTCString(), //FIXME
   });
 }
 

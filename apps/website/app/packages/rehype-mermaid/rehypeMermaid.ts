@@ -1,8 +1,8 @@
-import type { Plugin, Transformer } from "unified";
-import type { Text, Parent, Root } from "hast";
-import { visit } from "unist-util-visit";
 import { renderMermaid } from "@mermaid-js/mermaid-cli";
+import type { Parent, Root, Text } from "hast";
 import puppeteer from "puppeteer";
+import type { Plugin, Transformer } from "unified";
+import { visit } from "unist-util-visit";
 import { parser } from "./parser";
 
 interface MermaidCodeBlock {

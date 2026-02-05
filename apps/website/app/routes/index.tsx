@@ -1,8 +1,8 @@
 import { createRoute } from "honox/factory";
 import { presenter } from "../components/Presenter.css";
-import { ProfileMain } from "../components/profile/ProfileMain";
-import { ProfileLinks } from "../components/profile/ProfileLinks";
 import { ProfilePhotos } from "../components/profile/$ProfilePhotos";
+import { ProfileLinks } from "../components/profile/ProfileLinks";
+import { ProfileMain } from "../components/profile/ProfileMain";
 import photos from "../data/photos/photos.json";
 
 export default createRoute(async (c) => {
