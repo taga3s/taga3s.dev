@@ -30,7 +30,13 @@ catalogs:
     '@resvg/resvg-wasm':
       specifier: ^2.6.2
       version: 2.6.2
+    '@shikijs/langs':
+      specifier: ^3.22.0
+      version: 3.22.0
     '@shikijs/rehype':
+      specifier: ^3.22.0
+      version: 3.22.0
+    '@shikijs/themes':
       specifier: ^3.22.0
       version: 3.22.0
     '@swc-node/register':
@@ -199,7 +205,13 @@ importers:
       '@mermaid-js/mermaid-cli':
         specifier: 'catalog:'
         version: 11.12.0(@babel/template@7.27.2)(puppeteer@24.36.0(typescript@5.9.3))
+      '@shikijs/langs':
+        specifier: 'catalog:'
+        version: 3.22.0
       '@shikijs/rehype':
+        specifier: 'catalog:'
+        version: 3.22.0
+      '@shikijs/themes':
         specifier: 'catalog:'
         version: 3.22.0
       '@swc-node/register':

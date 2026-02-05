@@ -11,6 +11,8 @@ catalog:
   '@resvg/resvg-js': ^2.6.2
   '@resvg/resvg-wasm': ^2.6.2
   '@shikijs/rehype': '^3.22.0'
+  '@shikijs/themes': '^3.22.0'
+  '@shikijs/langs': '^3.22.0'
   '@swc-node/register': ^1.10.10
   '@swc/cli': ^0.7.3
   '@swc/core': ^1.11.24
