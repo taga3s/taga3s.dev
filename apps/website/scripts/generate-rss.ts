@@ -1,13 +1,6 @@
 import fs from "node:fs";
 import { cdata, type Channel, generateRSS } from "@taga3s/rss-generator";
-
-import remarkParse from "remark-parse";
-import remarkStringify from "remark-stringify";
-import remarkFrontmatter from "remark-frontmatter";
-import remarkExtractFrontmatter from "remark-extract-frontmatter";
-import * as toVfile from "to-vfile";
-import * as yaml from "yaml";
-import { unified } from "unified";
+import { extractFrontmatter } from "./extract-frontmatter";
 
 type Frontmatter = {
   title: string;
@@ -49,22 +42,8 @@ const channel: Channel = {
 const dir = "./app/routes/posts";
 const postFilenames = fs.readdirSync(dir).filter((filename) => filename.endsWith(".mdx"));
 for (const filename of postFilenames) {
-  const content = await unified()
-    .use(remarkParse)
-    .use(remarkStringify)
-    .use(remarkFrontmatter)
-    .use(remarkExtractFrontmatter, { yaml: yaml.parse })
-    .process(toVfile.readSync(`${dir}/${filename}`));
-
-  const frontmatter = content.data;
-
-  if (!validateFrontmatter(frontmatter)) {
-    console.error(`Invalid frontmatter: ${filename}`);
-    continue;
-  }
-
+  const frontmatter = await extractFrontmatter(dir, filename);
   const link = `https://taga3s.dev/posts/${filename.replace(/\.mdx$/, "")}`;
-
   channel.items?.push({
     title: frontmatter.title,
     description: cdata(frontmatter.description),
@@ -74,7 +53,7 @@ for (const filename of postFilenames) {
       isPermaLink: false,
       value: link,
     },
-    pubDate: new Date(frontmatter.publishedAt).toUTCString(), //TODO: fix timezone
+    pubDate: new Date(frontmatter.publishedAt).toUTCString(),  //FIXME
   });
 }
 
