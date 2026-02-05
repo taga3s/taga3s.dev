@@ -10,8 +10,9 @@ import remarkGfm from "remark-gfm";
 import remarkMdxFrontmatter from "remark-mdx-frontmatter";
 import { defineConfig } from "vitest/config";
 import { rehypeMermaid } from "./app/packages/rehype-mermaid/rehypeMermaid";
-import { rehypeMomiji } from "./app/packages/rehype-momiji";
-import { remarkMomijiTitle } from "./app/packages/remark-momiji-title";
+import { highlighter, rehypeShikiFromHighlighter, transformTitle } from "./app/packages/rehype-shiki";
+
+const params = [highlighter, { theme: "github-dark-default", transformers: [transformTitle()] }] as any; // temporary workaround
 
 export default defineConfig({
   test: {
@@ -22,8 +23,8 @@ export default defineConfig({
     build(),
     mdx({
       jsxImportSource: "hono/jsx",
-      remarkPlugins: [remarkGfm, remarkBreaks, remarkFrontmatter, remarkMdxFrontmatter, remarkMomijiTitle],
-      rehypePlugins: [[rehypeMomiji, { excludeLangs: ["mermaid"] }], rehypeMermaid],
+      remarkPlugins: [remarkGfm, remarkBreaks, remarkFrontmatter, remarkMdxFrontmatter],
+      rehypePlugins: [rehypeMermaid, [rehypeShikiFromHighlighter, ...params]],
     }),
   ],
 });
