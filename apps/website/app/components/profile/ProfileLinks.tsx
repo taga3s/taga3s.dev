@@ -1,13 +1,27 @@
-import { CosenseIcon, GitHubIcon } from "../icons";
+import { JSX } from "hono/jsx/jsx-runtime";
+import { CosenseIcon, GitHubIcon, ZennIcon } from "../icons";
 import { Section } from "../Section";
-import { cosense, github, profileLinkCardContainer, profileLinkCardIcon } from "./ProfileLinks.css";
+import { cosense, github, profileLinkCardContainer, profileLinkCardIcon, zenn } from "./ProfileLinks.css";
 
-const links = [
+interface Link {
+  title: string;
+  url: string;
+  style: Promise<string>;
+  icon: JSX.Element;
+}
+
+const links: Link[] = [
   {
     title: "GitHub",
     url: "https://github.com/taga3s",
     style: github,
     icon: <GitHubIcon />,
+  },
+  {
+    title: "Zenn",
+    url: "https://zenn.dev/mameshiba_274",
+    style: zenn,
+    icon: <ZennIcon />,
   },
   {
     title: "Cosense",
