@@ -2,7 +2,7 @@ packages:
   - apps/*
 
 catalog:
-  '@biomejs/biome': ^2.3.7
+  '@biomejs/biome': ^2.4.4
   '@cloudflare/workers-types': ^4.20230605.0
   '@hono/vite-build': ^1.6.0
   '@hono/vite-dev-server': ^0.25.0
@@ -10,14 +10,14 @@ catalog:
   '@mermaid-js/mermaid-cli': ^11.4.2
   '@resvg/resvg-js': ^2.6.2
   '@resvg/resvg-wasm': ^2.6.2
-  '@shikijs/rehype': '^3.22.0'
-  '@shikijs/themes': '^3.22.0'
-  '@shikijs/langs': '^3.22.0'
+  '@shikijs/langs': ^3.22.0
+  '@shikijs/rehype': ^3.22.0
+  '@shikijs/themes': ^3.22.0
   '@swc-node/register': ^1.10.10
   '@swc/cli': ^0.8.0
   '@swc/core': ^1.11.24
-  '@taga3s/rss-generator': npm:@jsr/taga3s__rss-generator@^0.2.1
   '@taga3s/atom-feed-composer': npm:@jsr/taga3s__atom-feed-composer@^0.1.1
+  '@taga3s/rss-generator': npm:@jsr/taga3s__rss-generator@^0.2.1
   '@types/hast': ^3.0.4
   '@types/mdast': ^4.0.4
   '@types/node': ^24.5.2

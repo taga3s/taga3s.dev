@@ -21,9 +21,6 @@ const ProfileMain = () => {
           <img class={profileMainImage} src="https://github.com/taga3s.png" alt="me" />
         </div>
       </div>
-      <div class={profileMainIntroduction}>
-        <span>Memento mori, Carpe diem.</span>
-      </div>
     </div>
   );
 };
