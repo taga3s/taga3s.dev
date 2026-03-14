@@ -3,6 +3,7 @@ import {
   profileMainBelonging,
   profileMainBox,
   profileMainImage,
+  profileMainIntroduction,
   profileMainName,
 } from "./ProfileMain.css";
 

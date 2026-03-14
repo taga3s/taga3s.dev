@@ -16,5 +16,8 @@
   "devDependencies": {
     "@biomejs/biome": "catalog:"
   },
+  "lint-staged": {
+    "*.{js,ts,jsx,tsx,json}": "pnpm run lint && pnpm run format"
+  },
   "packageManager": "pnpm@10.31.0"
 }

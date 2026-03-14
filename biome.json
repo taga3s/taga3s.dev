@@ -1,17 +1,20 @@
 {
-  "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
+  "$schema": "https://biomejs.dev/schemas/2.3.13/schema.json",
   "linter": {
     "enabled": true,
     "rules": {
       "recommended": true,
       "suspicious": {
-        "noExplicitAny": "warn"
+        "noExtraNonNullAssertion": "warn",
+        "noExplicitAny": "warn",
+        "noArrayIndexKey": "warn"
       },
       "style": {
         "useShorthandFunctionType": "off"
       },
       "complexity": {
-        "noImportantStyles": "off"
+        "noBannedTypes": "warn",
+        "noImportantStyles": "warn"
       }
     }
   },
