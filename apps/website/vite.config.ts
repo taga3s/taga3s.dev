@@ -12,8 +12,6 @@ import { defineConfig } from "vitest/config";
 import { rehypeMermaid } from "./app/packages/rehype-mermaid/rehypeMermaid";
 import { highlighter, rehypeShikiFromHighlighter, transformTitle } from "./app/packages/rehype-shiki";
 
-const params = [highlighter, { theme: "github-dark-default", transformers: [transformTitle()] }] as any; // temporary workaround
-
 export default defineConfig({
   test: {
     globals: true,
@@ -24,7 +22,10 @@ export default defineConfig({
     mdx({
       jsxImportSource: "hono/jsx",
       remarkPlugins: [remarkGfm, remarkBreaks, remarkFrontmatter, remarkMdxFrontmatter],
-      rehypePlugins: [rehypeMermaid, [rehypeShikiFromHighlighter, ...params]],
+      rehypePlugins: [
+        rehypeMermaid,
+        [rehypeShikiFromHighlighter, highlighter, { theme: "github-dark-default", transformers: [transformTitle()] }],
+      ],
     }),
   ],
 });
