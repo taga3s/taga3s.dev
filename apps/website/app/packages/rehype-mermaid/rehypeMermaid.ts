@@ -11,18 +11,11 @@ interface MermaidCodeBlock {
   parent: Parent;
 }
 
-const rehypeMermaid: Plugin<[], Root> = () => {
-  const parseLanguage = (classNames: string[]): string => {
-    for (const className of classNames) {
-      if (className.startsWith("language-")) {
-        return className.replace("language-", "");
-      }
-    }
-    return "";
-  };
+const detectMermaid = (classNames: string[]): boolean | undefined => {
+  return classNames.some((cn) => cn.startsWith("language-mermaid"));
+};
 
-  const checkIsMermaid = (lang: string): boolean => lang === "mermaid";
-
+export const rehypeMermaid: Plugin<[], Root> = () => {
   const transformer: Transformer<Root> = async (tree) => {
     const mermaidCodeBlockPromises: MermaidCodeBlock[] = [];
 
@@ -52,15 +45,13 @@ const rehypeMermaid: Plugin<[], Root> = () => {
 
       // Check if the code tag has a text child
       const [textNode] = codeElem.children;
-      if (textNode === undefined || textNode.type !== "text") {
+      if (!textNode || textNode.type !== "text") {
         return;
       }
 
-      // Parse the language from the class names and check if it is supported
-      const lang = parseLanguage(classNames);
-      const isMermaid = checkIsMermaid(lang);
-
-      if (isMermaid && index && parent) {
+      // Detect if the code block is Mermaid
+      const detected = detectMermaid(classNames);
+      if (detected && index && parent) {
         mermaidCodeBlockPromises.push({ textNode, index, parent });
       }
     });
@@ -98,5 +89,3 @@ const rehypeMermaid: Plugin<[], Root> = () => {
 
   return transformer;
 };
-
-export { rehypeMermaid };
