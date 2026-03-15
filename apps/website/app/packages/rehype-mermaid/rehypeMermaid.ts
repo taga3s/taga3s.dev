@@ -12,7 +12,7 @@ interface MermaidCodeBlock {
 }
 
 type Options = {
-  browser?: Browser;
+  browser: Browser;
 }[];
 
 const detectMermaid = (classNames: string[]): boolean | undefined => {
@@ -21,9 +21,6 @@ const detectMermaid = (classNames: string[]): boolean | undefined => {
 
 export const rehypeMermaid: Plugin<Options, Root> = (options) => {
   const { browser } = options;
-  if (!browser) {
-    throw new Error("Browser instance is required for rehypeMermaid plugin.");
-  }
 
   const transformer: Transformer<Root> = async (tree) => {
     const mermaidCodeBlockPromises: MermaidCodeBlock[] = [];
