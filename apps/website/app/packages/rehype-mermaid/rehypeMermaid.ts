@@ -1,6 +1,6 @@
 import { renderMermaid } from "@mermaid-js/mermaid-cli";
 import type { Parent, Root, Text } from "hast";
-import puppeteer from "puppeteer";
+import type { Browser } from "puppeteer";
 import type { Plugin, Transformer } from "unified";
 import { visit } from "unist-util-visit";
 import { parser } from "./parser";
@@ -11,11 +11,20 @@ interface MermaidCodeBlock {
   parent: Parent;
 }
 
+type Options = {
+  browser?: Browser;
+}[];
+
 const detectMermaid = (classNames: string[]): boolean | undefined => {
   return classNames.some((cn) => cn.startsWith("language-mermaid"));
 };
 
-export const rehypeMermaid: Plugin<[], Root> = () => {
+export const rehypeMermaid: Plugin<Options, Root> = (options) => {
+  const { browser } = options;
+  if (!browser) {
+    throw new Error("Browser instance is required for rehypeMermaid plugin.");
+  }
+
   const transformer: Transformer<Root> = async (tree) => {
     const mermaidCodeBlockPromises: MermaidCodeBlock[] = [];
 
@@ -60,10 +69,6 @@ export const rehypeMermaid: Plugin<[], Root> = () => {
       return;
     }
 
-    const browser = await puppeteer.launch({
-      headless: true,
-    });
-
     const decoder = new TextDecoder();
 
     await Promise.all(
@@ -83,8 +88,6 @@ export const rehypeMermaid: Plugin<[], Root> = () => {
         parent.children[index] = content;
       }),
     );
-
-    await browser.close();
   };
 
   return transformer;
