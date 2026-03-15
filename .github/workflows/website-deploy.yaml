@@ -25,9 +25,6 @@ jobs:
 
       - uses: ./.github/actions/setup-ci
 
-      - run: pnpm --filter "@taga3s/website" install-puppeteer
-        shell: bash
-
       - name: Generate Atom feed
         run: pnpm --filter "@taga3s/website" generate:atom
 

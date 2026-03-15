@@ -1,6 +1,6 @@
 import { renderMermaid } from "@mermaid-js/mermaid-cli";
 import type { Parent, Root, Text } from "hast";
-import puppeteer from "puppeteer";
+import type { Browser } from "puppeteer";
 import type { Plugin, Transformer } from "unified";
 import { visit } from "unist-util-visit";
 import { parser } from "./parser";
@@ -11,17 +11,16 @@ interface MermaidCodeBlock {
   parent: Parent;
 }
 
-const rehypeMermaid: Plugin<[], Root> = () => {
-  const parseLanguage = (classNames: string[]): string => {
-    for (const className of classNames) {
-      if (className.startsWith("language-")) {
-        return className.replace("language-", "");
-      }
-    }
-    return "";
-  };
+type Options = {
+  browser: Browser;
+}[];
 
-  const checkIsMermaid = (lang: string): boolean => lang === "mermaid";
+const detectMermaid = (classNames: string[]): boolean | undefined => {
+  return classNames.some((cn) => cn.startsWith("language-mermaid"));
+};
+
+export const rehypeMermaid: Plugin<Options, Root> = (options) => {
+  const { browser } = options;
 
   const transformer: Transformer<Root> = async (tree) => {
     const mermaidCodeBlockPromises: MermaidCodeBlock[] = [];
@@ -52,15 +51,13 @@ const rehypeMermaid: Plugin<[], Root> = () => {
 
       // Check if the code tag has a text child
       const [textNode] = codeElem.children;
-      if (textNode === undefined || textNode.type !== "text") {
+      if (!textNode || textNode.type !== "text") {
         return;
       }
 
-      // Parse the language from the class names and check if it is supported
-      const lang = parseLanguage(classNames);
-      const isMermaid = checkIsMermaid(lang);
-
-      if (isMermaid && index && parent) {
+      // Detect if the code block is Mermaid
+      const detected = detectMermaid(classNames);
+      if (detected && index && parent) {
         mermaidCodeBlockPromises.push({ textNode, index, parent });
       }
     });
@@ -68,10 +65,6 @@ const rehypeMermaid: Plugin<[], Root> = () => {
     if (mermaidCodeBlockPromises.length === 0) {
       return;
     }
-
-    const browser = await puppeteer.launch({
-      headless: true,
-    });
 
     const decoder = new TextDecoder();
 
@@ -92,11 +85,7 @@ const rehypeMermaid: Plugin<[], Root> = () => {
         parent.children[index] = content;
       }),
     );
-
-    await browser.close();
   };
 
   return transformer;
 };
-
-export { rehypeMermaid };
