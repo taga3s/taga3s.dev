@@ -12,19 +12,13 @@ permissions:
   pull-requests: write
 
 jobs:
-  deploy:
+  upload-website:
     runs-on: ubuntu-latest
+    outputs:
+      deployment-url: ${{ steps.upload.outputs.deployment-url }}
 
     steps:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
-
-      - name: Disable AppArmor
-        # Ubuntu >= 23 has AppArmor enabled by default, which breaks Puppeteer.
-        # See https://github.com/puppeteer/puppeteer/issues/12818 "No usable sandbox!"
-        # this is taken from the solution used in Puppeteer's own CI: https://github.com/puppeteer/puppeteer/pull/13196
-        # The alternative is to pin Ubuntu 22 or to use aa-exec to disable AppArmor for commands that need Puppeteer.
-        run: echo 0 | sudo tee /proc/sys/kernel/apparmor_restrict_unprivileged_userns
-        shell: bash
 
       - uses: ./.github/actions/setup-ci
 
@@ -43,9 +37,10 @@ jobs:
           command: versions upload --config wrangler.jsonc
           workingDirectory: ./apps/website
 
-      - name: Comment Preview URL
-        uses: ./.github/actions/comment-preview-url
-        with:
-          name: "@taga3s/website"
-          target_url: ${{ steps.upload.outputs.deployment-url }}
-          pr_number: ${{ github.event.number }}
+  comment-preview-url:
+    needs: upload-website
+    uses: ./.github/workflows/comment-preview-url.yaml
+    with:
+      name: "@taga3s/website"
+      target_url: ${{ needs.upload-website.outputs.deployment-url }}
+      pr_number: ${{ github.event.number }}
