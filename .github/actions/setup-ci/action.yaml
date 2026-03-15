@@ -21,3 +21,6 @@ runs:
 
     - run: pnpm install
       shell: bash
+
+    - run: pnpm --filter "@taga3s/website" install-puppeteer
+      shell: bash
