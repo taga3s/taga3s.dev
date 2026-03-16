@@ -23,6 +23,6 @@ jobs:
 
       - uses: ./.github/actions/setup-ci
 
-      - run: pnpm check:ci
+      - run: vp run check:ci
 
-      - run: pnpm test:website
+      - run: vp run test:website

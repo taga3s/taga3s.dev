@@ -17,18 +17,13 @@ runs:
       run: echo 0 | sudo tee /proc/sys/kernel/apparmor_restrict_unprivileged_userns
       shell: bash
 
-    - uses: pnpm/action-setup@fc06bc1257f339d1d5d8b3a19a8cae5388b55320 # v4.4.0
-      with:
-        package_json_file: "package.json"
-        run_install: false
-
-    - uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6.3.0
+    - uses: voidzero-dev/setup-vp@b5d848f5a62488f3d3d920f8aa6ac318a60c5f07 # v1
       with:
         node-version-file: .node-version
-        cache: "pnpm"
+        cache: true
 
-    - run: pnpm install
+    - run: vp install
       shell: bash
 
-    - run: pnpm --filter "@taga3s/website" install-puppeteer
+    - run: vp run --filter "@taga3s/website" install-puppeteer
       shell: bash

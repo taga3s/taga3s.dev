@@ -3,10 +3,10 @@
   "type": "module",
   "version": "1.0.1",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build --mode client && vite build",
+    "dev": "vp dev",
+    "build": "vp build --mode client && vp build",
     "preview": "wrangler dev",
-    "test": "vitest run",
+    "test": "vp test run",
     "generate:rss": "node --import @swc-node/register/esm-register ./scripts/generate-rss.ts",
     "generate:atom": "node --import @swc-node/register/esm-register ./scripts/generate-atom.ts",
     "install-puppeteer": "puppeteer browsers install chrome"
@@ -49,9 +49,8 @@
     "to-vfile": "catalog:",
     "unified": "catalog:",
     "unist-util-visit": "catalog:",
-    "vite": "catalog:",
-    "vitest": "catalog:",
     "wrangler": "catalog:",
-    "yaml": "catalog:"
+    "yaml": "catalog:",
+    "vite-plus": "catalog:"
   }
 }
