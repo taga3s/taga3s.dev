@@ -25,5 +25,5 @@ runs:
     - run: vp install
       shell: bash
 
-    - run: vp run --filter "@taga3s/website" install-puppeteer
+    - run: vp run --filter "@taga3s-dev/website" install-puppeteer
       shell: bash

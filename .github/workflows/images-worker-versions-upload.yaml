@@ -38,6 +38,6 @@ jobs:
     needs: upload-images-worker
     uses: ./.github/workflows/comment-preview-url.yaml
     with:
-      name: "@taga3s/images-worker"
+      name: "@taga3s-dev/images-worker"
       target_url: ${{ needs.upload-images-worker.outputs.deployment-url }}
       pr_number: ${{ github.event.number }}

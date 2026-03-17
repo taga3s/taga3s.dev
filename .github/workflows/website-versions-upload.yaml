@@ -23,7 +23,7 @@ jobs:
       - uses: ./.github/actions/setup-ci
 
       - name: Generate Atom feed
-        run: vp run --filter "@taga3s/website" generate:atom
+        run: vp run --filter "@taga3s-dev/website" generate:atom
 
       - name: Build
         run: vp run build:website
@@ -41,6 +41,6 @@ jobs:
     needs: upload-website
     uses: ./.github/workflows/comment-preview-url.yaml
     with:
-      name: "@taga3s/website"
+      name: "@taga3s-dev/website"
       target_url: ${{ needs.upload-website.outputs.deployment-url }}
       pr_number: ${{ github.event.number }}
