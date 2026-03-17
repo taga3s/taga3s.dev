@@ -1,4 +1,4 @@
-/// <reference types="vitest" />
+/// <reference types="vite-plus/test" />
 
 import build from "@hono/vite-build/cloudflare-pages";
 import adapter from "@hono/vite-dev-server/cloudflare";
@@ -9,8 +9,8 @@ import remarkBreaks from "remark-breaks";
 import remarkFrontmatter from "remark-frontmatter";
 import remarkGfm from "remark-gfm";
 import remarkMdxFrontmatter from "remark-mdx-frontmatter";
-import type { PluginOption } from "vite";
-import { defineConfig } from "vitest/config";
+import type { PluginOption } from "vite-plus";
+import { defineConfig } from "vite-plus";
 import { rehypeMermaid } from "./app/packages/rehype-mermaid/rehypeMermaid";
 import { highlighter, rehypeShikiFromHighlighter, transformTitle } from "./app/packages/rehype-shiki";
 

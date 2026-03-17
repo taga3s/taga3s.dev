@@ -42,12 +42,27 @@ catalog:
   to-vfile: ^8.0.0
   unified: ^11.0.5
   unist-util-visit: ^5.0.0
-  vite: ^8.0.0
-  vitest: ^4.0.0
   wrangler: ^4.40.0
   yaml: ^2.8.1
   yoga-wasm-web: ^0.3.3
+  vite-plus: latest
 
-minimumReleaseAge: 1
 trustPolicy: no-downgrade
 blockExoticSubdeps: true
+peerDependencyRules:
+  allowAny:
+    - vite
+    - vitest
+  allowedVersions:
+    vite: '*'
+    vitest: '*'
+minimumReleaseAge: 1
+minimumReleaseAgeExclude:
+  - vite-plus
+  - '@voidzero-dev/*'
+  - oxlint
+  - '@oxlint/*'
+  - oxlint-tsgolint
+  - '@oxlint-tsgolint/*'
+  - oxfmt
+  - '@oxfmt/*'
