@@ -1,5 +1,5 @@
 {
-  "name": "@taga3s/images-worker",
+  "name": "@taga3s-dev/images-worker",
   "type": "module",
   "scripts": {
     "fetch-assets": "curl -L 'https://unpkg.com/yoga-wasm-web/dist/yoga.wasm' -o src/packages/og/vendor/yoga.wasm && curl -L 'https://unpkg.com/@resvg/resvg-wasm/index_bg.wasm' -o src/packages/og/vendor/resvg.wasm",
