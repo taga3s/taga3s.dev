@@ -17,7 +17,7 @@ runs:
       run: echo 0 | sudo tee /proc/sys/kernel/apparmor_restrict_unprivileged_userns
       shell: bash
 
-    - uses: voidzero-dev/setup-vp@b5d848f5a62488f3d3d920f8aa6ac318a60c5f07 # v1
+    - uses: voidzero-dev/setup-vp@fd19e0626188613eec92a77e875180c6445b56ba # v1
       with:
         node-version-file: .node-version
         cache: true
