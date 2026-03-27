@@ -21,7 +21,7 @@
     {
       "pattern": "taga3s.dev/*",
       "zone_name": "taga3s.dev"
-    },
+    }
   ],
   "preview_urls": true
 }
