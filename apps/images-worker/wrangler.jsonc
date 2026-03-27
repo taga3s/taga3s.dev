@@ -19,7 +19,7 @@
   ],
   "routes": [
     {
-      "pattern": "taga3s.dev/*",
+      "pattern": "taga3s.dev/images-worker/*",
       "zone_name": "taga3s.dev"
     }
   ],
