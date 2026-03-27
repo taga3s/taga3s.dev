@@ -12,5 +12,11 @@
       "enabled": true
     }
   },
-  "preview_urls": true
+  "preview_urls": true,
+  "routes": [
+    {
+      "pattern": "taga3s.dev",
+      "custom_domain": true
+    }
+  ]
 }
