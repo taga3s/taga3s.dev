@@ -24,7 +24,8 @@ catalog:
   '@types/unist': ^3.0.3
   hast-util-to-html: ^9.0.5
   hono: ^4.6.20
-  honox: ^0.1.33
+  honox: ^0.1.55
+  jose: ^6.2.2
   puppeteer: ^24.8.0
   rehype-parse: ^9.0.1
   rehype-stringify: ^10.0.1

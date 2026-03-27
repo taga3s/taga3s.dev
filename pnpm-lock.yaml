@@ -73,8 +73,11 @@ catalogs:
       specifier: ^4.6.20
       version: 4.12.5
     honox:
-      specifier: ^0.1.33
-      version: 0.1.54
+      specifier: ^0.1.55
+      version: 0.1.55
+    jose:
+      specifier: ^6.2.2
+      version: 6.2.2
     puppeteer:
       specifier: ^24.8.0
       version: 24.38.0
@@ -188,7 +191,7 @@ importers:
         version: 4.12.5
       honox:
         specifier: 'catalog:'
-        version: 0.1.54(hono@4.12.5)(miniflare@4.20250924.0)(wrangler@4.40.0(@cloudflare/workers-types@4.20260317.1))
+        version: 0.1.55(hono@4.12.5)(miniflare@4.20250924.0)(wrangler@4.40.0(@cloudflare/workers-types@4.20260317.1))
     devDependencies:
       '@cloudflare/workers-types':
         specifier: 'catalog:'
@@ -244,6 +247,9 @@ importers:
       hast-util-to-html:
         specifier: 'catalog:'
         version: 9.0.5
+      jose:
+        specifier: 'catalog:'
+        version: 6.2.2
       puppeteer:
         specifier: 'catalog:'
         version: 24.38.0(typescript@5.9.3)
@@ -849,6 +855,12 @@ packages:
     peerDependencies:
       tailwindcss: ^3.0 || ^4.0
 
+  '@hono/node-server@1.19.11':
+    resolution: {integrity: sha512-dr8/3zEaB+p0D2n/IUrlPF1HZm586qgJNXK1a9fhg/PzdtkK7Ksd5l312tJX2yBuALqDYBlG20QEbayqPyxn+g==}
+    engines: {node: '>=18.14.1'}
+    peerDependencies:
+      hono: ^4
+
   '@hono/node-server@1.19.9':
     resolution: {integrity: sha512-vHL6w3ecZsky+8P5MD+eFfaGTyCeOHUIFYMGpQGbrBTSmNNoxv0if69rEZ5giu36weC5saFuznL411gRX7bJDw==}
     engines: {node: '>=18.14.1'}
@@ -861,8 +873,8 @@ packages:
     peerDependencies:
       hono: '*'
 
-  '@hono/vite-dev-server@0.23.0':
-    resolution: {integrity: sha512-tHV86xToed9Up0j/dubQW2PDP4aYNFDSfQrjcV6Ra7bqCGrxhtg/zZBmbgSco3aTxKOEPzDXKK+6seAAfsbIXw==}
+  '@hono/vite-dev-server@0.25.0':
+    resolution: {integrity: sha512-4j5rs7yUTOObU2/yCEHeWbf3C8m95SD9lhdUUE6CJ462Emp9vS94yiza2dsA8+ly5pdaIQW0cd4nhNVcwYL5tA==}
     engines: {node: '>=18.14.1'}
     peerDependencies:
       hono: '*'
@@ -874,8 +886,8 @@ packages:
       wrangler:
         optional: true
 
-  '@hono/vite-dev-server@0.25.0':
-    resolution: {integrity: sha512-4j5rs7yUTOObU2/yCEHeWbf3C8m95SD9lhdUUE6CJ462Emp9vS94yiza2dsA8+ly5pdaIQW0cd4nhNVcwYL5tA==}
+  '@hono/vite-dev-server@0.25.1':
+    resolution: {integrity: sha512-H6EqoPtCV+uH1fu8nKyRy5Wh3LU012QxloEYMlUcyMjjEfVFiRXPjHx/0TQiiRi140Vu8San5A4XQWyElKFKaw==}
     engines: {node: '>=18.14.1'}
     peerDependencies:
       hono: '*'
@@ -3614,8 +3626,8 @@ packages:
     resolution: {integrity: sha512-3qq+FUBtlTHhtYxbxheZgY8NIFnkkC/MR8u5TTsr7YZ3wixryQ3cCwn3iZbg8p8B88iDBBAYSfZDS75t8MN7Vg==}
     engines: {node: '>=16.9.0'}
 
-  honox@0.1.54:
-    resolution: {integrity: sha512-Tbwi2rKKSZyHZF2NbE2SLtw97oH8npvTX85XCLzmQVTaFLmxypaHLLIR/jyyL1YvE9EhkCeCsxR2mmLxhGhSOw==}
+  honox@0.1.55:
+    resolution: {integrity: sha512-Khf2X/8Z+1iTg1p7rkSEUhmFLpCNKhcSSRV5pk/xo+LsiB1gNMUH869MsfhQW0n4cNsLMnz0APrHLGCmdfQ1Hg==}
     engines: {node: '>=18.14.1'}
     peerDependencies:
       hono: '>=4.*'
@@ -3749,6 +3761,9 @@ packages:
   jiti@1.21.7:
     resolution: {integrity: sha512-/imKNG4EbWNrVjoNC/1H5/9GFy+tqjGBHCaSsN+P2RnPqjsLmv6UD3Ej+Kj8nBWaRAwyk7kK5ZUc+OEatnTR3A==}
     hasBin: true
+
+  jose@6.2.2:
+    resolution: {integrity: sha512-d7kPDd34KO/YnzaDOlikGpOurfF0ByC2sEV4cANCtdqLlTfBlw2p14O/5d/zv40gJPbIQxfES3nSx1/oYNyuZQ==}
 
   jotai@2.14.0:
     resolution: {integrity: sha512-JQkNkTnqjk1BlSUjHfXi+pGG/573bVN104gp6CymhrWDseZGDReTNniWrLhJ+zXbM6pH+82+UNJ2vwYQUkQMWQ==}
@@ -5179,7 +5194,7 @@ snapshots:
 
   '@babel/generator@7.25.6':
     dependencies:
-      '@babel/types': 7.25.6
+      '@babel/types': 7.29.0
       '@jridgewell/gen-mapping': 0.3.13
       '@jridgewell/trace-mapping': 0.3.31
       jsesc: 2.5.2
@@ -5190,7 +5205,7 @@ snapshots:
 
   '@babel/parser@7.25.6':
     dependencies:
-      '@babel/types': 7.25.6
+      '@babel/types': 7.29.0
 
   '@babel/parser@7.29.0':
     dependencies:
@@ -5206,9 +5221,9 @@ snapshots:
     dependencies:
       '@babel/code-frame': 7.29.0
       '@babel/generator': 7.25.6
-      '@babel/parser': 7.25.6
+      '@babel/parser': 7.29.0
       '@babel/template': 7.28.6
-      '@babel/types': 7.25.6
+      '@babel/types': 7.29.0
       debug: 4.4.3
       globals: 11.12.0
     transitivePeerDependencies:
@@ -5549,6 +5564,10 @@ snapshots:
     dependencies:
       tailwindcss: 3.4.17
 
+  '@hono/node-server@1.19.11(hono@4.12.5)':
+    dependencies:
+      hono: 4.12.5
+
   '@hono/node-server@1.19.9(hono@4.12.5)':
     dependencies:
       hono: 4.12.5
@@ -5557,7 +5576,7 @@ snapshots:
     dependencies:
       hono: 4.12.5
 
-  '@hono/vite-dev-server@0.23.0(hono@4.12.5)(miniflare@4.20250924.0)(wrangler@4.40.0(@cloudflare/workers-types@4.20260317.1))':
+  '@hono/vite-dev-server@0.25.0(hono@4.12.5)(miniflare@4.20250924.0)(wrangler@4.40.0(@cloudflare/workers-types@4.20260317.1))':
     dependencies:
       '@hono/node-server': 1.19.9(hono@4.12.5)
       hono: 4.12.5
@@ -5566,9 +5585,9 @@ snapshots:
       miniflare: 4.20250924.0
       wrangler: 4.40.0(@cloudflare/workers-types@4.20260317.1)
 
-  '@hono/vite-dev-server@0.25.0(hono@4.12.5)(miniflare@4.20250924.0)(wrangler@4.40.0(@cloudflare/workers-types@4.20260317.1))':
+  '@hono/vite-dev-server@0.25.1(hono@4.12.5)(miniflare@4.20250924.0)(wrangler@4.40.0(@cloudflare/workers-types@4.20260317.1))':
     dependencies:
-      '@hono/node-server': 1.19.9(hono@4.12.5)
+      '@hono/node-server': 1.19.11(hono@4.12.5)
       hono: 4.12.5
       minimatch: 9.0.5
     optionalDependencies:
@@ -6915,7 +6934,7 @@ snapshots:
       '@vue/shared': 3.5.28
       estree-walker: 2.0.2
       magic-string: 0.30.21
-      postcss: 8.5.6
+      postcss: 8.5.8
       source-map-js: 1.2.1
 
   '@vue/compiler-ssr@3.5.28':
@@ -7592,11 +7611,11 @@ snapshots:
     dependencies:
       node-source-walk: 7.0.1
 
-  detective-postcss@7.0.1(postcss@8.5.6):
+  detective-postcss@7.0.1(postcss@8.5.8):
     dependencies:
       is-url: 1.2.4
-      postcss: 8.5.6
-      postcss-values-parser: 6.0.2(postcss@8.5.6)
+      postcss: 8.5.8
+      postcss-values-parser: 6.0.2(postcss@8.5.8)
 
   detective-sass@6.0.1:
     dependencies:
@@ -8092,13 +8111,13 @@ snapshots:
 
   hono@4.12.5: {}
 
-  honox@0.1.54(hono@4.12.5)(miniflare@4.20250924.0)(wrangler@4.40.0(@cloudflare/workers-types@4.20260317.1)):
+  honox@0.1.55(hono@4.12.5)(miniflare@4.20250924.0)(wrangler@4.40.0(@cloudflare/workers-types@4.20260317.1)):
     dependencies:
       '@babel/generator': 7.25.6
       '@babel/parser': 7.25.6
       '@babel/traverse': 7.25.6
       '@babel/types': 7.25.6
-      '@hono/vite-dev-server': 0.23.0(hono@4.12.5)(miniflare@4.20250924.0)(wrangler@4.40.0(@cloudflare/workers-types@4.20260317.1))
+      '@hono/vite-dev-server': 0.25.1(hono@4.12.5)(miniflare@4.20250924.0)(wrangler@4.40.0(@cloudflare/workers-types@4.20260317.1))
       hono: 4.12.5
       jsonc-parser: 3.3.1
       precinct: 12.2.0
@@ -8215,6 +8234,8 @@ snapshots:
       '@pkgjs/parseargs': 0.11.0
 
   jiti@1.21.7: {}
+
+  jose@6.2.2: {}
 
   jotai@2.14.0(@babel/template@7.28.6)(react@19.1.1):
     optionalDependencies:
@@ -9185,11 +9206,11 @@ snapshots:
 
   postcss-value-parser@4.2.0: {}
 
-  postcss-values-parser@6.0.2(postcss@8.5.6):
+  postcss-values-parser@6.0.2(postcss@8.5.8):
     dependencies:
       color-name: 1.1.4
       is-url-superb: 4.0.0
-      postcss: 8.5.6
+      postcss: 8.5.8
       quote-unquote: 1.0.0
 
   postcss@8.5.6:
@@ -9211,7 +9232,7 @@ snapshots:
       detective-amd: 6.0.1
       detective-cjs: 6.0.1
       detective-es6: 5.0.1
-      detective-postcss: 7.0.1(postcss@8.5.6)
+      detective-postcss: 7.0.1(postcss@8.5.8)
       detective-sass: 6.0.1
       detective-scss: 5.0.1
       detective-stylus: 5.0.1
@@ -9219,7 +9240,7 @@ snapshots:
       detective-vue2: 2.2.0(typescript@5.9.3)
       module-definition: 6.0.1
       node-source-walk: 7.0.1
-      postcss: 8.5.6
+      postcss: 8.5.8
       typescript: 5.9.3
     transitivePeerDependencies:
       - supports-color
