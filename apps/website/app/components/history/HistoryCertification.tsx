@@ -9,7 +9,7 @@ type Props = {
 
 const HistoryCertification: FC<Props> = ({ certification }) => {
   return (
-    <Section title="🪪 certification">
+    <Section title="Certification">
       <ul class={certificationList}>
         {certification.map((item) => (
           <li key={item.name} class={certificationListItem}>

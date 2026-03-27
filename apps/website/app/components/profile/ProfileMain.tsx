@@ -13,7 +13,7 @@ const ProfileMain = () => {
         <div class={profileMainBox}>
           <span class={profileMainName}>taga3s</span>
           <ul class={profileMainBelonging}>
-            <li>Student / Programmer</li>
+            <li>新社会人</li>
           </ul>
         </div>
         <div>
