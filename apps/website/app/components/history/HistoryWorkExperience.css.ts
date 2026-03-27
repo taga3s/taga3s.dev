@@ -1,13 +1,13 @@
 import { css } from "hono/css";
 
-const workHistoryList = css`
+const workExperienceList = css`
   display: flex;
   flex-direction: column;
   gap: 20px;
   margin-top: 32px;
 `;
 
-const workHistoryDescription = css`
+const workExperienceDescription = css`
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -18,4 +18,4 @@ const workHistoryDescription = css`
   border-radius: 8px;
 `;
 
-export { workHistoryList, workHistoryDescription };
+export { workExperienceList, workExperienceDescription };

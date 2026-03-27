@@ -1,4 +1,4 @@
-interface IWorkHistory {
+interface IWorkExperience {
   span: string;
   company: string;
   description: string;
@@ -6,4 +6,4 @@ interface IWorkHistory {
   order: number;
 }
 
-export type { IWorkHistory };
+export type { IWorkExperience };

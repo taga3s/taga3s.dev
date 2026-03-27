@@ -1,0 +1,32 @@
+{
+  "content": [
+    {
+      "span": "2023年3月 - 12月",
+      "company": "独立系SIer（インターン）",
+      "description": "複数の社内向けWebアプリの開発に従事。デザインシステムを利用したプロダクトのUI構築や改善、フロントエンドからバックエンドまで一気通貫した開発等、幅広く取り組んだ。実務での業務はどのようなものかを学ばせて頂いた。",
+      "tech_stack": "Next.js, TypeScript, Nest.js, Prisma, GraphQL, gRPC",
+      "order": 1
+    },
+    {
+      "span": "2024年3月 - 5月",
+      "company": "CARTA HOLDINGS, Inc.（インターン）",
+      "description": "子会社Lighthouse Studioにて、ゲーム攻略メディアの開発に従事。編集向けのOCRツールの開発やアプリケーションのビルド過程で利用されていたスクリプトの技術負債の解消・改善に取り組んだ。既存のコードベースを読み解き、どのような方向性に改善するべきかを熟考し、コードに落とし込むという貴重な機会をいただいた。",
+      "tech_stack": "Vue.js, Node.js, TypeScript, Cloud Vision API",
+      "order": 2
+    },
+    {
+      "span": "2024年6月 - 2025年3月",
+      "company": "???（インターン）",
+      "description": "メディア領域のWeb開発に従事。フロントエンド領域を中心に、技術負債の解消や、GHAを活用した自動化を徹底して行なった。構造を認識することや言語化を徹底すること、そして基礎が何よりも重要だということを改めて学ばせて頂いた。",
+      "tech_stack": "Next.js, Node.js, TypeScript, AWS, Terraform",
+      "order": 3
+    },
+    {
+      "span": "2026年4月 - 現在",
+      "company": "???（新卒）",
+      "description": "？",
+      "tech_stack": "？",
+      "order": 4
+    }
+  ]
+}

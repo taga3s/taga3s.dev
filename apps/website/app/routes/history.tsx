@@ -1,14 +1,14 @@
 import { createRoute } from "honox/factory";
 import { HistoryCertification } from "../components/history/HistoryCertification";
-import { HistoryWorkHistory } from "../components/history/HistoryWorkHistory";
+import { HistoryWorkExperience } from "../components/history/HistoryWorkExperience";
 import { presenter } from "../components/Presenter.css";
-import certification from "../data/certification/certification.json" with { type: "json" };
-import workHistory from "../data/workHistory/work_history.json" with { type: "json" };
+import certification from "../data/certification/data.json" with { type: "json" };
+import workExperience from "../data/workExperience/data.json" with { type: "json" };
 
 export default createRoute(async (c) => {
   return c.render(
     <div class={presenter}>
-      <HistoryWorkHistory workHistory={workHistory.content} />
+      <HistoryWorkExperience workExperience={workExperience.content} />
       <HistoryCertification certification={certification.content} />
     </div>,
     {
