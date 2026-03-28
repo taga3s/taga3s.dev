@@ -34,6 +34,7 @@
     "@types/node": "catalog:",
     "@types/unist": "catalog:",
     "hast-util-to-html": "catalog:",
+    "jose": "catalog:",
     "puppeteer": "catalog:",
     "rehype-parse": "catalog:",
     "rehype-stringify": "catalog:",
