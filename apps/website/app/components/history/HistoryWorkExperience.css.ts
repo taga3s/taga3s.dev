@@ -18,4 +18,4 @@ const workExperienceDescription = css`
   border-radius: 8px;
 `;
 
-export { workExperienceList, workExperienceDescription };
+export { workExperienceDescription, workExperienceList };

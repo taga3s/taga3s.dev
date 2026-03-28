@@ -57,11 +57,11 @@ const postsItemTitle = css`
 `;
 
 export {
-  postsWrapper,
   postsCategorySelector,
   postsCategorySelectorActive,
   postsCategorySelectorItemInactive,
   postsItem,
   postsItemTitle,
   postsList,
+  postsWrapper,
 };

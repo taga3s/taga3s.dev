@@ -8,4 +8,4 @@ const footerContent = css`
   padding: 20px 0;
 `;
 
-export { footerLayout, footerContent };
+export { footerContent, footerLayout };

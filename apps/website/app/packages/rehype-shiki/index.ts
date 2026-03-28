@@ -6,11 +6,11 @@ import { createOnigurumaEngine } from "shiki/engine/oniguruma";
 // see: https://shiki.matsu.io/guide/transformers
 const transformTitle = (): ShikiTransformer => {
   return {
-    name: "my-transformer",
+    name: "transformTitle",
     enforce: "pre",
     pre(node) {
       const metaString = this.options.meta?.__raw;
-      if (!metaString || !metaString.includes("title=")) return;
+      if (!metaString?.includes("title=")) return;
 
       const [title] = metaString.match(/(?<=title=("|'))(.*?)(?=("|'))/) ?? [""];
       if (!title) return;

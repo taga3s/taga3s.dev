@@ -4,7 +4,7 @@ import build from "@hono/vite-build/cloudflare-pages";
 import adapter from "@hono/vite-dev-server/cloudflare";
 import mdx from "@mdx-js/rollup";
 import honox from "honox/vite";
-import puppeteer from "puppeteer";
+import puppeteer, { type LaunchOptions } from "puppeteer";
 import remarkBreaks from "remark-breaks";
 import remarkFrontmatter from "remark-frontmatter";
 import remarkGfm from "remark-gfm";
@@ -14,9 +14,15 @@ import { defineConfig } from "vite-plus";
 import { rehypeMermaid } from "./app/packages/rehype-mermaid/rehypeMermaid";
 import { highlighter, rehypeShikiFromHighlighter, transformTitle } from "./app/packages/rehype-shiki";
 
-const browser = await puppeteer.launch({
+const puppetteerOptions: LaunchOptions = {
+  // path exists in ubuntu on GHA
+  ...(process.env.CI && {
+    executablePath: "/usr/bin/google-chrome-stable",
+  }),
   headless: true,
-});
+};
+
+const browser = await puppeteer.launch(puppetteerOptions);
 
 const handlePuppeteerBrowser = (): PluginOption => ({
   name: "handle-puppeteer-browser",
