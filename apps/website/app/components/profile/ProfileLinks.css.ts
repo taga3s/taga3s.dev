@@ -42,4 +42,4 @@ const cosense = css`
   background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(208,108,7,1) 0%, rgba(194,156,24,1) 0%, rgba(187,180,32,1) 40%, rgba(0,212,255,1) 100%);
 `;
 
-export { profileLinkCard, profileLinkCardIcon, profileLinkCardContainer, github, zenn, cosense };
+export { cosense, github, profileLinkCard, profileLinkCardContainer, profileLinkCardIcon, zenn };

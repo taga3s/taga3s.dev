@@ -44,9 +44,9 @@ const profileMainIntroduction = css`
 
 export {
   profileMain,
+  profileMainBelonging,
   profileMainBox,
   profileMainImage,
-  profileMainName,
-  profileMainBelonging,
   profileMainIntroduction,
+  profileMainName,
 };

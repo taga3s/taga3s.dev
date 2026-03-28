@@ -16,4 +16,4 @@ const profilePhotoImage = css`
   border-radius: 8px;
 `;
 
-export { profilePhotoList, profilePhotoImage };
+export { profilePhotoImage, profilePhotoList };

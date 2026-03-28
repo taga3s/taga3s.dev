@@ -20,4 +20,4 @@ const postDetailHeaderDivider = css`
   border: 0;
 `;
 
-export { postDetailHeaderWrapper, postDetailHeaderTitle, postDetailHeaderDivider };
+export { postDetailHeaderDivider, postDetailHeaderTitle, postDetailHeaderWrapper };
