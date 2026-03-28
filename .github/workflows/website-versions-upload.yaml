@@ -11,6 +11,9 @@ on:
 permissions:
   pull-requests: write
 
+env:
+  VITE_WORKERS_ENV: "preview"
+
 jobs:
   upload-website:
     runs-on: ubuntu-latest
@@ -36,6 +39,9 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           command: versions upload --config wrangler.jsonc
           workingDirectory: ./apps/website
+        env:
+          POLICY_AUD: ${{ secrets.CLOUDFLARE_ACCESS_AUD }}
+          TEAM_DOMAIN: ${{ secrets.CLOUDFLARE_ACCESS_TEAM_DOMAIN }}
 
   comment-preview-url:
     needs: upload-website
