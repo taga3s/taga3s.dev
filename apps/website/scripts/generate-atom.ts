@@ -13,7 +13,7 @@ for (const filename of postFilenames) {
       c("title", { value: frontmatter.title }),
       c("link", { href: link, rel: "alternate" }),
       c("id", { value: `tag:taga3s.dev,2026:${frontmatter.title}` }),
-      c("updated", { value: new Date(frontmatter.publishedAt).toISOString() }), //FIXME: `frontmatter.publishedAt` may not match `atom.updated`
+      c("updated", { value: new Date(frontmatter.updatedAt || frontmatter.publishedAt).toISOString() }),
       c("summary", { value: frontmatter.description }),
     ]),
   );

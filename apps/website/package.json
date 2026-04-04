@@ -7,7 +7,6 @@
     "build": "vp build --mode client && vp build",
     "preview": "wrangler dev",
     "test": "vp test run",
-    "generate:rss": "node --import @swc-node/register/esm-register ./scripts/generate-rss.ts",
     "generate:atom": "node --import @swc-node/register/esm-register ./scripts/generate-atom.ts",
     "install-puppeteer": "puppeteer browsers install chrome"
   },

@@ -11,6 +11,7 @@ export type Frontmatter = {
   description: string;
   category: string;
   publishedAt: string;
+  updatedAt?: string;
   ogpImage?: string;
 };
 
