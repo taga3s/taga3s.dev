@@ -1,9 +1,10 @@
 packages:
   - apps/*
+blockExoticSubdeps: true
 
 catalog:
   '@biomejs/biome': ^2.4.9
-  '@cloudflare/workers-types': ^4.20260317.1
+  '@cloudflare/workers-types': ^4.20260404.1
   '@hono/vite-build': ^1.6.0
   '@hono/vite-dev-server': ^0.25.0
   '@mdx-js/rollup': ^3.1.0
@@ -20,10 +21,10 @@ catalog:
   '@taga3s/rss-generator': npm:@jsr/taga3s__rss-generator@^0.2.1
   '@types/hast': ^3.0.4
   '@types/mdast': ^4.0.4
-  '@types/node': ^24.5.2
+  '@types/node': ^24.12.2
   '@types/unist': ^3.0.3
   hast-util-to-html: ^9.0.5
-  hono: ^4.6.20
+  hono: ^4.12.10
   honox: ^0.1.55
   jose: ^6.2.2
   puppeteer: ^24.8.0
@@ -38,25 +39,15 @@ catalog:
   remark-rehype: ^11.1.2
   remark-stringify: ^11.0.0
   satori: ^0.25.0
-  sharp: ^0.34.1
+  sharp: ^0.34.5
   shiki: ^4.0.0
   to-vfile: ^8.0.0
   unified: ^11.0.5
   unist-util-visit: ^5.0.0
-  wrangler: ^4.40.0
+  vite-plus: latest
+  wrangler: ^4.80.0
   yaml: ^2.8.1
   yoga-wasm-web: ^0.3.3
-  vite-plus: latest
-
-trustPolicy: no-downgrade
-blockExoticSubdeps: true
-peerDependencyRules:
-  allowAny:
-    - vite
-    - vitest
-  allowedVersions:
-    vite: '*'
-    vitest: '*'
 minimumReleaseAge: 1
 minimumReleaseAgeExclude:
   - vite-plus
@@ -67,3 +58,12 @@ minimumReleaseAgeExclude:
   - '@oxlint-tsgolint/*'
   - oxfmt
   - '@oxfmt/*'
+peerDependencyRules:
+  allowAny:
+    - vite
+    - vitest
+  allowedVersions:
+    vite: '*'
+    vitest: '*'
+
+trustPolicy: no-downgrade
