@@ -15,6 +15,7 @@ declare global {
     description?: string;
     category?: string;
     publishedAt?: string;
+    updatedAt?: string;
     ogpImage?: string;
   }
 }

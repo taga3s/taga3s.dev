@@ -20,4 +20,9 @@ const postDetailHeaderDivider = css`
   border: 0;
 `;
 
-export { postDetailHeaderDivider, postDetailHeaderTitle, postDetailHeaderWrapper };
+const postDetailHeaderDate = css`
+  display: flex;
+  gap: 16px;
+`;
+
+export { postDetailHeaderDivider, postDetailHeaderTitle, postDetailHeaderWrapper, postDetailHeaderDate };
