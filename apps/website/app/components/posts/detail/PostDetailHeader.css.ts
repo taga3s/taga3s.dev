@@ -25,4 +25,4 @@ const postDetailHeaderDate = css`
   gap: 16px;
 `;
 
-export { postDetailHeaderDivider, postDetailHeaderTitle, postDetailHeaderWrapper, postDetailHeaderDate };
+export { postDetailHeaderDate, postDetailHeaderDivider, postDetailHeaderTitle, postDetailHeaderWrapper };
