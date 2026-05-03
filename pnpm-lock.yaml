@@ -6,12 +6,18 @@ settings:
 
 catalogs:
   default:
+    '@biomejs/biome':
+      specifier: ^2.4.9
+      version: 2.4.14
     '@cloudflare/workers-types':
       specifier: ^4.20260404.1
       version: 4.20260502.1
     '@hono/vite-build':
       specifier: ^1.6.0
       version: 1.10.0
+    '@hono/vite-dev-server':
+      specifier: ^0.25.0
+      version: 0.25.3
     '@mdx-js/rollup':
       specifier: ^3.1.0
       version: 3.1.1
@@ -69,9 +75,6 @@ catalogs:
     honox:
       specifier: ^0.1.55
       version: 0.1.55
-    jose:
-      specifier: ^6.2.2
-      version: 6.2.2
     puppeteer:
       specifier: ^24.8.0
       version: 24.38.0
@@ -243,7 +246,7 @@ importers:
         version: 9.0.5
       jose:
         specifier: 'catalog:'
-        version: 6.2.2
+        version: 6.2.3
       puppeteer:
         specifier: 'catalog:'
         version: 24.38.0(typescript@5.9.3)
@@ -3483,8 +3486,8 @@ packages:
     resolution: {integrity: sha512-/imKNG4EbWNrVjoNC/1H5/9GFy+tqjGBHCaSsN+P2RnPqjsLmv6UD3Ej+Kj8nBWaRAwyk7kK5ZUc+OEatnTR3A==}
     hasBin: true
 
-  jose@6.2.2:
-    resolution: {integrity: sha512-d7kPDd34KO/YnzaDOlikGpOurfF0ByC2sEV4cANCtdqLlTfBlw2p14O/5d/zv40gJPbIQxfES3nSx1/oYNyuZQ==}
+  jose@6.2.3:
+    resolution: {integrity: sha512-YYVDInQKFJfR/xa3ojUTl8c2KoTwiL1R5Wg9YCydwH0x0B9grbzlg5HC7mMjCtUJjbQ/YnGEZIhI5tCgfTb4Hw==}
 
   jotai@2.19.1:
     resolution: {integrity: sha512-sqm9lVZiqBHZH8aSRk32DSiZDHY3yUIlulXYn9GQj7/LvoUdYXSMti7ZPJGo+6zjzKFt5a25k/I6iBCi43PJcw==}
@@ -7725,7 +7728,7 @@ snapshots:
 
   jiti@1.21.7: {}
 
-  jose@6.2.2: {}
+  jose@6.2.3: {}
 
   jotai@2.19.1(@babel/template@7.28.6)(react@19.2.5):
     optionalDependencies:
