@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - 'apps/website/**'
+      - 'packages/website/**'
       - '.github/workflows/website-versions-upload.yaml'
 
 permissions:
@@ -38,7 +38,7 @@ jobs:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           command: versions upload --config wrangler.jsonc
-          workingDirectory: ./apps/website
+          workingDirectory: ./packages/website
         env:
           POLICY_AUD: ${{ secrets.CLOUDFLARE_ACCESS_AUD }}
           TEAM_DOMAIN: ${{ secrets.CLOUDFLARE_ACCESS_TEAM_DOMAIN }}
