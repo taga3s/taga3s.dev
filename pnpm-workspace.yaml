@@ -1,9 +1,16 @@
 packages:
   - apps/*
+allowBuilds:
+  '@swc/core': true
+  esbuild: true
+  oxc-resolver: true
+  puppeteer: true
+  sharp: true
+  workerd: true
 blockExoticSubdeps: true
 
 catalog:
-  '@biomejs/biome': ^2.4.9
+  '@biomejs/biome': ^2.4.15
   '@cloudflare/workers-types': ^4.20260404.1
   '@hono/vite-build': ^1.6.0
   '@hono/vite-dev-server': ^0.25.0
@@ -44,7 +51,7 @@ catalog:
   to-vfile: ^8.0.0
   unified: ^11.0.5
   unist-util-visit: ^5.0.0
-  vite-plus: latest
+  vite-plus: ^0.1.21
   wrangler: ^4.80.0
   yaml: ^2.8.1
   yoga-wasm-web: ^0.3.3
