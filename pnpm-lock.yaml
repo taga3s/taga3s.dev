@@ -69,9 +69,6 @@ catalogs:
     hast-util-to-html:
       specifier: ^9.0.5
       version: 9.0.5
-    hono:
-      specifier: ^4.12.10
-      version: 4.12.19
     honox:
       specifier: ^0.1.55
       version: 0.1.55
@@ -157,7 +154,7 @@ importers:
     dependencies:
       hono:
         specifier: 'catalog:'
-        version: 4.12.19
+        version: 4.12.22
     devDependencies:
       '@cloudflare/workers-types':
         specifier: 'catalog:'
@@ -188,20 +185,20 @@ importers:
     dependencies:
       hono:
         specifier: 'catalog:'
-        version: 4.12.19
+        version: 4.12.22
       honox:
         specifier: 'catalog:'
-        version: 0.1.55(hono@4.12.19)(miniflare@4.20260430.0)(wrangler@4.87.0(@cloudflare/workers-types@4.20260502.1))
+        version: 0.1.55(hono@4.12.22)(miniflare@4.20260430.0)(wrangler@4.87.0(@cloudflare/workers-types@4.20260502.1))
     devDependencies:
       '@cloudflare/workers-types':
         specifier: 'catalog:'
         version: 4.20260502.1
       '@hono/vite-build':
         specifier: 'catalog:'
-        version: 1.11.1(hono@4.12.19)
+        version: 1.11.1(hono@4.12.22)
       '@hono/vite-dev-server':
         specifier: 'catalog:'
-        version: 0.25.3(hono@4.12.19)(miniflare@4.20260430.0)(wrangler@4.87.0(@cloudflare/workers-types@4.20260502.1))
+        version: 0.25.3(hono@4.12.22)(miniflare@4.20260430.0)(wrangler@4.87.0(@cloudflare/workers-types@4.20260502.1))
       '@mdx-js/rollup':
         specifier: 'catalog:'
         version: 3.1.1(rollup@4.55.1)
@@ -3415,8 +3412,8 @@ packages:
     resolution: {integrity: sha512-Xwwo44whKBVCYoliBQwaPvtd/2tYFkRQtXDWj1nackaV2JPXx3L0+Jvd8/qCJ2p+ML0/XVkJ2q+Mr+UVdpJK5w==}
     engines: {node: '>=12.0.0'}
 
-  hono@4.12.19:
-    resolution: {integrity: sha512-xa3eYXYXx68XTT4hZ7dRzsXBhaq85ToSrlUJNoR0gwz/1Ap/CNwX47wfvV7pc/xWhjKVVkLT7zBJy8chhNguqQ==}
+  hono@4.12.22:
+    resolution: {integrity: sha512-7fvVPbB92zNRsQke+uiRGwtTuef0tB2Dg4hWxYfFNvkQhIltWoyi0ONReM5LWA+jJWS3nfT5lTq+qbsIpX0IQw==}
     engines: {node: '>=16.9.0'}
 
   honox@0.1.55:
@@ -4210,6 +4207,10 @@ packages:
 
   postcss@8.5.14:
     resolution: {integrity: sha512-SoSL4+OSEtR99LHFZQiJLkT59C5B1amGO1NzTwj7TT1qCUgUO6hxOvzkOYxD+vMrXBM3XJIKzokoERdqQq/Zmg==}
+    engines: {node: ^10 || ^12 || >=14}
+
+  postcss@8.5.15:
+    resolution: {integrity: sha512-FfR8sjd4em2T6fb3I2MwAJU7HWVMr9zba+enmQeeWFfCbm+UOC/0X4DS8XtpUTMwWMGbjKYP7xjfNekzyGmB3A==}
     engines: {node: ^10 || ^12 || >=14}
 
   postcss@8.5.8:
@@ -5250,18 +5251,18 @@ snapshots:
     dependencies:
       tailwindcss: 3.4.19(yaml@2.9.0)
 
-  '@hono/node-server@1.19.14(hono@4.12.19)':
+  '@hono/node-server@1.19.14(hono@4.12.22)':
     dependencies:
-      hono: 4.12.19
+      hono: 4.12.22
 
-  '@hono/vite-build@1.11.1(hono@4.12.19)':
+  '@hono/vite-build@1.11.1(hono@4.12.22)':
     dependencies:
-      hono: 4.12.19
+      hono: 4.12.22
 
-  '@hono/vite-dev-server@0.25.3(hono@4.12.19)(miniflare@4.20260430.0)(wrangler@4.87.0(@cloudflare/workers-types@4.20260502.1))':
+  '@hono/vite-dev-server@0.25.3(hono@4.12.22)(miniflare@4.20260430.0)(wrangler@4.87.0(@cloudflare/workers-types@4.20260502.1))':
     dependencies:
-      '@hono/node-server': 1.19.14(hono@4.12.19)
-      hono: 4.12.19
+      '@hono/node-server': 1.19.14(hono@4.12.22)
+      hono: 4.12.22
       minimatch: 9.0.9
     optionalDependencies:
       miniflare: 4.20260430.0
@@ -7650,16 +7651,16 @@ snapshots:
 
   highlight.js@11.11.1: {}
 
-  hono@4.12.19: {}
+  hono@4.12.22: {}
 
-  honox@0.1.55(hono@4.12.19)(miniflare@4.20260430.0)(wrangler@4.87.0(@cloudflare/workers-types@4.20260502.1)):
+  honox@0.1.55(hono@4.12.22)(miniflare@4.20260430.0)(wrangler@4.87.0(@cloudflare/workers-types@4.20260502.1)):
     dependencies:
       '@babel/generator': 7.25.6
       '@babel/parser': 7.25.6
       '@babel/traverse': 7.25.6
       '@babel/types': 7.25.6
-      '@hono/vite-dev-server': 0.25.3(hono@4.12.19)(miniflare@4.20260430.0)(wrangler@4.87.0(@cloudflare/workers-types@4.20260502.1))
-      hono: 4.12.19
+      '@hono/vite-dev-server': 0.25.3(hono@4.12.22)(miniflare@4.20260430.0)(wrangler@4.87.0(@cloudflare/workers-types@4.20260502.1))
+      hono: 4.12.22
       jsonc-parser: 3.3.1
       precinct: 12.2.0
     optionalDependencies:
@@ -8701,6 +8702,12 @@ snapshots:
       picocolors: 1.1.1
       source-map-js: 1.2.1
 
+  postcss@8.5.15:
+    dependencies:
+      nanoid: 3.3.12
+      picocolors: 1.1.1
+      source-map-js: 1.2.1
+
   postcss@8.5.8:
     dependencies:
       nanoid: 3.3.12
@@ -9543,7 +9550,7 @@ snapshots:
       '@oxc-project/runtime': 0.115.0
       lightningcss: 1.32.0
       picomatch: 4.0.4
-      postcss: 8.5.14
+      postcss: 8.5.15
       rolldown: 1.0.0-rc.9(@emnapi/core@1.9.0)(@emnapi/runtime@1.9.2)
       tinyglobby: 0.2.16
     optionalDependencies:
