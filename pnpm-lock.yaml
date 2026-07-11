@@ -214,9 +214,6 @@ catalogs:
     '@hono/vite-build':
       specifier: ^1.6.0
       version: 1.11.1
-    '@hono/vite-dev-server':
-      specifier: ^0.26.0
-      version: 0.26.0
     '@mdx-js/rollup':
       specifier: ^3.1.0
       version: 3.1.1
@@ -253,15 +250,24 @@ catalogs:
     '@taga3s/rss-generator':
       specifier: npm:@jsr/taga3s__rss-generator@^0.2.1
       version: 0.2.1
+    '@types/hast':
+      specifier: ^3.0.4
+      version: 3.0.5
     '@types/mdast':
       specifier: ^4.0.4
       version: 4.0.4
+    '@types/node':
+      specifier: ^24.12.2
+      version: 24.13.3
     '@types/unist':
       specifier: ^3.0.3
       version: 3.0.3
     hast-util-to-html:
       specifier: ^9.0.5
       version: 9.0.5
+    hono:
+      specifier: ^4.12.10
+      version: 4.12.29
     honox:
       specifier: ^0.1.55
       version: 0.1.58
@@ -391,7 +397,7 @@ importers:
         version: 1.11.1(hono@4.12.29)
       '@hono/vite-dev-server':
         specifier: 'catalog:'
-        version: 0.26.0(hono@4.12.29)(miniflare@4.20260430.0)(wrangler@4.87.0(@cloudflare/workers-types@4.20260502.1))
+        version: 0.26.1(hono@4.12.29)(miniflare@4.20260430.0)(wrangler@4.87.0(@cloudflare/workers-types@4.20260502.1))
       '@mdx-js/rollup':
         specifier: 'catalog:'
         version: 3.1.1(rollup@4.55.1)
@@ -963,8 +969,8 @@ packages:
       wrangler:
         optional: true
 
-  '@hono/vite-dev-server@0.26.0':
-    resolution: {integrity: sha512-DYHht1lge/SRGd1dpOgwhS6DpamSaDtxAOlwl2RkcYyLFy769DZPEX6CeRaUzeDNgClO9JAuT83VptxB5mH5jA==}
+  '@hono/vite-dev-server@0.26.1':
+    resolution: {integrity: sha512-OlcWoXjNogKiJhVwV/ftMK87UcsJmIBfmImSdI4e8to/ZdwNHrW9ddKw2OGHjXI5/uS2RaZr+2y+l8T9VFbCmw==}
     engines: {node: '>=18.14.1'}
     peerDependencies:
       hono: '*'
@@ -3050,8 +3056,8 @@ packages:
   blake3-wasm@2.1.5:
     resolution: {integrity: sha512-F1+K8EbfOZE49dtoPtmxUQrpXaBIl3ICvasLh+nJta0xkz+9kF/7uet9fLnwKqhDrmj6g+6K3Tw9yQPUg2ka5g==}
 
-  brace-expansion@2.1.0:
-    resolution: {integrity: sha512-TN1kCZAgdgweJhWWpgKYrQaMNHcDULHkWwQIspdtjV4Y5aurRdZpjAqn6yX3FPqTA9ngHCc4hJxMAMgGfve85w==}
+  brace-expansion@2.1.2:
+    resolution: {integrity: sha512-w5JZcKgdhDOgOwm8H+KgbosopHMuGcl6qbulwjtz3SM7I7P3yW1eAjzMPLrIE+NQ9vjgANKHWeMHnrT0OXW1oA==}
 
   brace-expansion@5.0.7:
     resolution: {integrity: sha512-7oFy703dxfY3/NLxC1fh2SUCQ0H9rmAY+5EpDVfXjUTTs+HEwR2nYaqLv+GWcTsumwxPfiz6CzCNkwXwBUwqCA==}
@@ -5578,7 +5584,7 @@ snapshots:
       miniflare: 4.20260430.0
       wrangler: 4.87.0(@cloudflare/workers-types@4.20260502.1)
 
-  '@hono/vite-dev-server@0.26.0(hono@4.12.29)(miniflare@4.20260430.0)(wrangler@4.87.0(@cloudflare/workers-types@4.20260502.1))':
+  '@hono/vite-dev-server@0.26.1(hono@4.12.29)(miniflare@4.20260430.0)(wrangler@4.87.0(@cloudflare/workers-types@4.20260502.1))':
     dependencies:
       '@hono/node-server': 1.19.14(hono@4.12.29)
       hono: 4.12.29
@@ -7244,7 +7250,7 @@ snapshots:
 
   blake3-wasm@2.1.5: {}
 
-  brace-expansion@2.1.0:
+  brace-expansion@2.1.2:
     dependencies:
       balanced-match: 1.0.2
 
@@ -8783,7 +8789,7 @@ snapshots:
 
   minimatch@9.0.9:
     dependencies:
-      brace-expansion: 2.1.0
+      brace-expansion: 2.1.2
 
   minimist@1.2.8: {}
 
