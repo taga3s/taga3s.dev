@@ -51,7 +51,7 @@ export const rehypeMermaid: Plugin<Options, Root> = (options) => {
 
       // Check if the code tag has a text child
       const [textNode] = codeElem.children;
-      if (!textNode || textNode.type !== "text") {
+      if (textNode?.type !== "text") {
         return;
       }
 
