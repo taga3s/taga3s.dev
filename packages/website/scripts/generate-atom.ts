@@ -3,7 +3,7 @@ import { type AtomNode, c, xmlRoot } from "@taga3s/atom-feed-composer";
 import { extractFrontmatter } from "./extract-frontmatter";
 
 const entries: AtomNode[] = [];
-const dir = "./app/routes/posts";
+const dir = "./src/data/posts";
 const postFilenames = fs.readdirSync(dir).filter((filename) => filename.endsWith(".mdx"));
 for (const filename of postFilenames) {
   const frontmatter = await extractFrontmatter(dir, filename);

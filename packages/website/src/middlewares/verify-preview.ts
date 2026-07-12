@@ -1,8 +1,8 @@
-import { createRoute } from "honox/factory";
+import type { Context, Next } from "hono";
 import { createRemoteJWKSet, jwtVerify } from "jose";
 
-export default createRoute(async (c, next) => {
-  const WORKERS_ENV = import.meta.env.VITE_WORKERS_ENV;
+export const verifyPreview = async (c: Context, next: Next) => {
+  const WORKERS_ENV = c.env?.WORKERS_ENV;
   const POLICY_AUD = c.env?.POLICY_AUD;
   const TEAM_DOMAIN = c.env?.TEAM_DOMAIN;
 
@@ -37,4 +37,4 @@ export default createRoute(async (c, next) => {
     const message = error instanceof Error ? error.message : "Unknown error";
     return c.json({ message: `Invalid token: ${message}` }, 403);
   }
-});
+};

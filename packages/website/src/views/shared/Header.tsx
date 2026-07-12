@@ -7,7 +7,6 @@ const Header = () => {
         <nav class={headerNav}>
           <a href="/">about me</a>
           <a href="/history">history</a>
-          <a href="/posts">posts</a>
         </nav>
       </div>
     </header>

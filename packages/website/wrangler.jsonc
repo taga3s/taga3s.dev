@@ -1,11 +1,11 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "taga3s-dev-website",
-  "main": "./dist/_worker.js",
+  "main": "./src/index.tsx",
   "compatibility_date": "2025-02-24",
   "compatibility_flags": ["nodejs_compat"],
   "assets": {
-    "directory": "./dist"
+    "directory": "./public"
   },
   "observability": {
     "logs": {

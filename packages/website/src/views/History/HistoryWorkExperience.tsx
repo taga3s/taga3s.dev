@@ -1,6 +1,6 @@
 import type { FC } from "hono/jsx";
 import type { IWorkExperience } from "../../data/workExperience";
-import { Section } from "../Section";
+import { Section } from "../shared/Section";
 import { workExperienceDescription, workExperienceList } from "./HistoryWorkExperience.css";
 
 type Props = {
