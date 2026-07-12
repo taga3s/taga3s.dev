@@ -1,6 +1,6 @@
 import type { FC } from "hono/jsx";
 import type { ICertification } from "../../data/certification";
-import { Section } from "../Section";
+import { Section } from "../shared/Section";
 import { certificationList, certificationListItem } from "./HistoryCertification.css";
 
 type Props = {

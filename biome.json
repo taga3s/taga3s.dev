@@ -23,7 +23,7 @@
     "lineWidth": 120
   },
   "files": {
-    "includes": ["./packages/website/**", "./packages/images-worker/**", "!**/dist", "!**/node_modules"]
+    "includes": ["./packages/website/**", "./packages/images-worker/**", "!**/.wrangler", "!**/dist", "!**/node_modules"]
   },
   "assist": { "actions": { "source": { "organizeImports": "on" } } }
 }

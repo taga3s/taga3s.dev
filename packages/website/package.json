@@ -3,21 +3,17 @@
   "type": "module",
   "version": "1.0.0",
   "scripts": {
-    "dev": "vp dev",
-    "build": "vp build --mode client && vp build",
-    "preview": "wrangler dev",
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy --minify",
     "test": "vp test run",
     "generate:atom": "node --import @swc-node/register/esm-register ./scripts/generate-atom.ts",
     "install-puppeteer": "puppeteer browsers install chrome"
   },
   "dependencies": {
-    "hono": "catalog:",
-    "honox": "catalog:"
+    "hono": "catalog:"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "catalog:",
-    "@hono/vite-build": "catalog:",
-    "@hono/vite-dev-server": "catalog:",
     "@mdx-js/rollup": "catalog:",
     "@mermaid-js/mermaid-cli": "catalog:",
     "@shikijs/rehype": "catalog:",

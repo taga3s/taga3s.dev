@@ -11,9 +11,6 @@ on:
 permissions:
   pull-requests: write
 
-env:
-  VITE_WORKERS_ENV: "preview"
-
 jobs:
   upload-website:
     runs-on: ubuntu-latest
@@ -28,9 +25,6 @@ jobs:
       - name: Generate Atom feed
         run: vp run --filter "@taga3s-dev/website" generate:atom
 
-      - name: Build
-        run: vp run build:website
-
       - name: Upload to Cloudflare Workers
         id: upload
         uses: cloudflare/wrangler-action@ebbaa1584979971c8614a24965b4405ff95890e0 # v4.0.0
@@ -40,6 +34,7 @@ jobs:
           command: versions upload --config wrangler.jsonc
           workingDirectory: ./packages/website
         env:
+          WORKERS_ENV: preview
           POLICY_AUD: ${{ secrets.CLOUDFLARE_ACCESS_AUD }}
           TEAM_DOMAIN: ${{ secrets.CLOUDFLARE_ACCESS_TEAM_DOMAIN }}
 

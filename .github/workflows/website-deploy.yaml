@@ -8,9 +8,6 @@ on:
       - 'packages/website/**'
       - '.github/workflows/website-deploy.yaml'
 
-env:
-  VITE_WORKERS_ENV: "prod"
-
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -23,9 +20,6 @@ jobs:
       - name: Generate Atom feed
         run: vp run --filter "@taga3s-dev/website" generate:atom
 
-      - name: Build
-        run: vp run build:website
-
       - name: Publish to Cloudflare Workers
         uses: cloudflare/wrangler-action@ebbaa1584979971c8614a24965b4405ff95890e0 # v4.0.0
         with:
@@ -34,5 +28,6 @@ jobs:
           command: deploy --minify --config wrangler.jsonc
           workingDirectory: ./packages/website
         env:
+          WORKERS_ENV: production
           POLICY_AUD: ${{ secrets.CLOUDFLARE_ACCESS_AUD }}
           TEAM_DOMAIN: ${{ secrets.CLOUDFLARE_ACCESS_TEAM_DOMAIN }}

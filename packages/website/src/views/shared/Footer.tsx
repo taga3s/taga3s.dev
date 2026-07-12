@@ -4,7 +4,7 @@ const Footer = () => {
   return (
     <footer class={footerLayout}>
       <div class={footerContent}>
-        <small>&copy; 2024 taga3s</small>
+        <small>&copy; 2026 taga3s</small>
       </div>
     </footer>
   );

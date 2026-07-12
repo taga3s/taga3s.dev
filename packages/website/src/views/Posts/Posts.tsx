@@ -1,7 +1,7 @@
 import type { FC } from "hono/jsx";
 import { useRequestContext } from "hono/jsx-renderer";
 import type { IPost } from "../../data/posts/model";
-import { Section } from "../Section";
+import { Section } from "../shared/Section";
 import {
   postsCategorySelector,
   postsCategorySelectorActive,
@@ -33,10 +33,7 @@ const Posts: FC<Props> = ({ posts }) => {
         <ul class={postsCategorySelector}>
           {categories.map((cat) => (
             <li key={cat.label}>
-              <a
-                href={cat.href}
-                class={category === cat.value ? postsCategorySelectorActive : postsCategorySelectorItemInactive}
-              >
+              <a href={cat.href} class={postsCategorySelectorItemInactive}>
                 {cat.label}
               </a>
             </li>

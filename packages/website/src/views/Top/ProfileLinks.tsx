@@ -1,6 +1,6 @@
 import type { JSX } from "hono/jsx/jsx-runtime";
-import { CosenseIcon, GitHubIcon, ZennIcon } from "../icons";
-import { Section } from "../Section";
+import { CosenseIcon, GitHubIcon, ZennIcon } from "../shared/icons";
+import { Section } from "../shared/Section";
 import { cosense, github, profileLinkCardContainer, profileLinkCardIcon, zenn } from "./ProfileLinks.css";
 
 interface Link {
