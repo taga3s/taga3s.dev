@@ -1,16 +1,16 @@
 import { Hono } from "hono";
 import { css, Style } from "hono/css";
 import type { FC } from "hono/jsx";
+import type { JSX } from "hono/jsx/jsx-runtime";
 import certification from "./data/certification/data.json";
 import photos from "./data/photos/data.json";
 import workExperience from "./data/workExperience/data.json";
+import { verifyPreview } from "./middlewares/verify-preview";
 import { HistoryPage } from "./views/History/HistoryPage";
 import { PostsPage } from "./views/Posts/PostsPage";
 import { Footer } from "./views/shared/Footer";
 import { Header } from "./views/shared/Header";
 import { TopPage } from "./views/Top/TopPage";
-import { verifyPreview } from "./middlewares/verify-preview";
-import { JSX } from "hono/jsx/jsx-runtime";
 
 const app = new Hono();
 
@@ -36,7 +36,7 @@ const bodyLayout = css`
   }
 `;
 
-const HTMLLayout: FC<{ children: JSX.Element[], title: string }> = ({ children, title }) => {
+const HTMLLayout: FC<{ children: JSX.Element[]; title: string }> = ({ children, title }) => {
   return (
     <html lang="ja" class={htmlLayout}>
       <head>
