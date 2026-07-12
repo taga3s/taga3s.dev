@@ -2,6 +2,7 @@ import { Hono } from "hono";
 import { css, Style } from "hono/css";
 import type { FC } from "hono/jsx";
 import type { JSX } from "hono/jsx/jsx-runtime";
+import { logger } from "hono/logger";
 import certification from "./data/certification/data.json";
 import photos from "./data/photos/data.json";
 import workExperience from "./data/workExperience/data.json";
@@ -12,24 +13,16 @@ import { Footer } from "./views/shared/Footer";
 import { Header } from "./views/shared/Header";
 import { TopPage } from "./views/Top/TopPage";
 
-const app = new Hono();
-
-const htmlLayout = css`
-  :has(#photo-with-mask) {
-    overflow: hidden;
-  }
-`;
-
 const bodyLayout = css`
   display: grid;
   grid-template-rows: auto 1fr auto;
-  max-width: 700px;
+  max-width: 640px;
   min-height: 100vh; 
   margin: 0 auto;
   padding: 16px 20px;
-  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-family: "Zen Maru Gothic", sans-serif;
   color: #000000;
-  background-color: #FCFAF2;
+  background-color: #ffffff;
   
   > * {
     min-width: 0;
@@ -38,19 +31,20 @@ const bodyLayout = css`
 
 const HTMLLayout: FC<{ children: JSX.Element[]; title: string }> = ({ children, title }) => {
   return (
-    <html lang="ja" class={htmlLayout}>
+    <html lang="ja">
       <head>
         <meta charset="UTF-8" />
 
         {/* google fonts */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
         <link
-          href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;700;900&display=swap"
           rel="stylesheet"
         />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
 
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/destyle.css@3.0.2/destyle.css" />
+        <link rel="stylesheet" href="/static/index.css" />
         <link rel="stylesheet" href="/static/markdown.css" />
         <link rel="stylesheet" href="/static/remark-plugins.css" />
         <Style />
@@ -63,7 +57,10 @@ const HTMLLayout: FC<{ children: JSX.Element[]; title: string }> = ({ children, 
   );
 };
 
-app.use(verifyPreview);
+const app = new Hono();
+
+app.use(logger());
+app.use(verifyPreview());
 
 app.get("/", (c) => {
   return c.render(

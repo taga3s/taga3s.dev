@@ -1,14 +1,18 @@
 import { css } from "hono/css";
 
 const headerContent = css`
-  padding: 32px 20px;
+  padding: 16px 20px;
   display: flex;
   justify-content: end;
 `;
 
 const headerNav = css`
   display: flex;
-  gap: 24px;
+  flex-direction: column;
+  text-align: end;
+  gap: 16px;
+  font-weight: bold;
+  color: #986DB2;
 `;
 
 export { headerContent, headerNav };

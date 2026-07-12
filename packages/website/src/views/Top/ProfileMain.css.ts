@@ -2,7 +2,9 @@ import { css } from "hono/css";
 
 const profileMain = css`
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
   padding: 20px 0;
 `;
 
@@ -25,7 +27,7 @@ const profileMainImage = css`
 
 const profileMainName = css`
   font-size: 28px;
-  font-weight: bold;
+  font-weight: 900;
 `;
 
 const profileMainBelonging = css`
