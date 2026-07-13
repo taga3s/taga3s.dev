@@ -3,7 +3,7 @@ import remarkBreaks from "remark-breaks";
 import remarkParse from "remark-parse";
 import remarkRehype from "remark-rehype";
 import { unified } from "unified";
-import { highlighter, rehypeShikiFromHighlighter, transformTitle } from "./index.js";
+import { highlighter, rehypeShikiFromHighlighter, transformTitle } from "./index.ts";
 
 const MOCK_MARKDOWN = "```ts\nconsole.log('Hello, World!')\n```";
 const EXPECTED_HTML =
