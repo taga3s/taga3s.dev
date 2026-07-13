@@ -1,4 +1,5 @@
 import { Hono } from "hono";
+import { cache } from "hono/cache";
 import { css, Style } from "hono/css";
 import type { FC } from "hono/jsx";
 import type { JSX } from "hono/jsx/jsx-runtime";
@@ -7,7 +8,7 @@ import certification from "./data/certification/data.json";
 import photos from "./data/photos/data.json";
 import type { IPost, IRawPost } from "./data/posts/model";
 import workExperience from "./data/workExperience/data.json";
-import { verifyPreview } from "./middlewares/verify-preview";
+import { verifyPreview } from "./middlewares/verifyPreview";
 import { BlogPage } from "./views/Blog/BlogPage";
 import { BlogContentPage } from "./views/Blog/Content/BlogContentPage";
 import { HistoryPage } from "./views/History/HistoryPage";
@@ -68,6 +69,16 @@ const app = new Hono<{ Bindings: Bindings }>();
 app.use(logger());
 app.use(verifyPreview());
 
+// TODO: Revise the cache strategy
+app.get(
+  "*",
+  cache({
+    cacheName: "taga3s-dev-cache",
+    cacheControl: "max-age=3600",
+    cacheableStatusCodes: [200, 404],
+  }),
+);
+
 app.get("/", (c) => {
   return c.render(
     <HTMLLayout title="taga3s-dev">
@@ -90,13 +101,13 @@ app.get("/history", (c) => {
 
 app.get("/blog", async (c) => {
   try {
-    const rawPostsList = await c.env.TAGA3S_DEV_BUCKET.get("blog/outs.json");
-    if (!rawPostsList) {
+    const rawPostsListJson = await c.env.TAGA3S_DEV_BUCKET.get("blog/outs.json");
+    if (!rawPostsListJson) {
       return c.notFound();
     }
-    const rawPostsListJson = await rawPostsList.json<Omit<IRawPost, "rawHtml">[]>();
+    const rawPostsList = await rawPostsListJson.json<Omit<IRawPost, "rawHtml">[]>();
 
-    const posts: Omit<IPost, "rawHtml">[] = rawPostsListJson
+    const posts: Omit<IPost, "rawHtml">[] = rawPostsList
       .map((raw) => ({
         id: raw.id,
         title: raw.title,
@@ -119,11 +130,11 @@ app.get("/blog", async (c) => {
   }
 });
 
-app.get("/blog/:id", async (c) => {
-  const id = c.req.param("id");
+app.get("/blog/:name{[a-zA-Z0-9-_]+}", async (c) => {
+  const name = c.req.param("name");
 
   try {
-    const rawPostJson = await c.env.TAGA3S_DEV_BUCKET.get(`blog/${id}.json`);
+    const rawPostJson = await c.env.TAGA3S_DEV_BUCKET.get(`blog/${name}.json`);
     if (!rawPostJson) {
       return c.notFound();
     }
