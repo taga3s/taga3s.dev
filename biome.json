@@ -3,7 +3,7 @@
   "linter": {
     "enabled": true,
     "rules": {
-      "recommended": true,
+      "preset": "recommended",
       "suspicious": {
         "noExplicitAny": "warn"
       },
@@ -26,6 +26,7 @@
     "includes": [
       "./packages/website/**",
       "./packages/images-worker/**",
+      "./packages/mdx-processor/**",
       "!**/.wrangler",
       "!**/dist",
       "!**/node_modules"
