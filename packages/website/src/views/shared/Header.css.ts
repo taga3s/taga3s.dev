@@ -1,7 +1,7 @@
 import { css } from "hono/css";
 
 const headerContent = css`
-  padding: 16px 20px;
+  padding: 8px 20px;
   display: flex;
   justify-content: end;
 `;

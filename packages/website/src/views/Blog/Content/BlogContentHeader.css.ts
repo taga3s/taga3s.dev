@@ -1,15 +1,15 @@
 import { css } from "hono/css";
 
-const postDetailHeaderWrapper = css`
+const blogContentHeaderWrapper = css`
   margin-bottom: 32px;
 `;
 
-const postDetailHeaderTitle = css`
+const blogContentHeaderTitle = css`
   font-size: 32px;
   font-weight: bold;
 `;
 
-const postDetailHeaderDivider = css`
+const blogContentHeaderDivider = css`
   margin-top: 16px;
   margin-bottom: 12px;
   background: transparent;
@@ -20,9 +20,9 @@ const postDetailHeaderDivider = css`
   border: 0;
 `;
 
-const postDetailHeaderDate = css`
+const blogContentHeaderDate = css`
   display: flex;
   gap: 16px;
 `;
 
-export { postDetailHeaderDate, postDetailHeaderDivider, postDetailHeaderTitle, postDetailHeaderWrapper };
+export { blogContentHeaderDate, blogContentHeaderDivider, blogContentHeaderTitle, blogContentHeaderWrapper };
