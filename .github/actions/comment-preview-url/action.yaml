@@ -1,0 +1,34 @@
+name: Comment Preview URL
+
+inputs:
+  website_deployment_url:
+    description: 'Website preview deployment URL'
+    required: true
+    type: string
+  images_worker_deployment_url:
+    description: 'Images Worker preview deployment URL'
+    required: true
+    type: string
+  pr_number:
+    description: 'Pull request number'
+    required: true
+    type: number
+
+permissions:
+  pull-requests: write
+
+runs:
+  using: "composite"
+  steps:
+    - name: Comment Preview URL
+      env:
+        GH_TOKEN: ${{ github.token }}
+      run: |
+        echo "## Preview URLs
+        | project | preview URL |
+        | --- | --- |
+        ${{ inputs.website_deployment_url && format('| Website | {0} |', inputs.website_deployment_url) }}
+        ${{ inputs.images_worker_deployment_url && format('| Images Worker | {0} |', inputs.images_worker_deployment_url) }}
+        " >> .tmp.txt
+        gh pr comment ${{ inputs.pr_number }} --edit-last --edit-last --create-if-none --body-file .tmp.txt
+      shell: bash
