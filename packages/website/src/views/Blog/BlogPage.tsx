@@ -1,12 +1,12 @@
 import type { FC } from "hono/jsx";
 import type { IPost } from "../../data/posts/model";
 import { presenter } from "../shared/Presenter.css";
-import { Posts } from "./Posts";
+import { Blog } from "./Blog";
 
-export const PostsPage: FC<{ posts: IPost[] }> = ({ posts }) => {
+export const BlogPage: FC<{ posts: IPost[] }> = ({ posts }) => {
   return (
     <div class={presenter}>
-      <Posts posts={posts} />
+      <Blog posts={posts} />
     </div>
   );
 };

@@ -1,10 +1,10 @@
 import type { FC } from "hono/jsx";
 import {
-  postDetailHeaderDate,
-  postDetailHeaderDivider,
-  postDetailHeaderTitle,
-  postDetailHeaderWrapper,
-} from "./PostDetailHeader.css";
+  blogContentHeaderDate,
+  blogContentHeaderDivider,
+  blogContentHeaderTitle,
+  blogContentHeaderWrapper,
+} from "./BlogContentHeader.css";
 
 type Props = {
   title: string;
@@ -12,12 +12,12 @@ type Props = {
   updatedAt: string;
 };
 
-const PostDetailHeader: FC<Props> = ({ title, publishedAt, updatedAt }) => {
+const BlogContentHeader: FC<Props> = ({ title, publishedAt, updatedAt }) => {
   return (
-    <div class={postDetailHeaderWrapper}>
-      <h1 class={postDetailHeaderTitle}>{title}</h1>
-      <hr class={postDetailHeaderDivider} />
-      <div class={postDetailHeaderDate}>
+    <div class={blogContentHeaderWrapper}>
+      <h1 class={blogContentHeaderTitle}>{title}</h1>
+      <hr class={blogContentHeaderDivider} />
+      <div class={blogContentHeaderDate}>
         <span>
           公開日 <time datetime={publishedAt.replaceAll("/", "-")}>{publishedAt}</time>
         </span>
@@ -31,4 +31,4 @@ const PostDetailHeader: FC<Props> = ({ title, publishedAt, updatedAt }) => {
   );
 };
 
-export { PostDetailHeader };
+export { BlogContentHeader };
