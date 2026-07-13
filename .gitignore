@@ -10,6 +10,7 @@ dist/
 */**/rss.xml
 */**/atom.xml
 target
+tmp
 
 # deps
 node_modules/
