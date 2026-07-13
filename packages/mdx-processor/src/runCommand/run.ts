@@ -18,6 +18,16 @@ export const runCommand: Command = define({
   },
 });
 
+interface Out {
+  id: string;
+  title: string;
+  category: string[];
+  description: string;
+  publishedAt: string;
+  updatedAt: string;
+  rawHtml: string;
+}
+
 export const runProcessor = async (): Promise<CommandRunner<GunshiParams<{ args: typeof runCommand.args }>>> => {
   return async (ctx) => {
     const { pathdir, outdir } = ctx.values;
@@ -26,22 +36,27 @@ export const runProcessor = async (): Promise<CommandRunner<GunshiParams<{ args:
     }
 
     const fileContents = await getFileContents(pathdir);
+    const outsList: Omit<Out, "rawHtml">[] = [];
 
     for (const fc of fileContents) {
       const content = await convertToHtml(fc.content);
       const id = fc.origName.replace(".mdx", "");
-      output(
-        JSON.stringify({
-          id,
-          title: content.frontmatter.title,
-          category: content.frontmatter.category,
-          description: content.frontmatter.description,
-          publishedAt: content.frontmatter.publishedAt,
-          updatedAt: content.frontmatter.updatedAt,
-          rawHtml: content.rawHtml,
-        }),
-        `${outdir}/${id}.json`,
-      );
+      const out = {
+        id,
+        title: content.frontmatter.title,
+        category: content.frontmatter.category,
+        description: content.frontmatter.description,
+        publishedAt: content.frontmatter.publishedAt,
+        updatedAt: content.frontmatter.updatedAt,
+        rawHtml: content.rawHtml,
+      };
+
+      await output(JSON.stringify(out), `${outdir}/${id}.json`);
+
+      const { rawHtml: _rawHtml, ...rest } = out;
+      outsList.push(rest);
     }
+
+    await output(JSON.stringify(outsList), `${outdir}/outs.json`);
   };
 };
