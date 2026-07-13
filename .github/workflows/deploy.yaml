@@ -1,0 +1,83 @@
+name: deploy
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'packages/website/**'
+      - 'packages/images-worker/**'
+      - '.github/workflows/deploy.yaml'
+
+jobs:
+  changes:
+    runs-on: ubuntu-latest
+    outputs:
+      website-changed: ${{ steps.changes.outputs.website }}
+      images-worker-changed: ${{ steps.changes.outputs.images-worker }}
+
+    steps:
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+
+      - uses: dorny/paths-filter@7b450fff21473bca461d4b92ce414b9d0420d706 # v4.0.2
+        id: changes
+        with:
+          filters: |
+            workflows: &workflows 
+              - '.github/workflows/deploy.yaml'
+            website:
+              - *workflows
+              - 'packages/website/**'
+            images-worker:
+              - *workflows
+              - 'packages/images-worker/**'
+
+  deploy-website:
+    needs: [changes]
+    runs-on: ubuntu-latest
+    if : ${{ needs.changes.outputs.website-changed == 'true' }}
+    outputs:
+      deployment-url: ${{ steps.upload.outputs.deployment-url }}
+
+    steps:
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+
+      - uses: ./.github/actions/setup-ci
+
+      # - name: Generate Atom feed
+      #   run: vp run --filter "@taga3s-dev/website" generate:atom
+
+      - name: Publish to Cloudflare Workers
+        uses: cloudflare/wrangler-action@ebbaa1584979971c8614a24965b4405ff95890e0 # v4.0.0
+        with:
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          command: deploy --minify --config wrangler.jsonc
+          workingDirectory: ./packages/website
+        env:
+          WORKERS_ENV: production
+          POLICY_AUD: ${{ secrets.CLOUDFLARE_ACCESS_AUD }}
+          TEAM_DOMAIN: ${{ secrets.CLOUDFLARE_ACCESS_TEAM_DOMAIN }}
+
+  deploy-images-worker:
+    needs: [changes]
+    if : ${{ needs.changes.outputs.images-worker-changed == 'true' }}
+    runs-on: ubuntu-latest
+    outputs:
+      deployment-url: ${{ steps.upload.outputs.deployment-url }}
+
+    steps:
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+
+      - uses: ./.github/actions/setup-ci
+
+      - name: Publish to Cloudflare Workers
+        uses: cloudflare/wrangler-action@ebbaa1584979971c8614a24965b4405ff95890e0 # v4.0.0
+        with:
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          command: deploy --minify --config wrangler.jsonc
+          workingDirectory: ./packages/images-worker
+        env:
+          BASIC_AUTH_USERNAME: ${{ secrets.IMAGES_WORKER_BASIC_AUTH_USERNAME }}
+          BASIC_AUTH_PASSWORD: ${{ secrets.IMAGES_WORKER_BASIC_AUTH_PASSWORD }}
