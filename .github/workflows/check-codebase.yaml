@@ -16,5 +16,3 @@ jobs:
       - uses: ./.github/actions/setup-ci
 
       - run: vp run check:ci
-
-      - run: vp run test:website

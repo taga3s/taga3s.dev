@@ -8,9 +8,9 @@
     "build:website": "pnpm --filter=@taga3s-dev/website build",
     "build:images-worker": "pnpm --filter=@taga3s-dev/images-worker build",
     "lint": "biome lint --write ./packages/website ./packages/images-worker package.json biome.json renovate.json",
-    "format": "biome format --write ./packages/website ./packages/images-worker package.json biome.json renovate.json",
+    "format": "biome format --write ./packages/website ./packages/images-worker ./packages/mdx-processor package.json biome.json renovate.json",
     "test:website": "pnpm --filter=@taga3s-dev/website test",
-    "check": "biome check --write ./packages/website ./packages/images-worker package.json biome.json renovate.json",
+    "check": "biome check --write ./packages/website ./packages/images-worker ./packages/mdx-processor package.json biome.json renovate.json",
     "check:ci": "biome ci"
   },
   "devDependencies": {
