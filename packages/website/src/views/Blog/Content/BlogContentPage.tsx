@@ -2,7 +2,7 @@ import { raw } from "hono/html";
 import type { FC } from "hono/jsx";
 import { BlogContentHeader } from "./BlogContentlHeader";
 
-export const BlogContentPage: FC<{ title: string; rawHtml: string; publishedAt: string; updatedAt: string }> = ({
+export const BlogContentPage: FC<{ title: string; rawHtml: string; publishedAt: Date; updatedAt: Date }> = ({
   title,
   rawHtml,
   publishedAt,
@@ -10,8 +10,8 @@ export const BlogContentPage: FC<{ title: string; rawHtml: string; publishedAt: 
 }) => {
   return (
     <div>
-      <BlogContentHeader title={title} publishedAt={publishedAt} updatedAt={updatedAt} />
-      {raw(rawHtml)}
+      <BlogContentHeader title={title} publishedAt={publishedAt.toISOString()} updatedAt={updatedAt.toISOString()} />
+      <div class="markdown-body">{raw(rawHtml)}</div>
     </div>
   );
 };

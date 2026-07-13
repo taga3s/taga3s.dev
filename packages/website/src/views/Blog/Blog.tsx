@@ -4,7 +4,7 @@ import { Section } from "../shared/Section";
 import { blogItem, blogItemTitle, blogList, blogWrapper } from "./Blog.css";
 
 type Props = {
-  posts: IPost[];
+  posts: Omit<IPost, "rawHtml">[];
 };
 
 export const Blog: FC<Props> = ({ posts }) => {
@@ -17,7 +17,7 @@ export const Blog: FC<Props> = ({ posts }) => {
   );
 };
 
-const converter = (post: IPost) => {
+const converter = (post: Omit<IPost, "rawHtml">) => {
   const publishedAt = post.publishedAt.toLocaleDateString("ja-JP", {
     year: "numeric",
     month: "2-digit",

@@ -5,7 +5,7 @@ import type { JSX } from "hono/jsx/jsx-runtime";
 import { logger } from "hono/logger";
 import certification from "./data/certification/data.json";
 import photos from "./data/photos/data.json";
-import type { IPost } from "./data/posts/model";
+import type { IPost, IRawPost } from "./data/posts/model";
 import workExperience from "./data/workExperience/data.json";
 import { verifyPreview } from "./middlewares/verify-preview";
 import { BlogPage } from "./views/Blog/BlogPage";
@@ -59,7 +59,11 @@ const HTMLLayout: FC<{ children: JSX.Element[]; title: string }> = ({ children, 
   );
 };
 
-const app = new Hono();
+interface Bindings {
+  TAGA3S_DEV_BUCKET: R2Bucket;
+}
+
+const app = new Hono<{ Bindings: Bindings }>();
 
 app.use(logger());
 app.use(verifyPreview());
@@ -84,68 +88,71 @@ app.get("/history", (c) => {
   );
 });
 
-app.get("/blog", (c) => {
-  // FIXME: sample
-  const rawPostsList = [
-    {
-      id: "2026",
-      title: "2026 目標",
-      category: ["others"],
-      updatedAt: "",
-      publishedAt: "2026/04/05",
-    },
-  ];
+app.get("/blog", async (c) => {
+  try {
+    const rawPostsList = await c.env.TAGA3S_DEV_BUCKET.get("blog/outs.json");
+    if (!rawPostsList) {
+      return c.notFound();
+    }
+    const rawPostsListJson = await rawPostsList.json<Omit<IRawPost, "rawHtml">[]>();
 
-  const posts: IPost[] = rawPostsList
-    .map((raw) => ({
-      id: raw.id,
-      title: raw.title ?? "",
-      category: raw.category ?? "",
-      updatedAt: raw.updatedAt ? new Date(raw.updatedAt) : new Date(),
-      publishedAt: raw.publishedAt ? new Date(raw.publishedAt) : new Date(),
-    }))
-    .sort((a, b) => b.publishedAt.getTime() - a.publishedAt.getTime());
+    const posts: Omit<IPost, "rawHtml">[] = rawPostsListJson
+      .map((raw) => ({
+        id: raw.id,
+        title: raw.title,
+        category: raw.category,
+        publishedAt: new Date(raw.publishedAt),
+        updatedAt: raw.updatedAt ? new Date(raw.updatedAt) : new Date(),
+      }))
+      .sort((a, b) => b.publishedAt.getTime() - a.publishedAt.getTime());
 
-  return c.render(
-    <HTMLLayout title="Blog - taga3s-dev">
-      <Header />
-      <BlogPage posts={posts} />
-      <Footer />
-    </HTMLLayout>,
-  );
+    return c.render(
+      <HTMLLayout title="Blog - taga3s-dev">
+        <Header />
+        <BlogPage posts={posts} />
+        <Footer />
+      </HTMLLayout>,
+    );
+  } catch (error) {
+    console.error(error);
+    return c.text("Internal Server Error", 500);
+  }
 });
 
-app.get("/blog/:id", (c) => {
+app.get("/blog/:id", async (c) => {
   const id = c.req.param("id");
 
-  const rawPosts = [
-    {
-      id: "2026",
-      title: "2026 目標",
-      category: ["others"],
-      rawHtml: "<p>本文</p>",
-      updatedAt: "",
-      publishedAt: "2026/04/05",
-    },
-  ];
+  try {
+    const rawPostJson = await c.env.TAGA3S_DEV_BUCKET.get(`blog/${id}.json`);
+    if (!rawPostJson) {
+      return c.notFound();
+    }
+    const rawPost = await rawPostJson.json<IRawPost>();
+    const post: IPost = {
+      id: rawPost.id,
+      title: rawPost.title,
+      rawHtml: rawPost.rawHtml,
+      category: rawPost.category,
+      publishedAt: new Date(rawPost.publishedAt),
+      updatedAt: rawPost.updatedAt ? new Date(rawPost.updatedAt) : new Date(),
+    };
 
-  const post = rawPosts.find((raw) => raw.id === id);
-  if (!post) {
-    return c.notFound();
+    return c.render(
+      <HTMLLayout title="Blog - taga3s-dev">
+        <Header />
+        <BlogContentPage
+          title={post.title}
+          rawHtml={post.rawHtml}
+          publishedAt={post.publishedAt}
+          updatedAt={post.updatedAt}
+        />
+        <Footer />
+      </HTMLLayout>,
+    );
+  } catch (error) {
+    console.error(error);
+    return c.text("Internal Server Error", 500);
   }
-
-  return c.render(
-    <HTMLLayout title="Blog - taga3s-dev">
-      <Header />
-      <BlogContentPage
-        title={post.title}
-        rawHtml={post.rawHtml}
-        updatedAt={post.updatedAt}
-        publishedAt={post.publishedAt}
-      />
-      <Footer />
-    </HTMLLayout>,
-  );
 });
 
 export default app;
