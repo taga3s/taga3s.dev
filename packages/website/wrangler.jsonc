@@ -7,12 +7,18 @@
   "assets": {
     "directory": "./public"
   },
+  "preview_urls": true,
   "observability": {
     "logs": {
       "enabled": true
     }
   },
-  "preview_urls": true,
+  "r2_buckets": [
+    {
+      "binding": "TAGA3S_DEV_BUCKET",
+      "bucket_name": "taga3s-dev"
+    }
+  ],
   "routes": [
     {
       "pattern": "taga3s.dev",
