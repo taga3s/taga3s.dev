@@ -22,8 +22,8 @@ jobs:
 
       - uses: ./.github/actions/setup-ci
 
-      - name: Generate Atom feed
-        run: vp run --filter "@taga3s-dev/website" generate:atom
+      # - name: Generate Atom feed
+      #   run: vp run --filter "@taga3s-dev/website" generate:atom
 
       - name: Upload to Cloudflare Workers
         id: upload

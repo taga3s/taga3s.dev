@@ -34,7 +34,6 @@
     "remark-rehype": "catalog:",
     "remark-stringify": "catalog:",
     "shiki": "catalog:",
-    "to-vfile": "catalog:",
     "unified": "catalog:",
     "unist-util-visit": "catalog:",
     "puppeteer": "catalog:",

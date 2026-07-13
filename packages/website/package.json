@@ -22,7 +22,6 @@
     "@types/node": "catalog:",
     "jose": "catalog:",
     "wrangler": "catalog:",
-    "yaml": "catalog:",
     "vite-plus": "catalog:"
   }
 }

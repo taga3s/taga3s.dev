@@ -325,9 +325,6 @@ catalogs:
     shiki:
       specifier: ^4.0.0
       version: 4.3.1
-    to-vfile:
-      specifier: ^8.0.0
-      version: 8.0.0
     unified:
       specifier: ^11.0.5
       version: 11.0.5
@@ -340,9 +337,6 @@ catalogs:
     wrangler:
       specifier: ^4.110.0
       version: 4.110.0
-    yaml:
-      specifier: ^2.8.1
-      version: 2.9.0
     yoga-wasm-web:
       specifier: ^0.3.3
       version: 0.3.3
@@ -472,9 +466,6 @@ importers:
       shiki:
         specifier: 'catalog:'
         version: 4.3.1
-      to-vfile:
-        specifier: 'catalog:'
-        version: 8.0.0
       unified:
         specifier: 'catalog:'
         version: 11.0.5
@@ -521,9 +512,6 @@ importers:
       wrangler:
         specifier: 'catalog:'
         version: 4.110.0(@cloudflare/workers-types@5.20260711.1)
-      yaml:
-        specifier: 'catalog:'
-        version: 2.9.0
 
 packages:
 
@@ -4617,9 +4605,6 @@ packages:
   to-regex-range@5.0.1:
     resolution: {integrity: sha512-65P7iz6X5yEr1cwcgvQxbbIw7Uk3gOy5dIdtZ4rDveLqhrdJP+Li/Hx6tyK0NEb+2GCyneCMJiGqrADCSNk8sQ==}
     engines: {node: '>=8.0'}
-
-  to-vfile@8.0.0:
-    resolution: {integrity: sha512-IcmH1xB5576MJc9qcfEC/m/nQCFt3fzMHz45sSlgJyTWjRbKW1HAkJpuf3DgE57YzIlZcwcBZA5ENQbBo4aLkg==}
 
   token-types@6.1.2:
     resolution: {integrity: sha512-dRXchy+C0IgK8WPC6xvCHFRIWYUbqqdEIKPaKo/AcTUNzwLTK6AH7RjdLWsEZcAN/TBdtfUw3PYEgPr5VPr6ww==}
@@ -9001,10 +8986,6 @@ snapshots:
   to-regex-range@5.0.1:
     dependencies:
       is-number: 7.0.0
-
-  to-vfile@8.0.0:
-    dependencies:
-      vfile: 6.0.3
 
   token-types@6.1.2:
     dependencies:
