@@ -4,7 +4,6 @@ import { getFileContents, output } from "./utils.ts";
 
 export const runCommand: Command = define({
   name: "run",
-  description: "A mdx processor command",
   args: {
     pathdir: {
       type: "string",
@@ -28,23 +27,21 @@ export const runProcessor = async (): Promise<CommandRunner<GunshiParams<{ args:
 
     const fileContents = await getFileContents(pathdir);
 
-    Promise.all(
-      fileContents.map(async (fc) => {
-        const content = await convertToHtml(fc.content);
-        const id = fc.origName.replace(".mdx", "");
-        output(
-          JSON.stringify({
-            id,
-            title: content.frontmatter.title,
-            category: content.frontmatter.category,
-            description: content.frontmatter.description,
-            publishedAt: content.frontmatter.publishedAt,
-            updatedAt: content.frontmatter.updatedAt,
-            rawHtml: content.rawHtml,
-          }),
-          `${outdir}/${id}.json`,
-        );
-      }),
-    );
+    for (const fc of fileContents) {
+      const content = await convertToHtml(fc.content);
+      const id = fc.origName.replace(".mdx", "");
+      output(
+        JSON.stringify({
+          id,
+          title: content.frontmatter.title,
+          category: content.frontmatter.category,
+          description: content.frontmatter.description,
+          publishedAt: content.frontmatter.publishedAt,
+          updatedAt: content.frontmatter.updatedAt,
+          rawHtml: content.rawHtml,
+        }),
+        `${outdir}/${id}.json`,
+      );
+    }
   };
 };

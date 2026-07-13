@@ -1,5 +1,6 @@
 import { cli, lazy } from "gunshi";
-import { runCommand, runProcessor } from "./src/run.ts";
+import { postRunningBrowser } from "./src/config.ts";
+import { runCommand, runProcessor } from "./src/runCommand/run.ts";
 
 const lazyProcess = lazy(runProcessor, runCommand);
 
@@ -11,11 +12,14 @@ await cli(
   process.argv.slice(2),
   {
     description: "mdx-processor processes .mdx to convert to other formats, such as .html",
-    run: () => console.log("Use process command to transform data"),
   },
   {
     name: "mdx-processor",
     version: "1.0.0",
     subCommands,
+    onAfterCommand: async () => {
+      // for rehype-mermaid
+      await postRunningBrowser();
+    },
   },
 );

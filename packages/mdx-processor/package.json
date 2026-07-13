@@ -5,7 +5,8 @@
   "type": "module",
   "main": "index.ts",
   "scripts": {
-    "run:tmp": "node ./index.ts run --pathdir=../assets/blog --outdir=./tmp"
+    "run:tmp": "node ./index.ts run --pathdir=../assets/blog --outdir=./tmp",
+    "install-puppeteer": "puppeteer browsers install chrome"
   },
   "devDependencies": {
     "@mdx-js/mdx": "catalog:",

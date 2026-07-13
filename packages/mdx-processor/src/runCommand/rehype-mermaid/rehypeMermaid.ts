@@ -3,7 +3,7 @@ import type { Parent, Root, Text } from "hast";
 import type { Browser } from "puppeteer";
 import type { Plugin, Transformer } from "unified";
 import { visit } from "unist-util-visit";
-import { parser } from "./parser.js";
+import { parser } from "./parser.ts";
 
 interface MermaidCodeBlock {
   textNode: Text;
