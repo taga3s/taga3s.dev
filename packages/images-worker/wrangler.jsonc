@@ -1,7 +1,7 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "taga3s-dev-images",
-  "main": "src/index.ts",
+  "main": "./src/index.ts",
   "compatibility_date": "2025-02-24",
   "compatibility_flags": ["nodejs_compat"],
   "r2_buckets": [
@@ -10,6 +10,14 @@
       "binding": "taga3s_dev_images"
     }
   ],
+  "observability": {
+    "logs": {
+      "enabled": true
+    },
+    "traces": {
+      "enabled": true
+    }
+  },
   "rules": [
     {
       "type": "Text",

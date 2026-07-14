@@ -32,7 +32,14 @@ const bodyLayout = css`
   }
 `;
 
-const HTMLLayout: FC<{ children: JSX.Element[]; title: string }> = ({ children, title }) => {
+const HTMLLayout: FC<{ children: JSX.Element[]; title: string; description?: string; ogpImage?: string }> = ({
+  children,
+  title,
+  description,
+  ogpImage,
+}) => {
+  const _description = description ?? "taga3s-dev is a personal website of taga3s.";
+  const _ogpImage = ogpImage ?? "https://taga3s.dev/static/ogp-image.png";
   return (
     <html lang="ja">
       <head>
@@ -52,6 +59,19 @@ const HTMLLayout: FC<{ children: JSX.Element[]; title: string }> = ({ children, 
         <link rel="stylesheet" href="/static/remark-plugins.css" />
         <Style />
 
+        <meta property="og:url" content="https://taga3s.dev" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={_description} />
+        <meta property="og:site_name" content="taga3s-dev" />
+        <meta property="og:image" content={_ogpImage} />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content={title} />
+        <meta name="twitter:image" content={_ogpImage} />
+        <meta name="twitter:description" content={_description} />
+
+        <meta name="description" content={_description} />
         <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, user-scalable=yes" />
         <title>{title}</title>
       </head>
@@ -149,7 +169,11 @@ app.get("/blog/:name{[a-zA-Z0-9-_]+}", async (c) => {
     };
 
     return c.render(
-      <HTMLLayout title="Blog - taga3s-dev">
+      <HTMLLayout
+        title={post.title}
+        description={post.title}
+        ogpImage={`http://taga3s-dev-images.taga3s.workers.dev/api/v1/images/og/${encodeURIComponent(post.title)}`}
+      >
         <Header />
         <BlogContentPage
           title={post.title}
