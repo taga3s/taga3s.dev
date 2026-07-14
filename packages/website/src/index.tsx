@@ -39,7 +39,7 @@ const HTMLLayout: FC<{ children: JSX.Element[]; title: string; description?: str
   ogpImage,
 }) => {
   const _description = description ?? "taga3s-dev is a personal website of taga3s.";
-  const _ogpImage = ogpImage ?? "https://taga3s.dev/static/ogp-image.png";
+  const _ogpImage = ogpImage ?? "https://taga3s.dev/ogp-image.png";
   return (
     <html lang="ja">
       <head>
