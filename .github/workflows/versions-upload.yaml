@@ -62,8 +62,8 @@ jobs:
 
   upload-images-worker:
     needs: [changes]
-    if : ${{ needs.changes.outputs.images-worker-changed == 'true' }}
     runs-on: ubuntu-latest
+    if : ${{ needs.changes.outputs.images-worker-changed == 'true' }}
     outputs:
       deployment-url: ${{ steps.upload.outputs.deployment-url }}
 
@@ -80,9 +80,6 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           command: versions upload --config wrangler.jsonc
           workingDirectory: ./packages/images-worker
-        env:
-          BASIC_AUTH_USERNAME: ${{ secrets.IMAGES_WORKER_BASIC_AUTH_USERNAME }}
-          BASIC_AUTH_PASSWORD: ${{ secrets.IMAGES_WORKER_BASIC_AUTH_PASSWORD }}
   
   comment-preview-urls:
     needs: [upload-website, upload-images-worker]

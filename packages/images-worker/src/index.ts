@@ -1,17 +1,14 @@
 import { Hono } from "hono";
-import { env } from "hono/adapter";
-import { basicAuth } from "hono/basic-auth";
 import { generateOGImage } from "./packages/og/generate";
 
 type Bindings = {
   taga3s_dev_images: R2Bucket;
 };
 
+const app = new Hono();
+
 const v1 = new Hono<{ Bindings: Bindings }>();
 
-// Public routes
-
-// Cache /images/* for 30 minutes
 v1.get("/images/*", async (c, next) => {
   const cacheKey = c.req.url;
 
@@ -28,6 +25,7 @@ v1.get("/images/*", async (c, next) => {
     return;
   }
 
+  // Cache /images/* for 30 minutes
   c.header("Cache-Control", "s-maxage=1800");
 
   const res = c.res.clone();
@@ -72,31 +70,9 @@ v1.get("/images/og/:title", async (c) => {
   });
 });
 
-// Admin routes
-
-v1.use("/admin/*", async (c, next) => {
-  const { IMAGES_WORKER_BASIC_AUTH_USERNAME, IMAGES_WORKER_BASIC_AUTH_PASSWORD } = env<{
-    IMAGES_WORKER_BASIC_AUTH_USERNAME: string;
-    IMAGES_WORKER_BASIC_AUTH_PASSWORD: string;
-  }>(c);
-  const middleware = basicAuth({
-    username: IMAGES_WORKER_BASIC_AUTH_USERNAME,
-    password: IMAGES_WORKER_BASIC_AUTH_PASSWORD,
-  });
-  return middleware(c, next);
+app.get("/healthz", (c) => {
+  return c.text("ok");
 });
-
-v1.put("/admin/images/favorites", async (c) => {
-  const { file, name } = await c.req.parseBody<{ file: File; name: string }>();
-  const result = await c.env.taga3s_dev_images.put(`images/favorites/${name}`, file, {
-    httpMetadata: {
-      contentType: file.type,
-    },
-  });
-  return c.json(result);
-});
-
-const app = new Hono();
 
 app.route("/api/v1", v1);
 
