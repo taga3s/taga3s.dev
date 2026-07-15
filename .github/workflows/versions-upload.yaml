@@ -87,7 +87,7 @@ jobs:
   comment-preview-urls:
     needs: [upload-website, upload-images-worker]
     runs-on: ubuntu-latest
-    if : ${{ needs.upload-website.outputs.deployment-url || needs.upload-images-worker.outputs.deployment-url }}
+    if : ${{ needs.upload-website.outputs.deployment-url != '' || needs.upload-images-worker.outputs.deployment-url != '' }}
     steps:
       - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
 
