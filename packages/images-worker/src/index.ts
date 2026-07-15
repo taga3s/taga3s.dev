@@ -2,7 +2,7 @@ import { Hono } from "hono";
 import { generateOGImage } from "./packages/og/generate";
 
 type Bindings = {
-  taga3s_dev_images: R2Bucket;
+  TAGA3S_DEV_BUCKET: R2Bucket;
 };
 
 const app = new Hono();
@@ -33,7 +33,7 @@ v1.get("/images/*", async (c, next) => {
 });
 
 v1.get("/images/favorites/:key", async (c) => {
-  const object = await c.env.taga3s_dev_images.get(`images/favorites/${c.req.param("key")}`);
+  const object = await c.env.TAGA3S_DEV_BUCKET.get(`images/favorites/${c.req.param("key")}`);
   if (!object) {
     return c.notFound();
   }
@@ -50,7 +50,7 @@ v1.get("/images/og/:title", async (c) => {
     return c.notFound();
   }
 
-  const object = await c.env.taga3s_dev_images.get(`images/og/${title}`);
+  const object = await c.env.TAGA3S_DEV_BUCKET.get(`images/og/${title}`);
   if (object) {
     const body = await object.arrayBuffer();
     return c.body(body, 200, {
@@ -59,7 +59,7 @@ v1.get("/images/og/:title", async (c) => {
   }
 
   const buffer = await generateOGImage(title);
-  await c.env.taga3s_dev_images.put(`images/og/${title}`, buffer, {
+  await c.env.TAGA3S_DEV_BUCKET.put(`images/og/${title}`, buffer, {
     httpMetadata: {
       contentType: "image/png",
     },
