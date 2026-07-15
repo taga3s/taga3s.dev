@@ -2,12 +2,12 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "taga3s-dev-images",
   "main": "./src/index.ts",
-  "compatibility_date": "2025-02-24",
+  "compatibility_date": "2026-07-14",
   "compatibility_flags": ["nodejs_compat"],
   "r2_buckets": [
     {
-      "bucket_name": "taga3s-dev-images",
-      "binding": "taga3s_dev_images"
+      "bucket_name": "taga3s-dev",
+      "binding": "TAGA3S_DEV_BUCKET"
     }
   ],
   "observability": {
