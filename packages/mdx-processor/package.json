@@ -1,12 +1,13 @@
 {
-  "name": "mdx-processor",
+  "name": "@taga3s-dev/mdx-processor",
   "version": "1.0.0",
   "description": "",
   "type": "module",
   "main": "index.ts",
   "scripts": {
-    "run:tmp": "node ./index.ts run --pathdir=../assets/blog --outdir=./tmp",
-    "genatom:tmp": "node ./index.ts genatom --pathdir=../assets/blog --outdir=./tmp",
+    "run:tmp": "node ./index.ts run --pathdir=../../assets/blog --outdir=./tmp",
+    "genatom:tmp": "node ./index.ts genatom --pathdir=../../assets/blog --outdir=./tmp",
+    "exec": "node ./index.ts",
     "install-puppeteer": "puppeteer browsers install chrome"
   },
   "devDependencies": {

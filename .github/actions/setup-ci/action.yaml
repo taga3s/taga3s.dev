@@ -5,6 +5,10 @@ inputs:
   node-version:
     required: false
     description: "Specify Node.js version. If this is not specified, Node.js version specified in .node-version will be used"
+  install-packages:
+    required: false
+    description: "List of packages to install. If this is not specified, all packages will be installed"
+    default: "."
 
 runs:
   using: "composite"
@@ -12,7 +16,8 @@ runs:
     - uses: voidzero-dev/setup-vp@250f29ce396baf5e8f24498e17c0dfdebabc26eb # v1
       with:
         node-version-file: .node-version
+        run-install: false
         cache: true
 
-    - run: vp install
+    - run: vp install --filter ${{ inputs.install-packages }}
       shell: bash
