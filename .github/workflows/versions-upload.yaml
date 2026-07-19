@@ -7,6 +7,7 @@ on:
     paths:
       - 'packages/website/**'
       - 'packages/images-worker/**'
+      - 'packages/mdx-processor/**'
       - '.github/workflows/versions-upload.yaml'
 
 jobs:
@@ -25,8 +26,11 @@ jobs:
           filters: |
             workflows: &workflows 
               - '.github/workflows/versions-upload.yaml'
+            mdx-processor: &mdx-processor
+              - 'packages/mdx-processor/**'
             website:
               - *workflows
+              - *mdx-processor
               - 'packages/website/**'
             images-worker:
               - *workflows
