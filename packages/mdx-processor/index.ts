@@ -1,11 +1,14 @@
 import { cli, lazy } from "gunshi";
 import { postRunningBrowser } from "./src/config.ts";
+import { genatomCommand, genatomProcessor } from "./src/genatomCommand/genatom.ts";
 import { runCommand, runProcessor } from "./src/runCommand/run.ts";
 
-const lazyProcess = lazy(runProcessor, runCommand);
+const runLazyProcess = lazy(runProcessor, runCommand);
+const genatomProcess = lazy(genatomProcessor, genatomCommand);
 
 const subCommands = {
-  [lazyProcess.commandName!]: lazyProcess,
+  [runLazyProcess.commandName!]: runLazyProcess,
+  [genatomProcess.commandName!]: genatomProcess,
 };
 
 await cli(

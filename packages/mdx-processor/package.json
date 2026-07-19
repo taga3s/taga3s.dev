@@ -6,6 +6,7 @@
   "main": "index.ts",
   "scripts": {
     "run:tmp": "node ./index.ts run --pathdir=../assets/blog --outdir=./tmp",
+    "genatom:tmp": "node ./index.ts genatom --pathdir=../assets/blog --outdir=./tmp",
     "install-puppeteer": "puppeteer browsers install chrome"
   },
   "devDependencies": {
@@ -14,6 +15,7 @@
     "@shikijs/rehype": "catalog:",
     "@shikijs/themes": "catalog:",
     "@shikijs/langs": "catalog:",
+    "@taga3s/atom-feed-composer": "catalog:",
     "@types/hast": "catalog:",
     "@types/mdast": "catalog:",
     "@types/node": "catalog:",

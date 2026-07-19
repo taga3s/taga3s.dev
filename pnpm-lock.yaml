@@ -205,6 +205,9 @@ settings:
 
 catalogs:
   default:
+    '@biomejs/biome':
+      specifier: ^2.5.3
+      version: 2.5.4
     '@cloudflare/workers-types':
       specifier: ^5.20260711.1
       version: 5.20260711.1
@@ -241,9 +244,6 @@ catalogs:
     '@taga3s/atom-feed-composer':
       specifier: npm:@jsr/taga3s__atom-feed-composer@^0.1.1
       version: 0.1.1
-    '@taga3s/rss-generator':
-      specifier: npm:@jsr/taga3s__rss-generator@^0.2.1
-      version: 0.2.1
     '@types/hast':
       specifier: ^3.0.4
       version: 3.0.5
@@ -268,6 +268,9 @@ catalogs:
     hast-util-to-html:
       specifier: ^9.0.5
       version: 9.0.5
+    hono:
+      specifier: ^4.12.10
+      version: 4.12.31
     jose:
       specifier: ^6.2.2
       version: 6.2.3
@@ -394,6 +397,9 @@ importers:
       '@shikijs/themes':
         specifier: 'catalog:'
         version: 4.3.1
+      '@taga3s/atom-feed-composer':
+        specifier: 'catalog:'
+        version: '@jsr/taga3s__atom-feed-composer@0.1.1'
       '@types/hast':
         specifier: 'catalog:'
         version: 3.0.5
@@ -488,12 +494,6 @@ importers:
       '@swc/core':
         specifier: 'catalog:'
         version: 1.15.43(@swc/helpers@0.5.23)
-      '@taga3s/atom-feed-composer':
-        specifier: 'catalog:'
-        version: '@jsr/taga3s__atom-feed-composer@0.1.1'
-      '@taga3s/rss-generator':
-        specifier: 'catalog:'
-        version: '@jsr/taga3s__rss-generator@0.2.1'
       '@types/node':
         specifier: 'catalog:'
         version: 24.13.3
@@ -1376,9 +1376,6 @@ packages:
 
   '@jsr/taga3s__atom-feed-composer@0.1.1':
     resolution: {integrity: sha512-Iycg3gcsxw4etJE+gX+u80rJEu0zrwbf6t+1JcTTVJNZ0UWDel6vmW3HzHjmEECrRR56vKuy3OHww4wNjYDOpA==, tarball: https://npm.jsr.io/~/11/@jsr/taga3s__atom-feed-composer/0.1.1.tgz}
-
-  '@jsr/taga3s__rss-generator@0.2.1':
-    resolution: {integrity: sha512-8hN6B6pyj4aN7buGAEXTxvlJOurh6Pm44bjusNcafy7ns1Yw+gQ/JTAl2TIy4MZpCzTsC6msgw8g8yBMNiJWlw==, tarball: https://npm.jsr.io/~/11/@jsr/taga3s__rss-generator/0.2.1.tgz}
 
   '@keyv/serialize@1.1.1':
     resolution: {integrity: sha512-dXn3FZhPv0US+7dtJsIi2R+c7qWYiReoEh5zUntWCf4oSpMNib8FDhSoed6m3QyZdx5hK7iLFkYk3rNxwt8vTA==}
@@ -5479,8 +5476,6 @@ snapshots:
   '@jsr/taga3s__atom-feed-composer@0.1.1':
     dependencies:
       '@jsr/std__html': 1.0.5
-
-  '@jsr/taga3s__rss-generator@0.2.1': {}
 
   '@keyv/serialize@1.1.1': {}
 
