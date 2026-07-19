@@ -19,5 +19,5 @@ runs:
         run-install: false
         cache: true
 
-    - run: vp install --filter ${{ inputs.install-packages }}
+    - run: vp install --filter ${{ inputs.install-packages }} --frozen-lockfile
       shell: bash
