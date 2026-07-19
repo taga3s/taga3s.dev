@@ -232,9 +232,15 @@ catalogs:
     '@shikijs/themes':
       specifier: ^4.0.0
       version: 4.3.1
+    '@swc-node/register':
+      specifier: ^1.10.10
+      version: 1.12.1
     '@swc/cli':
       specifier: ^0.8.0
       version: 0.8.1
+    '@swc/core':
+      specifier: ^1.11.24
+      version: 1.15.46
     '@taga3s/atom-feed-composer':
       specifier: npm:@jsr/taga3s__atom-feed-composer@^0.1.1
       version: 0.1.1
@@ -256,9 +262,6 @@ catalogs:
     '@types/unist':
       specifier: ^3.0.3
       version: 3.0.3
-    gunshi:
-      specifier: ^0.37.0
-      version: 0.37.0
     hast-util-to-html:
       specifier: ^9.0.5
       version: 9.0.5
@@ -414,7 +417,7 @@ importers:
         version: 3.0.3
       gunshi:
         specifier: 'catalog:'
-        version: 0.37.0
+        version: 0.37.1
       hast-util-to-html:
         specifier: 'catalog:'
         version: 9.0.5
@@ -1593,12 +1596,6 @@ packages:
   '@napi-rs/wasm-runtime@0.2.12':
     resolution: {integrity: sha512-ZVWUcfwY4E/yPitQJl481FjFo3K22D6qF0DuFH6Y/nbnE11GY5uguDxZMGXPQ8WQ0128MXQD7TnfHyK4oWoIJQ==}
 
-  '@napi-rs/wasm-runtime@1.1.4':
-    resolution: {integrity: sha512-3NQNNgA1YSlJb/kMH1ildASP9HW7/7kYnRI2szWJaofaS1hWmbGI4H+d3+22aGzXXN9IJ+n+GiFVcGipJP18ow==}
-    peerDependencies:
-      '@emnapi/core': ^1.7.1
-      '@emnapi/runtime': ^1.7.1
-
   '@napi-rs/wasm-runtime@1.1.6':
     resolution: {integrity: sha512-ZLv/JdUfkvOy9eCnnBaGfiO+XimbjebAeO+MRQqD/B+FR1tnRN0tpKSJHRbE8sFfS6aqsXZ67TQjfwfsxULVbg==}
     peerDependencies:
@@ -2532,9 +2529,6 @@ packages:
 
   '@tokenizer/token@0.3.0':
     resolution: {integrity: sha512-OvjF+z51L3ov0OyAU0duzsYuvO01PH7x4t6DJx+guahgTnBHkhJdG7soQeTSFLWN3efnHyibZ4Z8l2EuWwJN3A==}
-
-  '@tybys/wasm-util@0.10.1':
-    resolution: {integrity: sha512-9tTaPJLSiejZKx+Bmog4uSubteqTvFrVrURwkmHixBo0G4seD0zUxp98E1DzUBJxLQ3NPwXrGKDiVjwx/DpPsg==}
 
   '@tybys/wasm-util@0.10.3':
     resolution: {integrity: sha512-F3fo1MYrRJYL3zER0OUOmkutjr1Vp23m7OsSgp7nq4SP6OqX6C/56XFIPAl5bt3zaBRjmW7SGz3u/6LwFpYcOg==}
@@ -3700,8 +3694,8 @@ packages:
   graceful-fs@4.2.11:
     resolution: {integrity: sha512-RbJ5/jmFcNNCcDV5o9eTnBLJ/HszWV0P73bc+Ff4nS/rJj+YaS6IGyiOL0VoBYX+l1Wrl3k63h/KrH+nhJ0XvQ==}
 
-  gunshi@0.37.0:
-    resolution: {integrity: sha512-QxS12VXGtU4jL5LGYq6xA9DbHycT8pK/Qs+p9Zg1WLaI8+cmBfh0uCc0tfmt6/QwU3PBgm+aBPMkSS9YEwTDkA==}
+  gunshi@0.37.1:
+    resolution: {integrity: sha512-C3t35z65PQpAHay/gzEu4J/7SNWXn2NhfC4RfZQPxyOqkPfDTizthxCPoSU48OazoVherCuCpFDKI1qcY425Gw==}
     engines: {node: '>= 22'}
 
   hachure-fill@0.5.2:
@@ -5922,13 +5916,6 @@ snapshots:
       '@tybys/wasm-util': 0.10.3
     optional: true
 
-  '@napi-rs/wasm-runtime@1.1.4(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.2)':
-    dependencies:
-      '@emnapi/core': 1.11.2
-      '@emnapi/runtime': 1.11.2
-      '@tybys/wasm-util': 0.10.1
-    optional: true
-
   '@napi-rs/wasm-runtime@1.1.6(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.2)':
     dependencies:
       '@emnapi/core': 1.11.2
@@ -6341,7 +6328,7 @@ snapshots:
 
   '@rolldown/binding-wasm32-wasi@1.0.0-rc.9(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.2)':
     dependencies:
-      '@napi-rs/wasm-runtime': 1.1.4(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.2)
+      '@napi-rs/wasm-runtime': 1.1.6(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.2)
     transitivePeerDependencies:
       - '@emnapi/core'
       - '@emnapi/runtime'
@@ -6559,11 +6546,6 @@ snapshots:
       - supports-color
 
   '@tokenizer/token@0.3.0': {}
-
-  '@tybys/wasm-util@0.10.1':
-    dependencies:
-      tslib: 2.8.1
-    optional: true
 
   '@tybys/wasm-util@0.10.3':
     dependencies:
@@ -7755,7 +7737,7 @@ snapshots:
 
   graceful-fs@4.2.11: {}
 
-  gunshi@0.37.0: {}
+  gunshi@0.37.1: {}
 
   hachure-fill@0.5.2: {}
 
