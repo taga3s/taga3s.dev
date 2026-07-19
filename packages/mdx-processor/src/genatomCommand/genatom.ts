@@ -1,7 +1,7 @@
 import { type AtomNode, c, xmlRoot } from "@taga3s/atom-feed-composer";
 import { type Command, type CommandRunner, define, type GunshiParams } from "gunshi";
-import { convertToHtml } from "../core/index.ts";
-import { getFileContents, output } from "../utils.ts";
+import { convertToHtml } from "../core/mdx/index.ts";
+import { getFileContents, output } from "../core/utils.ts";
 
 export const genatomCommand: Command = define({
   name: "genatom",

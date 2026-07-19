@@ -11,6 +11,7 @@
     "install-puppeteer": "puppeteer browsers install chrome"
   },
   "devDependencies": {
+    "@aws-sdk/client-s3": "catalog:",
     "@mdx-js/mdx": "catalog:",
     "@mermaid-js/mermaid-cli": "catalog:",
     "@shikijs/rehype": "catalog:",
