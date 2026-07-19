@@ -271,9 +271,6 @@ catalogs:
     hast-util-to-html:
       specifier: ^9.0.5
       version: 9.0.5
-    hono:
-      specifier: ^4.12.10
-      version: 4.12.29
     jose:
       specifier: ^6.2.2
       version: 6.2.3
@@ -356,7 +353,7 @@ importers:
     dependencies:
       hono:
         specifier: 'catalog:'
-        version: 4.12.29
+        version: 4.12.31
     devDependencies:
       '@cloudflare/workers-types':
         specifier: 'catalog:'
@@ -480,7 +477,7 @@ importers:
     dependencies:
       hono:
         specifier: 'catalog:'
-        version: 4.12.29
+        version: 4.12.31
     devDependencies:
       '@cloudflare/workers-types':
         specifier: 'catalog:'
@@ -3530,8 +3527,8 @@ packages:
     resolution: {integrity: sha512-Xwwo44whKBVCYoliBQwaPvtd/2tYFkRQtXDWj1nackaV2JPXx3L0+Jvd8/qCJ2p+ML0/XVkJ2q+Mr+UVdpJK5w==}
     engines: {node: '>=12.0.0'}
 
-  hono@4.12.29:
-    resolution: {integrity: sha512-1hNiRjawYrLq/4m3DQQjPGFg0VZkk4RjQJDff/excI6Dm9BiL75qxGrd7/c6YOxPdq6AscP3LiXhQ6fKFC1Waw==}
+  hono@4.12.31:
+    resolution: {integrity: sha512-zJIHFrl6bq3RDd2YusFNCDlM8qUprxKswyi/OPzPyzKDdyBXDqWx8bZlZ7R+saTdSTatUmb3O7K4SspGPaEOQg==}
     engines: {node: '>=16.9.0'}
 
   html-to-image@1.11.13:
@@ -7484,7 +7481,7 @@ snapshots:
 
   highlight.js@11.11.1: {}
 
-  hono@4.12.29: {}
+  hono@4.12.31: {}
 
   html-to-image@1.11.13: {}
 
