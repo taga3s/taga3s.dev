@@ -11,7 +11,7 @@ on:
 
 jobs:
   changes:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-slim
     outputs:
       website-changed: ${{ steps.changes.outputs.website }}
       images-worker-changed: ${{ steps.changes.outputs.images-worker }}
@@ -31,9 +31,30 @@ jobs:
             images-worker:
               - *workflows
               - 'packages/images-worker/**'
+  
+  run-mdx-processor:
+    needs: [changes]
+    runs-on: ubuntu-latest
+    if : ${{ needs.changes.outputs.website-changed == 'true' }}
+    steps:
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+
+      - uses: ./.github/actions/setup-ci
+
+      - name: Generate Atom feed
+        run: |
+          PATHDIR=${{ github.workspace }}/assets/blog
+          mkdir -p /tmp/atom
+          vp run --filter "@taga3s-dev/mdx-processor" exec genatom --pathdir="$PATHDIR" --outdir=/tmp/atom
+      
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          path: /tmp/atom/atom.xml
+          archive: false
 
   upload-website:
-    needs: [changes]
+    needs: [run-mdx-processor]
     runs-on: ubuntu-latest
     if : ${{ needs.changes.outputs.website-changed == 'true' }}
     outputs:
@@ -44,8 +65,11 @@ jobs:
 
       - uses: ./.github/actions/setup-ci
 
-      # - name: Generate Atom feed
-      #   run: vp run --filter "@taga3s-dev/website" generate:atom
+      - name: Download Artifacts
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
+        with:
+          name: atom.xml
+          path: ${{ github.workspace }}/packages/website/public
 
       - name: Upload to Cloudflare Workers
         id: upload
