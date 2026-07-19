@@ -32,7 +32,6 @@ catalog:
   '@types/react-dom': ^19.2.3
   '@types/unist': ^3.0.3
   gunshi: ^0.37.0
-  hast-util-to-html: ^9.0.5
   hono: ^4.12.10
   jose: ^6.2.2
   puppeteer: ^25.0.0
@@ -40,8 +39,6 @@ catalog:
   react-dom: ^19.2.7
   rehype-parse: ^9.0.1
   rehype-stringify: ^10.0.1
-  remark-breaks: ^4.0.0
-  remark-extract-frontmatter: ^3.2.0
   remark-frontmatter: ^5.0.0
   remark-gfm: ^4.0.1
   remark-mdx-frontmatter: ^5.1.0

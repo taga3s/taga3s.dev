@@ -1,12 +1,11 @@
 {
   "name": "@taga3s-dev/mdx-processor",
   "version": "1.0.0",
-  "description": "",
   "type": "module",
   "main": "index.ts",
   "scripts": {
-    "run:tmp": "node ./index.ts run --pathdir=../../assets/blog --outdir=./tmp",
-    "genatom:tmp": "node ./index.ts genatom --pathdir=../../assets/blog --outdir=./tmp",
+    "run:local": "node ./index.ts run --pathdir=../../assets/blog --outdir=./tmp",
+    "genatom:local": "node ./index.ts genatom --pathdir=../../assets/blog --outdir=./tmp",
     "exec": "node ./index.ts",
     "install-puppeteer": "puppeteer browsers install chrome"
   },
@@ -25,13 +24,10 @@
     "@types/react-dom": "catalog:",
     "@types/unist": "catalog:",
     "gunshi": "catalog:",
-    "hast-util-to-html": "catalog:",
     "react": "catalog:",
     "react-dom": "catalog:",
     "rehype-parse": "catalog:",
     "rehype-stringify": "catalog:",
-    "remark-breaks": "catalog:",
-    "remark-extract-frontmatter": "catalog:",
     "remark-frontmatter": "catalog:",
     "remark-gfm": "catalog:",
     "remark-mdx-frontmatter": "catalog:",
