@@ -266,8 +266,8 @@ catalogs:
       specifier: ^3.0.3
       version: 3.0.3
     gunshi:
-      specifier: ^0.36.0
-      version: 0.36.0
+      specifier: ^0.37.0
+      version: 0.37.0
     hast-util-to-html:
       specifier: ^9.0.5
       version: 9.0.5
@@ -420,7 +420,7 @@ importers:
         version: 3.0.3
       gunshi:
         specifier: 'catalog:'
-        version: 0.36.0
+        version: 0.37.0
       hast-util-to-html:
         specifier: 'catalog:'
         version: 9.0.5
@@ -3484,8 +3484,8 @@ packages:
   graceful-fs@4.2.11:
     resolution: {integrity: sha512-RbJ5/jmFcNNCcDV5o9eTnBLJ/HszWV0P73bc+Ff4nS/rJj+YaS6IGyiOL0VoBYX+l1Wrl3k63h/KrH+nhJ0XvQ==}
 
-  gunshi@0.36.0:
-    resolution: {integrity: sha512-LJhM/2YiC4GfsaT2fnvccNkGXzbtMCBkgXpyLSM+1QVal2n7k8VJZol8qm1qgm2wmaQ6NBVmcGZIOkB/ms+6uQ==}
+  gunshi@0.37.0:
+    resolution: {integrity: sha512-QxS12VXGtU4jL5LGYq6xA9DbHycT8pK/Qs+p9Zg1WLaI8+cmBfh0uCc0tfmt6/QwU3PBgm+aBPMkSS9YEwTDkA==}
     engines: {node: '>= 22'}
 
   hachure-fill@0.5.2:
@@ -7377,7 +7377,7 @@ snapshots:
 
   graceful-fs@4.2.11: {}
 
-  gunshi@0.36.0: {}
+  gunshi@0.37.0: {}
 
   hachure-fill@0.5.2: {}
 
