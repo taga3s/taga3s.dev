@@ -1,7 +1,6 @@
 packages:
   - packages/*
 allowBuilds:
-  '@swc/core': true
   esbuild: true
   oxc-resolver: true
   puppeteer: true
@@ -20,9 +19,6 @@ catalog:
   '@shikijs/langs': ^4.0.0
   '@shikijs/rehype': ^4.0.0
   '@shikijs/themes': ^4.0.0
-  '@swc-node/register': ^1.10.10
-  '@swc/cli': ^0.8.0
-  '@swc/core': ^1.11.24
   '@taga3s/atom-feed-composer': npm:@jsr/taga3s__atom-feed-composer@^0.1.1
   '@taga3s/rss-generator': npm:@jsr/taga3s__rss-generator@^0.2.1
   '@types/hast': ^3.0.4

@@ -5,17 +5,13 @@
   "scripts": {
     "dev": "wrangler dev",
     "deploy": "wrangler deploy --minify",
-    "test": "vp test run",
-    "generate:atom": "node --import @swc-node/register/esm-register ./scripts/generate-atom.ts"
+    "test": "vp test run"
   },
   "dependencies": {
     "hono": "catalog:"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "catalog:",
-    "@swc-node/register": "catalog:",
-    "@swc/cli": "catalog:",
-    "@swc/core": "catalog:",
     "@types/node": "catalog:",
     "jose": "catalog:",
     "wrangler": "catalog:",
