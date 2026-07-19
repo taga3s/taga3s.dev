@@ -56,7 +56,6 @@ const HTMLLayout: FC<{ children: JSX.Element[]; title: string; description?: str
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/destyle.css@3.0.2/destyle.css" />
         <link rel="stylesheet" href="/static/index.css" />
         <link rel="stylesheet" href="/static/markdown.css" />
-        <link rel="stylesheet" href="/static/remark-plugins.css" />
         <Style />
 
         <meta property="og:url" content="https://taga3s.dev" />
