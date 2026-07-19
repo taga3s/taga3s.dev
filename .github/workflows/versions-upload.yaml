@@ -43,42 +43,9 @@ jobs:
   
   run-mdx-processor:
     needs: [changes]
-    runs-on: ubuntu-latest
     if : ${{ needs.changes.outputs.mdx-processor-changed == 'true' }}
-    steps:
-      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
-
-      - uses: ./.github/actions/setup-ci
-        with:
-          install-packages: "@taga3s-dev/mdx-processor"
-
-      - name: Generate blog data from assets
-        env:
-          PATHDIR: ${{ github.workspace }}/assets/blog
-        run: |
-          mkdir -p /tmp/blog
-          vp run --filter "@taga3s-dev/mdx-processor" exec run --pathdir="$PATHDIR" --outdir=/tmp/blog
-      
-      - name: Upload blog data to Cloudflare R2
-        env:
-          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          CLOUDFLARE_ACCESS_KEY_ID: ${{ secrets.CLOUDFLARE_R2_ACCESS_KEY_ID }}
-          CLOUDFLARE_SECRET_ACCESS_KEY: ${{ secrets.CLOUDFLARE_R2_SECRET_ACCESS_KEY }}
-        run: |
-          vp run --filter "@taga3s-dev/mdx-processor" exec upload --pathdir="/tmp/blog"
-
-      - name: Generate Atom feed
-        env:
-          PATHDIR: ${{ github.workspace }}/assets/blog
-        run: |
-          mkdir -p /tmp/atom
-          vp run --filter "@taga3s-dev/mdx-processor" exec genatom --pathdir="$PATHDIR" --outdir=/tmp/atom
-      
-      - name: Upload Artifacts
-        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
-        with:
-          path: /tmp/atom/atom.xml
-          archive: false
+    uses: ./.github/workflows/reusable_run-mdx-processor.yaml
+    secrets: inherit
 
   upload-website:
     needs: [run-mdx-processor]
@@ -139,7 +106,11 @@ jobs:
   comment-preview-urls:
     needs: [upload-website, upload-images-worker]
     runs-on: ubuntu-latest
-    if : ${{ needs.upload-website.outputs.deployment-url != '' || needs.upload-images-worker.outputs.deployment-url != '' }}
+    if : >- 
+      ${{ 
+        needs.upload-website.outputs.deployment-url != '' || 
+        needs.upload-images-worker.outputs.deployment-url != ''
+      }}
     steps:
       - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
 
