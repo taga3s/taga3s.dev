@@ -1,7 +1,7 @@
 import { PutObjectCommand, S3Client } from "@aws-sdk/client-s3";
 import { type Command, type CommandRunner, define, type GunshiParams } from "gunshi";
-import { getFileContents } from "../core/utils.ts";
 import { getR2Config } from "../config.ts";
+import { getFileContents } from "../core/utils.ts";
 
 export const uploadCommand: Command = define({
   name: "upload",
