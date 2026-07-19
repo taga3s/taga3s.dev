@@ -16,8 +16,6 @@
     "@swc-node/register": "catalog:",
     "@swc/cli": "catalog:",
     "@swc/core": "catalog:",
-    "@taga3s/rss-generator": "catalog:",
-    "@taga3s/atom-feed-composer": "catalog:",
     "@types/node": "catalog:",
     "jose": "catalog:",
     "wrangler": "catalog:",

@@ -1,6 +1,6 @@
 import { type Command, type CommandRunner, define, type GunshiParams } from "gunshi";
-import { convertToHtml } from "./core.ts";
-import { getFileContents, output } from "./utils.ts";
+import { convertToHtml } from "../core/index.ts";
+import { getFileContents, output } from "../utils.ts";
 
 export const runCommand: Command = define({
   name: "run",
