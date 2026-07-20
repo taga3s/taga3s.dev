@@ -16,7 +16,6 @@ jobs:
     outputs:
       website-changed: ${{ steps.changes.outputs.website }}
       assets-converter-changed: ${{ steps.changes.outputs.assets-converter }}
-      mdx-processor-changed: ${{ steps.changes.outputs.mdx-processor }}
 
     steps:
       - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
@@ -29,13 +28,12 @@ jobs:
               - '.github/workflows/versions-upload.yaml'
             blog-assets: &blog-assets
               - 'assets/blog/**'
-            mdx-processor:
-              - *workflows
-              - *blog-assets
+            mdx-processor: &mdx-processor
               - 'packages/mdx-processor/**'
             website:
               - *workflows
               - *blog-assets
+              - *mdx-processor
               - 'packages/website/**'
             assets-converter:
               - *workflows
@@ -43,7 +41,7 @@ jobs:
   
   run-mdx-processor:
     needs: [changes]
-    if : ${{ needs.changes.outputs.mdx-processor-changed == 'true' }}
+    if : needs.changes.outputs.website-changed
     uses: ./.github/workflows/reusable_run-mdx-processor.yaml
     with:
       is_preview: true
@@ -52,12 +50,7 @@ jobs:
   upload-website:
     needs: [run-mdx-processor]
     runs-on: ubuntu-latest
-    if : >- 
-      ${{ 
-        !cancelled() &&
-        !failure() &&
-        needs.changes.outputs.website-changed == 'true' 
-      }}
+    if : needs.changes.outputs.website-changed
     outputs:
       deployment-url: ${{ steps.upload.outputs.deployment-url }}
 
@@ -89,7 +82,7 @@ jobs:
   upload-assets-converter:
     needs: [changes]
     runs-on: ubuntu-latest
-    if : ${{ needs.changes.outputs.assets-converter-changed == 'true' }}
+    if : needs.changes.outputs.assets-converter-changed
     outputs:
       deployment-url: ${{ steps.upload.outputs.deployment-url }}
 
