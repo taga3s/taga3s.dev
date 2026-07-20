@@ -8,17 +8,42 @@ export const v1 = new Hono<ContextSet>();
 v1.use(verifyPreview());
 
 v1.get("/blog", async (c) => {
-  const outsJsonPath = c.get("isPreview") ? "blog/preview/outs.json" : "blog/outs.json";
-  const object = await c.env.TAGA3S_DEV_BUCKET.get(outsJsonPath);
-  if (!object) {
-    return c.notFound();
+  try {
+    const outsJsonPath = c.get("isPreview") ? "blog/preview/outs.json" : "blog/outs.json";
+    const object = await c.env.TAGA3S_DEV_BUCKET.get(outsJsonPath);
+    if (!object) {
+      return c.notFound();
+    }
+
+    const body = await object.arrayBuffer();
+
+    return c.body(body, 200, {
+      "Content-Type": "application/json",
+    });
+  } catch (error) {
+    console.error(error);
+    return c.text("Internal Server Error", 500);
   }
+});
 
-  const body = await object.arrayBuffer();
+v1.get("/blog/:key{[a-zA-Z0-9-_]+}", async (c) => {
+  try {
+    const key = c.req.param("key");
+    const blogJsonPath = c.get("isPreview") ? `blog/preview/${key}` : `blog/${key}`;
+    const object = await c.env.TAGA3S_DEV_BUCKET.get(blogJsonPath);
+    if (!object) {
+      return c.notFound();
+    }
 
-  return c.body(body, 200, {
-    "Content-Type": "application/json",
-  });
+    const body = await object.arrayBuffer();
+
+    return c.body(body, 200, {
+      "Content-Type": "application/json",
+    });
+  } catch (error) {
+    console.error(error);
+    return c.text("Internal Server Error", 500);
+  }
 });
 
 v1.get("/images/*", async (c, next) => {
