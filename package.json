@@ -4,13 +4,13 @@
   "version": "1.0.0",
   "scripts": {
     "dev:website": "pnpm --filter=@taga3s-dev/website dev",
-    "dev:assets-converter": "pnpm --filter=@taga3s-dev/assets-converter dev",
+    "dev:assets-proxy": "pnpm --filter=@taga3s-dev/assets-proxy dev",
     "build:website": "pnpm --filter=@taga3s-dev/website build",
-    "build:assets-converter": "pnpm --filter=@taga3s-dev/assets-converter build",
-    "lint": "biome lint --write ./packages/website ./packages/assets-converter package.json biome.json renovate.json",
-    "format": "biome format --write ./packages/website ./packages/assets-converter ./packages/mdx-processor package.json biome.json renovate.json",
+    "build:assets-proxy": "pnpm --filter=@taga3s-dev/assets-proxy build",
+    "lint": "biome lint --write ./packages/website ./packages/assets-proxy package.json biome.json renovate.json",
+    "format": "biome format --write ./packages/website ./packages/assets-proxy ./packages/mdx-processor package.json biome.json renovate.json",
     "test:website": "pnpm --filter=@taga3s-dev/website test",
-    "check": "biome check --write ./packages/website ./packages/assets-converter ./packages/mdx-processor package.json biome.json renovate.json",
+    "check": "biome check --write ./packages/website ./packages/assets-proxy ./packages/mdx-processor package.json biome.json renovate.json",
     "check:ci": "biome ci"
   },
   "devDependencies": {

@@ -1,6 +1,6 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "taga3s-dev-assets-converter",
+  "name": "taga3s-dev-assets-proxy",
   "main": "./src/index.ts",
   "compatibility_date": "2026-07-14",
   "compatibility_flags": ["nodejs_compat"],
