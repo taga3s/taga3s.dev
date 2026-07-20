@@ -11,6 +11,11 @@ export const uploadCommand: Command = define({
       short: "d",
       description: "Directory path for .mdx files",
     },
+    preview: {
+      type: "boolean",
+      short: "p",
+      description: "Upload environment is preview or not",
+    },
   },
 });
 
@@ -27,10 +32,12 @@ export const uploadProcessor = async (): Promise<CommandRunner<GunshiParams<{ ar
   });
 
   return async (ctx) => {
-    const { pathdir } = ctx.values;
-    if (typeof pathdir !== "string") {
+    const { pathdir, preview } = ctx.values;
+    if (typeof pathdir !== "string" || typeof preview !== "boolean") {
       return;
     }
+
+    const blogKeyPrefix = preview ? "blog/preview" : "blog";
 
     const fileContents = await getFileContents(pathdir);
 
@@ -41,11 +48,11 @@ export const uploadProcessor = async (): Promise<CommandRunner<GunshiParams<{ ar
           const command = new PutObjectCommand({
             Bucket: config.bucketNm,
             Body: fc.content,
-            Key: `blog/${fc.origName}`,
+            Key: `${blogKeyPrefix}/${fc.origName}`,
             ContentType: "application/json",
           });
           await S3.send(command);
-          console.log(`Successfully uploaded to r2 bucket. Key: blog/${fc.origName}`);
+          console.log(`Successfully uploaded to r2 bucket. Key: ${blogKeyPrefix}/${fc.origName}`);
         }),
       );
     } catch (err) {
