@@ -8,6 +8,6 @@ Monorepo for https://taga3s.dev.
 
 | name | description |
 |------|-------------|
-| [website](./packages/website) | Built on Hono and CloudFlare Workers |
-| [assets-converter](./packages/assets-converter)  | TBD |
-| [mdx-processor](./packages/mdx-processor) | CLI tool to processes MDX files for blog assets |
+| [website](./packages/website) | My Website built on Hono and Cf Workers |
+| [assets-converter](./packages/assets-converter)  | Assets converter built on Hono and Cf Workers |
+| [mdx-processor](./packages/mdx-processor) | CLI tool to processes MDX files built with [gunshi](https://gunshi.dev/) |
