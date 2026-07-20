@@ -29,7 +29,7 @@ v1.get("/blog", async (c) => {
 v1.get("/blog/:key{[a-zA-Z0-9-_]+}", async (c) => {
   try {
     const key = c.req.param("key");
-    const blogJsonPath = c.get("isPreview") ? `blog/preview/${key}` : `blog/${key}`;
+    const blogJsonPath = c.get("isPreview") ? `blog/preview/${key}.json` : `blog/${key}.json`;
     const object = await c.env.TAGA3S_DEV_BUCKET.get(blogJsonPath);
     if (!object) {
       return c.notFound();
