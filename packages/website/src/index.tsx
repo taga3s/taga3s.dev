@@ -139,8 +139,8 @@ app.get("/blog", async (c) => {
       </HTMLLayout>,
     );
   } catch (error) {
-    console.error(error);
-    return c.text("Internal Server Error", 500);
+    const e = error instanceof Error ? error : new Error(String(error));
+    return c.json({ error: "Internal Server Error", detail: e.message }, 500);
   }
 });
 

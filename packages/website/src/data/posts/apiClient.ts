@@ -4,7 +4,6 @@ import type { ContextSet } from "../../type";
 const BASE_URL = "https://taga3s-dev-assets-converter.taga3s.workers.dev/api/v1";
 
 const http = async (params: { path: string; method: string; headers?: { "X-TAGA3S-ENV": string } }) => {
-  console.log(`${BASE_URL}${params.path}`);
   const res = await fetch(`${BASE_URL}${params.path}`, {
     headers: params.headers,
     method: params.method,
