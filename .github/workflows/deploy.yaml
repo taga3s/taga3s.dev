@@ -50,7 +50,12 @@ jobs:
   deploy-website:
     needs: [run-mdx-processor]
     runs-on: ubuntu-latest
-    if : ${{ needs.changes.outputs.website-changed == 'true' }}
+    if : >- 
+      ${{ 
+        !cancelled() &&
+        !failure() &&
+        needs.changes.outputs.website-changed == 'true' 
+      }}
 
     steps:
       - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0

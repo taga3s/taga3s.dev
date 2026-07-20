@@ -52,7 +52,12 @@ jobs:
   upload-website:
     needs: [run-mdx-processor]
     runs-on: ubuntu-latest
-    if : ${{ needs.changes.outputs.website-changed == 'true' }}
+    if : >- 
+      ${{ 
+        !cancelled() &&
+        !failure() &&
+        needs.changes.outputs.website-changed == 'true' 
+      }}
     outputs:
       deployment-url: ${{ steps.upload.outputs.deployment-url }}
 
