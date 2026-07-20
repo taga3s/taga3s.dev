@@ -73,7 +73,6 @@ jobs:
           command: deploy --minify --config wrangler.jsonc
           workingDirectory: ./packages/website
         env:
-          WORKERS_ENV: production
           POLICY_AUD: ${{ secrets.CLOUDFLARE_ACCESS_AUD }}
           TEAM_DOMAIN: ${{ secrets.CLOUDFLARE_ACCESS_TEAM_DOMAIN }}
 
