@@ -9,6 +9,7 @@ import photos from "./data/photos/data.json";
 import type { IPost, IRawPost } from "./data/posts/model";
 import workExperience from "./data/workExperience/data.json";
 import { verifyPreview } from "./middlewares/verifyPreview";
+import type { ContextSet } from "./type";
 import { BlogPage } from "./views/Blog/BlogPage";
 import { BlogContentPage } from "./views/Blog/Content/BlogContentPage";
 import { HistoryPage } from "./views/History/HistoryPage";
@@ -79,11 +80,7 @@ const HTMLLayout: FC<{ children: JSX.Element[]; title: string; description?: str
   );
 };
 
-interface Bindings {
-  TAGA3S_DEV_BUCKET: R2Bucket;
-}
-
-const app = new Hono<{ Bindings: Bindings }>();
+const app = new Hono<ContextSet>();
 
 app.use(logger());
 app.use(verifyPreview());
@@ -95,6 +92,7 @@ app.get(
     cacheName: "taga3s-dev-cache",
     cacheControl: "max-age=3600",
     cacheableStatusCodes: [200, 404],
+    vary: ["X-TAGA3S-ENV"], // maybe
   }),
 );
 
@@ -120,7 +118,8 @@ app.get("/history", (c) => {
 
 app.get("/blog", async (c) => {
   try {
-    const rawPostsListJson = await c.env.TAGA3S_DEV_BUCKET.get("blog/outs.json");
+    const postsJsonPath = c.get("isPreview") ? "blog/preview/outs.json" : "blog/outs.json";
+    const rawPostsListJson = await c.env.TAGA3S_DEV_BUCKET.get(postsJsonPath);
     if (!rawPostsListJson) {
       return c.notFound();
     }
@@ -153,7 +152,8 @@ app.get("/blog/:name{[a-zA-Z0-9-_]+}", async (c) => {
   const name = c.req.param("name");
 
   try {
-    const rawPostJson = await c.env.TAGA3S_DEV_BUCKET.get(`blog/${name}.json`);
+    const blogJsonPath = c.get("isPreview") ? `blog/preview/${name}.json` : `blog/${name}.json`;
+    const rawPostJson = await c.env.TAGA3S_DEV_BUCKET.get(blogJsonPath);
     if (!rawPostJson) {
       return c.notFound();
     }

@@ -2,6 +2,12 @@ name: Reusable workflow for running mdx-processor
 
 on:
   workflow_call:
+    inputs:
+      is_preview:
+        description: 'Whether the upload is for preview or not'
+        required: true
+        type: boolean
+        default: false
 
 jobs:
   run:
@@ -23,11 +29,16 @@ jobs:
       
       - name: Upload blog data to Cloudflare R2
         env:
+          IS_PREVIEW: ${{ inputs.is_preview }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           CLOUDFLARE_ACCESS_KEY_ID: ${{ secrets.CLOUDFLARE_R2_ACCESS_KEY_ID }}
           CLOUDFLARE_SECRET_ACCESS_KEY: ${{ secrets.CLOUDFLARE_R2_SECRET_ACCESS_KEY }}
         run: |
-          vp run --filter "@taga3s-dev/mdx-processor" exec upload --pathdir="/tmp/blog"
+          if [ "$IS_PREVIEW" = "true" ]; then
+            vp run --filter "@taga3s-dev/mdx-processor" exec upload --pathdir=/tmp/blog --preview
+          else
+            vp run --filter "@taga3s-dev/mdx-processor" exec upload --pathdir=/tmp/blog
+          fi
 
       - name: Generate Atom feed
         env:

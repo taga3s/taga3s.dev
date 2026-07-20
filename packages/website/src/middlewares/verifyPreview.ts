@@ -1,13 +1,15 @@
 import type { Context, Next } from "hono";
 import { createRemoteJWKSet, jwtVerify } from "jose";
+import type { ContextSet } from "../type";
 
 export const verifyPreview = () => {
-  return async (c: Context, next: Next) => {
-    const WORKERS_ENV = c.env?.WORKERS_ENV;
-    const POLICY_AUD = c.env?.POLICY_AUD;
-    const TEAM_DOMAIN = c.env?.TEAM_DOMAIN;
+  return async (c: Context<ContextSet>, next: Next) => {
+    const WORKERS_ENV = c.req.header("X-TAGA3S-ENV");
+    const POLICY_AUD = c.env.POLICY_AUD;
+    const TEAM_DOMAIN = c.env.TEAM_DOMAIN;
 
     if (WORKERS_ENV !== "preview") {
+      c.set("isPreview", false);
       await next();
     }
 
@@ -32,6 +34,7 @@ export const verifyPreview = () => {
       });
 
       // Token is valid, proceed with your application logic
+      c.set("isPreview", true);
       await next();
     } catch (error) {
       // Token verification failed
