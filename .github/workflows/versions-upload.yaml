@@ -6,7 +6,7 @@ on:
       - main
     paths:
       - 'packages/website/**'
-      - 'packages/images-worker/**'
+      - 'packages/assets-converter/**'
       - 'packages/mdx-processor/**'
       - '.github/workflows/versions-upload.yaml'
 
@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-slim
     outputs:
       website-changed: ${{ steps.changes.outputs.website }}
-      images-worker-changed: ${{ steps.changes.outputs.images-worker }}
+      assets-converter-changed: ${{ steps.changes.outputs.assets-converter }}
       mdx-processor-changed: ${{ steps.changes.outputs.mdx-processor }}
 
     steps:
@@ -37,9 +37,9 @@ jobs:
               - *workflows
               - *blog-assets
               - 'packages/website/**'
-            images-worker:
+            assets-converter:
               - *workflows
-              - 'packages/images-worker/**'
+              - 'packages/assets-converter/**'
   
   run-mdx-processor:
     needs: [changes]
@@ -81,10 +81,10 @@ jobs:
           POLICY_AUD: ${{ secrets.CLOUDFLARE_ACCESS_AUD }}
           TEAM_DOMAIN: ${{ secrets.CLOUDFLARE_ACCESS_TEAM_DOMAIN }}
 
-  upload-images-worker:
+  upload-assets-converter:
     needs: [changes]
     runs-on: ubuntu-latest
-    if : ${{ needs.changes.outputs.images-worker-changed == 'true' }}
+    if : ${{ needs.changes.outputs.assets-converter-changed == 'true' }}
     outputs:
       deployment-url: ${{ steps.upload.outputs.deployment-url }}
 
@@ -93,7 +93,7 @@ jobs:
 
       - uses: ./.github/actions/setup-ci
         with:
-          install-packages: "@taga3s-dev/images-worker"
+          install-packages: "@taga3s-dev/assets-converter"
 
       - name: Upload to Cloudflare Workers
         id: upload
@@ -102,15 +102,15 @@ jobs:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           command: versions upload --config wrangler.jsonc
-          workingDirectory: ./packages/images-worker
+          workingDirectory: ./packages/assets-converter
   
   comment-preview-urls:
-    needs: [upload-website, upload-images-worker]
+    needs: [upload-website, upload-assets-converter]
     runs-on: ubuntu-latest
     if : >- 
       ${{ 
         needs.upload-website.outputs.deployment-url != '' || 
-        needs.upload-images-worker.outputs.deployment-url != ''
+        needs.upload-assets-converter.outputs.deployment-url != ''
       }}
     steps:
       - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
@@ -119,7 +119,7 @@ jobs:
         uses: ./.github/actions/comment-preview-url
         with:
           website_deployment_url: ${{ needs.upload-website.outputs.deployment-url }}
-          images_worker_deployment_url: ${{ needs.upload-images-worker.outputs.deployment-url }}
+          images_worker_deployment_url: ${{ needs.upload-assets-converter.outputs.deployment-url }}
           pr_number: ${{ github.event.pull_request.number }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
