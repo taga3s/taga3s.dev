@@ -1,13 +1,13 @@
 {
   "content": [
     {
-      "url": "https://taga3s-dev-assets-converter.taga3s.workers.dev/api/images/favorites/art-mika-pikazo.webp"
+      "url": "https://taga3s-dev-assets-proxy.taga3s.workers.dev/api/images/favorites/art-mika-pikazo.webp"
     },
     {
-      "url": "https://taga3s-dev-assets-converter.taga3s.workers.dev/api/images/favorites/pumpkin.webp"
+      "url": "https://taga3s-dev-assets-proxy.taga3s.workers.dev/api/images/favorites/pumpkin.webp"
     },
     {
-      "url": "https://taga3s-dev-assets-converter.taga3s.workers.dev/api/images/favorites/ufo-chiikawa.webp"
+      "url": "https://taga3s-dev-assets-proxy.taga3s.workers.dev/api/images/favorites/ufo-chiikawa.webp"
     }
   ]
 }
