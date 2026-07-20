@@ -6,6 +6,7 @@ import type { JSX } from "hono/jsx/jsx-runtime";
 import { logger } from "hono/logger";
 import certification from "./data/certification/data.json";
 import photos from "./data/photos/data.json";
+import { apiClient } from "./data/posts/apiClient";
 import type { IPost, IRawPost } from "./data/posts/model";
 import workExperience from "./data/workExperience/data.json";
 import { verifyPreview } from "./middlewares/verifyPreview";
@@ -118,12 +119,7 @@ app.get("/history", (c) => {
 
 app.get("/blog", async (c) => {
   try {
-    const postsJsonPath = c.get("isPreview") ? "blog/preview/outs.json" : "blog/outs.json";
-    const rawPostsListJson = await c.env.TAGA3S_DEV_BUCKET.get(postsJsonPath);
-    if (!rawPostsListJson) {
-      return c.notFound();
-    }
-    const rawPostsList = await rawPostsListJson.json<Omit<IRawPost, "rawHtml">[]>();
+    const rawPostsList = await apiClient.GET<Omit<IRawPost, "rawHtml">[]>(c, "/blog");
 
     const posts: Omit<IPost, "rawHtml">[] = rawPostsList
       .map((raw) => ({
@@ -152,12 +148,8 @@ app.get("/blog/:name{[a-zA-Z0-9-_]+}", async (c) => {
   const name = c.req.param("name");
 
   try {
-    const blogJsonPath = c.get("isPreview") ? `blog/preview/${name}.json` : `blog/${name}.json`;
-    const rawPostJson = await c.env.TAGA3S_DEV_BUCKET.get(blogJsonPath);
-    if (!rawPostJson) {
-      return c.notFound();
-    }
-    const rawPost = await rawPostJson.json<IRawPost>();
+    const rawPost = await apiClient.GET<IRawPost>(c, `/blog/${name}`);
+
     const post: IPost = {
       id: rawPost.id,
       title: rawPost.title,
