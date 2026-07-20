@@ -10,7 +10,7 @@ export const verifyPreview = () => {
 
     if (WORKERS_ENV !== "preview") {
       c.set("isPreview", false);
-      await next();
+      return next();
     }
 
     if (!POLICY_AUD) {
@@ -35,7 +35,7 @@ export const verifyPreview = () => {
 
       // Token is valid, proceed with your application logic
       c.set("isPreview", true);
-      await next();
+      return next();
     } catch (error) {
       // Token verification failed
       const message = error instanceof Error ? error.message : "Unknown error";
