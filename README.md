@@ -9,5 +9,5 @@ Monorepo for https://taga3s.dev.
 | name | description |
 |------|-------------|
 | [website](./packages/website) | Built on Hono and CloudFlare Workers |
-| [images-worker](./packages/images-worker)  | TBD |
+| [assets-converter](./packages/assets-converter)  | TBD |
 | [mdx-processor](./packages/mdx-processor) | CLI tool to processes MDX files for blog assets |

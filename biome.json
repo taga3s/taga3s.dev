@@ -25,7 +25,7 @@
   "files": {
     "includes": [
       "./packages/website/**",
-      "./packages/images-worker/**",
+      "./packages/assets-converter/**",
       "./packages/mdx-processor/**",
       "!**/.wrangler",
       "!**/dist",

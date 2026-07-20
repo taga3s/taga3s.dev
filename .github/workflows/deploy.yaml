@@ -6,7 +6,7 @@ on:
       - main
     paths:
       - 'packages/website/**'
-      - 'packages/images-worker/**'
+      - 'packages/assets-converter/**'
       - 'packages/mdx-processor/**'
       - '.github/workflows/deploy.yaml'
 
@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-slim
     outputs:
       website-changed: ${{ steps.changes.outputs.website }}
-      images-worker-changed: ${{ steps.changes.outputs.images-worker }}
+      assets-converter-changed: ${{ steps.changes.outputs.assets-converter }}
       mdx-processor-changed: ${{ steps.changes.outputs.mdx-processor }}
 
     steps:
@@ -37,9 +37,9 @@ jobs:
               - *workflows
               - *blog-assets
               - 'packages/website/**'
-            images-worker:
+            assets-converter:
               - *workflows
-              - 'packages/images-worker/**'
+              - 'packages/assets-converter/**'
 
   run-mdx-processor:
     needs: [changes]
@@ -76,9 +76,9 @@ jobs:
           POLICY_AUD: ${{ secrets.CLOUDFLARE_ACCESS_AUD }}
           TEAM_DOMAIN: ${{ secrets.CLOUDFLARE_ACCESS_TEAM_DOMAIN }}
 
-  deploy-images-worker:
+  deploy-assets-converter:
     needs: [changes]
-    if : ${{ needs.changes.outputs.images-worker-changed == 'true' }}
+    if : ${{ needs.changes.outputs.assets-converter-changed == 'true' }}
     runs-on: ubuntu-latest
 
     steps:
@@ -86,7 +86,7 @@ jobs:
 
       - uses: ./.github/actions/setup-ci
         with:
-          install-packages: "@taga3s-dev/images-worker"
+          install-packages: "@taga3s-dev/assets-converter"
 
       - name: Publish to Cloudflare Workers
         uses: cloudflare/wrangler-action@ebbaa1584979971c8614a24965b4405ff95890e0 # v4.0.0
@@ -94,4 +94,4 @@ jobs:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           command: deploy --minify --config wrangler.jsonc
-          workingDirectory: ./packages/images-worker
+          workingDirectory: ./packages/assets-converter
