@@ -6,7 +6,7 @@ on:
       - main
     paths:
       - 'packages/website/**'
-      - 'packages/assets-converter/**'
+      - 'packages/assets-proxy/**'
       - 'packages/mdx-processor/**'
       - '.github/workflows/versions-upload.yaml'
 
@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-slim
     outputs:
       website-changed: ${{ steps.changes.outputs.website }}
-      assets-converter-changed: ${{ steps.changes.outputs.assets-converter }}
+      assets-proxy-changed: ${{ steps.changes.outputs.assets-proxy }}
 
     steps:
       - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
@@ -35,9 +35,9 @@ jobs:
               - *blog-assets
               - *mdx-processor
               - 'packages/website/**'
-            assets-converter:
+            assets-proxy:
               - *workflows
-              - 'packages/assets-converter/**'
+              - 'packages/assets-proxy/**'
   
   run-mdx-processor:
     needs: [changes]
@@ -79,10 +79,10 @@ jobs:
           POLICY_AUD: ${{ secrets.CLOUDFLARE_ACCESS_AUD }}
           TEAM_DOMAIN: ${{ secrets.CLOUDFLARE_ACCESS_TEAM_DOMAIN }}
 
-  upload-assets-converter:
+  upload-assets-proxy:
     needs: [changes]
     runs-on: ubuntu-latest
-    if : needs.changes.outputs.assets-converter-changed
+    if : needs.changes.outputs.assets-proxy-changed
     outputs:
       deployment-url: ${{ steps.upload.outputs.deployment-url }}
 
@@ -91,7 +91,7 @@ jobs:
 
       - uses: ./.github/actions/setup-ci
         with:
-          install-packages: "@taga3s-dev/assets-converter"
+          install-packages: "@taga3s-dev/assets-proxy"
 
       - name: Upload to Cloudflare Workers
         id: upload
@@ -100,17 +100,17 @@ jobs:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           command: versions upload --config wrangler.jsonc
-          workingDirectory: ./packages/assets-converter
+          workingDirectory: ./packages/assets-proxy
   
   comment-preview-urls:
-    needs: [upload-website, upload-assets-converter]
+    needs: [upload-website, upload-assets-proxy]
     runs-on: ubuntu-latest
     if : >- 
       ${{ 
         !cancelled() && 
         !failure() &&
         (needs.upload-website.outputs.deployment-url != '' ||
-        needs.upload-assets-converter.outputs.deployment-url != '')
+        needs.upload-assets-proxy.outputs.deployment-url != '')
       }}
     steps:
       - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
@@ -119,7 +119,7 @@ jobs:
         uses: ./.github/actions/comment-preview-url
         with:
           website_deployment_url: ${{ needs.upload-website.outputs.deployment-url }}
-          images_worker_deployment_url: ${{ needs.upload-assets-converter.outputs.deployment-url }}
+          images_worker_deployment_url: ${{ needs.upload-assets-proxy.outputs.deployment-url }}
           pr_number: ${{ github.event.pull_request.number }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

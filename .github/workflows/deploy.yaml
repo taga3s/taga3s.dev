@@ -6,7 +6,7 @@ on:
       - main
     paths:
       - 'packages/website/**'
-      - 'packages/assets-converter/**'
+      - 'packages/assets-proxy/**'
       - 'packages/mdx-processor/**'
       - '.github/workflows/deploy.yaml'
 
@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-slim
     outputs:
       website-changed: ${{ steps.changes.outputs.website }}
-      assets-converter-changed: ${{ steps.changes.outputs.assets-converter }}
+      assets-proxy-changed: ${{ steps.changes.outputs.assets-proxy }}
 
     steps:
       - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
@@ -35,9 +35,9 @@ jobs:
               - *blog-assets
               - *mdx-processor
               - 'packages/website/**'
-            assets-converter:
+            assets-proxy:
               - *workflows
-              - 'packages/assets-converter/**'
+              - 'packages/assets-proxy/**'
 
   run-mdx-processor:
     needs: [changes]
@@ -74,9 +74,9 @@ jobs:
           POLICY_AUD: ${{ secrets.CLOUDFLARE_ACCESS_AUD }}
           TEAM_DOMAIN: ${{ secrets.CLOUDFLARE_ACCESS_TEAM_DOMAIN }}
 
-  deploy-assets-converter:
+  deploy-assets-proxy:
     needs: [changes]
-    if : needs.changes.outputs.assets-converter-changed
+    if : needs.changes.outputs.assets-proxy-changed
     runs-on: ubuntu-latest
 
     steps:
@@ -84,7 +84,7 @@ jobs:
 
       - uses: ./.github/actions/setup-ci
         with:
-          install-packages: "@taga3s-dev/assets-converter"
+          install-packages: "@taga3s-dev/assets-proxy"
 
       - name: Publish to Cloudflare Workers
         uses: cloudflare/wrangler-action@ebbaa1584979971c8614a24965b4405ff95890e0 # v4.0.0
@@ -92,4 +92,4 @@ jobs:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           command: deploy --minify --config wrangler.jsonc
-          workingDirectory: ./packages/assets-converter
+          workingDirectory: ./packages/assets-proxy

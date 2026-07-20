@@ -25,10 +25,10 @@ runs:
         GH_TOKEN: ${{ github.token }}
       run: |
         echo "## Preview URLs
-        | project | preview URL |
+        | packages | preview URL |
         | --- | --- |
         ${{ inputs.website_deployment_url && format('| Website | {0} |', inputs.website_deployment_url) }}
-        ${{ inputs.images_worker_deployment_url && format('| Assets Converter | {0} |', inputs.images_worker_deployment_url) }}
+        ${{ inputs.images_worker_deployment_url && format('| Assets Proxy | {0} |', inputs.images_worker_deployment_url) }}
         " >> .tmp.txt
         gh pr comment ${{ inputs.pr_number }} --edit-last --edit-last --create-if-none --body-file .tmp.txt
       shell: bash
