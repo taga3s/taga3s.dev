@@ -1,5 +1,4 @@
 import rehypeStringify from "rehype-stringify";
-import remarkBreaks from "remark-breaks";
 import remarkParse from "remark-parse";
 import remarkRehype from "remark-rehype";
 import { unified } from "unified";
@@ -17,7 +16,6 @@ describe("rehype-shiki", () => {
   it("test", async () => {
     const process = await unified()
       .use(remarkParse)
-      .use(remarkBreaks)
       .use(remarkRehype)
       .use(rehypeShikiFromHighlighter, ...([highlighter, { theme: "github-dark-default" }] as any))
       .use(rehypeStringify)
@@ -31,7 +29,6 @@ describe("rehype-shiki", () => {
   it("test with title in meta", async () => {
     const process = await unified()
       .use(remarkParse)
-      .use(remarkBreaks)
       .use(remarkRehype)
       .use(
         rehypeShikiFromHighlighter,
