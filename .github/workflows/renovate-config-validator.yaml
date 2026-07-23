@@ -4,8 +4,8 @@ on:
   workflow_dispatch:
   push:
     paths:
-      - 'renovate.json'
-      - '.github/workflows/renovate-config-validator.yaml'
+      - "renovate.json"
+      - ".github/workflows/renovate-config-validator.yaml"
 
 jobs:
   renovate-config-validator:

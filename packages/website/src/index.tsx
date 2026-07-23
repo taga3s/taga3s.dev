@@ -21,13 +21,13 @@ const bodyLayout = css`
   display: grid;
   grid-template-rows: auto 1fr auto;
   max-width: 640px;
-  min-height: 100vh; 
+  min-height: 100vh;
   margin: 0 auto;
   padding: 16px 20px;
   font-family: "Zen Maru Gothic", sans-serif;
   color: #000000;
   background-color: #ffffff;
-  
+
   > * {
     min-width: 0;
   }

@@ -1,14 +1,13 @@
 {
   "name": "taga3s-dev",
-  "type": "module",
   "version": "1.0.0",
+  "type": "module",
   "scripts": {
     "dev:website": "pnpm --filter=@taga3s-dev/website dev",
     "dev:assets-proxy": "pnpm --filter=@taga3s-dev/assets-proxy dev",
     "build:website": "pnpm --filter=@taga3s-dev/website build",
     "build:assets-proxy": "pnpm --filter=@taga3s-dev/assets-proxy build",
     "lint": "biome lint --write ./packages/website ./packages/assets-proxy package.json biome.json renovate.json",
-    "format": "biome format --write ./packages/website ./packages/assets-proxy ./packages/mdx-processor package.json biome.json renovate.json",
     "test:website": "pnpm --filter=@taga3s-dev/website test",
     "check": "biome check --write ./packages/website ./packages/assets-proxy ./packages/mdx-processor package.json biome.json renovate.json",
     "check:ci": "biome ci"

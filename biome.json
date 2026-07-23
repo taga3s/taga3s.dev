@@ -15,13 +15,6 @@
       }
     }
   },
-  "formatter": {
-    "enabled": true,
-    "formatWithErrors": false,
-    "indentWidth": 2,
-    "indentStyle": "space",
-    "lineWidth": 120
-  },
   "files": {
     "includes": [
       "./packages/website/**",

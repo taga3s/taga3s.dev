@@ -13,9 +13,9 @@
     "@aws-sdk/client-s3": "catalog:",
     "@mdx-js/mdx": "catalog:",
     "@mermaid-js/mermaid-cli": "catalog:",
+    "@shikijs/langs": "catalog:",
     "@shikijs/rehype": "catalog:",
     "@shikijs/themes": "catalog:",
-    "@shikijs/langs": "catalog:",
     "@taga3s/atom-feed-composer": "catalog:",
     "@types/hast": "catalog:",
     "@types/mdast": "catalog:",
@@ -24,6 +24,7 @@
     "@types/react-dom": "catalog:",
     "@types/unist": "catalog:",
     "gunshi": "catalog:",
+    "puppeteer": "catalog:",
     "react": "catalog:",
     "react-dom": "catalog:",
     "rehype-parse": "catalog:",
@@ -37,7 +38,6 @@
     "shiki": "catalog:",
     "unified": "catalog:",
     "unist-util-visit": "catalog:",
-    "puppeteer": "catalog:",
     "vite-plus": "catalog:"
   }
 }

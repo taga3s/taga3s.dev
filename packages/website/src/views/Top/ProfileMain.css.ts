@@ -19,7 +19,7 @@ const profileMainImage = css`
   height: 120px;
   border-radius: 100%;
 
-  @media screen and (min-width:600px) {
+  @media screen and (min-width: 600px) {
     width: 160px;
     height: 160px;
   }
