@@ -13,7 +13,7 @@ const genModuleInit = () => {
       return;
     }
 
-    init(await initYoga(yogaWasm));
+    await init(await initYoga(yogaWasm));
     await initWasm(resvgWasm);
     isInit = true;
   };

@@ -16,3 +16,5 @@ jobs:
       - uses: ./.github/actions/setup-ci
 
       - run: vp fmt --check
+
+      - run: vp lint
