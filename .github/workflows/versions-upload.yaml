@@ -5,10 +5,10 @@ on:
     branches:
       - main
     paths:
-      - 'packages/website/**'
-      - 'packages/assets-proxy/**'
-      - 'packages/mdx-processor/**'
-      - '.github/workflows/versions-upload.yaml'
+      - "packages/website/**"
+      - "packages/assets-proxy/**"
+      - "packages/mdx-processor/**"
+      - ".github/workflows/versions-upload.yaml"
 
 jobs:
   changes:
@@ -38,10 +38,10 @@ jobs:
             assets-proxy:
               - *workflows
               - 'packages/assets-proxy/**'
-  
+
   run-mdx-processor:
     needs: [changes]
-    if : needs.changes.outputs.website-changed
+    if: needs.changes.outputs.website-changed
     uses: ./.github/workflows/reusable_run-mdx-processor.yaml
     with:
       is_preview: true
@@ -50,7 +50,7 @@ jobs:
   upload-website:
     needs: [run-mdx-processor]
     runs-on: ubuntu-latest
-    if : needs.changes.outputs.website-changed
+    if: needs.changes.outputs.website-changed
     outputs:
       deployment-url: ${{ steps.upload.outputs.deployment-url }}
 
@@ -82,7 +82,7 @@ jobs:
   upload-assets-proxy:
     needs: [changes]
     runs-on: ubuntu-latest
-    if : needs.changes.outputs.assets-proxy-changed
+    if: needs.changes.outputs.assets-proxy-changed
     outputs:
       deployment-url: ${{ steps.upload.outputs.deployment-url }}
 
@@ -101,11 +101,11 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           command: versions upload --config wrangler.jsonc
           workingDirectory: ./packages/assets-proxy
-  
+
   comment-preview-urls:
     needs: [upload-website, upload-assets-proxy]
     runs-on: ubuntu-latest
-    if : >- 
+    if: >-
       ${{ 
         !cancelled() && 
         !failure() &&

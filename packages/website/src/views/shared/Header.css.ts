@@ -12,7 +12,7 @@ const headerNav = css`
   text-align: end;
   gap: 16px;
   font-weight: bold;
-  color: #986DB2;
+  color: #986db2;
 `;
 
 export { headerContent, headerNav };

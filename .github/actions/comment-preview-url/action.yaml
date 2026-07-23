@@ -2,15 +2,15 @@ name: Comment Preview URL
 
 inputs:
   website_deployment_url:
-    description: 'Website preview deployment URL'
+    description: "Website preview deployment URL"
     required: true
     type: string
   images_worker_deployment_url:
-    description: 'Images Worker preview deployment URL'
+    description: "Images Worker preview deployment URL"
     required: true
     type: string
   pr_number:
-    description: 'Pull request number'
+    description: "Pull request number"
     required: true
     type: number
 

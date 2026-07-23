@@ -6,7 +6,7 @@ const profilePhotoList = css`
   gap: 16px;
   margin-top: 16px;
 
-  @media screen and (min-width:600px) {
+  @media screen and (min-width: 600px) {
     grid-template-columns: 1fr 1fr 1fr;
   }
 `;

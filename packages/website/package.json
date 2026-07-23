@@ -1,7 +1,7 @@
 {
   "name": "@taga3s-dev/website",
-  "type": "module",
   "version": "1.0.0",
+  "type": "module",
   "scripts": {
     "dev": "wrangler dev",
     "deploy": "wrangler deploy --minify",
@@ -14,7 +14,7 @@
     "@cloudflare/workers-types": "catalog:",
     "@types/node": "catalog:",
     "jose": "catalog:",
-    "wrangler": "catalog:",
-    "vite-plus": "catalog:"
+    "vite-plus": "catalog:",
+    "wrangler": "catalog:"
   }
 }
