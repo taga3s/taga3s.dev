@@ -1,5 +1,5 @@
 ---
-title: GitHub Actions で default ブランチとの PR 差分を出力したかっただけなのに詰まった話
+title: GitHub Actions で default ブランチとの PR 差分を出力したかっただけなのに
 description: GitHub Actions で default ブランチとの PR 差分を出力したかっただけなのに, 詰まりポイントがあった話について深掘りをしています. 具体的には, 仮想的なリファレンスである merge branch や `github.event.pull_request.base.sha` について触れます.
 category:
   - tech
@@ -42,15 +42,13 @@ jobs:
 
 ## `github.event.pull_request.base.sha` の罠
 
-前提として`github.event` のオブジェクトは, Webhook の `payload` と一致する. したがって, `github.event.pull_request` は, https://docs.github.com/en/webhooks/webhook-events-and-payloads#pull_request を確認すれば, その内容が分かる.
+前提として `github.event` のオブジェクトは, Webhook の `payload` と一致する. したがって, `github.event.pull_request` は, https://docs.github.com/en/webhooks/webhook-events-and-payloads#pull_request を確認すれば, その内容が分かる.
 
 今回確認したい `github.event.pull_request.base.sha` とは, PR の base branch の SHA である. ただし, その実際の挙動は **PR を作成した時点での SHA** であり, 該当 PR 内ではそれに固定される.
 
 これの何が問題かというと, 一般的なケースとして default ブランチの内容が他の PR のマージによって, コミットが積み上がっていった場合に, 該当 PR では最新コミットの SHA を参照できていないということである.
 
 実際に適当な PR を1つ作成し, その間に default ブランチに別のコミットを積んだ上で, 再度 GHA を Rerun してみたが, 確かに SHA は固定されていた.
-
-<-- TODO: 画像 -->
 
 以下 discusstions が参考になる.
 
