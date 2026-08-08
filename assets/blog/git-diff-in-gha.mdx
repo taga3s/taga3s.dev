@@ -69,9 +69,10 @@ jobs:
 - run: |
     COMPARE_BASE_REF="origin/${GITHUB_BASE_REF}"
     COMPARE_BASE_SHA="$(git rev-parse "${COMPARE_BASE_REF}")"
-    
+
     git diff --name-only "$COMPARE_BASE_SHA" HEAD
 ```
 
 [^1]: https://docs.github.com/en/pull-requests/reference/pull-requests#pull-request-refs-and-merge-branches
+
 [^2]: https://docs.github.com/en/actions/reference/workflows-and-actions/contexts#github-context
