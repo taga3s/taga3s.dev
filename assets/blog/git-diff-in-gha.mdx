@@ -1,0 +1,74 @@
+---
+title: GitHub Actions で default ブランチとの PR 差分を出力したかっただけなのに詰まった話
+description: GitHub Actions で default ブランチとの PR 差分を出力したかっただけなのに, 詰まりポイントがあった話について深掘りをしています. 具体的には, 仮想的なリファレンスである merge branch や `github.event.pull_request.base.sha` について触れます.
+category:
+  - tech
+publishedAt: 2026/08/09
+---
+
+## 前置き
+
+default ブランチと PR の内容の差分を GHA で取得したいとき, 以下の記述で問題ないと考えていたが, 意図しない差分が出力され, 数時間詰まった. 他の PR が先行して default ブランチにマージされた時, 他の PR で追加された差分も該当 PR の差分で余計に出力されたのである. 以下の記述の意味を再確認し, どのような記述が適切かを確認する.
+
+```yaml
+name: CI
+
+on:
+  pull_request:
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - run: git diff --name-only "${{ github.event.pull_request.base.sha }}" HEAD # 何が問題?
+```
+
+## PR 作成時に GitHub は仮想リファレンスを作る
+
+まず確認しなければならないポイントとして, PR 作成時に GitHub は作業ブランチを参照する仮想的なリファレンスを作成するということである. これは`refs/pull/PULL_REQUEST_NUMBER/merge` という形式で merge branch と呼ばれる. マージ先との間でコンフリクトがないかなどをシュミレートするために利用され, これはマージコミットの内容と一致する.
+
+> When you open a pull request, GitHub creates temporary Git references that point to the pull request's head branch and, when possible, to a simulated merge result. These refs help GitHub and integrations evaluate the pull request without changing the base branch.
+
+`actions/checkout` の挙動として, デフォルトでは `GITHUB_REF` に checkout する. したがって, pull_request イベント時は, `GITHUB_REF` は merge branch である `refs/pull/PULL_REQUEST_NUMBER/merge` となり[^1], マージコミットに checkout していることになる. （筆者は, これまで該当 PR に積まれた最新の commit だと思いこんでいた...）
+
+なお, `actions/checkout` の README の Usage には 「Checkout pull request HEAD commit instead of merge commit
+」というセクションがあるが, これはマージコミットをデフォルトとしていることの裏返しだろう.
+
+より詳しくは, https://github.com/actions/checkout/issues/426 での説明も参照されたい.
+
+## `github.event.pull_request.base.sha` の罠
+
+前提として`github.event` のオブジェクトは, Webhook の `payload` と一致する. したがって, `github.event.pull_request` は, https://docs.github.com/en/webhooks/webhook-events-and-payloads#pull_request を確認すれば, その内容が分かる.
+
+今回確認したい `github.event.pull_request.base.sha` とは, PR の base branch の SHA である. ただし, その実際の挙動は **PR を作成した時点での SHA** であり, 該当 PR 内ではそれに固定される.
+
+これの何が問題かというと, 一般的なケースとして default ブランチの内容が他の PR のマージによって, コミットが積み上がっていった場合に, 該当 PR では最新コミットの SHA を参照できていないということである.
+
+実際に適当な PR を1つ作成し, その間に default ブランチに別のコミットを積んだ上で, 再度 GHA を Rerun してみたが, 確かに SHA は固定されていた.
+
+以下 discusstions が参考になる.
+
+- https://github.com/orgs/community/discussions/59677
+
+## じゃあどう直せばいいか
+
+以上を簡単にまとめるとこうなる.
+
+- pull_request イベントで `actions/checkout` を利用する場合, merge branch を `ref` として checkout している.
+- `github.event.pull_request.base.sha` は, マージ先ブランチの commit が積まれていったとしても, PR 作成時点での SHA と指し続ける.
+
+したがって, default ブランチと PR の内容の差分を GHA で取得したいなら origin の base branch の SHA を都度取得するようにしつつ, HEAD (仮想的な merge commit) と比較すれば良いことになる. 大した修正でもないが...
+
+```yaml
+- run: |
+    COMPARE_BASE_REF="origin/${GITHUB_BASE_REF}"
+    COMPARE_BASE_SHA="$(git rev-parse "${COMPARE_BASE_REF}")"
+    
+    git diff --name-only "$COMPARE_BASE_SHA" HEAD
+```
+
+[^1]: https://docs.github.com/en/actions/reference/workflows-and-actions/contexts#github-context
