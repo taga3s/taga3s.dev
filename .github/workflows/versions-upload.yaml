@@ -8,6 +8,7 @@ on:
       - "packages/website/**"
       - "packages/assets-proxy/**"
       - "packages/mdx-processor/**"
+      - "assets/blog/**"
       - ".github/workflows/versions-upload.yaml"
 
 jobs:
