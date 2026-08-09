@@ -58,7 +58,7 @@ jobs:
 以上を簡単にまとめるとこうなる.
 
 - pull_request イベントで `actions/checkout` を利用する場合, merge branch を `ref` として checkout している.
-- `github.event.pull_request.base.sha` はマージ先ブランチの commit が積まれていったとしても, PR 作成時点での SHA と指し続ける.
+- `github.event.pull_request.base.sha` はマージ先ブランチの commit が積まれていったとしても, PR 作成時点での SHA を指し続ける.
 
 したがって, default ブランチと PR の内容の差分を GHA で取得したいなら `HEAD` (仮想的な merge commit) と merge commit の一つ目の親である `HEAD^1` の比較をすれば良いことになる. 後者を `HEAD^1` とすることでその2点間の window を維持できる.
 
