@@ -41,8 +41,8 @@ jobs:
 
   run-mdx-processor:
     needs: [changes]
-    if: needs.changes.outputs.website-changed
-    uses: ./.github/workflows/reusable_run-mdx-processor.yaml
+    if: needs.changes.outputs.website-changed == 'true'
+    uses: $/.github/workflows/reusable_run-mdx-processor.yaml
     with:
       is_preview: true
     secrets: inherit
@@ -50,14 +50,14 @@ jobs:
   upload-website:
     needs: [run-mdx-processor]
     runs-on: ubuntu-latest
-    if: needs.changes.outputs.website-changed
+    if: needs.changes.outputs.website-changed == 'true'
     outputs:
       deployment-url: ${{ steps.upload.outputs.deployment-url }}
 
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
-      - uses: ./.github/actions/setup-ci
+      - uses: $/.github/actions/setup-ci
         with:
           install-packages: "@taga3s-dev/website"
 
@@ -82,14 +82,14 @@ jobs:
   upload-assets-proxy:
     needs: [changes]
     runs-on: ubuntu-latest
-    if: needs.changes.outputs.assets-proxy-changed
+    if: needs.changes.outputs.assets-proxy-changed == 'true'
     outputs:
       deployment-url: ${{ steps.upload.outputs.deployment-url }}
 
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
-      - uses: ./.github/actions/setup-ci
+      - uses: $/.github/actions/setup-ci
         with:
           install-packages: "@taga3s-dev/assets-proxy"
 
@@ -104,7 +104,7 @@ jobs:
 
   comment-preview-urls:
     needs: [upload-website, upload-assets-proxy]
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-slim
     if: >-
       ${{ 
         !cancelled() && 
@@ -116,7 +116,7 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
       - name: Comment preview URLs
-        uses: ./.github/actions/comment-preview-url
+        uses: $/.github/actions/comment-preview-url
         with:
           website_deployment_url: ${{ needs.upload-website.outputs.deployment-url }}
           images_worker_deployment_url: ${{ needs.upload-assets-proxy.outputs.deployment-url }}
