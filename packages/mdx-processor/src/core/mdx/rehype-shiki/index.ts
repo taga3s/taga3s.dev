@@ -37,7 +37,14 @@ const transformTitle = (): ShikiTransformer => {
 
 const highlighter = await createHighlighterCore({
   themes: [import("@shikijs/themes/github-dark-default")],
-  langs: [import("@shikijs/langs/javascript"), import("@shikijs/langs/typescript"), import("@shikijs/langs/rust")],
+  langs: [
+    import("@shikijs/langs/javascript"),
+    import("@shikijs/langs/typescript"),
+    import("@shikijs/langs/go"),
+    import("@shikijs/langs/rust"),
+    import("@shikijs/langs/yaml"),
+    import("@shikijs/langs/yml"),
+  ],
   engine: createOnigurumaEngine(() => import("shiki/wasm")),
 });
 
