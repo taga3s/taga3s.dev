@@ -8,6 +8,7 @@ const blogContentHeaderWrapper = css`
 const blogContentHeaderTitle = css`
   font-size: 28px;
   font-weight: bold;
+  line-height: 1.5;
 `;
 
 const blogContentHeaderDivider = css`
