@@ -1,11 +1,12 @@
 import { css } from "hono/css";
 
 const blogContentHeaderWrapper = css`
+  margin-top: 24px;
   margin-bottom: 32px;
 `;
 
 const blogContentHeaderTitle = css`
-  font-size: 32px;
+  font-size: 28px;
   font-weight: bold;
 `;
 
