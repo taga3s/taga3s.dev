@@ -13,8 +13,7 @@ imagesRoutes.use(
   }),
 );
 
-const getImageByKey = async (c: Context<ContextSet>): Promise<Response> => {
-  const key = c.req.param("key");
+const getImageByKey = async (c: Context<ContextSet>, key: string): Promise<Response> => {
   try {
     const object = await c.env.TAGA3S_DEV_BUCKET.get(`images/${key}`);
     if (!object) {
@@ -31,9 +30,9 @@ const getImageByKey = async (c: Context<ContextSet>): Promise<Response> => {
   }
 };
 
-imagesRoutes.get("/favorites/:key", async (c) => getImageByKey(c));
+imagesRoutes.get("/favorites/:key", async (c) => getImageByKey(c, `favorites/${c.req.param("key")}`));
 
-imagesRoutes.get("/blog/:key", async (c) => getImageByKey(c));
+imagesRoutes.get("/blog/:key", async (c) => getImageByKey(c, `blog/${c.req.param("key")}`));
 
 imagesRoutes.get("/og/:title", async (c) => {
   const title = c.req.param("title");
