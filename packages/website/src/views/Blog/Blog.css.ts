@@ -4,6 +4,7 @@ const blogWrapper = css`
   display: flex;
   flex-direction: column;
   gap: 32px;
+  width: 100%;
   margin-top: 28px;
 `;
 

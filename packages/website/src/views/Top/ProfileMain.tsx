@@ -8,7 +8,6 @@ const ProfileMain = () => {
       </div>
       <div class={profileMainBox}>
         <span class={profileMainName}>taga3s</span>
-        {/* <ul class={profileMainBelonging}></ul> */}
       </div>
     </div>
   );

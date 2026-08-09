@@ -20,7 +20,7 @@ import { TopPage } from "./views/Top/TopPage";
 const bodyLayout = css`
   display: grid;
   grid-template-rows: auto 1fr auto;
-  max-width: 640px;
+  max-width: 680px;
   min-height: 100vh;
   margin: 0 auto;
   padding: 16px 20px;
