@@ -223,6 +223,15 @@ catalogs:
     '@resvg/resvg-wasm':
       specifier: ^2.6.2
       version: 2.6.2
+    '@shikijs/langs':
+      specifier: ^4.0.0
+      version: 4.4.1
+    '@shikijs/rehype':
+      specifier: ^4.0.0
+      version: 4.4.1
+    '@shikijs/themes':
+      specifier: ^4.0.0
+      version: 4.4.1
     '@taga3s/atom-feed-composer':
       specifier: npm:@jsr/taga3s__atom-feed-composer@^0.1.1
       version: 0.1.1
@@ -250,9 +259,9 @@ catalogs:
     hono:
       specifier: ^4.12.10
       version: 4.12.33
-    jose:
-      specifier: ^6.2.2
-      version: 6.2.7
+    puppeteer:
+      specifier: ^25.0.0
+      version: 25.4.0
     react:
       specifier: ^19.2.7
       version: 19.2.8
@@ -289,6 +298,9 @@ catalogs:
     sharp:
       specifier: ^0.35.0
       version: 0.35.3
+    shiki:
+      specifier: ^4.0.0
+      version: 4.4.1
     unified:
       specifier: ^11.0.5
       version: 11.0.5
@@ -448,7 +460,7 @@ importers:
         version: 24.13.3
       jose:
         specifier: 'catalog:'
-        version: 6.2.7
+        version: 6.2.8
       vite-plus:
         specifier: 'catalog:'
         version: 0.2.7(@types/node@24.13.3)(esbuild@0.27.3)(jiti@1.21.7)(typescript@5.9.3)(vite@8.0.0(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.2)(@types/node@24.13.3)(esbuild@0.27.3)(jiti@1.21.7)(yaml@2.9.0))(yaml@2.9.0)
@@ -476,6 +488,9 @@ packages:
   '@aws-sdk/core@3.977.4':
     resolution: {integrity: sha512-CEkcQlMOQJCvul60U7wdAOACjtdgFWDsfJI+6wUOGdhGNV2lGbuJpi/R50QLpFG3Tp+sQxa/RmzC3X7KHbhuTA==}
     engines: {node: '>=20.0.0'}
+    deprecated: |-
+      Deprecated due to Document number parsing bug in JSON, see
+        https://github.com/aws/aws-sdk-js-v3/issues/8246. Newer version available.
 
   '@aws-sdk/credential-provider-env@3.972.65':
     resolution: {integrity: sha512-lJT2aRw9wCV8jPHyFJjdZLD4HTydL6/22AnCSOB8e/LqOc55nEJGLHkJQeSxhn8QiqyjFwPKQFtMw0ovjRUY/g==}
@@ -3160,8 +3175,8 @@ packages:
     resolution: {integrity: sha512-/imKNG4EbWNrVjoNC/1H5/9GFy+tqjGBHCaSsN+P2RnPqjsLmv6UD3Ej+Kj8nBWaRAwyk7kK5ZUc+OEatnTR3A==}
     hasBin: true
 
-  jose@6.2.7:
-    resolution: {integrity: sha512-hq1OB1bALKfydZNoViyg6hPVGV4i93ny9Op+n4zP5RSf7SCZEXa/TsG2O3IEr7+WlHRTPnpqDmHfMH6qXAD60w==}
+  jose@6.2.8:
+    resolution: {integrity: sha512-Bsdjwm3Qsd/P0jR+BHDe3LytDfY7WBq2HmCCLIwuVRHMuEC9ae7/R474GIUdF1NgCyZjzVo/A9DOiOBtXq8ZoQ==}
 
   jotai@2.20.1:
     resolution: {integrity: sha512-dnuKfU/GLi8B28RRMjQ3AfoN7kfzP8o41+AX2FmITZqEMY8PHnjABq+VkEooomLwYaGjda+pgy0yFSjaHX/ZPg==}
@@ -6572,7 +6587,7 @@ snapshots:
 
   jiti@1.21.7: {}
 
-  jose@6.2.7: {}
+  jose@6.2.8: {}
 
   jotai@2.20.1(@babel/template@7.29.7)(@types/react@19.2.18)(react@19.2.8):
     optionalDependencies:
