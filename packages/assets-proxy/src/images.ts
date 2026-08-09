@@ -1,4 +1,4 @@
-import { Hono } from "hono";
+import { Context, Hono } from "hono";
 import { cache } from "hono/cache";
 import { generateOGImage } from "./packages/og/generate";
 import type { ContextSet } from "./types";
@@ -13,9 +13,10 @@ imagesRoutes.use(
   }),
 );
 
-imagesRoutes.get("/favorites/:key", async (c) => {
+const getImageByKey = async (c: Context<ContextSet>): Promise<Response> => {
+  const key = c.req.param("key");
   try {
-    const object = await c.env.TAGA3S_DEV_BUCKET.get(`images/favorites/${c.req.param("key")}`);
+    const object = await c.env.TAGA3S_DEV_BUCKET.get(`images/${key}`);
     if (!object) {
       return c.notFound();
     }
@@ -28,7 +29,11 @@ imagesRoutes.get("/favorites/:key", async (c) => {
     console.error(error);
     return c.text("Internal Server Error", 500);
   }
-});
+};
+
+imagesRoutes.get("/favorites/:key", async (c) => getImageByKey(c));
+
+imagesRoutes.get("/blog/:key", async (c) => getImageByKey(c));
 
 imagesRoutes.get("/og/:title", async (c) => {
   const title = c.req.param("title");
