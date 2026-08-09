@@ -205,6 +205,9 @@ settings:
 
 catalogs:
   default:
+    '@aws-sdk/client-s3':
+      specifier: ^3.1090.0
+      version: 3.1106.0
     '@cloudflare/workers-types':
       specifier: ^5.20260711.1
       version: 5.20260711.1
@@ -220,6 +223,15 @@ catalogs:
     '@resvg/resvg-wasm':
       specifier: ^2.6.2
       version: 2.6.2
+    '@shikijs/langs':
+      specifier: ^4.0.0
+      version: 4.4.2
+    '@shikijs/rehype':
+      specifier: ^4.0.0
+      version: 4.4.2
+    '@shikijs/themes':
+      specifier: ^4.0.0
+      version: 4.4.2
     '@taga3s/atom-feed-composer':
       specifier: npm:@jsr/taga3s__atom-feed-composer@^0.1.1
       version: 0.1.1
@@ -244,9 +256,6 @@ catalogs:
     gunshi:
       specifier: ^0.37.0
       version: 0.37.1
-    hono:
-      specifier: ^4.12.10
-      version: 4.12.33
     jose:
       specifier: ^6.2.2
       version: 6.2.8
@@ -289,6 +298,9 @@ catalogs:
     sharp:
       specifier: ^0.35.0
       version: 0.35.3
+    shiki:
+      specifier: ^4.0.0
+      version: 4.4.2
     unified:
       specifier: ^11.0.5
       version: 11.0.5
@@ -317,7 +329,7 @@ importers:
     dependencies:
       hono:
         specifier: 'catalog:'
-        version: 4.12.33
+        version: 4.13.1
     devDependencies:
       '@cloudflare/workers-types':
         specifier: 'catalog:'
@@ -438,7 +450,7 @@ importers:
     dependencies:
       hono:
         specifier: 'catalog:'
-        version: 4.12.33
+        version: 4.13.1
     devDependencies:
       '@cloudflare/workers-types':
         specifier: 'catalog:'
@@ -3093,8 +3105,8 @@ packages:
     resolution: {integrity: sha512-Xwwo44whKBVCYoliBQwaPvtd/2tYFkRQtXDWj1nackaV2JPXx3L0+Jvd8/qCJ2p+ML0/XVkJ2q+Mr+UVdpJK5w==}
     engines: {node: '>=12.0.0'}
 
-  hono@4.12.33:
-    resolution: {integrity: sha512-+SwvkaiJtxsiPjhy9LivY/1m7UsNqCJetM1BrZl9A5DkQhlbHQDU730mMiDPWjnoCYOM8Chf3WrCJw27kNTPFQ==}
+  hono@4.13.1:
+    resolution: {integrity: sha512-kdJoFVv2xmayw6cY09H7AbMJMt8Jn5jdlEdXsP7AGBdF2DIptVlKlOLKXP41yPip4/a3yQPv9gVcJYI8YY04dw==}
     engines: {node: '>=16.9.0'}
 
   html-to-image@1.11.13:
@@ -6539,7 +6551,7 @@ snapshots:
 
   highlight.js@11.11.1: {}
 
-  hono@4.12.33: {}
+  hono@4.13.1: {}
 
   html-to-image@1.11.13: {}
 
