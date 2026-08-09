@@ -15,6 +15,7 @@ export const uploadCommand: Command = define({
       type: "boolean",
       short: "p",
       description: "Upload environment is preview or not",
+      default: false
     },
   },
 });
