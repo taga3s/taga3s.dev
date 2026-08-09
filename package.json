@@ -5,8 +5,6 @@
   "scripts": {
     "dev:website": "pnpm --filter=@taga3s-dev/website dev",
     "dev:assets-proxy": "pnpm --filter=@taga3s-dev/assets-proxy dev",
-    "build:website": "pnpm --filter=@taga3s-dev/website build",
-    "build:assets-proxy": "pnpm --filter=@taga3s-dev/assets-proxy build",
     "test:website": "pnpm --filter=@taga3s-dev/website test"
   },
   "devDependencies": {
