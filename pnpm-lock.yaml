@@ -256,9 +256,12 @@ catalogs:
     gunshi:
       specifier: ^0.37.0
       version: 0.37.1
-    jose:
-      specifier: ^6.2.2
-      version: 6.2.8
+    hono:
+      specifier: ^4.12.10
+      version: 4.13.1
+    puppeteer:
+      specifier: ^25.0.0
+      version: 25.5.0
     react:
       specifier: ^19.2.7
       version: 19.2.8
@@ -457,7 +460,7 @@ importers:
         version: 24.13.3
       jose:
         specifier: 'catalog:'
-        version: 6.2.8
+        version: 6.2.9
       vite-plus:
         specifier: 'catalog:'
         version: 0.2.8(@types/node@24.13.3)(esbuild@0.27.3)(jiti@1.21.7)(typescript@5.9.3)(vite@8.0.0(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.2)(@types/node@24.13.3)(esbuild@0.27.3)(jiti@1.21.7)(yaml@2.9.0))(yaml@2.9.0)
@@ -3169,8 +3172,8 @@ packages:
     resolution: {integrity: sha512-/imKNG4EbWNrVjoNC/1H5/9GFy+tqjGBHCaSsN+P2RnPqjsLmv6UD3Ej+Kj8nBWaRAwyk7kK5ZUc+OEatnTR3A==}
     hasBin: true
 
-  jose@6.2.8:
-    resolution: {integrity: sha512-Bsdjwm3Qsd/P0jR+BHDe3LytDfY7WBq2HmCCLIwuVRHMuEC9ae7/R474GIUdF1NgCyZjzVo/A9DOiOBtXq8ZoQ==}
+  jose@6.2.9:
+    resolution: {integrity: sha512-XrchZOFZUl/T3vTwRe8XK+cJrGtMF4th1ARnDfwbBXFKThGhlsxEE4Zu03AD/bjJSt/9jT/mxrOCkJWOg77aPA==}
 
   jotai@2.20.1:
     resolution: {integrity: sha512-dnuKfU/GLi8B28RRMjQ3AfoN7kfzP8o41+AX2FmITZqEMY8PHnjABq+VkEooomLwYaGjda+pgy0yFSjaHX/ZPg==}
@@ -6585,7 +6588,7 @@ snapshots:
 
   jiti@1.21.7: {}
 
-  jose@6.2.8: {}
+  jose@6.2.9: {}
 
   jotai@2.20.1(@babel/template@7.29.7)(@types/react@19.2.18)(react@19.2.8):
     optionalDependencies:
