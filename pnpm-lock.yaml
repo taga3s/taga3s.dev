@@ -256,9 +256,9 @@ catalogs:
     gunshi:
       specifier: ^0.37.0
       version: 0.37.1
-    hono:
-      specifier: ^4.12.10
-      version: 4.13.1
+    jose:
+      specifier: ^6.2.2
+      version: 6.2.9
     puppeteer:
       specifier: ^25.0.0
       version: 25.5.0
@@ -329,7 +329,7 @@ importers:
     dependencies:
       hono:
         specifier: 'catalog:'
-        version: 4.13.1
+        version: 4.13.2
     devDependencies:
       '@cloudflare/workers-types':
         specifier: 'catalog:'
@@ -450,7 +450,7 @@ importers:
     dependencies:
       hono:
         specifier: 'catalog:'
-        version: 4.13.1
+        version: 4.13.2
     devDependencies:
       '@cloudflare/workers-types':
         specifier: 'catalog:'
@@ -3105,8 +3105,8 @@ packages:
     resolution: {integrity: sha512-Xwwo44whKBVCYoliBQwaPvtd/2tYFkRQtXDWj1nackaV2JPXx3L0+Jvd8/qCJ2p+ML0/XVkJ2q+Mr+UVdpJK5w==}
     engines: {node: '>=12.0.0'}
 
-  hono@4.13.1:
-    resolution: {integrity: sha512-kdJoFVv2xmayw6cY09H7AbMJMt8Jn5jdlEdXsP7AGBdF2DIptVlKlOLKXP41yPip4/a3yQPv9gVcJYI8YY04dw==}
+  hono@4.13.2:
+    resolution: {integrity: sha512-JydRilDRkYBQMt9qR9U92mXxmbGqsqSn/IKOrh4e7/gEbn+0zSr8igTu0obwJoNGN4sez28DIql7FBHWydoJpA==}
     engines: {node: '>=16.9.0'}
 
   html-to-image@1.11.13:
@@ -6539,7 +6539,7 @@ snapshots:
 
   highlight.js@11.11.1: {}
 
-  hono@4.13.1: {}
+  hono@4.13.2: {}
 
   html-to-image@1.11.13: {}
 
