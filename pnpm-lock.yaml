@@ -205,6 +205,9 @@ settings:
 
 catalogs:
   default:
+    '@aws-sdk/client-s3':
+      specifier: ^3.1090.0
+      version: 3.1111.0
     '@cloudflare/workers-types':
       specifier: ^5.20260711.1
       version: 5.20260711.1
@@ -253,12 +256,12 @@ catalogs:
     gunshi:
       specifier: ^0.37.0
       version: 0.37.1
-    hono:
-      specifier: ^4.12.10
-      version: 4.13.2
     jose:
       specifier: ^6.2.2
       version: 6.2.9
+    puppeteer:
+      specifier: ^25.0.0
+      version: 25.7.0
     react:
       specifier: ^19.2.7
       version: 19.2.8
@@ -326,7 +329,7 @@ importers:
     dependencies:
       hono:
         specifier: 'catalog:'
-        version: 4.13.2
+        version: 4.13.3
     devDependencies:
       '@cloudflare/workers-types':
         specifier: 'catalog:'
@@ -447,7 +450,7 @@ importers:
     dependencies:
       hono:
         specifier: 'catalog:'
-        version: 4.13.2
+        version: 4.13.3
     devDependencies:
       '@cloudflare/workers-types':
         specifier: 'catalog:'
@@ -3102,8 +3105,8 @@ packages:
     resolution: {integrity: sha512-Xwwo44whKBVCYoliBQwaPvtd/2tYFkRQtXDWj1nackaV2JPXx3L0+Jvd8/qCJ2p+ML0/XVkJ2q+Mr+UVdpJK5w==}
     engines: {node: '>=12.0.0'}
 
-  hono@4.13.2:
-    resolution: {integrity: sha512-JydRilDRkYBQMt9qR9U92mXxmbGqsqSn/IKOrh4e7/gEbn+0zSr8igTu0obwJoNGN4sez28DIql7FBHWydoJpA==}
+  hono@4.13.3:
+    resolution: {integrity: sha512-r8AO2mYHoLxSHkgafNeC/BXyb2vWRxD3jem4Ts+ptav8oTG5FIRifAjuJEmZI4bSvvc2ns0GxmIYiZnHqN3mMw==}
     engines: {node: '>=16.9.0'}
 
   html-to-image@1.11.13:
@@ -6536,7 +6539,7 @@ snapshots:
 
   highlight.js@11.11.1: {}
 
-  hono@4.13.2: {}
+  hono@4.13.3: {}
 
   html-to-image@1.11.13: {}
 
