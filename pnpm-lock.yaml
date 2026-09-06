@@ -247,12 +247,15 @@ catalogs:
     '@types/react':
       specifier: ^19.2.17
       version: 19.2.18
+    '@types/react-dom':
+      specifier: ^19.2.3
+      version: 19.2.7
     '@types/unist':
       specifier: ^3.0.3
       version: 3.0.3
-    gunshi:
-      specifier: ^0.37.0
-      version: 0.37.1
+    hono:
+      specifier: ^4.12.10
+      version: 4.13.7
     jose:
       specifier: ^6.2.2
       version: 6.2.10
@@ -396,7 +399,7 @@ importers:
         version: 3.0.3
       gunshi:
         specifier: 'catalog:'
-        version: 0.37.1
+        version: 0.37.2
       puppeteer:
         specifier: 'catalog:'
         version: 25.9.0
@@ -3059,8 +3062,8 @@ packages:
     resolution: {integrity: sha512-XxwI8EOhVQgWp6iDL+3b0r86f4d6AX6zSU55HfB4ydCEuXLXc5FcYeOu+nnGftS4TEju/11rt4KJPTMgbfmv4A==}
     engines: {node: '>=10.13.0'}
 
-  gunshi@0.37.1:
-    resolution: {integrity: sha512-C3t35z65PQpAHay/gzEu4J/7SNWXn2NhfC4RfZQPxyOqkPfDTizthxCPoSU48OazoVherCuCpFDKI1qcY425Gw==}
+  gunshi@0.37.2:
+    resolution: {integrity: sha512-pHsYEDSOxaNxSGIYiIYF11Lvc6OiEKw+IkfrLXRWj6bKzqI3noLX8QXOLqGTwPsM8amkpNoZG9tlpg8/4QG7MQ==}
     engines: {node: '>= 22'}
 
   hachure-fill@0.5.2:
@@ -6437,7 +6440,7 @@ snapshots:
     dependencies:
       is-glob: 4.0.3
 
-  gunshi@0.37.1: {}
+  gunshi@0.37.2: {}
 
   hachure-fill@0.5.2: {}
 
