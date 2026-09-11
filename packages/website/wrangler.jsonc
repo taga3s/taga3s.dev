@@ -7,7 +7,6 @@
   "assets": {
     "directory": "public"
   },
-  "preview_urls": true,
   "observability": {
     "logs": {
       "enabled": true
@@ -22,10 +21,18 @@
       "bucket_name": "taga3s-dev"
     }
   ],
+  "rules": [
+    {
+      "type": "Text",
+      "globs": ["**/*.ttf"],
+      "fallthrough": true
+    }
+  ],
   "routes": [
     {
       "pattern": "taga3s.dev",
       "custom_domain": true
     }
-  ]
+  ],
+  "preview_urls": true
 }

@@ -14,7 +14,12 @@
     "@cloudflare/workers-types": "catalog:",
     "@types/node": "catalog:",
     "jose": "catalog:",
+    "@resvg/resvg-js": "catalog:",
+    "@resvg/resvg-wasm": "catalog:",
+    "satori": "catalog:",
+    "sharp": "catalog:",
     "vite-plus": "catalog:",
+    "yoga-wasm-web": "catalog:",
     "wrangler": "catalog:"
   }
 }

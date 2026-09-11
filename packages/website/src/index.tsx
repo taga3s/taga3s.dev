@@ -16,6 +16,7 @@ import { HistoryPage } from "./views/History/HistoryPage";
 import { Footer } from "./views/shared/Footer";
 import { Header } from "./views/shared/Header";
 import { TopPage } from "./views/Top/TopPage";
+import { resourcesRoutes } from "./api/resources";
 
 const bodyLayout = css`
   display: grid;
@@ -188,5 +189,7 @@ app.get("/blog/:name{[a-zA-Z0-9-_]+}", async (c) => {
     return c.text("Internal Server Error", 500);
   }
 });
+
+app.route("/resources", resourcesRoutes)
 
 export default app;
