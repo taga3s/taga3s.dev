@@ -6,7 +6,6 @@ on:
       - main
     paths:
       - "packages/website/**"
-      - "packages/assets-proxy/**"
       - "packages/mdx-processor/**"
       - "assets/blog/**"
       - ".github/workflows/deploy.yaml"
@@ -16,7 +15,6 @@ jobs:
     runs-on: ubuntu-slim
     outputs:
       website-changed: ${{ steps.changes.outputs.website }}
-      assets-proxy-changed: ${{ steps.changes.outputs.assets-proxy }}
 
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -36,9 +34,6 @@ jobs:
               - *blog-assets
               - *mdx-processor
               - 'packages/website/**'
-            assets-proxy:
-              - *workflows
-              - 'packages/assets-proxy/**'
 
   run-mdx-processor:
     needs: [changes]
@@ -74,23 +69,3 @@ jobs:
         env:
           POLICY_AUD: ${{ secrets.CLOUDFLARE_ACCESS_AUD }}
           TEAM_DOMAIN: ${{ secrets.CLOUDFLARE_ACCESS_TEAM_DOMAIN }}
-
-  deploy-assets-proxy:
-    needs: [changes]
-    if: needs.changes.outputs.assets-proxy-changed
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-
-      - uses: $/.github/actions/setup-ci
-        with:
-          install-packages: "@taga3s-dev/assets-proxy"
-
-      - name: Publish to Cloudflare Workers
-        uses: cloudflare/wrangler-action@ebbaa1584979971c8614a24965b4405ff95890e0 # v4.0.0
-        with:
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          command: deploy --minify --config wrangler.jsonc
-          workingDirectory: ./packages/assets-proxy

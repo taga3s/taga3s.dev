@@ -6,7 +6,6 @@ on:
       - main
     paths:
       - "packages/website/**"
-      - "packages/assets-proxy/**"
       - "packages/mdx-processor/**"
       - "assets/blog/**"
       - ".github/workflows/versions-upload.yaml"
@@ -16,7 +15,6 @@ jobs:
     runs-on: ubuntu-slim
     outputs:
       website-changed: ${{ steps.changes.outputs.website }}
-      assets-proxy-changed: ${{ steps.changes.outputs.assets-proxy }}
 
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -36,9 +34,6 @@ jobs:
               - *blog-assets
               - *mdx-processor
               - 'packages/website/**'
-            assets-proxy:
-              - *workflows
-              - 'packages/assets-proxy/**'
 
   run-mdx-processor:
     needs: [changes]
@@ -80,38 +75,14 @@ jobs:
           POLICY_AUD: ${{ secrets.CLOUDFLARE_ACCESS_AUD }}
           TEAM_DOMAIN: ${{ secrets.CLOUDFLARE_ACCESS_TEAM_DOMAIN }}
 
-  upload-assets-proxy:
-    needs: [changes]
-    runs-on: ubuntu-latest
-    if: needs.changes.outputs.assets-proxy-changed == 'true'
-    outputs:
-      deployment-url: ${{ steps.upload.outputs.deployment-url }}
-
-    steps:
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-
-      - uses: $/.github/actions/setup-ci
-        with:
-          install-packages: "@taga3s-dev/assets-proxy"
-
-      - name: Upload to Cloudflare Workers
-        id: upload
-        uses: cloudflare/wrangler-action@ebbaa1584979971c8614a24965b4405ff95890e0 # v4.0.0
-        with:
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          command: versions upload --config wrangler.jsonc
-          workingDirectory: ./packages/assets-proxy
-
   comment-preview-urls:
-    needs: [upload-website, upload-assets-proxy]
+    needs: [upload-website]
     runs-on: ubuntu-slim
     if: >-
       ${{ 
         !cancelled() && 
         !failure() &&
-        (needs.upload-website.outputs.deployment-url != '' ||
-        needs.upload-assets-proxy.outputs.deployment-url != '')
+        (needs.upload-website.outputs.deployment-url != '')
       }}
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -120,7 +91,6 @@ jobs:
         uses: $/.github/actions/comment-preview-url
         with:
           website_deployment_url: ${{ needs.upload-website.outputs.deployment-url }}
-          images_worker_deployment_url: ${{ needs.upload-assets-proxy.outputs.deployment-url }}
           pr_number: ${{ github.event.pull_request.number }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
