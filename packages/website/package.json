@@ -12,9 +12,14 @@
   },
   "devDependencies": {
     "@cloudflare/workers-types": "catalog:",
+    "@resvg/resvg-js": "catalog:",
+    "@resvg/resvg-wasm": "catalog:",
     "@types/node": "catalog:",
     "jose": "catalog:",
+    "satori": "catalog:",
+    "sharp": "catalog:",
     "vite-plus": "catalog:",
-    "wrangler": "catalog:"
+    "wrangler": "catalog:",
+    "yoga-wasm-web": "catalog:"
   }
 }
