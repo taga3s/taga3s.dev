@@ -4,4 +4,4 @@ import { imagesRoutes } from "./images";
 
 export const resourcesRoutes = new Hono<ContextSet>();
 
-resourcesRoutes.route("/images", imagesRoutes)
+resourcesRoutes.route("/images", imagesRoutes);

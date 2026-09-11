@@ -190,6 +190,6 @@ app.get("/blog/:name{[a-zA-Z0-9-_]+}", async (c) => {
   }
 });
 
-app.route("/resources", resourcesRoutes)
+app.route("/resources", resourcesRoutes);
 
 export default app;
