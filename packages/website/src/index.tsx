@@ -172,7 +172,7 @@ app.get("/blog/:name{[a-zA-Z0-9-_]+}", async (c) => {
       <HTMLLayout
         title={post.title}
         description={post.title}
-        ogpImage={`https://taga3s-dev-assets-proxy.taga3s.workers.dev/api/images/og/${encodeURIComponent(post.title)}`}
+        ogpImage={`/resources/images/blog/og/${encodeURIComponent(post.title)}`}
       >
         <Header />
         <BlogContentPage

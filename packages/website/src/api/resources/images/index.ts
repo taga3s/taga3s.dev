@@ -24,34 +24,3 @@ const getImageByKey = async (c: Context<ContextSet>, key: string): Promise<Respo
 imagesRoutes.get("/favorites/:key", async (c) => getImageByKey(c, `favorites/${c.req.param("key")}`));
 
 imagesRoutes.get("/blog/:key", async (c) => getImageByKey(c, `blog/${c.req.param("key")}`));
-
-imagesRoutes.get("/og/:title", async (c) => {
-  const title = c.req.param("title");
-  if (!title) {
-    return c.notFound();
-  }
-
-  try {
-    const object = await c.env.TAGA3S_DEV_BUCKET.get(`images/og/${title}`);
-    if (object) {
-      const body = await object.arrayBuffer();
-      return c.body(body, 200, {
-        "Content-Type": object.httpMetadata?.contentType ?? "image/png",
-      });
-    }
-
-    const buffer = await generateOGImage(title);
-    await c.env.TAGA3S_DEV_BUCKET.put(`images/og/${title}`, buffer, {
-      httpMetadata: {
-        contentType: "image/png",
-      },
-    });
-
-    return c.body(buffer, 200, {
-      "Content-Type": "image/png",
-    });
-  } catch (error) {
-    console.error(error);
-    return c.text("Internal Server Error", 500);
-  }
-});
