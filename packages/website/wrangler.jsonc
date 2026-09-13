@@ -30,6 +30,14 @@
       "bucket_name": "taga3s-dev"
     }
   ],
+  "queues": {
+    "producers": [
+      {
+        "queue": "taga3s-dev-ops-hub",
+        "binding": "QUEUE_TAGA3S_DEV_OPS_HUB"
+      }
+    ]
+  },
   "rules": [
     {
       "type": "Text",
