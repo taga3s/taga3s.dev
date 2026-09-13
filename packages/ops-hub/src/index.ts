@@ -1,8 +1,8 @@
 import { Client, GatewayIntentBits } from "discord.js";
 
-const client = new Client({ intents: [GatewayIntentBits.Guilds] });
-
 const sendMessage = async (message: string, discordToken: string, discordChannelId: string) => {
+  const client = new Client({ intents: [GatewayIntentBits.Guilds] });
+
   try {
     const loginStatus = await client.login(discordToken);
     console.log(loginStatus);
