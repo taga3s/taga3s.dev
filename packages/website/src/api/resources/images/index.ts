@@ -1,5 +1,4 @@
 import { Context, Hono } from "hono";
-import { generateOGImage } from "./packages/og/generate";
 import { ContextSet } from "../../../type";
 
 export const imagesRoutes = new Hono<ContextSet>();
