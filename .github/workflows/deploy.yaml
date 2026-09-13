@@ -37,6 +37,7 @@ jobs:
               - *mdx-processor
               - 'packages/website/**'
             ops-hub:
+              - *workflows
               - 'packages/ops-hub/**'
 
   run-mdx-processor:
