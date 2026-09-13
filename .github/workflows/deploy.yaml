@@ -7,6 +7,7 @@ on:
     paths:
       - "packages/website/**"
       - "packages/mdx-processor/**"
+      - "packages/ops-hub/**"
       - "assets/blog/**"
       - ".github/workflows/deploy.yaml"
 
@@ -15,6 +16,7 @@ jobs:
     runs-on: ubuntu-slim
     outputs:
       website-changed: ${{ steps.changes.outputs.website }}
+      ops-hub-changed: ${{ steps.changes.outputs.ops-hub }}
 
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -34,6 +36,8 @@ jobs:
               - *blog-assets
               - *mdx-processor
               - 'packages/website/**'
+            ops-hub:
+              - 'packages/ops-hub/**'
 
   run-mdx-processor:
     needs: [changes]
@@ -69,3 +73,22 @@ jobs:
         env:
           POLICY_AUD: ${{ secrets.CLOUDFLARE_ACCESS_AUD }}
           TEAM_DOMAIN: ${{ secrets.CLOUDFLARE_ACCESS_TEAM_DOMAIN }}
+
+  deploy-ops-hub:
+    needs: [changes]
+    runs-on: ubuntu-latest
+    if: needs.changes.outputs.ops-hub-changed
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - uses: $/.github/actions/setup-ci
+        with:
+          install-packages: "@taga3s-dev/ops-hub"
+
+      - name: Publish to Cloudflare Workers
+        uses: cloudflare/wrangler-action@ebbaa1584979971c8614a24965b4405ff95890e0 # v4.0.0
+        with:
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          command: deploy --minify --config wrangler.jsonc
+          workingDirectory: ./packages/ops-hub
