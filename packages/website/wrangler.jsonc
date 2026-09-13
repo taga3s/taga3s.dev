@@ -19,6 +19,7 @@
       "enabled": true
     }
   },
+  "logpush": true,
   "r2_buckets": [
     {
       "binding": "TAGA3S_DEV_BUCKET",
