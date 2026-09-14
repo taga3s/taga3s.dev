@@ -12,44 +12,40 @@ on:
       - ".github/workflows/deploy.yaml"
 
 jobs:
-  changes:
+  paths-changes:
     runs-on: ubuntu-slim
     outputs:
-      website-changed: ${{ steps.changes.outputs.website }}
-      ops-hub-changed: ${{ steps.changes.outputs.ops-hub }}
+      website-changed: ${{ steps.paths-changes.outputs.website }}
+      ops-hub-changed: ${{ steps.paths-changes.outputs.ops-hub }}
 
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
       - uses: dorny/paths-filter@ceb8a2b8f2d89434be7ff52d3de7ec3738c5cc9d # v4.0.3
-        id: changes
+        id: paths-changes
         with:
           filters: |
             workflows: &workflows
               - '.github/workflows/deploy.yaml'
-            blog-assets: &blog-assets
-              - 'assets/blog/**'
-            mdx-processor: &mdx-processor
-              - 'packages/mdx-processor/**'
             website:
               - *workflows
-              - *blog-assets
-              - *mdx-processor
+              - 'assets/blog/**'
+              - 'packages/mdx-processor/**'
               - 'packages/website/**'
             ops-hub:
               - *workflows
               - 'packages/ops-hub/**'
 
   run-mdx-processor:
-    needs: [changes]
-    if: needs.changes.outputs.website-changed
+    needs: [paths-changes]
+    if: needs.paths-changes.outputs.website-changed == 'true'
     uses: $/.github/workflows/reusable_run-mdx-processor.yaml
     secrets: inherit
 
   deploy-website:
     needs: [run-mdx-processor]
     runs-on: ubuntu-latest
-    if: needs.changes.outputs.website-changed
+    if: needs.paths-changes.outputs.website-changed == 'true'
 
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -76,9 +72,9 @@ jobs:
           TEAM_DOMAIN: ${{ secrets.CLOUDFLARE_ACCESS_TEAM_DOMAIN }}
 
   deploy-ops-hub:
-    needs: [changes]
+    needs: [paths-changes]
     runs-on: ubuntu-latest
-    if: needs.changes.outputs.ops-hub-changed
+    if: needs.paths-changes.outputs.ops-hub-changed == 'true'
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
