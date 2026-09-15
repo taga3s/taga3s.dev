@@ -1,37 +1,26 @@
-import { Client, GatewayIntentBits } from "discord.js";
-
-const sendMessage = async (message: string, discordToken: string, discordChannelId: string) => {
-  const client = new Client({ intents: [GatewayIntentBits.Guilds] });
-
-  try {
-    const loginStatus = await client.login(discordToken);
-    console.log(loginStatus);
-
-    await new Promise((resolve) => client.once("ready", resolve));
-
-    const channel = await client.channels.fetch(discordChannelId);
-    if (channel && channel.isTextBased() && channel.isSendable()) {
-      await channel.send(`test: ${message}`);
-    }
-  } catch (e) {
-    console.error(e);
-  } finally {
-    await client.destroy();
-  }
-};
-
 interface Env {
-  DISCORD_TOKEN: SecretsStoreSecret;
-  DISCORD_CHANNEL_ID: SecretsStoreSecret;
+  DISCORD_WEBHOOK_URL: SecretsStoreSecret;
 }
+
+const sendMessage = async (env: Env, message: string) => {
+  const DISCORD_WEBHOOK_URL = await env.DISCORD_WEBHOOK_URL.get();
+
+  const res = await fetch(DISCORD_WEBHOOK_URL, {
+    headers: { "Content-Type": "application/json" },
+    method: "POST",
+    body: JSON.stringify({ content: message }),
+  });
+
+  if (!res.ok) {
+    const raw = await res.json();
+    throw new Error(`[${res.status}] ${raw}`);
+  }
+
+  console.log("Successfully post a message to Discord channel");
+};
 
 export default {
   async queue(batch, env, _ctx): Promise<void> {
-    const DISCORD_TOKEN = await env.DISCORD_TOKEN.get();
-    const DISCORD_CHANNEL_ID = await env.DISCORD_CHANNEL_ID.get();
-
-    for (const message of batch.messages) {
-      sendMessage(JSON.stringify(message.body), DISCORD_TOKEN, DISCORD_CHANNEL_ID);
-    }
+    await Promise.all(batch.messages.map((msg) => sendMessage(env, JSON.stringify(msg.body))));
   },
 } satisfies ExportedHandler<Env>;

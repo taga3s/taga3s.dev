@@ -15,14 +15,9 @@
   },
 	"secrets_store_secrets": [
 		{
-			"binding": "DISCORD_TOKEN",
+			"binding": "DISCORD_WEBHOOK_URL",
 			"store_id": "555db262e2a04edea88d0e38293f16ae",
-			"secret_name": "DISCORD_TOKEN"
-		},
-		{
-			"binding": "DISCORD_CHANNEL_ID",
-			"store_id": "555db262e2a04edea88d0e38293f16ae",
-			"secret_name": "DISCORD_CHANNEL_ID"
+			"secret_name": "DISCORD_WEBHOOK_URL"
 		}
 	],
 	"queues": {
