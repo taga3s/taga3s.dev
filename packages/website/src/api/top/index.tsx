@@ -6,9 +6,9 @@ import { Footer } from "../../views/shared/Footer";
 import { TopPage } from "../../views/Top/TopPage";
 import photos from "../../data/photos/data.json";
 
-export const indexRoutes = new Hono<ContextSet>();
+export const topRoutes = new Hono<ContextSet>();
 
-indexRoutes.get("/", (c) => {
+topRoutes.get("/", (c) => {
   return c.render(
     <HTMLLayout title="taga3s-dev">
       <Header />
