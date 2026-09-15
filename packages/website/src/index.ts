@@ -6,7 +6,7 @@ import type { ContextSet } from "./type";
 import { resourcesRoutes } from "./api/resources";
 import { blogRoutes } from "./api/blog";
 import { historyRoutes } from "./api/history";
-import { indexRoutes } from "./api/top";
+import { topRoutes } from "./api/top";
 
 const app = new Hono<ContextSet>();
 
@@ -17,14 +17,14 @@ app.use(verifyPreview());
 app.get(
   "*",
   cache({
-    cacheName: "taga3s-dev-cache",
+    cacheName: "global",
     cacheControl: "max-age=3600",
     cacheableStatusCodes: [200, 404],
     vary: ["X-TAGA3S-ENV"], // maybe
   }),
 );
 
-app.route("/", indexRoutes);
+app.route("/", topRoutes);
 app.route("/history", historyRoutes);
 app.route("/blog", blogRoutes);
 app.route("/resources", resourcesRoutes);
