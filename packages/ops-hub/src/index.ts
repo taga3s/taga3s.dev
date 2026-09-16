@@ -17,8 +17,8 @@ const sendMessage = async (env: Env, message: Message) => {
   console.log("Successfully post a message to Discord channel");
 };
 
-const convertMessageByType = (jsonStr: string): Message | undefined => {
-  const parsed = JSON.parse(jsonStr) as CfDevelopmentCreated;
+const convertMessageByType = (rawJson: unknown): Message | undefined => {
+  const parsed = rawJson as CfDevelopmentCreated;
 
   if (parsed.type === "cf.workers.script.deployment.created") {
     const versionIdShort = parsed.payload.versions[0].versionId.slice(0, 8);
@@ -43,4 +43,4 @@ export default {
       }),
     );
   },
-} satisfies ExportedHandler<Env, string>;
+} satisfies ExportedHandler<Env, unknown>;
