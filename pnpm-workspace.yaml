@@ -13,8 +13,6 @@ catalog:
   "@cloudflare/workers-types": ^5.20260711.1
   "@mdx-js/mdx": ^3.1.1
   "@mermaid-js/mermaid-cli": ^11.4.2
-  "@resvg/resvg-js": ^2.6.2
-  "@resvg/resvg-wasm": ^2.6.2
   "@shikijs/langs": ^4.0.0
   "@shikijs/rehype": ^4.0.0
   "@shikijs/themes": ^4.0.0
@@ -41,9 +39,9 @@ catalog:
   remark-parse: ^11.0.0
   remark-rehype: ^11.1.2
   remark-stringify: ^11.0.0
-  satori: ^0.33.0
-  sharp: ^0.35.0
+  satori: ^0.32.0
   shiki: ^4.0.0
+  svg2png-wasm: ^1.4.1
   typescript: 7.0.2
   unified: ^11.0.5
   unist-util-visit: ^5.0.0

@@ -1,5 +1,5 @@
 {
-  "name": "@taga3s-dev/website",
+  "name": "@taga3s-dev/blog-engine",
   "version": "1.0.0",
   "type": "module",
   "scripts": {
@@ -8,12 +8,17 @@
     "test": "vp test run"
   },
   "dependencies": {
-    "hono": "catalog:"
+    "satori": "catalog:",
+    "svg2png-wasm": "catalog:",
+    "yoga-wasm-web": "catalog:"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "catalog:",
     "@types/node": "catalog:",
-    "jose": "catalog:",
+    "@types/react": "catalog:",
+    "react": "catalog:",
+    "react-dom": "catalog:",
+    "typescript": "catalog:",
     "vite-plus": "catalog:",
     "wrangler": "catalog:"
   }

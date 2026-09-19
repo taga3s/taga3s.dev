@@ -13,6 +13,12 @@
       "enabled": true
     }
   },
+	"services": [
+		{
+			"binding": "BLOG_ENGINE",
+			"service": "taga3s-dev-blog-engine"
+		}
+	],
 	"secrets_store_secrets": [
 		{
 			"binding": "DISCORD_WEBHOOK_URL",

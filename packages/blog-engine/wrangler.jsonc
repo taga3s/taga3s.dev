@@ -1,0 +1,23 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "taga3s-dev-blog-engine",
+  "main": "./src/index.ts",
+  "compatibility_date": "2026-07-15",
+  "compatibility_flags": ["nodejs_compat"],
+  "observability": {
+    "logs": {
+      "enabled": true,
+      "invocation_logs": true
+    },
+    "traces": {
+      "enabled": true
+    }
+  },
+  "r2_buckets": [
+    {
+      "binding": "TAGA3S_DEV_BUCKET",
+      "bucket_name": "taga3s-dev"
+    }
+  ],
+  "preview_urls": false
+}
