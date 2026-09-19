@@ -1,7 +1,12 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 
-export const getFileContents = async (pathdir: string): Promise<{ origName: string; content: string }[]> => {
+export interface FileContent {
+  origName: string;
+  content: string;
+}
+
+export const getFileContents = async (pathdir: string): Promise<FileContent[]> => {
   const filePaths = await fs.readdir(pathdir, { withFileTypes: true });
 
   const fileContents: { origName: string; content: string }[] = [];
