@@ -1,5 +1,5 @@
 {
-  "name": "@taga3s-dev/ops-hub",
+  "name": "@taga3s-dev/dispatcher",
   "version": "1.0.0",
   "type": "module",
   "scripts": {
