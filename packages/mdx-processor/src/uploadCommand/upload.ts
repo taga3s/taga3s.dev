@@ -23,7 +23,7 @@ export const uploadCommand: Command = define({
 export const uploadProcessor = async (): Promise<CommandRunner<GunshiParams<{ args: typeof uploadCommand.args }>>> => {
   const config = getR2Config();
 
-  const S3 = new S3Client({
+  const R2 = new S3Client({
     region: "auto",
     endpoint: `https://${config.accountId}.r2.cloudflarestorage.com`,
     credentials: {
@@ -39,21 +39,20 @@ export const uploadProcessor = async (): Promise<CommandRunner<GunshiParams<{ ar
     }
 
     const blogKeyPrefix = preview ? "blog/preview" : "blog";
-
-    const fileContents = await getFileContents(pathdir);
+    const contents = await getFileContents(pathdir);
 
     try {
       // Currently support `upload` only
       await Promise.all(
-        fileContents.map(async (fc) => {
+        contents.map(async (c) => {
           const command = new PutObjectCommand({
             Bucket: config.bucketNm,
-            Body: fc.content,
-            Key: `${blogKeyPrefix}/${fc.origName}`,
+            Body: c.content,
+            Key: `${blogKeyPrefix}/${c.origName}`,
             ContentType: "application/json",
           });
-          await S3.send(command);
-          console.log(`Successfully uploaded to r2 bucket. Key: ${blogKeyPrefix}/${fc.origName}`);
+          await R2.send(command);
+          console.log(`Successfully uploaded to r2 bucket. Key: ${blogKeyPrefix}/${c.origName}`);
         }),
       );
     } catch (err) {
