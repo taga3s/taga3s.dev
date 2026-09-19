@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "strict": true,
+    "skipLibCheck": true,
+    "lib": ["ESNext", "DOM"],
+    "types": ["vite-plus/client", "vite-plus/test/globals", "@cloudflare/workers-types"],
+    "jsx": "react-jsx"
+  },
+  "include": ["**/*.ts", "**/*.tsx", "./vite.config.ts"]
+}
