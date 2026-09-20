@@ -17,6 +17,7 @@
     "@taga3s/atom-feed-composer": "catalog:",
     "satori": "catalog:",
     "svg2png-wasm": "catalog:",
+    "valibot": "catalog:",
     "yoga-wasm-web": "catalog:"
   },
   "devDependencies": {

@@ -244,6 +244,9 @@ importers:
       svg2png-wasm:
         specifier: 'catalog:'
         version: 1.4.1
+      valibot:
+        specifier: 'catalog:'
+        version: 1.5.0(typescript@7.0.2)
       yoga-wasm-web:
         specifier: 'catalog:'
         version: 0.3.3
