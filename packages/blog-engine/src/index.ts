@@ -2,7 +2,7 @@ import { WorkerEntrypoint } from "cloudflare:workers";
 import { createOgp } from "./create-ogp";
 import { BlogOutItem, Env, OutGenerate, Undefinable } from "./types";
 
-const R2_BASE_KEY = "images/blog/og";
+const R2_BASE_KEY = "images/og";
 const OGP_RESOURCES_BASE_URL = "https://taga3s.dev/resources";
 
 export class OGPEntrypoint extends WorkerEntrypoint<Env> {
