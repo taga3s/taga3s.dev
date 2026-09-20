@@ -23,3 +23,5 @@ const getImageByKey = async (c: Context<ContextSet>, key: string): Promise<Respo
 imagesRoutes.get("/favorites/:key", async (c) => getImageByKey(c, `favorites/${c.req.param("key")}`));
 
 imagesRoutes.get("/blog/:key", async (c) => getImageByKey(c, `blog/${c.req.param("key")}`));
+
+imagesRoutes.get("/og/:key", async (c) => getImageByKey(c, `og/${c.req.param("key")}`));
