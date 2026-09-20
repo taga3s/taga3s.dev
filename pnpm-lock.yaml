@@ -321,9 +321,6 @@ importers:
       '@shikijs/themes':
         specifier: 'catalog:'
         version: 4.4.3
-      '@taga3s/atom-feed-composer':
-        specifier: 'catalog:'
-        version: '@jsr/taga3s__atom-feed-composer@0.1.1'
       '@types/hast':
         specifier: 'catalog:'
         version: 3.0.5

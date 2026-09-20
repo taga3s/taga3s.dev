@@ -14,6 +14,7 @@
     "test": "vp test run"
   },
   "dependencies": {
+    "@taga3s/atom-feed-composer": "catalog:",
     "satori": "catalog:",
     "svg2png-wasm": "catalog:",
     "yoga-wasm-web": "catalog:"
