@@ -17,3 +17,12 @@ topRoutes.get("/", (c) => {
     </HTMLLayout>,
   );
 });
+
+topRoutes.get("/atom.xml", async (c) => {
+  const object = await c.env.TAGA3S_DEV_BUCKET.get("atom.xml");
+  if (!object) {
+    return c.notFound();
+  }
+
+  return new Response(object.body);
+});
