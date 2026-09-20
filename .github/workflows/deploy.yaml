@@ -6,7 +6,7 @@ on:
       - main
     paths:
       - "packages/website/**"
-      - "packages/mdx-processor/**"
+      - "packages/mdx2json/**"
       - "packages/dispatcher/**"
       - "packages/blog-engine/**"
       - "assets/blog/**"
@@ -32,7 +32,7 @@ jobs:
             website:
               - *workflows
               - 'assets/blog/**'
-              - 'packages/mdx-processor/**'
+              - 'packages/mdx2json/**'
               - 'packages/website/**'
             dispatcher:
               - *workflows
@@ -41,10 +41,10 @@ jobs:
               - *workflows
               - 'packages/blog-engine/**'
 
-  run-mdx-processor:
+  run-mdx2json:
     needs: [paths-changes]
     if: needs.paths-changes.outputs.website-changed == 'true'
-    uses: $/.github/workflows/reusable_run-mdx-processor.yaml
+    uses: $/.github/workflows/reusable-mdx2json.yaml
     secrets: inherit
 
   deploy-website:

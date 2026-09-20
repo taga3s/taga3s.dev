@@ -1,4 +1,4 @@
-name: Reusable workflow for running mdx-processor
+name: Reusable workflow for running mdx2json
 
 on:
   workflow_call:
@@ -18,14 +18,14 @@ jobs:
 
       - uses: $/.github/actions/setup-ci
         with:
-          install-packages: "@taga3s-dev/mdx-processor"
+          install-packages: "@taga3s-dev/mdx2json"
 
       - name: Generate blog data from assets
         env:
           PATHDIR: ${{ github.workspace }}/assets/blog
         run: |
           mkdir -p /tmp/blog
-          vp run --filter "@taga3s-dev/mdx-processor" exec run --pathdir="$PATHDIR" --outdir=/tmp/blog
+          vp run --filter "@taga3s-dev/mdx2json" exec run --pathdir="$PATHDIR" --outdir=/tmp/blog
 
       - name: Upload blog data to Cloudflare R2
         env:
@@ -35,7 +35,7 @@ jobs:
           CLOUDFLARE_SECRET_ACCESS_KEY: ${{ secrets.CLOUDFLARE_R2_SECRET_ACCESS_KEY }}
         run: |
           if [ "$IS_PREVIEW" = "true" ]; then
-            vp run --filter "@taga3s-dev/mdx-processor" exec upload --pathdir=/tmp/blog --preview
+            vp run --filter "@taga3s-dev/mdx2json" exec upload --pathdir=/tmp/blog --preview
           else
-            vp run --filter "@taga3s-dev/mdx-processor" exec upload --pathdir=/tmp/blog
+            vp run --filter "@taga3s-dev/mdx2json" exec upload --pathdir=/tmp/blog
           fi

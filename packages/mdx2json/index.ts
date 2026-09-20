@@ -1,26 +1,23 @@
 import { cli, lazy } from "gunshi";
 import { postRunningBrowser } from "./src/config.ts";
-import { genatomCommand, genatomProcessor } from "./src/genatomCommand/genatom.ts";
 import { runCommand, runProcessor } from "./src/runCommand/run.ts";
 import { uploadCommand, uploadProcessor } from "./src/uploadCommand/upload.ts";
 
 const runLazyProcess = lazy(runProcessor, runCommand);
-const genatomProcess = lazy(genatomProcessor, genatomCommand);
 const uploadProcess = lazy(uploadProcessor, uploadCommand);
 
 const subCommands = {
   [runLazyProcess.commandName!]: runLazyProcess,
-  [genatomProcess.commandName!]: genatomProcess,
   [uploadProcess.commandName!]: uploadProcess,
 };
 
 await cli(
   process.argv.slice(2),
   {
-    description: "mdx-processor processes .mdx to convert to other formats, such as .html",
+    description: "mdx2json processes .mdx to convert to other formats, such as .html",
   },
   {
-    name: "mdx-processor",
+    name: "mdx2json",
     version: "1.0.0",
     subCommands,
     onAfterCommand: async () => {

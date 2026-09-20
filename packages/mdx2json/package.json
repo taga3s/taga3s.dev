@@ -1,5 +1,5 @@
 {
-  "name": "@taga3s-dev/mdx-processor",
+  "name": "@taga3s-dev/mdx2json",
   "version": "1.0.0",
   "type": "module",
   "main": "index.ts",
