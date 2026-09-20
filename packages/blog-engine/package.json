@@ -1,20 +1,29 @@
 {
-  "name": "@taga3s-dev/dispatcher",
+  "name": "@taga3s-dev/blog-engine",
   "version": "1.0.0",
   "type": "module",
+  "exports": {
+    ".": {
+      "types": "./src/index.ts",
+      "import": "./src/index.ts"
+    }
+  },
   "scripts": {
     "dev": "wrangler dev",
     "deploy": "wrangler deploy --minify",
     "test": "vp test run"
   },
   "dependencies": {
-    "@taga3s-dev/blog-engine": "workspace:*",
-    "discord.js": "catalog:",
-    "valibot": "catalog:"
+    "satori": "catalog:",
+    "svg2png-wasm": "catalog:",
+    "yoga-wasm-web": "catalog:"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "catalog:",
     "@types/node": "catalog:",
+    "@types/react": "catalog:",
+    "react": "catalog:",
+    "react-dom": "catalog:",
     "typescript": "catalog:",
     "vite-plus": "catalog:",
     "wrangler": "catalog:"

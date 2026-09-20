@@ -13,6 +13,13 @@
       "enabled": true
     }
   },
+	"services": [
+		{
+			"binding": "BLOG_ENGINE_OGP",
+			"service": "taga3s-dev-blog-engine",
+			"entrypoint": "OGPEntrypoint"
+		}
+	],
 	"secrets_store_secrets": [
 		{
 			"binding": "DISCORD_WEBHOOK_URL",

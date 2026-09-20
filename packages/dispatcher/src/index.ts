@@ -1,36 +1,24 @@
-import type { Env, Message } from "./types";
-
-const sendMessage = async (env: Env, message: Message) => {
-  const DISCORD_WEBHOOK_URL = await env.DISCORD_WEBHOOK_URL.get();
-
-  const res = await fetch(DISCORD_WEBHOOK_URL, {
-    headers: { "Content-Type": "application/json" },
-    method: "POST",
-    body: JSON.stringify({ content: message.body }),
-  });
-
-  if (!res.ok) {
-    const raw = await res.json();
-    throw new Error(`[${res.status}] ${raw}`);
-  }
-
-  console.log("Successfully post a message to Discord channel");
-};
-
-const convertMessageByType = (rawJson: unknown): Message | undefined => {
-  return {
-    type: "test",
-    body: JSON.stringify(rawJson),
-    date: "hogehoge",
-  };
-};
+import { convertToEvent } from "./converter";
+import { sendMessage, toDiscordMessage } from "./messenger";
+import type { Env } from "./types";
 
 export default {
   async queue(batch, env, _ctx): Promise<void> {
+    const webhookUrl = await env.DISCORD_WEBHOOK_URL.get();
+
     for (const msg of batch.messages) {
-      const converted = convertMessageByType(msg.body);
-      if (converted) {
-        await sendMessage(env, converted);
+      const event = convertToEvent(msg.body);
+      if (event?.type === "blog.updated") {
+        const result = await env.BLOG_ENGINE_OGP.generate();
+        if (result === undefined || result.blogUrls.length === 0) {
+          console.log("No new blog ogp generated.");
+          return;
+        }
+
+        await sendMessage(
+          webhookUrl,
+          toDiscordMessage(":bell: ブログの OGP が準備できたよ。確認してね。", result.blogUrls),
+        );
       }
     }
   },
