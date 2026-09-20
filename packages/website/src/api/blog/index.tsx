@@ -61,11 +61,7 @@ blogRoutes.get("/:name{[a-zA-Z0-9-_]+}", async (c) => {
     };
 
     return c.render(
-      <HTMLLayout
-        title={post.title}
-        description={post.title}
-        ogpImage={`/resources/images/blog/og/${encodeURIComponent(post.title)}`}
-      >
+      <HTMLLayout title={post.title} description={post.title} ogpImage={`/resources/images/og/${post.id}`}>
         <Header />
         <BlogContentPage
           title={post.title}
