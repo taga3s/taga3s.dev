@@ -29,7 +29,7 @@ export default {
     for (const msg of batch.messages) {
       const event = convertToEvent(msg.body);
       if (event?.type === "blog.updated") {
-        dispatchBlogUpdate(env, webhookUrl);
+        await dispatchBlogUpdate(env, webhookUrl);
       }
     }
   },
