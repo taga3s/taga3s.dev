@@ -8,6 +8,7 @@ on:
       - "packages/website/**"
       - "packages/mdx-processor/**"
       - "packages/dispatcher/**"
+      - "packages/blog-engine/**"
       - "assets/blog/**"
       - ".github/workflows/deploy.yaml"
 
@@ -17,6 +18,7 @@ jobs:
     outputs:
       website-changed: ${{ steps.paths-changes.outputs.website }}
       dispatcher-changed: ${{ steps.paths-changes.outputs.dispatcher }}
+      blog-engine-changed: ${{ steps.paths-changes.outputs.blog-engine }}
 
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -35,6 +37,9 @@ jobs:
             dispatcher:
               - *workflows
               - 'packages/dispatcher/**'
+            blog-engine:
+              - *workflows
+              - 'packages/blog-engine/**'
 
   run-mdx-processor:
     needs: [paths-changes]
@@ -89,3 +94,22 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           command: deploy --minify --config wrangler.jsonc
           workingDirectory: ./packages/dispatcher
+
+  deploy-blog-engine:
+    needs: [paths-changes]
+    runs-on: ubuntu-latest
+    if: needs.paths-changes.outputs.blog-engine-changed == 'true'
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - uses: $/.github/actions/setup-ci
+        with:
+          install-packages: "@taga3s-dev/blog-engine"
+
+      - name: Publish to Cloudflare Workers
+        uses: cloudflare/wrangler-action@ebbaa1584979971c8614a24965b4405ff95890e0 # v4.0.0
+        with:
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          command: deploy --minify --config wrangler.jsonc
+          workingDirectory: ./packages/blog-engine
