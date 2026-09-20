@@ -5,8 +5,7 @@ export interface Env {
   BLOG_ENGINE_OGP: Service<OGPEntrypoint>;
 }
 
-export interface Message {
+export interface DispatchEvent {
   type: "blog.updated";
-  body: string;
   date: string;
 }

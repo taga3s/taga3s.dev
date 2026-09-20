@@ -3,7 +3,7 @@ export interface Env {
 }
 
 export interface OutGenerate {
-  ogpUrls: string[];
+  blogUrls: string[];
 }
 
 export interface BlogOutItem {

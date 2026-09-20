@@ -1,5 +1,5 @@
 import * as v from "valibot";
-import { Message } from "./types";
+import { DispatchEvent } from "./types";
 
 const BlogUpdatedEventSchema = v.object({
   account: v.string(),
@@ -15,12 +15,11 @@ const BlogUpdatedEventSchema = v.object({
 
 // type BlogUpdatedEventData = v.InferOutput<typeof BlogUpdatedEventSchema>;
 
-export const convertToMessage = (rawJson: unknown): Message | undefined => {
+export const convertToEvent = (rawJson: unknown): DispatchEvent | undefined => {
   const parsed = v.safeParse(BlogUpdatedEventSchema, rawJson);
   if (parsed.success) {
     return {
       type: "blog.updated",
-      body: `Blog updated, dispatched by creation of ${parsed.output.object.key}`,
       date: parsed.output.eventTime,
     };
   }

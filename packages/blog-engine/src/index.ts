@@ -3,7 +3,7 @@ import { createOgp } from "./create-ogp";
 import { BlogOutItem, Env, OutGenerate, Undefinable } from "./types";
 
 const R2_BASE_KEY = "images/og";
-const OGP_RESOURCES_BASE_URL = "https://taga3s.dev/resources";
+const BLOG_BASE_URL = "https://taga3s.dev/blog";
 
 export class OGPEntrypoint extends WorkerEntrypoint<Env> {
   async generate(): Promise<Undefinable<OutGenerate>> {
@@ -13,7 +13,7 @@ export class OGPEntrypoint extends WorkerEntrypoint<Env> {
     }
 
     const blogOuts = (await rawBlogOuts.json()) as BlogOutItem[];
-    const generatedOGPUrls: string[] = [];
+    const blogUrls: string[] = [];
 
     for (const item of blogOuts) {
       const ogp = await createOgp(this.ctx, item.title);
@@ -27,12 +27,13 @@ export class OGPEntrypoint extends WorkerEntrypoint<Env> {
         await this.env.TAGA3S_DEV_BUCKET.put(key, ogp, {
           httpMetadata: { contentType: "image/png" },
         });
-        generatedOGPUrls.push(`${OGP_RESOURCES_BASE_URL}/${key}`);
+
+        blogUrls.push(`${BLOG_BASE_URL}/${item.id}`);
         console.log("Successfuly uploaded OGP Image to R2");
       }
     }
 
-    return { ogpUrls: generatedOGPUrls };
+    return { blogUrls: blogUrls };
   }
 }
 
