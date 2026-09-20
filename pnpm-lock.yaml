@@ -212,6 +212,9 @@ catalogs:
     unist-util-visit:
       specifier: ^5.0.0
       version: 5.1.0
+    valibot:
+      specifier: ^1.5.0
+      version: 1.5.0
     vite-plus:
       specifier: ^0.3.0
       version: 0.3.0
@@ -269,9 +272,15 @@ importers:
 
   packages/dispatcher:
     dependencies:
+      '@taga3s-dev/blog-engine':
+        specifier: workspace:*
+        version: link:../blog-engine
       discord.js:
         specifier: 'catalog:'
         version: 14.27.0
+      valibot:
+        specifier: 'catalog:'
+        version: 1.5.0(typescript@7.0.2)
     devDependencies:
       '@cloudflare/workers-types':
         specifier: 'catalog:'
@@ -3920,6 +3929,14 @@ packages:
   uuid@14.0.2:
     resolution: {integrity: sha512-xZe/16rV4aa+HGSOCiY2YeLT1OybRLrrkL/Rqaq7p7GMVXjFh+6wN4oMYgjFmnSnhY8t6Xpdl2l9qmnHYuMHwQ==}
     hasBin: true
+
+  valibot@1.5.0:
+    resolution: {integrity: sha512-nil6AkP2TChWL43Z5uJ6GTxX01CUA+g8LWUM+N/rB9NBbkUMaUsi9PUNzlUPgoKASgmx9f7eGOYpJ04/fSa6FQ==}
+    peerDependencies:
+      typescript: '>=5'
+    peerDependenciesMeta:
+      typescript:
+        optional: true
 
   vfile-location@5.0.3:
     resolution: {integrity: sha512-5yXvWDEgqeiYiBe1lbxYF7UMAIm/IcopxMHrMQDq3nvKcjPKIhZklUKL+AE7J7uApI4kwe2snsK+eI6UTj9EHg==}
@@ -7869,6 +7886,10 @@ snapshots:
   util-deprecate@1.0.2: {}
 
   uuid@14.0.2: {}
+
+  valibot@1.5.0(typescript@7.0.2):
+    optionalDependencies:
+      typescript: 7.0.2
 
   vfile-location@5.0.3:
     dependencies:

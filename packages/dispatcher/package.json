@@ -8,7 +8,9 @@
     "test": "vp test run"
   },
   "dependencies": {
-    "discord.js": "catalog:"
+    "@taga3s-dev/blog-engine": "workspace:*",
+    "discord.js": "catalog:",
+    "valibot": "catalog:"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "catalog:",

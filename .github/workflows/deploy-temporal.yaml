@@ -22,7 +22,7 @@ jobs:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           command: deploy --minify --config wrangler.jsonc
-          workingDirectory: ./packages/dispatcher\
+          workingDirectory: ./packages/dispatcher
 
   deploy-blog-engine:
     runs-on: ubuntu-latest
