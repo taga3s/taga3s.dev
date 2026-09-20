@@ -8,5 +8,7 @@ Monorepo for https://taga3s.dev.
 
 | name                            | description                                                                    |
 | ------------------------------- | ------------------------------------------------------------------------------ |
-| [website](./packages/website)   | My Website built on Hono and Cf Workers                                        |     |
-| [mdx2json](./packages/mdx2json) | CLI tool to convert `.mdx` to `.json` built with [gunshi](https://gunshi.dev/) |
+| [website](./packages/website)   | Worker to deliver website                                  |
+| [dispatcher](./packages/dispatcher) | Worker to handle events and dispatch asynchronous call |
+| [blog-engine](./packages/blog-engine/) | Worker to generate blog assets (OGP Images and RSS feed) |
+| [mdx2json](./packages/mdx2json) | CLI to convert `.mdx` to `.json` |
