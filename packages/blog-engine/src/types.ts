@@ -2,7 +2,7 @@ export interface Env {
   TAGA3S_DEV_BUCKET: R2Bucket;
 }
 
-export interface OutGenerate {
+export interface OutGenerateOGP {
   blogUrls: string[];
 }
 

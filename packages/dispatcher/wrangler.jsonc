@@ -18,6 +18,11 @@
 			"binding": "BLOG_ENGINE_OGP",
 			"service": "taga3s-dev-blog-engine",
 			"entrypoint": "OGPEntrypoint"
+		},
+		{
+			"binding": "BLOG_ENGINE_RSS",
+			"service": "taga3s-dev-blog-engine",
+			"entrypoint": "RSSEntrypoint"
 		}
 	],
 	"secrets_store_secrets": [

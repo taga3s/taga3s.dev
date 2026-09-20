@@ -1,12 +1,13 @@
 import { WorkerEntrypoint } from "cloudflare:workers";
 import { createOgp } from "./create-ogp";
-import { BlogOutItem, Env, OutGenerate, Undefinable } from "./types";
+import { BlogOutItem, Env, OutGenerateOGP, Undefinable } from "./types";
+import { createAtom } from "./create-atom";
 
 const R2_BASE_KEY = "images/og";
 const BLOG_BASE_URL = "https://taga3s.dev/blog";
 
 export class OGPEntrypoint extends WorkerEntrypoint<Env> {
-  async generate(): Promise<Undefinable<OutGenerate>> {
+  async generate(): Promise<Undefinable<OutGenerateOGP>> {
     const rawBlogOuts = await this.env.TAGA3S_DEV_BUCKET.get("blog/outs.json");
     if (!rawBlogOuts) {
       return;
@@ -34,6 +35,24 @@ export class OGPEntrypoint extends WorkerEntrypoint<Env> {
     }
 
     return { blogUrls: blogUrls };
+  }
+}
+
+export class RSSEntrypoint extends WorkerEntrypoint<Env> {
+  async generate(): Promise<Undefinable<void>> {
+    try {
+      const rawBlogOuts = await this.env.TAGA3S_DEV_BUCKET.get("blog/outs.json");
+      if (!rawBlogOuts) {
+        return;
+      }
+
+      const blogOuts = (await rawBlogOuts.json()) as BlogOutItem[];
+      const atomRss = createAtom(blogOuts);
+      await this.env.TAGA3S_DEV_BUCKET.put("atom.xml", atomRss);
+      console.log("Successfuly uploaded atom.xml to R2");
+    } catch (error) {
+      console.error("Something went wrong while generating atom rss", error);
+    }
   }
 }
 
