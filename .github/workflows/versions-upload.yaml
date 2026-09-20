@@ -40,7 +40,7 @@ jobs:
     secrets: inherit
 
   upload-website:
-    needs: [run-mdx-processor]
+    needs: [paths-changes]
     runs-on: ubuntu-latest
     if: needs.paths-changes.outputs.website-changed == 'true'
     outputs:
@@ -52,12 +52,6 @@ jobs:
       - uses: $/.github/actions/setup-ci
         with:
           install-packages: "@taga3s-dev/website"
-
-      - name: Download Artifacts
-        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
-        with:
-          name: atom.xml
-          path: ${{ github.workspace }}/packages/website/public
 
       - name: Upload to Cloudflare Workers
         id: upload
