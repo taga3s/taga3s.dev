@@ -6,7 +6,7 @@ Monorepo for https://taga3s.dev.
 
 ## 📌 packages
 
-| name                                      | description                                                              |
-| ----------------------------------------- | ------------------------------------------------------------------------ |
-| [website](./packages/website)             | My Website built on Hono and Cf Workers                                  |     |
-| [mdx-processor](./packages/mdx-processor) | CLI tool to processes MDX files built with [gunshi](https://gunshi.dev/) |
+| name                            | description                                                                    |
+| ------------------------------- | ------------------------------------------------------------------------------ |
+| [website](./packages/website)   | My Website built on Hono and Cf Workers                                        |     |
+| [mdx2json](./packages/mdx2json) | CLI tool to convert `.mdx` to `.json` built with [gunshi](https://gunshi.dev/) |

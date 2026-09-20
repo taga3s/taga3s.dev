@@ -14,10 +14,10 @@ const subCommands = {
 await cli(
   process.argv.slice(2),
   {
-    description: "mdx-processor processes .mdx to convert to other formats, such as .html",
+    description: "mdx2json processes .mdx to convert to other formats, such as .html",
   },
   {
-    name: "mdx-processor",
+    name: "mdx2json",
     version: "1.0.0",
     subCommands,
     onAfterCommand: async () => {

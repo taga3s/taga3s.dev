@@ -235,6 +235,9 @@ importers:
 
   packages/blog-engine:
     dependencies:
+      '@taga3s/atom-feed-composer':
+        specifier: 'catalog:'
+        version: '@jsr/taga3s__atom-feed-composer@0.1.1'
       satori:
         specifier: 'catalog:'
         version: 0.32.0
@@ -298,7 +301,7 @@ importers:
         specifier: 'catalog:'
         version: 4.110.0(@cloudflare/workers-types@5.20260711.1)
 
-  packages/mdx-processor:
+  packages/mdx2json:
     devDependencies:
       '@aws-sdk/client-s3':
         specifier: 'catalog:'
