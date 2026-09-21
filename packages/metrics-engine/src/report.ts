@@ -46,7 +46,7 @@ const ReportQueryReponseSchema = v.object({
   }),
 });
 
-type ReportQueryReponse = v.InferOutput<typeof ReportQueryReponseSchema>;
+export type ReportQueryReponse = v.InferOutput<typeof ReportQueryReponseSchema>;
 
 export interface WeeklyReport {
   httpStatusRatio: {
@@ -93,7 +93,7 @@ export const createWeeklyReport = (rawData: unknown): Undefinable<WeeklyReport> 
   };
 };
 
-const aggregateHttpRequests = (
+export const aggregateHttpRequests = (
   queriedData: ReportQueryReponse,
 ): {
   totalCount: number;
@@ -123,7 +123,7 @@ const aggregateHttpRequests = (
   return aggregated;
 };
 
-const aggregateCacheGroups = (
+export const aggregateCacheGroups = (
   queriedData: ReportQueryReponse,
 ): {
   totalCount: number;

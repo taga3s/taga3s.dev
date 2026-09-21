@@ -18,3 +18,5 @@ jobs:
       - run: vp fmt --check
 
       - run: vp lint
+
+      - run: vp test
