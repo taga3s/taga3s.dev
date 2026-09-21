@@ -9,6 +9,7 @@ on:
       - "packages/mdx2json/**"
       - "packages/dispatcher/**"
       - "packages/blog-engine/**"
+      - "packages/metrics-engine/**"
       - "assets/blog/**"
       - ".github/workflows/deploy.yaml"
 
@@ -19,6 +20,7 @@ jobs:
       website-changed: ${{ steps.paths-changes.outputs.website }}
       dispatcher-changed: ${{ steps.paths-changes.outputs.dispatcher }}
       blog-engine-changed: ${{ steps.paths-changes.outputs.blog-engine }}
+      metrics-engine-changed: ${{ steps.paths-changes.outputs.metrics-engine }}
 
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -40,6 +42,9 @@ jobs:
             blog-engine:
               - *workflows
               - 'packages/blog-engine/**'
+            metrics-engine:
+              - *workflows
+              - 'packages/metrics-engine/**'
 
   run-mdx2json:
     needs: [paths-changes]
@@ -107,3 +112,22 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           command: deploy --minify --config wrangler.jsonc
           workingDirectory: ./packages/blog-engine
+
+  deploy-metrics-engine:
+    needs: [paths-changes]
+    runs-on: ubuntu-latest
+    if: needs.paths-changes.outputs.metrics-engine-changed == 'true'
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - uses: $/.github/actions/setup-ci
+        with:
+          install-packages: "@taga3s-dev/metrics-engine"
+
+      - name: Publish to Cloudflare Workers
+        uses: cloudflare/wrangler-action@ebbaa1584979971c8614a24965b4405ff95890e0 # v4.0.0
+        with:
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          command: deploy --minify --config wrangler.jsonc
+          workingDirectory: ./packages/metrics-engine
