@@ -1,5 +1,5 @@
 import { convertToEvent } from "./converter";
-import { sendMessage, toDiscordMessage } from "./messenger";
+import { formatBlogUrls, formatWeeklyReport, sendMessage } from "./messenger";
 import type { Env } from "./types";
 
 const dispatchBlogUpdate = async (env: Env, webhookUrl: string) => {
@@ -11,10 +11,7 @@ const dispatchBlogUpdate = async (env: Env, webhookUrl: string) => {
         return;
       }
 
-      await sendMessage(
-        webhookUrl,
-        toDiscordMessage(":bell: ブログの OGP が準備できたよ。確認してね。", result.blogUrls),
-      );
+      await sendMessage(webhookUrl, formatBlogUrls(result.blogUrls));
     })(),
     (async () => {
       await env.BLOG_ENGINE_RSS.generate();
@@ -32,5 +29,20 @@ export default {
         await dispatchBlogUpdate(env, webhookUrl);
       }
     }
+  },
+  async scheduled(controller, env, _ctx) {
+    const webhookUrl = await env.DISCORD_WEBHOOK_URL.get();
+
+    const current = new Date(controller.scheduledTime);
+    const currentTime = current.toISOString();
+    const origin = new Date(current.setDate(current.getDate() - 7));
+    const originTime = origin.toISOString();
+
+    const report = await env.METRICS_ENGINE_REPORTER.create({ start: originTime, end: currentTime });
+    if (!report) {
+      return;
+    }
+
+    await sendMessage(webhookUrl, formatWeeklyReport(report));
   },
 } satisfies ExportedHandler<Env, unknown>;

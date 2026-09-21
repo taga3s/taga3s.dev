@@ -1,0 +1,25 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "taga3s-dev-metrics-engine",
+  "main": "./src/index.ts",
+  "compatibility_date": "2026-09-08",
+  "compatibility_flags": ["nodejs_compat"],
+  "observability": {
+    "logs": {
+      "enabled": true,
+      "invocation_logs": true
+    },
+    "traces": {
+      "enabled": true
+    }
+  },
+	"secrets_store_secrets": [
+		{
+			"binding": "TAGA3S_DEV_WEBSITE_READ_TOKEN",
+			"store_id": "555db262e2a04edea88d0e38293f16ae",
+			"secret_name": "TAGA3S_DEV_WEBSITE_READ_TOKEN"
+		}
+	],
+  "preview_urls": false,
+  "workers_dev": false
+}

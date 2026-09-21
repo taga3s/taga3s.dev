@@ -23,6 +23,11 @@
 			"binding": "BLOG_ENGINE_RSS",
 			"service": "taga3s-dev-blog-engine",
 			"entrypoint": "RSSEntrypoint"
+		},
+		{
+			"binding": "METRICS_ENGINE_REPORTER",
+			"service": "taga3s-dev-metrics-engine",
+			"entrypoint": "ReporterEntrypoint"
 		}
 	],
 	"secrets_store_secrets": [
@@ -41,5 +46,11 @@
 			}
 		]
 	},
-  "preview_urls": false
+	"triggers": {
+		"crons": [
+			"0 */6 * * *"
+		]
+	},
+  "preview_urls": false,
+  "workers_dev": false
 }
