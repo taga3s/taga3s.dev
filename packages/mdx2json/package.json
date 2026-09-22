@@ -4,9 +4,9 @@
   "type": "module",
   "main": "index.ts",
   "scripts": {
-    "run:local": "node ./index.ts run --pathdir=../../assets/blog --outdir=./tmp",
-    "genatom:local": "node ./index.ts genatom --pathdir=../../assets/blog --outdir=./tmp",
-    "exec": "node ./index.ts",
+    "run:local": "node ./src/index.ts run --pathdir=../../assets/blog --outdir=./tmp",
+    "genatom:local": "node ./src/index.ts genatom --pathdir=../../assets/blog --outdir=./tmp",
+    "exec": "node ./src/index.ts",
     "install-puppeteer": "puppeteer browsers install chrome"
   },
   "devDependencies": {

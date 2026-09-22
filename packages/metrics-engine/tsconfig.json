@@ -5,9 +5,8 @@
     "moduleResolution": "Bundler",
     "strict": true,
     "skipLibCheck": true,
-    "lib": ["ESNext", "DOM"],
-    "types": ["vite-plus/client", "vite-plus/test/globals", "@cloudflare/workers-types"],
-    "jsx": "react-jsx"
+    "lib": ["ESNext"],
+    "types": ["vite-plus/client", "vite-plus/test/globals", "@cloudflare/workers-types"]
   },
-  "include": ["**/*.ts", "**/*.tsx", "./vite.config.ts"]
+  "include": ["src/**/*.ts"]
 }
