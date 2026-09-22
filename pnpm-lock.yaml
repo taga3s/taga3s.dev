@@ -326,9 +326,6 @@ importers:
       react-dom:
         specifier: 'catalog:'
         version: 19.2.8(react@19.2.8)
-      tsdown:
-        specifier: 'catalog:'
-        version: 0.23.0(typescript@7.0.2)
       typescript:
         specifier: 'catalog:'
         version: 7.0.2
@@ -360,9 +357,6 @@ importers:
       '@types/node':
         specifier: 'catalog:'
         version: 24.13.3
-      tsdown:
-        specifier: 'catalog:'
-        version: 0.23.0(typescript@7.0.2)
       typescript:
         specifier: 'catalog:'
         version: 7.0.2
@@ -472,9 +466,6 @@ importers:
       '@types/node':
         specifier: 'catalog:'
         version: 24.13.3
-      tsdown:
-        specifier: 'catalog:'
-        version: 0.23.0(typescript@7.0.2)
       typescript:
         specifier: 'catalog:'
         version: 7.0.2

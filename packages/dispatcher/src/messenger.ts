@@ -1,4 +1,4 @@
-import { WeeklyReport } from "@taga3s-dev/metrics-engine";
+import { WeeklyReport } from "../../metrics-engine/src";
 
 interface EmbedField {
   name: string;
