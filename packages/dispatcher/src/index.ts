@@ -1,7 +1,7 @@
 import { OGPEntrypoint, RSSEntrypoint } from "@taga3s-dev/blog-engine";
-import { ReporterEntrypoint } from "@taga3s-dev/metrics-engine";
 import { convertToDispatchEvent } from "./event-converter";
 import { formatBlogUrls, formatWeeklyReport, sendMessage } from "./messenger";
+import { ReporterEntrypoint } from "../../metrics-engine/src";
 
 interface Env {
   DISCORD_WEBHOOK_URL: SecretsStoreSecret;
