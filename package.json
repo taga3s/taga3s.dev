@@ -2,10 +2,6 @@
   "name": "taga3s-dev",
   "version": "1.0.0",
   "type": "module",
-  "scripts": {
-    "dev:website": "pnpm --filter=@taga3s-dev/website dev",
-    "test:website": "pnpm --filter=@taga3s-dev/website test"
-  },
   "devDependencies": {
     "vite-plus": "catalog:"
   },
