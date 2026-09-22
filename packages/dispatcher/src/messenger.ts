@@ -1,20 +1,5 @@
 import { WeeklyReport } from "../../metrics-engine/src";
 
-export const sendMessage = async (webhookUrl: string, message: WebhookMessage) => {
-  const res = await fetch(webhookUrl, {
-    headers: { "Content-Type": "application/json" },
-    method: "POST",
-    body: JSON.stringify(message),
-  });
-
-  if (!res.ok) {
-    const raw = await res.json();
-    throw new Error(`[${res.status}] ${JSON.stringify(raw)}`);
-  }
-
-  console.log("Successfully post a message to Discord channel");
-};
-
 interface EmbedField {
   name: string;
   value: string;
@@ -53,6 +38,21 @@ interface WebhookMessage {
   content?: string;
   embeds?: Embed[];
 }
+
+export const sendMessage = async (webhookUrl: string, message: WebhookMessage) => {
+  const res = await fetch(webhookUrl, {
+    headers: { "Content-Type": "application/json" },
+    method: "POST",
+    body: JSON.stringify(message),
+  });
+
+  if (!res.ok) {
+    const raw = await res.json();
+    throw new Error(`[${res.status}] ${JSON.stringify(raw)}`);
+  }
+
+  console.log("Successfully post a message to Discord channel");
+};
 
 export const formatBlogUrls = (list: string[]): WebhookMessage => {
   const content = `

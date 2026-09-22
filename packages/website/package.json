@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "wrangler dev",
     "deploy": "wrangler deploy --minify",
+    "build": "tsdown",
     "test": "vp test run"
   },
   "dependencies": {
@@ -14,6 +15,8 @@
     "@cloudflare/workers-types": "catalog:",
     "@types/node": "catalog:",
     "jose": "catalog:",
+    "tsdown": "catalog:",
+    "typescript": "catalog:",
     "vite-plus": "catalog:",
     "wrangler": "catalog:"
   }

@@ -1,6 +1,14 @@
-import { convertToEvent } from "./converter";
+import { OGPEntrypoint, RSSEntrypoint } from "@taga3s-dev/blog-engine";
+import { convertToDispatchEvent } from "./event-converter";
 import { formatBlogUrls, formatWeeklyReport, sendMessage } from "./messenger";
-import type { Env } from "./types";
+import { ReporterEntrypoint } from "../../metrics-engine/src";
+
+interface Env {
+  DISCORD_WEBHOOK_URL: SecretsStoreSecret;
+  BLOG_ENGINE_OGP: Service<OGPEntrypoint>;
+  BLOG_ENGINE_RSS: Service<RSSEntrypoint>;
+  METRICS_ENGINE_REPORTER: Service<ReporterEntrypoint>;
+}
 
 const invokeBlogEngine = async (env: Env, webhookUrl: string) => {
   await Promise.all([
@@ -38,7 +46,7 @@ export default {
     const webhookUrl = await env.DISCORD_WEBHOOK_URL.get();
 
     for (const msg of batch.messages) {
-      const event = convertToEvent(msg.body);
+      const event = convertToDispatchEvent(msg.body);
       if (event?.type === "blog.updated") {
         await invokeBlogEngine(env, webhookUrl);
       }

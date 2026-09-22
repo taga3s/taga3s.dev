@@ -40,6 +40,7 @@ catalog:
   satori: ^0.32.0
   shiki: ^4.0.0
   svg2png-wasm: ^1.4.1
+  tsdown: ^0.23.0
   typescript: 7.0.2
   unified: ^11.0.5
   unist-util-visit: ^5.0.0

@@ -1,6 +1,10 @@
 import { WorkerEntrypoint } from "cloudflare:workers";
-import { Env, Undefinable } from "./types";
+import { Undefinable } from "./types";
 import { createWeeklyReport, reportQuery, WeeklyReport } from "./report";
+
+interface Env {
+  TAGA3S_DEV_WEBSITE_READ_TOKEN: SecretsStoreSecret;
+}
 
 const API_BASE_URL = "https://api.cloudflare.com/client/v4/graphql";
 const ZONE_ID = "73d4589686f1d129ef6b911acc067420";

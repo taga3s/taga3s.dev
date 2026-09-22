@@ -1,7 +1,12 @@
 import * as v from "valibot";
-import { DispatchEvent } from "./types";
 
-const BlogUpdatedEventSchema = v.object({
+type DispatchEventKind = BlogUpdatedEvent;
+interface BlogUpdatedEvent {
+  type: "blog.updated";
+  date: string;
+}
+
+const IncomingBlogUpdatedEventSchema = v.object({
   account: v.string(),
   bucket: v.string(),
   eventTime: v.string(),
@@ -13,10 +18,8 @@ const BlogUpdatedEventSchema = v.object({
   }),
 });
 
-// type BlogUpdatedEventData = v.InferOutput<typeof BlogUpdatedEventSchema>;
-
-export const convertToEvent = (rawJson: unknown): DispatchEvent | undefined => {
-  const parsed = v.safeParse(BlogUpdatedEventSchema, rawJson);
+export const convertToDispatchEvent = (rawJson: unknown): DispatchEventKind | undefined => {
+  const parsed = v.safeParse(IncomingBlogUpdatedEventSchema, rawJson);
   if (!parsed.success) {
     console.log(`Invalid event received, ${JSON.stringify(rawJson)}`);
     return undefined;

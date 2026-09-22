@@ -1,7 +1,7 @@
 import { type AtomNode, c, xmlRoot } from "@taga3s/atom-feed-composer";
-import { BlogOutItem } from "./types";
+import { BlogOut } from "./validate";
 
-export const createAtom = (blogOuts: BlogOutItem[]): string => {
+export const createAtom = (blogOuts: BlogOut): string => {
   const entries: AtomNode[] = [];
 
   for (const item of blogOuts) {
