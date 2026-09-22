@@ -3,18 +3,18 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "wrangler dev",
-    "deploy": "wrangler deploy --minify",
+    "dev": "wrangler dev ./dist/index.mjs --no-bundle",
+    "deploy": "wrangler deploy ./dist/index.mjs --no-bundle",
     "build": "tsdown",
     "test": "vp test run"
   },
   "dependencies": {
-    "hono": "catalog:"
+    "hono": "catalog:",
+    "jose": "catalog:"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "catalog:",
     "@types/node": "catalog:",
-    "jose": "catalog:",
     "tsdown": "catalog:",
     "typescript": "catalog:",
     "vite-plus": "catalog:",
