@@ -24,7 +24,7 @@ query RequestsAndDataTransferByHostname($zoneTag: string, $filter: ZoneHttpReque
 }
 `;
 
-const ReportQueryReponseSchema = v.object({
+export const ReportQueryReponseSchema = v.object({
   data: v.object({
     viewer: v.object({
       zones: v.array(

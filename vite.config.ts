@@ -2,7 +2,7 @@ import { defineConfig } from "vite-plus";
 
 export default defineConfig({
   test: {
-    globals: true,
+    projects: ["packages/*"],
   },
   fmt: {
     printWidth: 120,
@@ -11,10 +11,10 @@ export default defineConfig({
   },
   lint: {
     ignorePatterns: ["packages/**/dist/**", "packages/**/wrangler.jsonc"],
-    // options: {
-    //   typeAware: true,
-    //   typeCheck: true,
-    // },
+    options: {
+      typeAware: true,
+      typeCheck: true,
+    },
   },
   staged: {
     "*.{js,ts,jsx,tsx,css}": ["vp run format", "vp run lint"],

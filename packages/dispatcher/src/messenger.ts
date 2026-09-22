@@ -9,7 +9,7 @@ export const sendMessage = async (webhookUrl: string, message: WebhookMessage) =
 
   if (!res.ok) {
     const raw = await res.json();
-    throw new Error(`[${res.status}] ${raw}`);
+    throw new Error(`[${res.status}] ${JSON.stringify(raw)}`);
   }
 
   console.log("Successfully post a message to Discord channel");

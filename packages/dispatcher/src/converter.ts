@@ -17,14 +17,13 @@ const BlogUpdatedEventSchema = v.object({
 
 export const convertToEvent = (rawJson: unknown): DispatchEvent | undefined => {
   const parsed = v.safeParse(BlogUpdatedEventSchema, rawJson);
-  if (parsed.success) {
-    return {
-      type: "blog.updated",
-      date: parsed.output.eventTime,
-    };
+  if (!parsed.success) {
+    console.log(`Invalid event received, ${JSON.stringify(rawJson)}`);
+    return undefined;
   }
 
-  console.log(`Invalid event received`, rawJson);
-
-  return undefined;
+  return {
+    type: "blog.updated",
+    date: parsed.output.eventTime,
+  };
 };

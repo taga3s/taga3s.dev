@@ -1,4 +1,5 @@
-import { aggregateCacheGroups, aggregateHttpRequests, ReportQueryReponse } from "./report";
+import * as v from "valibot";
+import { aggregateCacheGroups, aggregateHttpRequests, ReportQueryReponse, ReportQueryReponseSchema } from "./report";
 
 const MOCK_DATA = {
   data: {
@@ -72,6 +73,13 @@ const MOCK_DATA = {
   },
   errors: null,
 };
+
+describe("v.safeParse", () => {
+  it("parses successfully", () => {
+    const parsed = v.safeParse(ReportQueryReponseSchema, MOCK_DATA);
+    expect(parsed.success).toBe(true);
+  });
+});
 
 describe("aggregate funcs", () => {
   it("aggregateHttpRequests: should return expected value", () => {
