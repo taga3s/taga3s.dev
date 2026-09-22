@@ -2,6 +2,11 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "taga3s-dev-dispatcher",
   "main": "./src/index.ts",
+  "build": {
+    "command": "pnpm build",
+    "cwd": "./",
+    "watch_dir": "./src"
+  },
   "compatibility_date": "2026-09-08",
   "compatibility_flags": ["nodejs_compat"],
   "observability": {
@@ -48,7 +53,7 @@
 	},
 	"triggers": {
 		"crons": [
-			"0 */6 * * *"
+			"0 */12 * * *"
 		]
 	},
   "preview_urls": false,

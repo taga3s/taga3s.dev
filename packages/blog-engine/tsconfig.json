@@ -7,7 +7,9 @@
     "skipLibCheck": true,
     "lib": ["ESNext"],
     "types": ["vite-plus/client", "vite-plus/test/globals", "@cloudflare/workers-types"],
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "rootDir": ".",
+    "outDir": "./dist"
   },
   "include": ["src/**/*.ts", "src/**/*.tsx"]
 }

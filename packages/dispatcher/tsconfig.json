@@ -6,7 +6,9 @@
     "strict": true,
     "skipLibCheck": true,
     "lib": ["ESNext"],
-    "types": ["vite-plus/client", "vite-plus/test/globals", "@cloudflare/workers-types"]
+    "types": ["vite-plus/client", "vite-plus/test/globals", "@cloudflare/workers-types"],
+    "rootDir": ".",
+    "outDir": "./dist"
   },
   "include": ["src/**/*.ts"]
 }
