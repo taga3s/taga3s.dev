@@ -481,6 +481,9 @@ importers:
       hono:
         specifier: 'catalog:'
         version: 4.13.7
+      jose:
+        specifier: 'catalog:'
+        version: 6.2.12
     devDependencies:
       '@cloudflare/workers-types':
         specifier: 'catalog:'
@@ -488,9 +491,6 @@ importers:
       '@types/node':
         specifier: 'catalog:'
         version: 24.13.3
-      jose:
-        specifier: 'catalog:'
-        version: 6.2.12
       tsdown:
         specifier: 'catalog:'
         version: 0.23.0(typescript@7.0.2)

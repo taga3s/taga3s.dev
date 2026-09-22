@@ -69,7 +69,7 @@ jobs:
         with:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          command: deploy --minify --config wrangler.jsonc
+          command: deploy ./dist/index.mjs --no-bundle --config wrangler.jsonc
           workingDirectory: ./packages/website
         env:
           POLICY_AUD: ${{ secrets.CLOUDFLARE_ACCESS_AUD }}
