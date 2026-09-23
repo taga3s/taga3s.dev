@@ -15,9 +15,9 @@
   },
 	"secrets_store_secrets": [
 		{
-			"binding": "TAGA3S_DEV_WEBSITE_READ_TOKEN",
+			"binding": "TAGA3S_DEV_ACCOUNT_ZONE_READ_TOKEN",
 			"store_id": "555db262e2a04edea88d0e38293f16ae",
-			"secret_name": "TAGA3S_DEV_WEBSITE_READ_TOKEN"
+			"secret_name": "TAGA3S_DEV_ACCOUNT_ZONE_READ_TOKEN"
 		},
 		{
 			"binding": "ZONE_ID",
