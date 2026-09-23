@@ -1,7 +1,7 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "taga3s-dev-website",
-  "main": "./src/index.ts",
+  "main": "./dist/index.mjs",
   "build": {
     "command": "pnpm build",
     "cwd": "./",
@@ -34,6 +34,26 @@
       "bucket_name": "taga3s-dev"
     }
   ],
+  "previews": {
+    "r2_buckets": [
+      {
+        "binding": "TAGA3S_DEV_BUCKET",
+        "bucket_name": "taga3s-dev"
+      }
+    ],
+    "secrets_store_secrets": [
+  		{
+  			"binding": "CLOUDFLARE_ACCESS_AUD",
+  			"store_id": "555db262e2a04edea88d0e38293f16ae",
+  			"secret_name": "CLOUDFLARE_ACCESS_AUD"
+  		}
+	  ],
+    "vars": {
+      "TEAM_DOMAIN": "https://taga3s-dev.cloudflareaccess.com",
+      "WORKERS_ENV": "preview"
+    }
+  },
+  "preview_urls": true,
   "rules": [
     {
       "type": "Text",
@@ -47,5 +67,4 @@
       "custom_domain": true
     }
   ],
-  "preview_urls": true
 }

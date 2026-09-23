@@ -1,4 +1,4 @@
-name: versions-upload
+name: deploy-preview
 
 on:
   pull_request:
@@ -8,7 +8,8 @@ on:
       - "packages/website/**"
       - "packages/mdx2json/**"
       - "assets/blog/**"
-      - ".github/workflows/versions-upload.yaml"
+      - ".github/workflows/deploy-preview.yaml"
+    types: [opened, synchronize, reopened, closed]
 
 jobs:
   paths-changes:
@@ -24,7 +25,7 @@ jobs:
         with:
           filters: |
             workflows: &workflows
-              - '.github/workflows/versions-upload.yaml'
+              - '.github/workflows/deploy-preview.yaml'
             website:
               - *workflows
               - 'assets/blog/**'
@@ -33,18 +34,18 @@ jobs:
 
   run-mdx2json:
     needs: [paths-changes]
-    if: needs.paths-changes.outputs.website-changed == 'true'
+    if: needs.paths-changes.outputs.website-changed == 'true' && github.event.action != 'closed'
     uses: $/.github/workflows/reusable-mdx2json.yaml
     with:
       is_preview: true
     secrets: inherit
 
-  upload-website:
+  deploy-preview-website:
     needs: [paths-changes]
     runs-on: ubuntu-latest
-    if: needs.paths-changes.outputs.website-changed == 'true'
+    if: needs.paths-changes.outputs.website-changed == 'true' && github.event.action != 'closed'
     outputs:
-      deployment-url: ${{ steps.upload.outputs.deployment-url }}
+      preview-url: ${{ steps.preview.outputs.preview-url }}
 
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -53,34 +54,34 @@ jobs:
         with:
           install-packages: "@taga3s-dev/website"
 
-      - name: Upload to Cloudflare Workers
-        id: upload
+      # ref.
+      # - https://github.com/cloudflare/wrangler-action
+      # - https://developers.cloudflare.com/workers/previews/examples/#delete-closed-pull-request-previews
+      - name: Deploy preview
+        id: preview
         uses: cloudflare/wrangler-action@ebbaa1584979971c8614a24965b4405ff95890e0 # v4.0.0
         with:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          command: versions upload ./dist/index.mjs --no-bundle --config wrangler.jsonc
+          wranglerVersion: "4.136.3"
+          command: preview --config wrangler.jsonc
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
           workingDirectory: ./packages/website
-        env:
-          POLICY_AUD: ${{ secrets.CLOUDFLARE_ACCESS_AUD }}
-          TEAM_DOMAIN: ${{ secrets.CLOUDFLARE_ACCESS_TEAM_DOMAIN }}
 
-  comment-preview-urls:
-    needs: [upload-website]
-    runs-on: ubuntu-slim
-    if: >-
-      ${{ 
-        !cancelled() && 
-        !failure() &&
-        needs.upload-website.outputs.deployment-url != ''
-      }}
+  cleanup:
+    needs: [paths-changes]
+    runs-on: ubuntu-latest
+    if: needs.paths-changes.outputs.website-changed == 'true' && github.event.action == 'closed'
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
-      - name: Comment preview URLs
-        uses: $/.github/actions/comment-preview-url
+      - uses: $/.github/actions/setup-ci
         with:
-          website_deployment_url: ${{ needs.upload-website.outputs.deployment-url }}
-          pr_number: ${{ github.event.pull_request.number }}
+          install-packages: "@taga3s-dev/website"
+
+      - name: Delete Preview
+        run: npx wrangler preview delete --name ${{ github.head_ref }} --skip-confirmation
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        working-directory: ./packages/website
