@@ -34,6 +34,9 @@
       "bucket_name": "taga3s-dev"
     }
   ],
+  "vars": {
+    "WORKERS_ENV": "production"
+  },
   "previews": {
     "r2_buckets": [
       {
