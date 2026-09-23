@@ -4,15 +4,15 @@ import type { ContextSet } from "../../index";
 
 export const verifyPreview = () => {
   return async (c: Context<ContextSet>, next: Next) => {
-    const POLICY_AUD = await c.env.CLOUDFLARE_ACCESS_AUD.get();
-    const TEAM_DOMAIN = c.env.TEAM_DOMAIN;
     const WORKERS_ENV = c.env.WORKERS_ENV;
+    const TEAM_DOMAIN = c.env.TEAM_DOMAIN;
 
     if (WORKERS_ENV !== "preview") {
       c.set("isPreview", false);
       await next();
     }
 
+    const POLICY_AUD = await c.env.CLOUDFLARE_ACCESS_AUD.get();
     if (!POLICY_AUD) {
       return c.json({ message: "Missing required audience" }, 403);
     }
