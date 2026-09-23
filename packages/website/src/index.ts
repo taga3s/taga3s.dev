@@ -9,9 +9,9 @@ import { topRoutes } from "./api/top";
 
 export interface Bindings {
   TAGA3S_DEV_BUCKET: R2Bucket;
-  WORKERS_ENV: string;
-  POLICY_AUD: string;
+  CLOUDFLARE_ACCESS_AUD: SecretsStoreSecret;
   TEAM_DOMAIN: string;
+  WORKERS_ENV: string;
 }
 
 export interface Variables {
@@ -35,7 +35,6 @@ app.get(
     cacheName: "global",
     cacheControl: "max-age=3600",
     cacheableStatusCodes: [200, 404],
-    vary: ["X-TAGA3S-ENV"], // maybe
   }),
 );
 

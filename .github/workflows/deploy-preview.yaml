@@ -9,6 +9,7 @@ on:
       - "packages/mdx2json/**"
       - "assets/blog/**"
       - ".github/workflows/deploy-preview.yaml"
+    types: [opened, synchronize, reopened, closed]
 
 jobs:
   paths-changes:
@@ -33,7 +34,7 @@ jobs:
 
   run-mdx2json:
     needs: [paths-changes]
-    if: needs.paths-changes.outputs.website-changed == 'true'
+    if: needs.paths-changes.outputs.website-changed == 'true' && github.event.action != 'closed'
     uses: $/.github/workflows/reusable-mdx2json.yaml
     with:
       is_preview: true
@@ -42,9 +43,9 @@ jobs:
   deploy-preview-website:
     needs: [paths-changes]
     runs-on: ubuntu-latest
-    if: needs.paths-changes.outputs.website-changed == 'true'
+    if: needs.paths-changes.outputs.website-changed == 'true' && github.event.action != 'closed'
     outputs:
-      deployment-url: ${{ steps.preview.outputs.deployment-url }}
+      preview-url: ${{ steps.preview.outputs.preview-url }}
 
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -53,8 +54,27 @@ jobs:
         with:
           install-packages: "@taga3s-dev/website"
 
-      - run: pnpm build
-        working-directory: ./packages/website
+      - name: Deploy preview
+        id: preview
+        uses: cloudflare/wrangler-action@ebbaa1584979971c8614a24965b4405ff95890e0 # v4.0.0
+        with:
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          wranglerVersion: "4.136.3"
+          command: preview --config wrangler.jsonc
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+          workingDirectory: ./packages/website
+
+  cleanup:
+    needs: [paths-changes]
+    runs-on: ubuntu-latest
+    if: needs.paths-changes.outputs.website-changed == 'true' && github.event.action == 'closed'
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - uses: $/.github/actions/setup-ci
+        with:
+          install-packages: "@taga3s-dev/website"
 
       - name: Deploy preview
         id: preview
@@ -62,29 +82,7 @@ jobs:
         with:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          wranglerVersion: "4.136.3"
           command: preview --config wrangler.jsonc
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
           workingDirectory: ./packages/website
-        env:
-          POLICY_AUD: ${{ secrets.CLOUDFLARE_ACCESS_AUD }}
-          TEAM_DOMAIN: ${{ secrets.CLOUDFLARE_ACCESS_TEAM_DOMAIN }}
-
-  comment-preview-urls:
-    needs: [deploy-preview-website]
-    runs-on: ubuntu-slim
-    if: >-
-      ${{
-        !cancelled() &&
-        !failure() &&
-        needs.deploy-preview-website.outputs.preview-url != ''
-      }}
-    steps:
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-
-      - name: Comment preview URLs
-        uses: $/.github/actions/comment-preview-url
-        with:
-          website_deployment_url: ${{ needs.deploy-preview-website.outputs.preview-url }}
-          pr_number: ${{ github.event.pull_request.number }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -4,9 +4,9 @@ import type { ContextSet } from "../../index";
 
 export const verifyPreview = () => {
   return async (c: Context<ContextSet>, next: Next) => {
-    const WORKERS_ENV = c.req.header("X-TAGA3S-ENV");
-    const POLICY_AUD = c.env.POLICY_AUD;
+    const POLICY_AUD = await c.env.CLOUDFLARE_ACCESS_AUD.get();
     const TEAM_DOMAIN = c.env.TEAM_DOMAIN;
+    const WORKERS_ENV = c.env.WORKERS_ENV;
 
     if (WORKERS_ENV !== "preview") {
       c.set("isPreview", false);
