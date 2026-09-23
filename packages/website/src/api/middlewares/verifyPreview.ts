@@ -7,7 +7,7 @@ export const verifyPreview = () => {
     const WORKERS_ENV = c.env.WORKERS_ENV;
     if (WORKERS_ENV !== "preview") {
       c.set("isPreview", false);
-      await next();
+      return await next();
     }
 
     const TEAM_DOMAIN = c.env.TEAM_DOMAIN;
@@ -34,7 +34,7 @@ export const verifyPreview = () => {
 
       // Token is valid, proceed with your application logic
       c.set("isPreview", true);
-      await next();
+      return await next();
     } catch (error) {
       // Token verification failed
       const message = error instanceof Error ? error.message : "Unknown error";
