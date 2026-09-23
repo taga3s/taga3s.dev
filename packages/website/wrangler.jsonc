@@ -1,7 +1,7 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "taga3s-dev-website",
-  "main": "./src/index.ts",
+  "main": "./dist/index.mjs",
   "build": {
     "command": "pnpm build",
     "cwd": "./",
@@ -34,6 +34,15 @@
       "bucket_name": "taga3s-dev"
     }
   ],
+  "previews": {
+    "r2_buckets": [
+      {
+        "binding": "TAGA3S_DEV_BUCKET",
+        "bucket_name": "taga3s-dev"
+      }
+    ]
+  },
+  "preview_urls": true,
   "rules": [
     {
       "type": "Text",
@@ -47,5 +56,4 @@
       "custom_domain": true
     }
   ],
-  "preview_urls": true
 }
