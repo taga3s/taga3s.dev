@@ -1,6 +1,6 @@
 import type { Context, Next } from "hono";
 import { createRemoteJWKSet, jwtVerify } from "jose";
-import type { ContextSet } from "../../type";
+import type { ContextSet } from "../../index";
 
 export const verifyPreview = () => {
   return async (c: Context<ContextSet>, next: Next) => {

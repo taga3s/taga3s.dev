@@ -1,5 +1,5 @@
 import { Hono } from "hono";
-import type { ContextSet } from "../../type";
+import type { ContextSet } from "../../index";
 import { HTMLLayout } from "../../views/shared/HTMLLayout";
 import { Header } from "../../views/shared/Header";
 import { Footer } from "../../views/shared/Footer";

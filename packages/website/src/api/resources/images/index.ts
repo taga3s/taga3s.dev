@@ -1,5 +1,5 @@
 import { Context, Hono } from "hono";
-import { ContextSet } from "../../../type";
+import { ContextSet } from "../../../index";
 
 export const imagesRoutes = new Hono<ContextSet>();
 

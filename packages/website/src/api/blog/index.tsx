@@ -1,5 +1,5 @@
 import { Hono } from "hono";
-import { ContextSet } from "../../type";
+import { ContextSet } from "../../index";
 import type { IPost, IRawPost } from "../../data/posts/model";
 import { BlogPage } from "../../views/Blog/BlogPage";
 import { BlogContentPage } from "../../views/Blog/Content/BlogContentPage";
