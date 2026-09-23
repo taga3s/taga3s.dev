@@ -1,7 +1,7 @@
 import { cli, lazy } from "gunshi";
-import { postRunningBrowser } from "./src/config.ts";
-import { runCommand, runProcessor } from "./src/runCommand/run.ts";
-import { uploadCommand, uploadProcessor } from "./src/uploadCommand/upload.ts";
+import { postRunningBrowser } from "./config.ts";
+import { runCommand, runProcessor } from "./runCommand/run.ts";
+import { uploadCommand, uploadProcessor } from "./uploadCommand/upload.ts";
 
 const runLazyProcess = lazy(runProcessor, runCommand);
 const uploadProcess = lazy(uploadProcessor, uploadCommand);

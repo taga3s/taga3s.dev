@@ -10,5 +10,6 @@
     "rewriteRelativeImportExtensions": true,
     "allowImportingTsExtensions": true,
     "jsx": "react-jsx"
-  }
+  },
+  "include": ["src/**/*.ts"]
 }

@@ -8,7 +8,7 @@ inputs:
   install-packages:
     required: false
     description: "List of packages to install. If this is not specified, all packages will be installed"
-    default: "."
+    default: ""
 
 runs:
   using: "composite"
@@ -19,5 +19,5 @@ runs:
         run-install: false
         cache: true
 
-    - run: vp install --filter ${{ inputs.install-packages }} --frozen-lockfile
+    - run: vp install ${{ inputs.install-packages != '' && '--filter' || '' }} ${{ inputs.install-packages }} --frozen-lockfile
       shell: bash

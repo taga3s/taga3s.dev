@@ -1,6 +1,6 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "taga3s-dev-blog-engine",
+  "name": "taga3s-dev-metrics-engine",
   "main": "./src/index.ts",
   "compatibility_date": "2026-09-08",
   "compatibility_flags": ["nodejs_compat"],
@@ -13,12 +13,18 @@
       "enabled": true
     }
   },
-  "r2_buckets": [
-    {
-      "binding": "TAGA3S_DEV_BUCKET",
-      "bucket_name": "taga3s-dev"
-    }
-  ],
+	"secrets_store_secrets": [
+		{
+			"binding": "TAGA3S_DEV_WEBSITE_READ_TOKEN",
+			"store_id": "555db262e2a04edea88d0e38293f16ae",
+			"secret_name": "TAGA3S_DEV_WEBSITE_READ_TOKEN"
+		},
+		{
+			"binding": "ZONE_ID",
+			"store_id": "555db262e2a04edea88d0e38293f16ae",
+			"secret_name": "ZONE_ID"
+		}
+	],
   "preview_urls": false,
   "workers_dev": false
 }

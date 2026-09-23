@@ -1,8 +1,16 @@
 import { WorkerEntrypoint } from "cloudflare:workers";
 import { createOgp } from "./create-ogp";
-import { Env, OutGenerateOGP, Undefinable } from "./types";
+import { Undefinable } from "./types";
 import { createAtom } from "./create-atom";
 import { validateBlogOut } from "./validate";
+
+interface Env {
+  TAGA3S_DEV_BUCKET: R2Bucket;
+}
+
+interface OutGenerateOGP {
+  blogUrls: string[];
+}
 
 const R2_BASE_KEY = "images/og";
 const BLOG_BASE_URL = "https://taga3s.dev/blog";
