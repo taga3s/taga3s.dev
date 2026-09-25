@@ -109,6 +109,11 @@ export const formatWeeklyReport = (report: WeeklyReport): WebhookMessage => {
             inline: true,
           },
           {
+            name: "BYPASS",
+            value: `${report.cacheRatio.bypass} %`,
+            inline: true,
+          },
+          {
             name: "MISS",
             value: `${report.cacheRatio.miss} %`,
             inline: true,
