@@ -33,7 +33,7 @@ export const ReportQueryReponseSchema = v.object({
             v.object({
               count: v.number(),
               dimensions: v.object({
-                cacheStatus: v.picklist(["none", "hit", "expired", "stale", "miss", "revalidated"]),
+                cacheStatus: v.picklist(["none", "bypass", "hit", "expired", "stale", "miss", "revalidated"]),
               }),
             }),
           ),
@@ -57,6 +57,7 @@ export interface WeeklyReport {
   };
   cacheRatio: {
     none: number;
+    bypass: number;
     hit: number;
     stale: number;
     expired: number;
@@ -84,6 +85,7 @@ export const createWeeklyReport = (rawData: unknown): Undefinable<WeeklyReport> 
     },
     cacheRatio: {
       none: toPercentage(aggregatedCacheGroups.none / aggregatedCacheGroups.totalCount),
+      bypass: toPercentage(aggregatedCacheGroups.bypass / aggregatedCacheGroups.totalCount),
       hit: toPercentage(aggregatedCacheGroups.hit / aggregatedCacheGroups.totalCount),
       expired: toPercentage(aggregatedCacheGroups.expired / aggregatedCacheGroups.totalCount),
       stale: toPercentage(aggregatedCacheGroups.stale / aggregatedCacheGroups.totalCount),
@@ -128,6 +130,7 @@ export const aggregateCacheGroups = (
 ): {
   totalCount: number;
   none: number;
+  bypass: number;
   hit: number;
   stale: number;
   expired: number;
@@ -138,6 +141,7 @@ export const aggregateCacheGroups = (
   const aggregated = {
     totalCount: 0,
     none: 0,
+    bypass: 0,
     hit: 0,
     stale: 0,
     expired: 0,
