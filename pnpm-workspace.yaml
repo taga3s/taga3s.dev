@@ -46,7 +46,7 @@ catalog:
   unist-util-visit: ^5.0.0
   vite-plus: ^0.3.3
   valibot: ^1.5.0
-  wrangler: ^4.136.0
+  wrangler: ^4.141.0
   yoga-wasm-web: ^0.3.3
 minimumReleaseAge: 1
 minimumReleaseAgeExclude:
