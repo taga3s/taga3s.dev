@@ -63,7 +63,7 @@ jobs:
         with:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          wranglerVersion: "4.136.3"
+          wranglerVersion: "4.141.0"
           command: preview --config wrangler.jsonc
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
           workingDirectory: ./packages/website
