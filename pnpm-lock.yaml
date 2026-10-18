@@ -223,10 +223,10 @@ catalogs:
       version: 25.12.0
     react:
       specifier: ^19.2.7
-      version: 19.3.0
+      version: 19.3.1
     react-dom:
       specifier: ^19.2.7
-      version: 19.3.0
+      version: 19.3.1
     rehype-parse:
       specifier: ^9.0.1
       version: 9.0.1
@@ -322,10 +322,10 @@ importers:
         version: 19.3.0
       react:
         specifier: 'catalog:'
-        version: 19.3.0
+        version: 19.3.1
       react-dom:
         specifier: 'catalog:'
-        version: 19.3.0(react@19.3.0)
+        version: 19.3.1(react@19.3.1)
       typescript:
         specifier: 'catalog:'
         version: 7.0.2
@@ -413,10 +413,10 @@ importers:
         version: 25.12.0
       react:
         specifier: 'catalog:'
-        version: 19.3.0
+        version: 19.3.1
       react-dom:
         specifier: 'catalog:'
-        version: 19.3.0(react@19.3.0)
+        version: 19.3.1(react@19.3.1)
       rehype-parse:
         specifier: 'catalog:'
         version: 9.0.1
@@ -3668,10 +3668,10 @@ packages:
       react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1
       react-dom: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1
 
-  react-dom@19.3.0:
-    resolution: {integrity: sha512-JDk8dgif51OjFoDE70+OT9ICyYr+69HlmihNwp1+Nsfbna3t5sIiCa9ZJktDmQ4/1b/rn26hIAR2uYXDMr5r0Q==}
+  react-dom@19.3.1:
+    resolution: {integrity: sha512-Y0bARz53lhEC1NMCASs0/j+faB/zqt3R8hpvg1e8+61ZVJ4UL0UdC4cBbXfZMcIuhrfgeILTLe+ZeBCavQPtKQ==}
     peerDependencies:
-      react: ^19.3.0
+      react: ^19.3.1
 
   react-is@17.0.2:
     resolution: {integrity: sha512-w2GsyukL62IJnlaff/nRegPQR94C/XXamvMWmSHRJ4y7Ts/4ocGRmTHvOs8PSE6pB3dWOrD/nueuU5sduBsQ4w==}
@@ -3681,8 +3681,8 @@ packages:
     peerDependencies:
       react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1
 
-  react@19.3.0:
-    resolution: {integrity: sha512-E8LUcbtBWt20bbl2YoHfx4ZDBdxVTfOKtCZn9cDSJ4l6/nuoApcpIBcj47t2wZoVX8g2ZHuMHbiShgCR1T5Sog==}
+  react@19.3.1:
+    resolution: {integrity: sha512-QNhWdt7nrgVWWQG58QuGsAR3jv3Hbe4mb4vz7w2csnHavciZJgda1CPNaldF6eVxv90ud3jUXpKlHL69gO38yw==}
     engines: {node: '>=0.10.0'}
 
   read-cache@1.0.0:
@@ -4642,41 +4642,41 @@ snapshots:
       '@floating-ui/core': 1.8.0
       '@floating-ui/utils': 0.2.12
 
-  '@floating-ui/react-dom@2.1.9(react-dom@19.3.0(react@19.3.0))(react@19.3.0)':
+  '@floating-ui/react-dom@2.1.9(react-dom@19.3.1(react@19.3.1))(react@19.3.1)':
     dependencies:
       '@floating-ui/dom': 1.8.0
-      react: 19.3.0
-      react-dom: 19.3.0(react@19.3.0)
+      react: 19.3.1
+      react-dom: 19.3.1(react@19.3.1)
 
-  '@floating-ui/react@0.26.28(react-dom@19.3.0(react@19.3.0))(react@19.3.0)':
+  '@floating-ui/react@0.26.28(react-dom@19.3.1(react@19.3.1))(react@19.3.1)':
     dependencies:
-      '@floating-ui/react-dom': 2.1.9(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
+      '@floating-ui/react-dom': 2.1.9(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
       '@floating-ui/utils': 0.2.12
-      react: 19.3.0
-      react-dom: 19.3.0(react@19.3.0)
+      react: 19.3.1
+      react-dom: 19.3.1(react@19.3.1)
       tabbable: 6.5.0
 
-  '@floating-ui/react@0.27.20(react-dom@19.3.0(react@19.3.0))(react@19.3.0)':
+  '@floating-ui/react@0.27.20(react-dom@19.3.1(react@19.3.1))(react@19.3.1)':
     dependencies:
-      '@floating-ui/react-dom': 2.1.9(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
+      '@floating-ui/react-dom': 2.1.9(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
       '@floating-ui/utils': 0.2.12
-      react: 19.3.0
-      react-dom: 19.3.0(react@19.3.0)
+      react: 19.3.1
+      react-dom: 19.3.1(react@19.3.1)
       tabbable: 6.5.0
 
   '@floating-ui/utils@0.2.12': {}
 
   '@fortawesome/fontawesome-free@7.3.1': {}
 
-  '@headlessui/react@2.2.10(react-dom@19.3.0(react@19.3.0))(react@19.3.0)':
+  '@headlessui/react@2.2.10(react-dom@19.3.1(react@19.3.1))(react@19.3.1)':
     dependencies:
-      '@floating-ui/react': 0.26.28(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
-      '@react-aria/focus': 3.22.1(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
-      '@react-aria/interactions': 3.28.1(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
-      '@tanstack/react-virtual': 3.14.10(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
-      react: 19.3.0
-      react-dom: 19.3.0(react@19.3.0)
-      use-sync-external-store: 1.6.0(react@19.3.0)
+      '@floating-ui/react': 0.26.28(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
+      '@react-aria/focus': 3.22.1(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
+      '@react-aria/interactions': 3.28.1(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
+      '@tanstack/react-virtual': 3.14.10(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
+      react: 19.3.1
+      react-dom: 19.3.1(react@19.3.1)
+      use-sync-external-store: 1.6.0(react@19.3.1)
 
   '@headlessui/tailwindcss@0.2.2(tailwindcss@3.4.19(yaml@2.9.0))':
     dependencies:
@@ -5134,24 +5134,24 @@ snapshots:
     dependencies:
       quansync: 1.0.0
 
-  '@react-aria/focus@3.22.1(react-dom@19.3.0(react@19.3.0))(react@19.3.0)':
+  '@react-aria/focus@3.22.1(react-dom@19.3.1(react@19.3.1))(react@19.3.1)':
     dependencies:
       '@swc/helpers': 0.5.23
-      react: 19.3.0
-      react-aria: 3.52.1(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
-      react-dom: 19.3.0(react@19.3.0)
+      react: 19.3.1
+      react-aria: 3.52.1(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
+      react-dom: 19.3.1(react@19.3.1)
 
-  '@react-aria/interactions@3.28.1(react-dom@19.3.0(react@19.3.0))(react@19.3.0)':
+  '@react-aria/interactions@3.28.1(react-dom@19.3.1(react@19.3.1))(react@19.3.1)':
     dependencies:
-      '@react-types/shared': 3.36.1(react@19.3.0)
+      '@react-types/shared': 3.36.1(react@19.3.1)
       '@swc/helpers': 0.5.23
-      react: 19.3.0
-      react-aria: 3.52.1(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
-      react-dom: 19.3.0(react@19.3.0)
+      react: 19.3.1
+      react-aria: 3.52.1(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
+      react-dom: 19.3.1(react@19.3.1)
 
-  '@react-types/shared@3.36.1(react@19.3.0)':
+  '@react-types/shared@3.36.1(react@19.3.1)':
     dependencies:
-      react: 19.3.0
+      react: 19.3.1
 
   '@rolldown/binding-android-arm-eabi@1.2.13':
     optional: true
@@ -5311,11 +5311,11 @@ snapshots:
     dependencies:
       tslib: 2.8.1
 
-  '@tanstack/react-virtual@3.14.10(react-dom@19.3.0(react@19.3.0))(react@19.3.0)':
+  '@tanstack/react-virtual@3.14.10(react-dom@19.3.1(react@19.3.1))(react@19.3.1)':
     dependencies:
       '@tanstack/virtual-core': 3.17.8
-      react: 19.3.0
-      react-dom: 19.3.0(react@19.3.0)
+      react: 19.3.1
+      react-dom: 19.3.1(react@19.3.1)
 
   '@tanstack/virtual-core@3.17.8': {}
 
@@ -5808,8 +5808,8 @@ snapshots:
 
   '@zenuml/core@3.50.1(@babel/template@7.29.7)(@types/react@19.3.0)(tailwindcss@3.4.19(yaml@2.9.0))':
     dependencies:
-      '@floating-ui/react': 0.27.20(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
-      '@headlessui/react': 2.2.10(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
+      '@floating-ui/react': 0.27.20(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
+      '@headlessui/react': 2.2.10(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
       '@headlessui/tailwindcss': 0.2.2(tailwindcss@3.4.19(yaml@2.9.0))
       antlr4: 4.11.0
       class-variance-authority: 0.7.1
@@ -5818,10 +5818,10 @@ snapshots:
       dompurify: 3.4.15
       highlight.js: 11.12.0
       html-to-image: 1.11.13
-      jotai: 2.20.3(@babel/template@7.29.7)(@types/react@19.3.0)(react@19.3.0)
+      jotai: 2.20.3(@babel/template@7.29.7)(@types/react@19.3.0)(react@19.3.1)
       marked: 4.3.0
-      react: 19.3.0
-      react-dom: 19.3.0(react@19.3.0)
+      react: 19.3.1
+      react-dom: 19.3.1(react@19.3.1)
       tailwind-merge: 3.6.0
     optionalDependencies:
       '@napi-rs/canvas': 0.1.100
@@ -6552,11 +6552,11 @@ snapshots:
 
   jose@6.2.12: {}
 
-  jotai@2.20.3(@babel/template@7.29.7)(@types/react@19.3.0)(react@19.3.0):
+  jotai@2.20.3(@babel/template@7.29.7)(@types/react@19.3.0)(react@19.3.1):
     optionalDependencies:
       '@babel/template': 7.29.7
       '@types/react': 19.3.0
-      react: 19.3.0
+      react: 19.3.1
 
   js-tokens@4.0.0: {}
 
@@ -7368,38 +7368,38 @@ snapshots:
 
   queue-microtask@1.2.3: {}
 
-  react-aria@3.52.1(react-dom@19.3.0(react@19.3.0))(react@19.3.0):
+  react-aria@3.52.1(react-dom@19.3.1(react@19.3.1))(react@19.3.1):
     dependencies:
       '@internationalized/date': 3.12.4
       '@internationalized/number': 3.6.8
       '@internationalized/string': 3.2.10
-      '@react-types/shared': 3.36.1(react@19.3.0)
+      '@react-types/shared': 3.36.1(react@19.3.1)
       '@swc/helpers': 0.5.23
       aria-hidden: 1.2.6
       clsx: 2.1.1
-      react: 19.3.0
-      react-dom: 19.3.0(react@19.3.0)
-      react-stately: 3.50.0(react@19.3.0)
-      use-sync-external-store: 1.6.0(react@19.3.0)
+      react: 19.3.1
+      react-dom: 19.3.1(react@19.3.1)
+      react-stately: 3.50.0(react@19.3.1)
+      use-sync-external-store: 1.6.0(react@19.3.1)
 
-  react-dom@19.3.0(react@19.3.0):
+  react-dom@19.3.1(react@19.3.1):
     dependencies:
-      react: 19.3.0
+      react: 19.3.1
       scheduler: 0.28.0
 
   react-is@17.0.2: {}
 
-  react-stately@3.50.0(react@19.3.0):
+  react-stately@3.50.0(react@19.3.1):
     dependencies:
       '@internationalized/date': 3.12.4
       '@internationalized/number': 3.6.8
       '@internationalized/string': 3.2.10
-      '@react-types/shared': 3.36.1(react@19.3.0)
+      '@react-types/shared': 3.36.1(react@19.3.1)
       '@swc/helpers': 0.5.23
-      react: 19.3.0
-      use-sync-external-store: 1.6.0(react@19.3.0)
+      react: 19.3.1
+      use-sync-external-store: 1.6.0(react@19.3.1)
 
-  react@19.3.0: {}
+  react@19.3.1: {}
 
   read-cache@1.0.0:
     dependencies:
@@ -7914,9 +7914,9 @@ snapshots:
       unist-util-is: 6.0.1
       unist-util-visit-parents: 6.0.2
 
-  use-sync-external-store@1.6.0(react@19.3.0):
+  use-sync-external-store@1.6.0(react@19.3.1):
     dependencies:
-      react: 19.3.0
+      react: 19.3.1
 
   util-deprecate@1.0.2: {}
 
