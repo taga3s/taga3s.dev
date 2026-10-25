@@ -214,7 +214,7 @@ catalogs:
       version: 0.37.3
     hono:
       specifier: ^4.12.10
-      version: 4.13.13
+      version: 4.13.14
     jose:
       specifier: ^6.2.2
       version: 6.2.13
@@ -480,7 +480,7 @@ importers:
     dependencies:
       hono:
         specifier: 'catalog:'
-        version: 4.13.13
+        version: 4.13.14
       jose:
         specifier: 'catalog:'
         version: 6.2.13
@@ -3039,8 +3039,8 @@ packages:
     resolution: {integrity: sha512-nbfWpyRMcMrPMmDwJB+dhX/eiaPKtc2RB+0QZskqJ3WjRA/FDS0e9hZrx8EC/lbEv8gXy98FcDbNa/dspAaJMg==}
     engines: {node: '>=12.0.0'}
 
-  hono@4.13.13:
-    resolution: {integrity: sha512-CQ46U0ZkAGmbT/4UxdzzGJpacP2IeKgY4a5/tOI9AABbpOMfK739wfDXmv1usCk+3RkKj1hQy4/fjhiwa2xlrA==}
+  hono@4.13.14:
+    resolution: {integrity: sha512-yhRLQ21U6qa9Hsu2N7Qcbh8tE+WKEcoErjIo56LeSGiGXGp9sA7UpE86Ui9uexb61KakiGwuHMn2QdV7w6i6kQ==}
     engines: {node: '>=16.9.0'}
 
   hookable@6.1.2:
@@ -6485,7 +6485,7 @@ snapshots:
 
   highlight.js@11.12.0: {}
 
-  hono@4.13.13: {}
+  hono@4.13.14: {}
 
   hookable@6.1.2: {}
 
