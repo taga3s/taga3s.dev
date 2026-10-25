@@ -217,7 +217,7 @@ catalogs:
       version: 4.13.13
     jose:
       specifier: ^6.2.2
-      version: 6.2.12
+      version: 6.2.13
     puppeteer:
       specifier: ^25.0.0
       version: 25.12.0
@@ -483,7 +483,7 @@ importers:
         version: 4.13.13
       jose:
         specifier: 'catalog:'
-        version: 6.2.12
+        version: 6.2.13
     devDependencies:
       '@cloudflare/workers-types':
         specifier: 'catalog:'
@@ -3113,8 +3113,8 @@ packages:
     resolution: {integrity: sha512-/imKNG4EbWNrVjoNC/1H5/9GFy+tqjGBHCaSsN+P2RnPqjsLmv6UD3Ej+Kj8nBWaRAwyk7kK5ZUc+OEatnTR3A==}
     hasBin: true
 
-  jose@6.2.12:
-    resolution: {integrity: sha512-9NiFmJEex0sy2Dk58j2UGBSHgUs2ypF9eZSu4L6vjOX3Dp96Sw1F3uL+H+D1sx02jZZdzUT0HgvCy59CuvXcWw==}
+  jose@6.2.13:
+    resolution: {integrity: sha512-7TIg10ZE1x82YediN+lcrPNvGMKge9yFHQD+Qho/b8y2adfugU3AsvvHfxV0fzyFllT6l9xCjf4RWY9g/Z9PJQ==}
 
   jotai@2.20.3:
     resolution: {integrity: sha512-N8L9FUbeGDP+0qNJw1FebOxt+5hk+jTOwUA2LlRE4C081jUcY6F1T/FSETp4DT2/INMtiSRZyNm2D+yZdzrSgA==}
@@ -6541,7 +6541,7 @@ snapshots:
 
   jiti@1.21.7: {}
 
-  jose@6.2.12: {}
+  jose@6.2.13: {}
 
   jotai@2.20.3(@babel/template@7.29.7)(@types/react@19.3.0)(react@19.3.1):
     optionalDependencies:
