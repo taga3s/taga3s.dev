@@ -18,9 +18,9 @@ jobs:
       website-changed: ${{ steps.paths-changes.outputs.website }}
 
     steps:
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/checkout@v7.0.1
 
-      - uses: dorny/paths-filter@ceb8a2b8f2d89434be7ff52d3de7ec3738c5cc9d # v4.0.3
+      - uses: dorny/paths-filter@v4.0.3
         id: paths-changes
         with:
           filters: |
@@ -48,7 +48,7 @@ jobs:
       preview-url: ${{ steps.preview.outputs.preview-url }}
 
     steps:
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/checkout@v7.0.1
 
       - uses: $/.github/actions/setup-ci
         with:
@@ -59,7 +59,7 @@ jobs:
       # - https://developers.cloudflare.com/workers/previews/examples/#delete-closed-pull-request-previews
       - name: Deploy preview
         id: preview
-        uses: cloudflare/wrangler-action@953926a2e2182532811c01a25e53647d93bf07c0 # v4.1.3
+        uses: cloudflare/wrangler-action@v4.1.3
         with:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
@@ -72,7 +72,7 @@ jobs:
     runs-on: ubuntu-latest
     if: needs.paths-changes.outputs.website-changed == 'true' && github.event.action == 'closed'
     steps:
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/checkout@v7.0.1
 
       - uses: $/.github/actions/setup-ci
         with:
