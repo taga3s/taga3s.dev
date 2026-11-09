@@ -40,8 +40,8 @@ jobs:
       is_preview: true
     secrets: inherit
 
-  deploy-preview-website:
-    needs: [paths-changes]
+  deploy-website:
+    needs: paths-changes
     runs-on: ubuntu-latest
     if: needs.paths-changes.outputs.website-changed == 'true' && github.event.action != 'closed'
     outputs:
@@ -68,7 +68,7 @@ jobs:
           workingDirectory: ./packages/website
 
   cleanup:
-    needs: [paths-changes]
+    needs: paths-changes
     runs-on: ubuntu-latest
     if: needs.paths-changes.outputs.website-changed == 'true' && github.event.action == 'closed'
     steps:
