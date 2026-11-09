@@ -1,0 +1,18 @@
+name: Test Stacked PR
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Show stack info
+        if: github.event.pull_request.stack != null
+        run: |
+          echo "Stack base ref: ${{ github.event.pull_request.stack.base.ref }}"
+          echo "PR ${{ github.event.pull_request.stack.position }} of ${{ github.event.pull_request.stack.size }} in the stack"
