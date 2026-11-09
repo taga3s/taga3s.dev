@@ -1,7 +1,7 @@
 name: Test Stacked PR
 
 on:
-  push:
+  pull_request:
     branches:
       - main
 
