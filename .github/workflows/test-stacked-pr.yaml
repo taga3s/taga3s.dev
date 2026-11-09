@@ -16,3 +16,4 @@ jobs:
         run: |
           echo "Stack base ref: ${{ github.event.pull_request.stack.base.ref }}"
           echo "PR ${{ github.event.pull_request.stack.position }} of ${{ github.event.pull_request.stack.size }} in the stack"
+          echo '${{ toJSON(github.pull_request.stack) }}'
