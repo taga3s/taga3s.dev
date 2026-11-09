@@ -33,7 +33,7 @@ jobs:
               - 'packages/website/**'
 
   run-mdx2json:
-    needs: [paths-changes]
+    needs: paths-changes
     if: needs.paths-changes.outputs.website-changed == 'true' && github.event.action != 'closed'
     uses: $/.github/workflows/reusable-mdx2json.yaml
     with:
