@@ -48,7 +48,7 @@
 	},
 	"triggers": {
 		"crons": [
-			"0 0 * * 0"
+			"0 0 * * sun"
 		]
 	},
   "preview_urls": false,
